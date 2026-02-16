@@ -5,7 +5,8 @@
 #include <cctype>
 #include <random>
 #include <ctime>
-
+#include <stdio.h>
+#include <fstream>
 
 using std::cin;
 using std::cout;
@@ -25,20 +26,21 @@ struct Students
     int exam;
     double result, median;
 };
+
 constexpr char print_result = ';';
 constexpr char print_median = ':';
 
 void manual_input(vector<Students>& group);
 void generate_grades_input(vector<Students>& group);
 void generate_names_input(vector<Students>& group);
-void random_name_generator();
+vector <string> random_name_generator();
 void output(vector<Students>& group);
-
 double calc_result(int sum, int n, int exam);
 double calc_median(int exam, vector<int>& grade);
 
 int main() 
 {
+    srand(time(0));
     for(int i = 0; i<6; i++) cout << endl;
     vector<Students>group;
 
@@ -75,6 +77,7 @@ int main()
         else
         {
             cout << "Nera tokio pasirinkimo\n";
+            return 1;
         }
     }
     output(group);
@@ -150,7 +153,6 @@ void generate_grades_input(vector<Students>& group)
         }
 
         //random grade generation 
-        srand(time(0));
         int grade_count = rand() % 10 + 1; //kad butu nuo 1-10 o ne 0-11
         int sum = 0;
         for(int i = 0; i<grade_count; i++)
@@ -178,14 +180,99 @@ void generate_names_input(vector<Students>& group)
     while(true)
     {
         Students student;
-        random_name_generator();
+        vector<string> full_name = random_name_generator();
+        student.first_name = full_name[0];
+        student.last_name = full_name[1];
+        string input;
+        int grade_count, sum = 0;
+
+        cout << endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << endl;
+        cout << "Jei norite, kad rezultatai butu isvedami, iveskite ';'" << endl;
+        cout << endl << "Iveskite semestro ivertinimus. Kiek ju bus? ";
+        cin >> input;
+
+        if(input == ";")
+        {
+            cout << endl; 
+            return;
+        }
+
+        grade_count = stoi(input);
+        for (int i = 0; i < grade_count; i++) 
+        {
+            int temp;
+            cout << "Iveskite " << i + 1 << " pazymi is " << grade_count << ":";
+            cin >> temp;
+            student.grade.push_back(temp);
+            sum += temp;
+        }
+        cout << "Iveskite egzamina: "; 
+        cin >> student.exam;
+        
+        student.result = calc_result(sum, grade_count, student.exam);
+
+        student.median = calc_median(student.exam, student.grade);
+
+        group.push_back(student);
+        student.grade.clear();
     }
 }
 
-void random_name_generator()
+vector<string> random_name_generator()
 {
+    vector<string> v_first_names;
+    vector<string> v_last_names;
+    vector<string> full_name;
+    string first_name_file;
+    string last_name_file;
+    string line;
+    int gender = rand() % 2;
 
-}
+    if(gender == 0)
+    {
+        first_name_file = "vardai/vyriski-vardai.txt";
+        last_name_file = "vardai/vyriskos-pavardes.txt";
+    }
+    else
+    {
+        first_name_file = "vardai/moteriski-vardai.txt";
+        last_name_file = "vardai/moteriskos-pavardes.txt";
+    }
+
+    
+    std::ifstream file_first_names(first_name_file);
+    std::ifstream file_last_names(last_name_file);
+
+    if(!file_first_names)
+    {
+        std::cerr << "Error opening the male first names file" << endl;
+        return {};
+    }
+    if(!file_last_names)
+    {
+        std::cerr << "Error opening the male last names file" << endl;
+        return {};
+    }
+
+    while(std::getline(file_first_names, line))
+    {
+        v_first_names.push_back(line);
+    }
+
+    while(std::getline(file_last_names, line))
+    {
+        v_last_names.push_back(line);
+    }
+
+    int rand_index = rand() % v_first_names.size();
+    full_name.push_back(v_first_names[rand_index]);
+
+    rand_index = rand() % v_last_names.size();
+    full_name.push_back(v_last_names[rand_index]);
+
+    return full_name;       
+    }
+
 void output(vector<Students>& group) 
 {
     //this func is for printing all names and result average OR median
