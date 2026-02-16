@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <cctype>
 #include <random>
 #include <ctime>
@@ -18,19 +19,40 @@ using std::right;
 using std::setw;
 using std::endl;
 
+// Simple student grading tool
+// - Reads or generates student names and grades
+// - Calculates final score as average or median + exam weight
+// - Prints results in a simple table
+// Notes:
+// - Program expects the "vardai/" folder to be present when generating names
+// - Input validation functions ensure numeric input where required
 
+
+// Student record holds name, a list of grades, exam score and computed results
 struct Students 
 {
     string first_name = "A", last_name = "BB";
-    //int *paz jei dinaminis masyvas
+    // dynamic container for homework/semester grades
     vector <int> grade;
+    // single exam score
     int exam;
+    // cached computed final result (average-based) and median-based value
     double result, median;
 };
 
 constexpr char print_result = ';';
 constexpr char print_median = ':';
 
+// Function prototypes
+// manual_input: prompt user to type names and grades
+// generate_grades_input: prompt for names, randomly generate grades
+// generate_names_input: generate random names and prompt for grades
+// random_name_generator: picks two random strings from files under vardai/
+// output: display the table using average or median as requested
+// calc_result: compute weighted average (40% homework avg, 60% exam)
+// calc_median: compute median including exam score
+// get_positive_int / get_grade: validated numeric input helpers
+// print_line: helper to print a separator line
 void manual_input(vector<Students>& group);
 void generate_grades_input(vector<Students>& group);
 void generate_names_input(vector<Students>& group);
@@ -42,6 +64,9 @@ int get_positive_int();
 int get_grade();
 void print_line();
 
+// Program entry point
+// - initializes random seed
+// - shows a simple menu to choose input mode
 int main() 
 {
     srand(time(0));
@@ -88,6 +113,8 @@ int main()
 
 }
 
+// Collect student data interactively from the user.
+// Loop until the user enters the sentinel character (';') as a name.
 void manual_input(vector<Students>& group) 
 {
     while(true)
@@ -137,6 +164,8 @@ void manual_input(vector<Students>& group)
     }
 }
 
+// Generate random grades for students entered manually (keeps names entered by user)
+// Useful for quick testing without typing many grades.
 void generate_grades_input(vector<Students>& group)
 {
 //TODO
@@ -183,6 +212,8 @@ void generate_grades_input(vector<Students>& group)
     }
 }
 
+// Generate random full names (first + last) using the files under vardai/
+// Then prompt the user for each generated student to input grades/exam.
 void generate_names_input(vector<Students>& group)
 {
     //TODO
@@ -226,6 +257,8 @@ void generate_names_input(vector<Students>& group)
     }
 }
 
+// Read first and last name files and return a randomly selected [first, last]
+// Expects files under the relative folder "vardai/"
 vector<string> random_name_generator()
 {
     vector<string> v_first_names;
@@ -281,6 +314,7 @@ vector<string> random_name_generator()
     return full_name;       
     }
 
+// Print the results table. User chooses whether to show averages (v) or medians (m).
 void output(vector<Students>& group) 
 {
     //this func is for printing all names and result average OR median
@@ -326,32 +360,35 @@ void output(vector<Students>& group)
     }     
 }
 
+// Compute weighted average result: 40% homework average + 60% exam
 double calc_result(int sum, int n, int exam)
 {
     return sum * 1.0 / (n * 1.0) * 0.4 + exam * 0.6;
 }
 
+// Compute median including the exam score. Returns a double.
+// The function copies the homework grades into a new vector, appends the exam
+// score, sorts and returns the median value (average of two middle values when even count).
 double calc_median(int exam, vector<int>& grade)
 {
-    //sukuriam nauja vectoriu nes isrusiuosim jo values rast meadiana
+    // create a copy that we can sort without modifying the caller's data
     vector <int> v;
     double median;
 
     for(int x : grade) 
     {
         v.push_back(x);
-        //cout << x << endl;
     }
     
     v.push_back(exam);
     sort(v.begin(), v.end());
-    //du skirtingi budai rast mediana, priklauso ar medianos elementu skaicius lyginis ar nelyginis
-    if(v.size() % 2 == 1) //jeigu nelyginis
+    // choose median depending on odd/even size
+    if(v.size() % 2 == 1) // odd
     {
         median = v[v.size()/2]; 
         return median;
     }
-    else //jeigu lyginis
+    else // even
     {
         median = (v[(v.size()-1)/2] + v[(v.size()/2)]);
         return median/2;
@@ -359,6 +396,8 @@ double calc_median(int exam, vector<int>& grade)
 }
 
 
+// Read a positive integer from stdin. Returns 0 if the sentinel ';' is entered.
+// Keeps prompting until a valid positive integer is entered.
 int get_positive_int()
 {
     string input;
@@ -371,7 +410,7 @@ int get_positive_int()
             if(input == ";") return 0;
             for(auto i : input)
             {
-                if(!std::isdigit(i))
+                if(!std::isdigit(static_cast<unsigned char>(i)))
                 {
                     cout << "Iveskite sveikaji skaiciu! ";
                     is_number = false;
@@ -390,8 +429,10 @@ int get_positive_int()
     return grade_count;
 }
 
+// Read a single grade in the range [0..10] from stdin. Keeps prompting until valid.
 int get_grade()
 {
+    //to get integer from 0 - 10
     string input;
     int grade = 0;
 
@@ -401,7 +442,7 @@ int get_grade()
         cin >> input;
         for(auto i : input)
         {
-            if(!std::isdigit(i))
+            if(!std::isdigit(static_cast<unsigned char>(i)))
                 {
                     cout << "Iveskite sveikaji skaiciu! ";
                     is_number = false;
@@ -417,6 +458,7 @@ int get_grade()
     return grade;
 }
 
+// Small helper to print a visual separator line in output
 void print_line()
 {
     cout << endl << "-----------------------------------------------" << endl;
