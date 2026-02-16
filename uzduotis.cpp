@@ -39,6 +39,8 @@ void output(vector<Students>& group);
 double calc_result(int sum, int n, int exam);
 double calc_median(int exam, vector<int>& grade);
 int get_positive_int();
+int get_grade();
+void print_line();
 
 int main() 
 {
@@ -110,17 +112,19 @@ void manual_input(vector<Students>& group)
 
         cout << "Iveskite semestro ivertinimus. Kiek ju bus? ";
         int grade_count = get_positive_int();
+        print_line();
 
         for (int i = 0; i < grade_count; i++)  //type in all the grades the student got
         {
             int temp;
             cout << "Iveskite " << i + 1 << " pazymi is " << grade_count << ":";
-            cin >> temp;
+            temp = get_grade();
             student.grade.push_back(temp);
             sum += temp;
         }
+        print_line();
         cout << "Iveskite egzamina: "; 
-        cin >> student.exam;
+        student.exam = get_grade();
         
         student.result = calc_result(sum, grade_count, student.exam);
 
@@ -128,6 +132,7 @@ void manual_input(vector<Students>& group)
 
         group.push_back(student);
         student.grade.clear();
+        print_line();
     // galima priskirti grupej, kai turime A.rez; pushbackinam studento pavadinima
     }
 }
@@ -161,7 +166,7 @@ void generate_grades_input(vector<Students>& group)
         int sum = 0;
         for(int i = 0; i<grade_count; i++)
         {
-            int temp = rand() % 10 + 1;
+            int temp = rand() % 10;
             student.grade.push_back(temp);
             sum += temp;
             cout << '\t' << i+1 << " pazymys is " << grade_count << ": " << temp << endl;
@@ -195,6 +200,7 @@ void generate_names_input(vector<Students>& group)
         cout << endl << "Iveskite semestro ivertinimus. Kiek ju bus? ";
         grade_count = get_positive_int();
         if(grade_count == 0) return; //vistiek reik kazkaip su ; isspausdint
+        print_line();
 
 
         //ivedimas pazymiu
@@ -202,13 +208,15 @@ void generate_names_input(vector<Students>& group)
         {
             int temp;
             cout << "Iveskite " << i + 1 << " pazymi is " << grade_count << ":";
-            cin >> temp;
+            temp = get_grade();
             student.grade.push_back(temp);
             sum += temp;
         }
+        print_line();
         cout << "Iveskite egzamina: "; 
-        cin >> student.exam;
-        
+        student.exam = get_grade();
+        print_line();
+
         student.result = calc_result(sum, grade_count, student.exam);
 
         student.median = calc_median(student.exam, student.grade);
@@ -291,9 +299,10 @@ void output(vector<Students>& group)
     switch (print_option)
     {
     case 'v':
+        cout << endl;
         cout << left << setw(10) << "Vardas" << left << setw(20) << "Pavardė";
         cout << setw(10) << " Galutinis (Vid.)" << endl;
-        cout << "-----------------------------------------------" << endl;
+        print_line();
         for (auto student : group) 
         {
             cout << left << setw(10) << student.first_name << left << setw(20) << student.last_name;
@@ -303,9 +312,10 @@ void output(vector<Students>& group)
         break;
     
     case 'm':
+        cout << endl;
         cout << left << setw(10) << "Vardas" << left << setw(20) << "Pavardė";
         cout << setw(10) << " Galutinis (Med.)" << endl;
-        cout << "---------------------------------------------------------------" << endl;
+        print_line();
         for (auto student : group) 
         {
             cout << left << setw(10) << student.first_name << left << setw(20) << student.last_name;
@@ -353,9 +363,10 @@ int get_positive_int()
 {
     string input;
     int grade_count = 0;
+
      while(true) //check if input is for grade count is int and more than 0
         {
-            bool check = true;
+            bool is_number = true;
             cin >> input;
             if(input == ";") return 0;
             for(auto i : input)
@@ -363,18 +374,50 @@ int get_positive_int()
                 if(!std::isdigit(i))
                 {
                     cout << "Iveskite sveikaji skaiciu! ";
-                    check = false;
+                    is_number = false;
                     break;
                 }
             }
             
-            if(check)
+            if(is_number)
                 grade_count = stoi(input);
-            if(grade_count <= 0 && check)
+            if(grade_count <= 0 && is_number)
             {
                 cout << "Iveskite sveikaji skaiciu daugiau uz 0! " ;
             }
-            else if(grade_count > 0 && check) break;
+            else if(grade_count > 0 && is_number) break;
         }
     return grade_count;
+}
+
+int get_grade()
+{
+    string input;
+    int grade = 0;
+
+    while(true)
+    {
+        bool is_number = true;
+        cin >> input;
+        for(auto i : input)
+        {
+            if(!std::isdigit(i))
+                {
+                    cout << "Iveskite sveikaji skaiciu! ";
+                    is_number = false;
+                    break;
+                }
+        }
+        if(is_number)
+            grade = stoi(input);
+        if((grade > 10 || grade < 0) && is_number)
+            cout << "Iveskite skaiciu tarp 0 iki 10! ";
+        else if(grade <= 10 && grade >= 0 && is_number) break;
+    }
+    return grade;
+}
+
+void print_line()
+{
+    cout << endl << "-----------------------------------------------" << endl;
 }
