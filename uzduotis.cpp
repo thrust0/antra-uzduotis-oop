@@ -38,6 +38,7 @@ vector <string> random_name_generator();
 void output(vector<Students>& group);
 double calc_result(int sum, int n, int exam);
 double calc_median(int exam, vector<int>& grade);
+int get_positive_int();
 
 int main() 
 {
@@ -91,6 +92,7 @@ void manual_input(vector<Students>& group)
     {
         Students student;
         string input;
+        int sum = 0;
         cout << "Jei norite, kad rezultatai butu isspausdinami, iveskite ';'" << endl;
         cout << "Iveskite varda ir pavarde studento: ";
         cin >> student.first_name;
@@ -105,33 +107,11 @@ void manual_input(vector<Students>& group)
         {
             cout << endl; return;
         }
+
         cout << "Iveskite semestro ivertinimus. Kiek ju bus? ";
+        int grade_count = get_positive_int();
 
-        int grade_count, sum = 0;
-        while(true)
-        {
-            bool check = true;
-            cin >> input;
-            for(auto i : input)
-            {
-                if(!std::isdigit(i))
-                {
-                    cout << "Iveskite sveikaji skaiciu! ";
-                    check = false;
-                    break;
-                }
-            }
-            
-            if(check)
-                grade_count = stoi(input);
-            if(grade_count <= 0 && check)
-            {
-                cout << "Iveskite sveikaji skaiciu daugiau uz 0! " ;
-            }
-            else if(grade_count > 0 && check) break;
-        }
-
-        for (int i = 0; i < grade_count; i++) 
+        for (int i = 0; i < grade_count; i++)  //type in all the grades the student got
         {
             int temp;
             cout << "Iveskite " << i + 1 << " pazymi is " << grade_count << ":";
@@ -213,15 +193,11 @@ void generate_names_input(vector<Students>& group)
         cout << endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << endl;
         cout << "Jei norite, kad rezultatai butu isvedami, iveskite ';'" << endl;
         cout << endl << "Iveskite semestro ivertinimus. Kiek ju bus? ";
-        cin >> input;
+        grade_count = get_positive_int();
+        if(grade_count == 0) return; //vistiek reik kazkaip su ; isspausdint
 
-        if(input == ";")
-        {
-            cout << endl; 
-            return;
-        }
 
-        grade_count = stoi(input);
+        //ivedimas pazymiu
         for (int i = 0; i < grade_count; i++) 
         {
             int temp;
@@ -370,4 +346,35 @@ double calc_median(int exam, vector<int>& grade)
         median = (v[(v.size()-1)/2] + v[(v.size()/2)]);
         return median/2;
     }
+}
+
+
+int get_positive_int()
+{
+    string input;
+    int grade_count = 0;
+     while(true) //check if input is for grade count is int and more than 0
+        {
+            bool check = true;
+            cin >> input;
+            if(input == ";") return 0;
+            for(auto i : input)
+            {
+                if(!std::isdigit(i))
+                {
+                    cout << "Iveskite sveikaji skaiciu! ";
+                    check = false;
+                    break;
+                }
+            }
+            
+            if(check)
+                grade_count = stoi(input);
+            if(grade_count <= 0 && check)
+            {
+                cout << "Iveskite sveikaji skaiciu daugiau uz 0! " ;
+            }
+            else if(grade_count > 0 && check) break;
+        }
+    return grade_count;
 }
