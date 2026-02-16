@@ -7,6 +7,7 @@
 #include <ctime>
 #include <stdio.h>
 #include <fstream>
+#include <cctype>
 
 using std::cin;
 using std::cout;
@@ -89,6 +90,7 @@ void manual_input(vector<Students>& group)
     while(true)
     {
         Students student;
+        string input;
         cout << "Jei norite, kad rezultatai butu isspausdinami, iveskite ';'" << endl;
         cout << "Iveskite varda ir pavarde studento: ";
         cin >> student.first_name;
@@ -104,8 +106,30 @@ void manual_input(vector<Students>& group)
             cout << endl; return;
         }
         cout << "Iveskite semestro ivertinimus. Kiek ju bus? ";
+
         int grade_count, sum = 0;
-        cin >> grade_count;
+        while(true)
+        {
+            bool check = true;
+            cin >> input;
+            for(auto i : input)
+            {
+                if(!std::isdigit(i))
+                {
+                    cout << "Iveskite sveikaji skaiciu! ";
+                    check = false;
+                    break;
+                }
+            }
+            
+            if(check)
+                grade_count = stoi(input);
+            if(grade_count <= 0 && check)
+            {
+                cout << "Iveskite sveikaji skaiciu daugiau uz 0! " ;
+            }
+            else if(grade_count > 0 && check) break;
+        }
 
         for (int i = 0; i < grade_count; i++) 
         {
