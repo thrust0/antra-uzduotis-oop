@@ -19,21 +19,8 @@ using std::right;
 using std::setw;
 using std::endl;
 
-// Simple student grading tool
-// - Reads or generates student names and grades
-// - Calculates final score as average or median + exam weight
-// - Prints results in a simple table
-// Notes:
-// - Program expects the "vardai/" folder to be present when generating names
-// - Input validation functions ensure numeric input where required
-/*
-
-    naudojau AI komentaram, pats perziurejau ar jie teisingi
-
-*/
-
-//
-// Student record holds name, a list of grades, exam score and computed results
+// Student grading tool: read or generate names and grades, compute average or median
+// Student record: name, homework grades, exam and computed results
 struct Students 
 {
     string first_name = "A", last_name = "BB";
@@ -49,15 +36,6 @@ constexpr char print_result = ';';
 constexpr char print_median = ':';
 
 // Function prototypes
-// manual_input: prompt user to type names and grades
-// generate_grades_input: prompt for names, randomly generate grades
-// generate_names_input: generate random names and prompt for grades
-// random_name_generator: picks two random strings from files under vardai/
-// output: display the table using average or median as requested
-// calc_result: compute weighted average (40% homework avg, 60% exam)
-// calc_median: compute median including exam score
-// get_int: validated numeric input helper
-// print_line: helper to print a separator line
 void manual_input(vector<Students>& group);
 void generate_grades_input(vector<Students>& group);
 void generate_names_input(vector<Students>& group);
@@ -68,9 +46,7 @@ double calc_median(int exam, vector<int>& grade);
 int get_int(int start, int end);
 void print_line();
 
-// Program entry point
-// - initializes random seed
-// - shows a simple menu to choose input mode
+// Program entry point: initialize RNG and show menu
 int main() 
 {
     srand(time(0));
@@ -79,10 +55,10 @@ int main()
 
     //intro vartotojui
     cout << "\tSveiki, čia yra vidurkio ir medianos iš pažymių skaičiuoklė" << endl << endl;
-    cout << "Iveskite:\n\t'1' jei norite ranka suvesti pazymius\n\t'2' jei norite, kad pazymiai butu sugeneruoti\n\t'3' jei norite, kad butu sugeneruoti studentu vardai\n\t'4' jei norite iseiti is programos\n\n";
+    cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite išeiti iš programos\n\n";
 
     
-    //TODO bloga ivedima menu sutaisyt
+    // validate menu input via get_int
     while(true)
     {
         int menu_option = get_int(1, 4);
@@ -104,22 +80,20 @@ int main()
         }
         else if(menu_option == 4)
         {
-            cout << "Iseinama is programos...\n";
+            cout << "Išeinama is programos...\n";
             return 0;
         }
         else
         {
-            cout << "Nera tokio pasirinkimo\n";
-            cout << "Iveskite:\n\t'1' jei norite ranka suvesti pazymius\n\t'2' jei norite, kad pazymiai butu sugeneruoti\n\t'3' jei norite, kad butu sugeneruoti studentu vardai\n\t'4' jei norite iseiti is programos\n\n";
-            
+            cout << "Nėra tokio pasirinkimo!\n";
+            cout << "Įveskite:\n\t'1' jei norite ranka suvesti pazymius\n\t'2' jei norite, kad pazymiai butu sugeneruoti\n\t'3' jei norite, kad butu sugeneruoti studentu vardai\n\t'4' jei norite iseiti is programos\n\n";
         }
     }
     output(group);
 
 }
 
-// Collect student data interactively from the user.
-// Loop until the user enters the sentinel character (';') as a name.
+// Interactive input: read name, grades and exam. ';' as name exits.
 void manual_input(vector<Students>& group) 
 {
     while(true)
@@ -127,8 +101,8 @@ void manual_input(vector<Students>& group)
         Students student;
         string input;
         int sum = 0;
-        cout << "Jei norite, kad rezultatai butu isspausdinami, iveskite ';'" << endl;
-        cout << "Iveskite varda ir pavarde studento: ";
+        cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
+        cout << "Įveskite vardą ir pavardę studento: ";
         cin >> student.first_name;
 
         if(student.first_name == ";") //chekinam ar nenori iseit is programos
@@ -142,7 +116,7 @@ void manual_input(vector<Students>& group)
             cout << endl; return;
         }
 
-        cout << "Iveskite semestro ivertinimus. Kiek ju bus? ";
+        cout << "Įveskite kiek semestro įvertinimų bus. ";
         int grade_count = get_int(1, INT_MAX);
         if(grade_count == -1)
             return;
@@ -152,14 +126,14 @@ void manual_input(vector<Students>& group)
         for (int i = 0; i < grade_count; i++)  //type in all the grades the student got
         {
             int temp;
-            cout << "Iveskite " << i + 1 << " pazymi is " << grade_count << ":";
+            cout << "Įveskite " << i + 1 << " pažymį iš " << grade_count << ":";
             temp = get_int(0, 10);
             if(temp == -1) return;
             student.grade.push_back(temp);
             sum += temp;
         }
         print_line();
-        cout << "Iveskite egzamina: "; 
+        cout << "Įveskite egzamino pažymį: "; 
         student.exam = get_int(0, 10);
         
         student.result = calc_result(sum, grade_count, student.exam);
@@ -173,8 +147,7 @@ void manual_input(vector<Students>& group)
     }
 }
 
-// Generate random grades for students entered manually (keeps names entered by user)
-// Useful for quick testing without typing many grades.
+// Random-grade input mode (user supplies names)
 void generate_grades_input(vector<Students>& group)
 {
     while(true)
@@ -183,8 +156,8 @@ void generate_grades_input(vector<Students>& group)
         Students student;
         
         //name input as usual
-        cout << "Jei norite, kad rezultatai butu isspausdinami, iveskite ';'" << endl;
-        cout << "Iveskite varda ir pavarde studento: ";
+        cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
+        cout << "Įveskite vardą ir pavardę studento: ";
         cin >> student.first_name;
         cout << endl; 
         if(student.first_name == ";") //chekinam ar nenori iseit is programos
@@ -206,10 +179,10 @@ void generate_grades_input(vector<Students>& group)
             int temp = rand() % 10;
             student.grade.push_back(temp);
             sum += temp;
-            cout << '\t' << i+1 << " pazymys is " << grade_count << ": " << temp << endl;
+            cout << '\t' << i+1 << " pažymys iš " << grade_count << ": " << temp << endl;
         }
         student.exam = rand() % 10;
-        cout << "\tEgzamino pazymys: " << student.exam << endl << endl;
+        cout << "\tEgzamino pažymys: " << student.exam << endl << endl;
 
         student.result = calc_result(sum, grade_count, student.exam);
 
@@ -220,8 +193,7 @@ void generate_grades_input(vector<Students>& group)
     }
 }
 
-// Generate random full names (first + last) using the files under vardai/
-// Then prompt the user for each generated student to input grades/exam.
+// Generate random names (from vardai/) then prompt for grades/exam
 void generate_names_input(vector<Students>& group)
 {
     //TODO
@@ -266,8 +238,7 @@ void generate_names_input(vector<Students>& group)
     }
 }
 
-// Read first and last name files and return a randomly selected [first, last]
-// Expects files under the relative folder "vardai/"
+// Read name lists from files under vardai/ and return a random first+last
 vector<string> random_name_generator()
 {
     vector<string> v_first_names;
@@ -323,7 +294,7 @@ vector<string> random_name_generator()
     return full_name;       
     }
 
-// Print the results table. User chooses whether to show averages (v) or medians (m).
+// Print results table: user chooses average (v) or median (m)
 void output(vector<Students>& group) 
 {
     //this func is for printing all names and result average OR median
@@ -331,7 +302,7 @@ void output(vector<Students>& group)
     while(true) //repromt user for wrong input
     {
         cout << endl;
-        cout << "Iveskite 'v', jei norite vidurkio rezultatus pamatyti." << endl << "Iveskite 'm', jei norite medianos rezultatus pamatyti." << endl;
+        cout << "Įveskite 'v', jei norite vidurkio rezultatus pamatyti." << endl << "Įveskite 'm', jei norite medianos rezultatus pamatyti." << endl;
         cin >> print_option;
         std::tolower(print_option);
 
@@ -350,7 +321,7 @@ void output(vector<Students>& group)
         {
             cout << left << setw(10) << student.first_name << left << setw(20) << student.last_name;
 
-            cout << setw(10) << std::setprecision(3) << student.result << endl;
+            cout << setw(10) << std::fixed << std::setprecision(2) << student.result << endl;
         }
         break;
     
@@ -363,21 +334,19 @@ void output(vector<Students>& group)
         {
             cout << left << setw(10) << student.first_name << left << setw(20) << student.last_name;
 
-            cout << setw(10) << std::setprecision(3) <<" " << student.median << endl;
+            cout << setw(10) << std::fixed << std::setprecision(2) <<" " << student.median << endl;
         }
         break;
     }     
 }
 
-// Compute weighted average result: 40% homework average + 60% exam
+// Compute weighted average: 40% homework + 60% exam
 double calc_result(int sum, int n, int exam)
 {
     return sum * 1.0 / (n * 1.0) * 0.4 + exam * 0.6;
 }
 
-// Compute median including the exam score. Returns a double.
-// The function copies the homework grades into a new vector, appends the exam
-// score, sorts and returns the median value (average of two middle values when even count).
+// Compute median including exam (returns double)
 double calc_median(int exam, vector<int>& grade)
 {
     // create a copy that we can sort without modifying the caller's data
@@ -405,8 +374,7 @@ double calc_median(int exam, vector<int>& grade)
 }
 
 
-// Read a positive integer from stdin. Returns 0 if the sentinel ';' is entered.
-// Keeps prompting until a valid positive integer is entered.
+// Read integer in [start..end]; returns -1 if user enters ';'
 int get_int(int start, int end)
 {
     string input;
@@ -421,7 +389,7 @@ int get_int(int start, int end)
             {
                 if(!std::isdigit(static_cast<unsigned char>(i)))
                 {
-                    cout << "Iveskite sveikaji skaiciu nuo " << start << " iki " << end << "! ";
+                    cout << "Įveskite sveikąjį skaičių nuo " << start << " iki " << end << "! ";
                     is_number = false;
                     break;
                 }
@@ -431,11 +399,11 @@ int get_int(int start, int end)
                 temp = stoi(input);
             if(temp < start  && is_number)
             {
-                cout << "Iveskite sveikaji skaiciu daugiau uz " << start - 1  << " ! " ;
+                cout << "Įveskite sveikąjį skaičių daugiau už " << start - 1  << " ! " ;
             }
             else if(temp > end && is_number) 
             {
-                cout << "Iveskite sveikaji skaiciu mazesni uz " << end + 1 << " ! ";
+                cout << "Įveskite sveikąjį skaičių mažesnį už " << end + 1 << " ! ";
             }
             else if(temp <= end && temp >= start && is_number) break; //if conditions correct
 
@@ -443,10 +411,9 @@ int get_int(int start, int end)
     return temp;
 }
 
-// Read a single grade in the range [0..10] from stdin. Keeps prompting until valid.
-//removed get_grade() func (combined to get_int)
+// get_int handles grade input; sentinel ';' returns -1
 
-// Small helper to print a visual separator line in output
+// Print a separator line
 void print_line()
 {
     cout << endl << "-----------------------------------------------" << endl;
