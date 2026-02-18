@@ -85,7 +85,7 @@ int main()
 
     //intro vartotojui
     cout << "\tSveiki, čia yra vidurkio ir medianos iš pažymių skaičiuoklė" << endl << endl;
-    cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtų sugeneruoti\n\t'3' jei norite, kad būtų sugeneruoti studentų vardai\n\t'4' jei norite išeiti iš programos\n\n";
+    cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite išeiti iš programos\n\n";
 
 
     while(true)
@@ -109,13 +109,13 @@ int main()
         }
         else if(menu_option == 4)
         {
-            cout << "Išeinama iš programos...\n";
+            cout << "Išeinama is programos...\n";
             return 0;
         }
         else
         {
-            cout << "Nėra tokio pasirinkimo!\n";
-            cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtų sugeneruoti\n\t'3' jei norite, kad būtų sugeneruoti studentų vardai\n\t'4' jei norite išeiti iš programos\n\n";
+            cout << "Nėra tokio pasirinkimo\n";
+            cout << "Iveskite:\n\t'1' jei norite ranka suvesti pazymius\n\t'2' jei norite, kad pazymiai butu sugeneruoti\n\t'3' jei norite, kad butu sugeneruoti studentu vardai\n\t'4' jei norite iseiti is programos\n\n";
         }
     }
     output(group, size);
@@ -132,11 +132,15 @@ void manual_input(Students*& group, int& size, int& capacity)
 {
     while(true)
     {
-    Students student;
-    string input;
-    int sum = 0;
-    cout << "Jei norite, kad rezultatai būtų išspausdinami, įveskite ';'" << endl;
-    cout << "Įveskite vardą ir pavardę studento: ";
+        Students student;
+        string input;
+        int sum = 0;
+        int cap = 0;
+        student.grade = new int[cap];
+        student.grade_count = 0;
+
+        cout << "Jei norite, kad rezultatai būtu išspausdinami, įveskite ';'" << endl;
+        cout << "Įveskite vardą ir pavardę studento: ";
         cin >> student.first_name;
 
         if(student.first_name == ";") //chekinam ar nenori iseit is programos
@@ -150,29 +154,39 @@ void manual_input(Students*& group, int& size, int& capacity)
             cout << endl; return;
         }
 
-    cout << "Įveskite kiek semestro įvertinimų bus. ";
-        int grade_count = get_int(1,INT_MAX);
-        student.grade = new int[grade_count];
-        student.grade_count = grade_count;
-
-
-
         print_line();
 
 
-        for (int i = 0; i < grade_count; i++)  //type in all the grades the student got
+        while(true)  //type in all the grades the student got
         {
-            cout << "Įveskite " << i + 1 << " pažymį iš " << grade_count << ":";
-            student.grade[i] = get_int(0,10);
-            sum += student.grade[i];
+            int temp;
+            cout << "Įveskite " << student.grade_count + 1 << " pažymį:";
+            temp = get_int(0,10);
+            if(temp == -1) break;
+            
+            if(student.grade_count == cap)
+            {
+                int newcap = cap * 2;
+                int* tmp = new int[newcap];
+                for(int i = 0; i < cap; i++) tmp[i] = student.grade[i];
+                delete[] student.grade;
+                student.grade = tmp;
+                cap = newcap;
+            }
+
+
+
+            student.grade[student.grade_count] = temp;
+            sum += temp;
+            student.grade_count++;
         }
         print_line();
-        cout << "Įveskite egzamino pažymį: "; 
+        cout << "Įveskite egzaminą: "; 
         student.exam = get_int(0,10);
         
-        student.result = calc_result(sum, grade_count, student.exam);
+        student.result = calc_result(sum, student.grade_count, student.exam);
 
-    student.median = calc_median(student.exam, student.grade, student.grade_count);
+        student.median = calc_median(student.exam, student.grade, student.grade_count);
 
         if(size == capacity)
         {
@@ -193,9 +207,9 @@ void generate_grades_input(Students*& group, int& size, int& capacity)
 
         Students student;
         
-    //name input as usual
-    cout << "Jei norite, kad rezultatai būtų išspausdinami, įveskite ';'" << endl;
-    cout << "Įveskite vardą ir pavardę studento: ";
+        //name input as usual
+        cout << "Jei norite, kad rezultatai būtu išspausdinami, įveskite ';'" << endl;
+        cout << "Įveskite vardą ir pavardę studento: ";
         cin >> student.first_name;
         cout << endl; 
         if(student.first_name == ";") //chekinam ar nenori iseit is programos
@@ -239,48 +253,67 @@ void generate_grades_input(Students*& group, int& size, int& capacity)
 // Then prompt the user for each generated student to input grades/exam.
 void generate_names_input(Students*& group, int& size, int& capacity)
 {
-    //TODO
     while(true)
     {
-    Students student;
-    std::string* full_name = random_name_generator();
-    student.first_name = full_name[0];
-    student.last_name = full_name[1];
-    delete[] full_name;
+        Students student;
+        std::string* full_name = random_name_generator();
+        student.first_name = full_name[0];
+        student.last_name = full_name[1];
+        delete[] full_name;
         string input;
-        int grade_count, sum = 0;
 
-    cout << endl << "Studento vardas ir pavardė: " << student.first_name << " " << student.last_name << endl;
-    cout << "Jei norite, kad rezultatai būtų išvedami, įveskite ';'" << endl;
-    cout << endl << "Įveskite semestro įvertinimus. Kiek jų bus? ";
-    grade_count = get_int(1,INT_MAX);
-    if(grade_count == -1) return; //vistiek reik kazkaip su ; isspausdint
-        student.grade = new int[grade_count];
-        student.grade_count = grade_count;
+        int cap = 4;
+        int sum = 0;
+        student.grade = new int[cap];
+        student.grade_count = 0;
 
+        cout << endl << "Studento vardas ir pavardė: " << student.first_name << " " << student.last_name << endl;
+        cout << "Jei norite, kad rezultatai butu išvedami, įveskite ';'" << endl;
+        
         print_line();
 
         //ivedimas pazymiu
-        for (int i = 0; i < grade_count; i++) 
+        while(true)
         {
-            cout << "Įveskite " << i + 1 << " pažymį iš " << grade_count << ":";
-            student.grade[i] = get_int(0,10);
-            sum += student.grade[i];
+            int temp;
+            cout << "Įveskite " << student.grade_count + 1 << " pažymį:";
+            temp = get_int(0, 10);
+            if(temp == -1) break;
+
+            if(student.grade_count == cap)
+            {
+                int newcap = cap * 2;
+                int* tmp = new int[newcap];
+                for(int i = 0; i < cap; i++) tmp[i] = student.grade[i];
+                delete[] student.grade;
+                student.grade = tmp;
+                cap = newcap;
+            }
+
+            student.grade[student.grade_count] = temp;
+            sum += temp;
+            student.grade_count++;
         }
+
         print_line();
-        cout << "Įveskite egzamino pažymį: "; 
+        cout << "Įveskite egzaminą: "; 
         student.exam = get_int(0,10);
         print_line();
 
-        student.result = calc_result(sum, grade_count, student.exam);
+        student.result = calc_result(sum, student.grade_count, student.exam);
 
-    student.median = calc_median(student.exam, student.grade, student.grade_count);
+        student.median = calc_median(student.exam, student.grade, student.grade_count);
 
         if(size == capacity)
         {
             resize_group(group, capacity);
         }
         group[size++] = student;
+
+        cout << "Jei norite išvesti rezultatus, įveskite ';'\n";
+        cout << "Jei norite toliau tęsti darbus, įveskite '1'";
+        int exit_option = get_int(1,1);
+        if(exit_option == -1) return;
     }
 }
 
@@ -351,9 +384,9 @@ void output(Students* group, int size)
     while(true) // reprompt user for wrong input
     {
         cout << endl;
-        cout << "Iveskite 'v', jei norite vidurkio rezultatus pamatyti." << endl << "Iveskite 'm', jei norite medianos rezultatus pamatyti." << endl;
+        cout << "Įveskite 'v', jei norite vidurkio rezultatus pamatyti." << endl << "Įveskite 'm', jei norite medianos rezultatus pamatyti." << endl;
         cin >> print_option;
-        print_option = static_cast<char>(std::tolower(static_cast<unsigned char>(print_option)));
+        std::tolower(print_option);
 
         if(print_option == 'v' || print_option == 'm') break;
         cout << "Tokio išvesties pasirinkimo nėra!" << endl;
@@ -446,11 +479,7 @@ int get_int(int start, int end)
             {
                 if(!std::isdigit(static_cast<unsigned char>(i)))
                 {
-                    if(end==INT_MAX) cout << "Įveskite naturalų skaičių nuo " << start << "! ";
-                    else
-                    {
-                        cout << "Įveskite naturalų skaičių nuo " << start << " iki " << end << "! ";
-                    }
+                    cout << "Įveskite naturalų skaičių nuo " << start << " iki " << end << "! ";
                     is_number = false;
                     break;
                 }
