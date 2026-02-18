@@ -21,6 +21,7 @@ using std::endl;
 
 // Student grading tool: read or generate names and grades, compute average or median
 // Student record: name, homework grades, exam and computed results
+//komentarai su ai, pats juos perziurejau
 struct Students 
 {
     string first_name = "A", last_name = "BB";
@@ -196,7 +197,6 @@ void generate_grades_input(vector<Students>& group)
 // Generate random names (from vardai/) then prompt for grades/exam
 void generate_names_input(vector<Students>& group)
 {
-    //TODO
     while(true)
     {
         Students student;
