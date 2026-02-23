@@ -37,7 +37,27 @@ int main()
         }
         else if(menu_option == 4)
         {
-            //file_input();
+            print_line();
+            std::cout << "Pasirinkite is kurio failo nuskaityti:\n\t'1' iš kursiokai.txt\n\t'2' iš studentai10000\n\t'3' iš studentai100000\n\t'4' iš studentai1000000\nĮveskite pasirinkimą: ";
+            int file_option = get_int(1,4);
+
+            switch (file_option)
+            {
+            case 1:
+                file_input(group, "../studentai/kursiokai.txt");
+                break;
+            case 2:
+                file_input(group, "../studentai/studentai10000.txt");
+                break;
+            case 3:
+                file_input(group, "../studentai/studentai100000.txt");
+                break;
+            case 4:
+                file_input(group, "../studentai/studentai1000000.txt");
+                break;
+            default:
+                break;
+            }
             break;
         }
         else if(menu_option == 5)
@@ -48,7 +68,7 @@ int main()
         else
         {
             std::cout << "Nėra tokio pasirinkimo!\n";
-            std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pazymius\n\t'2' jei norite, kad pazymiai butu sugeneruoti\n\t'3' jei norite, kad butu sugeneruoti studentu vardai\n\t'4' jei norite iseiti is programos\n\n";
+            std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
         }
     }
     output(group);

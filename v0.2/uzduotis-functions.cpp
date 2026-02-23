@@ -122,9 +122,49 @@ void generate_names_input(std::vector<Students>& group)
     }
 }
 
-void file_intput(std::vector<Students>& group)
+void file_input(std::vector<Students>& group, const std::string& filename)
 {
-    
+    std::ifstream file(filename); //open file
+
+    if(!file) //check if file opened
+    {
+        std::cerr << "Neišėjo atidaryti failo " << filename <<std::endl;
+        return;
+    }
+
+    std::string line;
+    std::getline(file, line); //skip header
+
+    while(std::getline(file, line))
+    {
+        std::stringstream ss(line); //stringstream
+        Students student;
+        ss >> student.first_name >> student.last_name; 
+        
+        //idedam i streama kiekviena grade
+        int grade;
+        int sum = 0;
+        int grade_count = 0;
+        while (ss >> grade)
+        {
+            sum += grade;
+            student.grade.push_back(grade);
+            grade_count++;
+        }
+
+        if(!student.grade.empty())//pachekinam kad turetu grade kad nebutu runtime error, nes negalim poppint tuscio vector element
+        {
+            student.exam = student.grade.back();//last elemnt of grades is put into exam grade
+            student.grade.pop_back();//the element from vector grade is taken out since its exam
+        }
+        grade_count--;
+        sum = sum - student.exam;
+        student.result = calc_result(sum, grade_count, student.exam);
+        student.median = calc_median(student.exam, student.grade);
+
+        group.push_back(student);
+    }
+    file.close();
 }
 
 void random_grades_generator(Students& student)

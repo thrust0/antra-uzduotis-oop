@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <cctype>
+#include <sstream>
 
 
 struct Students 
@@ -29,6 +30,7 @@ void random_grades_generator(Students& student);
 void manual_input(std::vector<Students>& group);
 void generate_grades_input(std::vector<Students>& group);
 void generate_names_input(std::vector<Students>& group);
+void file_input(std::vector<Students>& group, const std::string& filename);
 std::vector <std::string> random_name_generator();
 void output(std::vector<Students>& group);
 double calc_result(int sum, int n, int exam);
