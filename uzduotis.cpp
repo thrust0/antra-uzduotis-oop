@@ -63,7 +63,7 @@ int main()
     while(true)
     {
         int menu_option = get_int(1, 4);
-        
+
         if(menu_option == 1)
         {
             manual_input(group);
@@ -102,6 +102,8 @@ void manual_input(vector<Students>& group)
         Students student;
         string input;
         int sum = 0;
+        int grade_count = 0;
+
         cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
         cout << "Įveskite vardą ir pavardę studento: ";
         cin >> student.first_name;
@@ -117,22 +119,25 @@ void manual_input(vector<Students>& group)
             cout << endl; return;
         }
 
-        cout << "Įveskite kiek semestro įvertinimų bus. ";
-        int grade_count = get_int(1, INT_MAX);
-        if(grade_count == -1)
-            return;
+        //cout << "Įveskite kiek semestro įvertinimų bus. ";
+        //int grade_count = get_int(1, INT_MAX);
+        //if(grade_count == -1)
+        //    return;
         
         print_line();
 
-        for (int i = 0; i < grade_count; i++)  //type in all the grades the student got
+        while(true)
         {
             int temp;
-            cout << "Įveskite " << i + 1 << " pažymį iš " << grade_count << ":";
+            cout << "Jei norite pereit į kitą studentą, įveskite ';'\n";
+            cout << "Įveskite " << grade_count + 1 << " pažymį:  ";
             temp = get_int(0, 10);
-            if(temp == -1) return;
+            if(temp == -1) break;
             student.grade.push_back(temp);
             sum += temp;
+            grade_count++;
         }
+
         print_line();
         cout << "Įveskite egzamino pažymį: "; 
         student.exam = get_int(0, 10);
@@ -204,26 +209,30 @@ void generate_names_input(vector<Students>& group)
         student.first_name = full_name[0];
         student.last_name = full_name[1];
         string input;
-        int grade_count, sum = 0;
+        int sum = 0;
+        int grade_count = 0;
 
         cout << endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << endl;
-        cout << "Jei norite, kad rezultatai butu isvedami, iveskite ';'" << endl;
-        cout << endl << "Iveskite semestro ivertinimus. Kiek ju bus? ";
-        grade_count = get_int(1, INT_MAX);
-        if(grade_count == -1) return; //vistiek reik kazkaip su ; isspausdint
+        //cout << endl << "Iveskite semestro ivertinimus. Kiek ju bus? ";
+        //grade_count = get_int(1, INT_MAX);
+       // if(grade_count == -1) return; //vistiek reik kazkaip su ; isspausdint
         print_line();
 
 
         //ivedimas pazymiu
-        for (int i = 0; i < grade_count; i++) 
+        while(true)
         {
             int temp;
-            cout << "Iveskite " << i + 1 << " pazymi is " << grade_count << ":";
+            cout << endl << "Jei norite, įvesti egzamino balą ir pereit prie kito studento, įveskite ';'" << endl;
+            print_line();
+            cout << "Įveskite " << grade_count + 1 << " pažymį: "; 
             temp = get_int(0, 10);
-            if(temp == -1) return;
+            if(temp == -1) break;
             student.grade.push_back(temp);
             sum += temp;
+            grade_count++;
         }
+
         print_line();
         cout << "Iveskite egzamina: "; 
         student.exam = get_int(0, 10);
@@ -235,6 +244,12 @@ void generate_names_input(vector<Students>& group)
 
         group.push_back(student);
         student.grade.clear();
+
+        cout << "Jei norite, kad būtų, išvesti rezultatai, įveskite ';' " << endl;
+        cout << "Jeigu norite pereiti prie kito studento, įveskite '1' ";
+        int exit_option = get_int(1,1);
+        if(exit_option == -1) return;
+        print_line();
     }
 }
 
@@ -389,7 +404,11 @@ int get_int(int start, int end)
             {
                 if(!std::isdigit(static_cast<unsigned char>(i)))
                 {
-                    cout << "Įveskite sveikąjį skaičių nuo " << start << " iki " << end << "! ";
+                    if(end==INT_MAX) cout << "Įveskite naturalų skaičių nuo " << start << "! ";
+                    else
+                    {
+                        cout << "Įveskite naturalų skaičių nuo " << start << " iki " << end << "! ";
+                    }
                     is_number = false;
                     break;
                 }
@@ -399,11 +418,11 @@ int get_int(int start, int end)
                 temp = stoi(input);
             if(temp < start  && is_number)
             {
-                cout << "Įveskite sveikąjį skaičių daugiau už " << start - 1  << " ! " ;
+                cout << "Įveskite naturalų skaičių daugiau už " << start - 1  << " ! " ;
             }
             else if(temp > end && is_number) 
             {
-                cout << "Įveskite sveikąjį skaičių mažesnį už " << end + 1 << " ! ";
+                cout << "Įveskite naturalų skaičių mažesnį už " << end + 1 << " ! ";
             }
             else if(temp <= end && temp >= start && is_number) break; //if conditions correct
 
