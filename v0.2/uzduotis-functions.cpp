@@ -246,6 +246,7 @@ std::vector<std::string> random_name_generator()
 // Print results table: user chooses average (v) or median (m)
 void output(std::vector<Students>& group) 
 {
+    print_line();
     //this func is for printing all names and result average OR median
     char print_option;
     while(true) //repromt user for wrong input
@@ -263,27 +264,27 @@ void output(std::vector<Students>& group)
     {
     case 'v':
         std::cout << std::endl;
-        std::cout << std::left << std::setw(10) << "Vardas" << std::left << std::setw(20) << "Pavardė";
-        std::cout << std::setw(10) << " Galutinis (Vid.)" << std::endl;
+        std::cout << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+        std::cout << std::setw(20) << " Galutinis (Vid.)" << std::endl;
         print_line();
         for (auto student : group) 
         {
-            std::cout << std::left << std::setw(10) << student.first_name << std::left << std::setw(20) << student.last_name;
+            std::cout << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
 
-            std::cout << std::setw(10) << std::fixed << std::setprecision(2) << student.result << std::endl;
+            std::cout << std::setw(20) << std::fixed << std::setprecision(2) << student.result << std::endl;
         }
         break;
     
     case 'm':
         std::cout << std::endl;
-        std::cout << std::left << std::setw(10) << "Vardas" << std::left << std::setw(20) << "Pavardė";
-        std::cout << std::setw(10) << " Galutinis (Med.)" << std::endl;
+        std::cout << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+        std::cout << std::setw(20) << " Galutinis (Med.)" << std::endl;
         print_line();
         for (auto student : group) 
         {
-            std::cout << std::left << std::setw(10) << student.first_name << std::left << std::setw(20) << student.last_name;
+            std::cout << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
 
-            std::cout << std::setw(10) << std::fixed << std::setprecision(2) << " " << student.median << std::endl;
+            std::cout << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
         }
         break;
     }     
@@ -292,6 +293,25 @@ void output(std::vector<Students>& group)
 void file_output(std::vector<Students>& group)
 {
     
+}
+
+void temp_output(std::vector<Students>& group)
+{
+    print_line();
+    std::cout << std::endl;
+    std::cout << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+    std::cout << std::setw(20) << " Galutinis (Vid.)";
+    std::cout << std::setw(20) << " Galutinis (Med.)";
+    print_line();
+    for (auto student : group) 
+        {
+            std::cout << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
+
+            std::cout << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.result;
+            std::cout << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
+        }
+
+
 }
 
 // Compute weighted average: 40% homework + 60% exam
@@ -374,5 +394,6 @@ int get_int(int start, int end)
 // Print a separator line
 void print_line()
 {
-    std::cout << std::endl << "-----------------------------------------------" << std::endl;
+    std::cout << std::endl << "----------------------------------------------------------------------------" << std::endl;
 }
+

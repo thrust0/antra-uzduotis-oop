@@ -33,6 +33,7 @@ void generate_names_input(std::vector<Students>& group);
 void file_input(std::vector<Students>& group, const std::string& filename);
 std::vector <std::string> random_name_generator();
 void output(std::vector<Students>& group);
+void temp_output(std::vector<Students>& group);
 double calc_result(int sum, int n, int exam);
 double calc_median(int exam, std::vector<int>& grade);
 int get_int(int start, int end);

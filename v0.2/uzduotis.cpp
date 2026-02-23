@@ -14,11 +14,12 @@ int main()
     std::cout << "\tSveiki, čia yra vidurkio ir medianos iš pažymių skaičiuoklė" << std::endl << std::endl;
     std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
 
+    int menu_option = 0;
     
     // validate menu input via get_int
     while(true)
     {
-        int menu_option = get_int(1, 5);
+        menu_option = get_int(1, 5);
 
         if(menu_option == 1)
         {
@@ -71,7 +72,11 @@ int main()
             std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
         }
     }
-    output(group);
+
+    if(menu_option == 4)
+        temp_output(group);
+    else
+        output(group);
 
 }
 
