@@ -429,7 +429,7 @@ void sort_output(std::vector<Students>& group, int sort_option)
         //TODO sort by last names
         std::sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
-            return a.last_name > b.last_name;
+            return a.last_name < b.last_name;
         });
     }
     else if(sort_option == 3)
