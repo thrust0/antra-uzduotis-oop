@@ -413,3 +413,40 @@ void print_line()
     std::cout << std::endl << "----------------------------------------------------------------------------" << std::endl;
 }
 
+void sort_output(std::vector<Students>& group, int sort_option)
+{ 
+    if(sort_option == 1)
+    {
+        //TODO sort by first names
+        std::sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.first_name < b.first_name;
+        });
+        
+    }
+    else if(sort_option == 2)
+    {
+        //TODO sort by last names
+        std::sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.last_name > b.last_name;
+        });
+    }
+    else if(sort_option == 3)
+    {
+        //TODO sort by grade avg
+        std::sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.result > b.result;
+        });
+
+    }
+    else
+    {
+        //TODO sort by median
+    std::sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.median > b.median;
+        });
+    }
+}

@@ -10,6 +10,7 @@
 #include <fstream>
 #include <cctype>
 #include <sstream>
+#include <chrono>
 
 
 struct Students 
@@ -35,6 +36,7 @@ std::vector <std::string> random_name_generator();
 void output(std::vector<Students>& group);
 void temp_output(std::vector<Students>& group);
 void file_output(std::vector<Students>& group);
+void sort_output(std::vector<Students>& group, int sort_option);
 double calc_result(int sum, int n, int exam);
 double calc_median(int exam, std::vector<int>& grade);
 int get_int(int start, int end);
