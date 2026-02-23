@@ -109,7 +109,6 @@ void generate_names_input(std::vector<Students>& group)
         std::cout << std::endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << std::endl;
         print_line();
 
-        //ivedimas pazymiu
         random_grades_generator(student);
 
         group.push_back(student);
