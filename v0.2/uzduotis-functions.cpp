@@ -292,6 +292,24 @@ void output(std::vector<Students>& group)
 
 void file_output(std::vector<Students>& group)
 {
+    std::ofstream outFile("StudentOuput.txt");
+
+    if(!outFile)
+    {
+        std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
+        return;
+    }
+
+    outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+    outFile << std::setw(20) << " Galutinis (Vid.)";
+    outFile << std::setw(20) << " Galutinis (Med.)" << std::endl;
+
+    for (auto student : group) 
+    {
+        outFile << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
+        outFile << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.result;
+        outFile << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
+    }
     
 }
 
@@ -304,13 +322,11 @@ void temp_output(std::vector<Students>& group)
     std::cout << std::setw(20) << " Galutinis (Med.)";
     print_line();
     for (auto student : group) 
-        {
-            std::cout << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
-
-            std::cout << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.result;
-            std::cout << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
-        }
-
+    {
+        std::cout << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
+        std::cout << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.result;
+        std::cout << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
+    }
 
 }
 

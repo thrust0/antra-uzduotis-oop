@@ -74,7 +74,7 @@ int main()
     }
 
     if(menu_option == 4)
-        temp_output(group);
+        file_output(group);
     else
         output(group);
 
