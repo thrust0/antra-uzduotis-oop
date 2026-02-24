@@ -303,6 +303,9 @@ void file_output(std::vector<Students>& group)
     outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
     outFile << std::setw(20) << " Galutinis (Vid.)";
     outFile << std::setw(20) << " Galutinis (Med.)" << std::endl;
+    for(int i = 0; i<76; i++)
+        outFile << "-";
+    outFile << std::endl;
 
     for (auto student : group) 
     {
