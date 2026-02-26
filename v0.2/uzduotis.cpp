@@ -6,6 +6,7 @@
 
 int main() 
 {
+    auto file_read_time = std::chrono::milliseconds(0);
     srand(time(0));
     for(int i = 0; i<6; i++) std::cout << std::endl;
     std::vector<Students>group;
@@ -43,7 +44,7 @@ int main()
             print_line();
             std::cout << "Pasirinkite is kurio failo nuskaityti:\n\t'1' iš kursiokai.txt\n\t'2' iš studentai10000\n\t'3' iš studentai100000\n\t'4' iš studentai1000000\nĮveskite pasirinkimą: ";
             int file_option = get_int(1,4);
-
+            auto start_input = std::chrono::high_resolution_clock::now();
             switch (file_option)
             {
             case 1:
@@ -62,6 +63,8 @@ int main()
                 break;
             }
             break;
+        auto end_input = std::chrono::high_resolution_clock::now();
+        file_read_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_input - start_input);
         }
         else if(menu_option == 5)
         {
@@ -83,31 +86,31 @@ int main()
     std::cout << "Pasirinkite kur norite, kad duomenys būtu išvesti:\n\t'1'Terminale\n\t'2'Teksto faile\nĮveskite pasirinkimą: ";
     output_option = get_int(1,2);
     
-    //auto start = std::chrono::high_resolution_clock::now(); //timing the start
+    auto start = std::chrono::high_resolution_clock::now(); //timing the start
     sort_output(group, sort_option);
     if(output_option == 1 && menu_option == 4)
     {
         temp_output(group);
-        //auto end = std::chrono::high_resolution_clock::now();
-        //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        //std::cout << "Laiko uztruko: " << duration.count() << " milisekundes" << std::endl;
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Laiko uztruko: " << duration.count()+file_read_time.count() << " milisekundes" << std::endl;
         return 0;
     }
     else if(output_option == 1)
     {
         output(group);
-        //auto end = std::chrono::high_resolution_clock::now();
-        //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        //std::cout << "Laiko uztruko: " << duration.count() << " milisekundess" << std::endl;
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Laiko uztruko: " << duration.count()+file_read_time.count() << " milisekundess" << std::endl;
         return 0;
     }
     else
     {
         file_output(group);
-       // auto end = std::chrono::high_resolution_clock::now();
-        //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        //std::cout << "Laiko uztruko: " << duration.count() << " milisekundess" << std::endl;
-        //std::cout << "Rezultatai išvesti teksto faile." << std::endl;
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "Laiko uztruko: " << duration.count()+file_read_time.count() << " milisekundess" << std::endl;
+        std::cout << "Rezultatai išvesti teksto faile." << std::endl;
 
         return 0;
     }
