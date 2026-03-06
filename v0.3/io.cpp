@@ -95,7 +95,6 @@ void generate_grades_input(std::vector<Students>& group)
 
 // Generate random names (from vardai/) then prompt for grades/exam
 void generate_names_input(std::vector<Students>& group)
-
 {
     while(true)
     {
@@ -104,8 +103,6 @@ void generate_names_input(std::vector<Students>& group)
         student.first_name = full_name[0];
         student.last_name = full_name[1];
         std::string input;
-        int sum = 0;
-        int grade_count = 0;
 
         std::cout << std::endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << std::endl;
         print_line();
