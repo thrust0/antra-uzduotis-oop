@@ -11,7 +11,7 @@
 #include <cctype>
 #include <sstream>
 #include <chrono>
-
+#include <stdexcept>
 
 struct Students 
 {

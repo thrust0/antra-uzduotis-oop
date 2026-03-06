@@ -128,7 +128,8 @@ void file_input(std::vector<Students>& group, const std::string& filename)
 
     if(!file) //check if file opened
     {
-        std::cerr << "Neišėjo atidaryti failo " << filename <<std::endl;
+        throw std::runtime_error("Neišėjo atidaryti failo ");
+        //std::cerr << "Neišėjo atidaryti failo " << filename <<std::endl;
         return;
     }
 
