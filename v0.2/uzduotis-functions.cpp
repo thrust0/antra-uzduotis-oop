@@ -371,11 +371,11 @@ double calc_median(int exam, std::vector<int>& grade)
 // Read integer in [start..end]; returns -1 if user enters ';'
 int get_int(int start, int end)
 {
-    std::string input;
-    int temp;
-
-     while(true) //check if input is for grade count is int
+    while(true) //check if input is for grade count is int{
+        try //check if input is for grade count is int
         {
+            std::string input;
+            int temp;
             bool is_number = true;
             std::cin >> input;
             if(input == ";") return -1;
@@ -387,7 +387,7 @@ int get_int(int start, int end)
                     else
                     {
                         throw std::invalid_argument("Įveskite naturalų skaičių nuo " +
-                        std::to_string(start) + "iki " + std::to_string(end) + "!");
+                        std::to_string(start) + " iki " + std::to_string(end) + "!");
                         //std::cout << "Įveskite naturalų skaičių nuo " << start << " iki " << end << "! "; perasiau su throw exception
                     }
                     is_number = false;
@@ -407,10 +407,16 @@ int get_int(int start, int end)
                 throw std::invalid_argument("Įveskite naturalų skaičių mažesnį už " + std::to_string(end+1) + "!");
                 //std::cout << "Įveskite naturalų skaičių mažesnį už " << end + 1 << " ! ";
             }
-            else if(temp <= end && temp >= start && is_number) break; //if conditions correct
-
+            else if(temp <= end && temp >= start && is_number) return temp; //if conditions correct
         }
-    return temp;
+    
+        catch(const std::invalid_argument& e)
+        {
+            std::cerr << "Įvedimo klaida: " << e.what() << std::endl;
+            std::cout << "Bandykite dar kartą: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
 }
 
 // get_int handles grade input; sentinel ';' returns -1

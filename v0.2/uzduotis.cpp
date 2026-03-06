@@ -13,7 +13,7 @@ try{
 
     //intro vartotojui
     std::cout << "\tSveiki, čia yra vidurkio ir medianos iš pažymių skaičiuoklė" << std::endl << std::endl;
-    std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
+    std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai ir pažymiai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
 
     int menu_option = 0;
     int sort_option = 0;
@@ -74,7 +74,7 @@ try{
         else
         {
             std::cout << "Nėra tokio pasirinkimo!\n";
-            std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
+            std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai ir pažymiai\n\t'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite išeiti iš programos\n\n";
         }
     }
     print_line();
@@ -116,9 +116,14 @@ try{
     }
 
 }
+//pagrinde ar failo neisejo atidaryti catch'as
+catch(const std::runtime_error& e)
+{
+    std::cerr << "Vykdymo klaida: " << e.what() << std::endl;
+}
 catch(const std::exception& e)
 {
-    std::cerr << "Klaida: " << e.what() << std::endl;
+    std::cerr << "Nenumatyta klaida: " << e.what() << std::endl;
 }
 
 // Interactive input: read name, grades and exam. ';' as name exits.
