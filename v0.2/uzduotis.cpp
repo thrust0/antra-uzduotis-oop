@@ -44,7 +44,7 @@ int main()
             print_line();
             std::cout << "Pasirinkite is kurio failo nuskaityti:\n\t'1' iš kursiokai.txt\n\t'2' iš studentai10000\n\t'3' iš studentai100000\n\t'4' iš studentai1000000\nĮveskite pasirinkimą: ";
             int file_option = get_int(1,4);
-            auto start_input = std::chrono::high_resolution_clock::now();
+            //auto start_input = std::chrono::high_resolution_clock::now();
             switch (file_option)
             {
             case 1:

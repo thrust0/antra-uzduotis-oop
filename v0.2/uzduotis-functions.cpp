@@ -382,10 +382,12 @@ int get_int(int start, int end)
             {
                 if(!std::isdigit(static_cast<unsigned char>(i)))
                 {
-                    if(end==INT_MAX) std::cout << "Įveskite naturalų skaičių nuo " << start << "! ";
+                    if(end==INT_MAX) throw std::invalid_argument("Įveskite naturalų skaičių nuo");
                     else
                     {
-                        std::cout << "Įveskite naturalų skaičių nuo " << start << " iki " << end << "! ";
+                        throw std::invalid_argument("Įveskite naturalų skaičių nuo " +
+                        std::to_string(start) + "iki " + std::to_string(end) + "!");
+                        //std::cout << "Įveskite naturalų skaičių nuo " << start << " iki " << end << "! "; perasiau su throw exception
                     }
                     is_number = false;
                     break;
@@ -396,11 +398,13 @@ int get_int(int start, int end)
                 temp = stoi(input);
             if(temp < start  && is_number)
             {
-                std::cout << "Įveskite naturalų skaičių daugiau už " << start - 1  << " ! " ;
+                throw std::invalid_argument("Įveskite naturalų skaičių daugiau už " + std::to_string(start-1) + "!");
+                //std::cout << "Įveskite naturalų skaičių daugiau už " << start - 1  << " ! " ;
             }
             else if(temp > end && is_number) 
             {
-                std::cout << "Įveskite naturalų skaičių mažesnį už " << end + 1 << " ! ";
+                throw std::invalid_argument("Įveskite naturalų skaičių mažesnį už " + std::to_string(end+1) + "!");
+                //std::cout << "Įveskite naturalų skaičių mažesnį už " << end + 1 << " ! ";
             }
             else if(temp <= end && temp >= start && is_number) break; //if conditions correct
 
@@ -420,7 +424,7 @@ void sort_output(std::vector<Students>& group, int sort_option)
 { 
     if(sort_option == 1)
     {
-        //TODO sort by first names
+        //sort by first names
         std::sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
             return a.first_name < b.first_name;
@@ -429,7 +433,7 @@ void sort_output(std::vector<Students>& group, int sort_option)
     }
     else if(sort_option == 2)
     {
-        //TODO sort by last names
+        //sort by last names
         std::sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
             return a.last_name < b.last_name;
@@ -437,7 +441,7 @@ void sort_output(std::vector<Students>& group, int sort_option)
     }
     else if(sort_option == 3)
     {
-        //TODO sort by grade avg
+        //sort by grade avg
         std::sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
             return a.result > b.result;
@@ -446,7 +450,7 @@ void sort_output(std::vector<Students>& group, int sort_option)
     }
     else
     {
-        //TODO sort by median
+        //sort by median
     std::sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
             return a.median > b.median;
