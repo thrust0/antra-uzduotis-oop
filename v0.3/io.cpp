@@ -2,10 +2,6 @@
 #include "student.h"
 
 
-constexpr char print_result = ';'; //char for user to print average
-constexpr char print_median = ':'; //unused
-
-
 void manual_input(std::vector<Students>& group) 
 {
     while(true)
@@ -316,7 +312,7 @@ int get_int(int start, int end)
         try //check if input is for grade count is int
         {
             std::string input;
-            int temp;
+            int temp = 0;
             bool is_number = true;
             std::cin >> input;
             if(input == ";") return -1;

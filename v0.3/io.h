@@ -2,7 +2,6 @@
 #include "student.h"
 #include "menu.h"
 
-
 void manual_input(std::vector<Students>& group);
 void generate_grades_input(std::vector<Students>& group);
 void generate_names_input(std::vector<Students>& group);
