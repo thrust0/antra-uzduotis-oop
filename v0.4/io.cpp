@@ -330,7 +330,7 @@ void generate_raw_student_file(int size)
 void generate_raw_student_file(int student_amount, int grade_amount)
 {
     std::ostringstream filename;
-    filename << "Studentai" << student_amount << ".txt";
+    filename << "../studentai/studentai_gen" << student_amount << ".txt";
     
     std::ofstream outFile(filename.str());
     

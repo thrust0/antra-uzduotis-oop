@@ -12,6 +12,12 @@ void menu(){
     int menu_option = 0;
     int sort_option = 0;
     int output_option = 0;
+
+    generate_raw_student_file(1000, 15);
+    generate_raw_student_file(10000, 15);
+    generate_raw_student_file(100000, 10);
+    generate_raw_student_file(1000000, 5);
+    generate_raw_student_file(10000000, 3);
     
     // validate menu input via get_int
     while(true)
