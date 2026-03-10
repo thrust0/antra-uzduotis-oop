@@ -302,30 +302,6 @@ void sort_output(std::vector<Students>& group, int sort_option)
     }
 }
 
-void generate_raw_student_file(int size)
-{
-    std::ostringstream filename;
-    filename << "Studentai" << size << ".txt";
-    
-    std::ofstream outFile(filename.str());
-    
-    if(!outFile)
-    {
-        std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
-        return;
-    }
-    outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
-    for(int i = 0; i < 6; i++)
-    {
-        outFile << std::setw(20) << "ND" << i;
-    }
-    outFile << std::setw(20) << "Egz" << std::endl;
-
-    for(int i = 0; i<76; i++)
-        outFile << "-";
-    outFile << std::endl;
-
-}
 
 void generate_raw_student_file(int student_amount, int grade_amount)
 {
@@ -347,7 +323,7 @@ void generate_raw_student_file(int student_amount, int grade_amount)
     }
     outFile << std::left <<std::setw(7) << "Egz" << std::endl;
 
-    for(int i = 0; i<105; i++)
+    for(int i = 0; i<43+(7*grade_amount); i++)
         outFile << "-";
     outFile << std::endl;
 
