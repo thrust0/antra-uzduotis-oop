@@ -100,8 +100,9 @@ void menu(){
                 break;
             }
             
+            //creating the file
             std::string filename = generate_raw_student_file(student_amount, 7);
-
+            //std::string filename = test_generate_raw_student_file(student_amount, 7);
             file_input(group, filename);
             break;
         } //exit program option 
@@ -139,12 +140,12 @@ void menu(){
         output(group);
         return;
     }
-    else if(output_option == 2)
+    else if(output_option == 2) //v0.2 versijos paprastas file output
     {
         file_output(group, "../studentOutput/StudentOutput.txt");
         return;
     }
-    else
+    else //v0.4 i 2 atskirus filus output
     {
         std::vector<Students>above_five_students;
         std::vector<Students>below_five_students;
