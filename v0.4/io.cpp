@@ -216,29 +216,30 @@ void output(std::vector<Students>& group)
     }     
 }
 
-void file_output(std::vector<Students>& group)
+void file_output(std::vector<Students>& group, std::string filename)
 {
-    std::ofstream outFile("StudentOuput.txt");
+    std::ofstream outFile(filename);
 
-    if(!outFile)
-    {
-        std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
-        return;
-    }
+        if(!outFile)
+        {
+            std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
+            return;
+        }
 
-    outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
-    outFile << std::setw(20) << " Galutinis (Vid.)";
-    outFile << std::setw(20) << " Galutinis (Med.)" << std::endl;
-    for(int i = 0; i<76; i++)
-        outFile << "-";
-    outFile << std::endl;
+        outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+        outFile << std::setw(20) << " Galutinis (Vid.)";
+        outFile << std::setw(20) << " Galutinis (Med.)" << std::endl;
+        for(int i = 0; i<76; i++)
+            outFile << "-";
+        outFile << std::endl;
 
-    for (auto student : group) 
-    {
-        outFile << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
-        outFile << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.result;
-        outFile << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
-    }
+        for (auto student : group) 
+        {
+            outFile << std::left << std::setw(20) << student.first_name << std::left << std::setw(20) << student.last_name;
+            outFile << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.result;
+            outFile << std::left << std::setw(20) << std::fixed << std::setprecision(2) << student.median << std::endl;
+        }
+    
     
 }
 
@@ -302,24 +303,37 @@ void sort_output(std::vector<Students>& group, int sort_option)
     }
 }
 
+//split students by grades below 5 and over 5
+void split_students_by_grades(std::vector<Students>& group,std::vector<Students>& above_five, std::vector<Students>& below_five)
+{
+    for(const auto& student : group) //avoid copying with reference
+    {
+        if(student.result < 5)
+            below_five.push_back(std::move(student)); //avoiding copying for efficient mem. usage
+        else
+            above_five.push_back(std::move(student));
+    }
+    group.clear(); //this one now is empty but containers still exist
+}
 
-void generate_raw_student_file(int student_amount, int grade_amount)
+
+std::string generate_raw_student_file(int student_amount, int grade_amount)
 {
     std::ostringstream filename;
-    filename << "../studentai/studentai_gen" << student_amount << ".txt";
+    filename << "../studentInput/studentai_gen" << student_amount << ".txt";
     
     std::ofstream outFile(filename.str());
     
     if(!outFile)
     {
         std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
-        return;
+        return ""; //return empty string for failure
     }
     outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
 
-    for(int i = 0; i < grade_amount; i++)
+    for(int j = 0; j < grade_amount; j++)
     {
-        outFile << std::left << std::setw(7) << ("ND" + std::to_string(i+1));
+        outFile << std::left << std::setw(7) << ("ND" + std::to_string(j+1));
     }
     outFile << std::left <<std::setw(7) << "Egz" << std::endl;
 
@@ -342,6 +356,7 @@ void generate_raw_student_file(int student_amount, int grade_amount)
         outFile << std::endl;
     }
 
+    return filename.str(); //reiks file_input(filename)
 }
 
 // Read integer in [start..end]; returns -1 if user enters ';'
