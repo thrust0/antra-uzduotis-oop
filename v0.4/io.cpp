@@ -302,6 +302,72 @@ void sort_output(std::vector<Students>& group, int sort_option)
     }
 }
 
+void generate_raw_student_file(int size)
+{
+    std::ostringstream filename;
+    filename << "Studentai" << size << ".txt";
+    
+    std::ofstream outFile(filename.str());
+    
+    if(!outFile)
+    {
+        std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
+        return;
+    }
+    outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+    for(int i = 0; i < 6; i++)
+    {
+        outFile << std::setw(20) << "ND" << i;
+    }
+    outFile << std::setw(20) << "Egz" << std::endl;
+
+    for(int i = 0; i<76; i++)
+        outFile << "-";
+    outFile << std::endl;
+
+}
+
+void generate_raw_student_file(int student_amount, int grade_amount)
+{
+    std::ostringstream filename;
+    filename << "Studentai" << student_amount << ".txt";
+    
+    std::ofstream outFile(filename.str());
+    
+    if(!outFile)
+    {
+        std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
+        return;
+    }
+    outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+
+    for(int i = 0; i < grade_amount; i++)
+    {
+        outFile << std::left << std::setw(7) << ("ND" + std::to_string(i+1));
+    }
+    outFile << std::left <<std::setw(7) << "Egz" << std::endl;
+
+    for(int i = 0; i<105; i++)
+        outFile << "-";
+    outFile << std::endl;
+
+    for(int i = 0; i<student_amount; i++)
+    {
+        outFile << std::left << std::setw(20) 
+        << ("Vardas" + std::to_string(i+1)) 
+        << std::left 
+        << std::setw(20) << ("Pavarde" + std::to_string(i+1));
+
+        for(int i = 0; i<grade_amount+1; i++)
+        {
+            int grade = rand() % 10 + 1;
+            outFile << std::left << std::setw(7) << grade;
+        }
+        outFile << std::endl;
+    }
+
+}
+
 // Read integer in [start..end]; returns -1 if user enters ';'
 int get_int(int start, int end)
 {

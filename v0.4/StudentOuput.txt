@@ -1,0 +1,16 @@
+Vardas              Pavardė             Galutinis (Vid.)    Galutinis (Med.)   
+----------------------------------------------------------------------------
+Algis               Lukauskas           6.60                7.00                
+Aurimas             Lukauskas           6.84                6.50                
+Austeja             Jankauskaite        5.14                5.50                
+Edvinas             Balciunas           7.57                6.00                
+Julius              Stankus             4.27                4.00                
+Kestutis            Petraika            2.20                2.00                
+Laima               Jankauskaite        4.69                5.00                
+Lina                Balciunaite         7.00                5.00                
+Mantas              Lukauskas           3.80                4.00                
+Mindaugas           Tamulevicius        4.30                4.00                
+Paulius             Simkus              5.49                6.00                
+Povilas             Vaitkevicius        7.47                5.00                
+Samanta             Petrauskaite        7.40                7.50                
+Vaidas              Povilaitis          7.80                8.00                

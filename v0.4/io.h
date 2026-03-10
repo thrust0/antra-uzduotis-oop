@@ -12,5 +12,7 @@ void temp_output(std::vector<Students>& group);
 void file_output(std::vector<Students>& group);
 void sort_output(std::vector<Students>& group, int sort_option);
 
+void generate_raw_student_file(int student_amount, int grade_amount);
+
 void print_line(); // prints long ----
 int get_int(int start, int end); //prompts for an integer picked by programmer
