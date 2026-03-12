@@ -355,8 +355,104 @@ std::string generate_raw_student_file(int student_amount, int grade_amount)
         }
         outFile << std::endl;
     }
-
+    //nereikia outFile.close() nes kai ofstream iseina is scope, automatiskai destructorius pacall'intas
     return filename.str(); //reiks file_input(filename)
+
+}
+
+
+std::string test_generate_raw_student_file(int student_amount, int grade_amount)
+{
+    auto start = std::chrono::high_resolution_clock::now();
+
+    std::ostringstream filename;
+    filename << "../studentInput/studentai_gen" << student_amount << ".txt";
+    
+    std::ofstream outFile(filename.str());
+    
+    if(!outFile)
+    {
+        std::cerr << "Klaida atidarinėjant failą įrašymui..." << std::endl;
+        return ""; //return empty string for failure
+    }
+    outFile << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavardė";
+
+    for(int j = 0; j < grade_amount; j++)
+    {
+        outFile << std::left << std::setw(7) << ("ND" + std::to_string(j+1));
+    }
+    outFile << std::left <<std::setw(7) << "Egz" << std::endl;
+
+    for(int i = 0; i<43+(7*grade_amount); i++)
+        outFile << "-";
+    outFile << std::endl;
+
+    for(int i = 0; i<student_amount; i++)
+    {
+        outFile << std::left << std::setw(20) 
+        << ("Vardas" + std::to_string(i+1)) 
+        << std::left 
+        << std::setw(20) << ("Pavarde" + std::to_string(i+1));
+
+        for(int i = 0; i<grade_amount+1; i++)
+        {
+            int grade = rand() % 10 + 1;
+            outFile << std::left << std::setw(7) << grade;
+        }
+        outFile << std::endl;
+    }
+
+    outFile.close();
+
+    auto end = std::chrono::high_resolution_clock::now();
+
+    auto elapsed = std::chrono::duration<double, std::milli>(end - start);
+    std::cout << "Laiko uztruko: " << elapsed.count() << "ms\n";   
+    return filename.str(); //reiks file_input(filename)
+}
+
+void test_data_processing(const std::string& filename)
+{
+    std::vector<Students> group;
+    std::vector<Students> above_five;
+    std::vector<Students> below_five;
+
+    auto start_total = std::chrono::high_resolution_clock::now();
+
+    //read
+    auto start_read = std::chrono::high_resolution_clock::now();
+    file_input(group, filename);
+    auto end_read = std::chrono::high_resolution_clock::now();
+
+    //split into two files
+    auto start_split = std::chrono::high_resolution_clock::now();
+    split_students_by_grades(group, above_five, below_five);
+    auto end_split = std::chrono::high_resolution_clock::now();
+
+    //output
+    auto start_write = std::chrono::high_resolution_clock::now();
+    file_output(above_five, "studentOutput/kietiakai.txt");
+    file_output(below_five, "studentOutput/vargsiukai.txt");
+    auto end_write = std::chrono::high_resolution_clock::now();
+
+    auto end_total = std::chrono::high_resolution_clock::now();
+
+    std::cout << "Nuskaitymas: "
+            << std::chrono::duration_cast<std::chrono::milliseconds>(end_read - start_read).count()
+            << " ms\n";
+
+    std::cout << "Rusiavimas: "
+            << std::chrono::duration_cast<std::chrono::milliseconds>(end_split - start_split).count()
+            << " ms\n";
+
+    std::cout << "Isvedimas: "
+            << std::chrono::duration_cast<std::chrono::milliseconds>(end_write - start_write).count()
+            << " ms\n";
+
+    std::cout << "Bendras: "
+            << std::chrono::duration_cast<std::chrono::milliseconds>(end_total - start_total).count()
+            << " ms\n";
+
 }
 
 // Read integer in [start..end]; returns -1 if user enters ';'

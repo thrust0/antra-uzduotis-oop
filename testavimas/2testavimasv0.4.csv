@@ -1,8 +1,8 @@
             Failo sugeneravimo Laikas (ms.)
 ;                   Studentai 1k; Studentai10k; Studentai100k; Studentai1m; Studentai10m ;;;;;
-Testavimas nr. 1;               ;               ;            ;            ;              ;;;;;
-Testavimas nr. 2;               ;               ;            ;            ;              ;;;;;
-Testavimas nr. 3;               ;               ;            ;            ;              ;;;;;
-Testavimas nr. 4;               ;               ;            ;            ;              ;;;;;
-Testavimas nr. 5;               ;               ;            ;            ;              ;;;;;
-Vidurkis;                       ;               ;            ;            ;              ;;;;;
+Testavimas nr. 1;             18;             68;         564;        5336;         57888;;;;;
+Testavimas nr. 2;             24;             65;         540;        5312;         56940;;;;;
+Testavimas nr. 3;             19;             63;         527;        5408;         56814;;;;;
+Testavimas nr. 4;             22;             61;         530;        5306;         56727;;;;;
+Testavimas nr. 5;             21;             62;         530;        5356;         57201;;;;;
+Vidurkis;                   20.8;           63.8;         538;        5344;         57114;;;;;
