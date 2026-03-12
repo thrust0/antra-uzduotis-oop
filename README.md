@@ -1,69 +1,209 @@
-# Pažymių skaičiuoklė
+# Studentų pažymių skaičiavimo programa
 
-Trumpas aprašymas
-- Programa skaito arba generuoja studentų vardus ir pažymius, apskaičiuoja galutinį balą (pagal vidurkį arba medianą) ir išveda lentelę su rezultatais.
-- Yra dvi implementacijos:
-  - `uzduotis.cpp` — naudojamas `std::vector` (patogesnis, RAII).
-  - `with-c-array/uzduotis-array.cpp` — užduoties reikalavimui atlikta versija su C-stiliaus dinaminiais masyvais.
+## Projekto aprašymas
 
-Reikalavimai
-- C++ kompiliatorius (g++, clang++) su C++17 arba naujesniu standartu.
-- macOS: Terminal arba VS Code integruotas kompiliatorius.
-- Kataloge `vardai/` turi būti vardų failai (pridedama prie projekto):  
-  `vyriski-vardai.txt`, `vyriskos-pavardes.txt`, `moteriski-vardai.txt`, `moteriskos-pavardes.txt`
+Programa skirta studentų pažymių apdorojimui. Ji leidžia įvesti arba nuskaityti studentų duomenis, apskaičiuoti galutinį balą pagal **vidurkį** arba **medianą**, rūšiuoti studentus pagal pasirinktą kriterijų bei išvesti rezultatus į ekraną arba failus.
 
-Failų struktūra (pvz.)
-- uzduotis.cpp
-- with-c-array/uzduotis-array.cpp
-- vardai/
-  - vyriski-vardai.txt
-  - vyriskos-pavardes.txt
-  - moteriski-vardai.txt
-  - moteriskos-pavardes.txt
+Programa vystoma etapais naudojant **GitHub versijavimą (branches ir releases)**.
 
-Kompiliavimas (macOS / Terminal)
-- Vector versija:
-  g++ -std=c++17 uzduotis.cpp -o uzduotis
-- C-array versija:
-  g++ -std=c++17 with-c-array/uzduotis-array.cpp -o uzduotis-array
+---
 
-Vykdymas
-- Paleisk iš projekto šaknies (taip, kad relative kelias `vardai/` būtų randamas):
-  - ./uzduotis
-  arba
-  - ./uzduotis-array
-- Jei paleidi iš kitos vietos, `random_name_generator()` gali nepavykti atidaryti failų. Array versija bando ir `../vardai/` kaip fallback.
+# Programos funkcionalumas
 
-Meniu ir darbo eiga
-- Programoje pasirinkite:
-  1 — rankiniu būdu įvesti vardus ir pažymius
-  2 — įvesti vardus, bet pažymius sugeneruoti atsitiktinai
-  3 — sugeneruoti vardus iš failų ir rankiniu būdu įvesti pažymius
-  4 — išeiti iš programos
+Programa leidžia:
 
-Įvestis ir sentineliai
-- Kai įvedinėjate pažymius, programa leidžia nesudėti išankstinio `n`. Tiesiog įveskite vieną pažymį po kito.
-- Baigti pažymių įvedimą — įveskite `;` (kabliataškį). Funkcija `get_int()` grąžina -1 sentinelui.
-- Po pažymių įvedimo programa paprašo egzamino pažymio (0–10). Egzamino įvedime taip pat galima naudoti sentinelį, jei funkcija yra kviečiama tokiu kontekstu.
+* įvesti studentų duomenis ranka
+* generuoti atsitiktinius pažymius
+* generuoti studentų vardus, pavardes ir pažymius
+* nuskaityti duomenis iš failo
+* generuoti didelius studentų duomenų failus testavimui
+* apskaičiuoti galutinį balą pagal:
 
-Išvedimas
-- Programoje vartotojas renkasi ar nori matyti galutinį balą pagal vidurkį ar pagal medianą (`v` arba `m`).
-- Skaičiai išvedami su dviem skaitmenimis po kablelio (naudojamas `std::fixed` + `std::setprecision(2)`), lentelė formatuota su `setw`.
+  * vidurkį
+  * medianą
+* rūšiuoti studentus pagal:
 
-Skirtumai tarp versijų (ką reikėtų žinoti prie gynimo)
-- `std::vector` versija automatiškai valdo atmintį ir kopijavimą — saugesnė.
-- C‑masyvų versija:
-  - kiekvienam studentui skiriamas `new int[grade_count]`,
-  - saugomas `grade_count`,
-  - `group` yra dinaminis `Students*` masyvas su rankiniu `resize_group()` (dauginama talpa).
-  - būtina užtikrinti, kad kiekvienas `new[]` būtų poruojamas su `delete[]` (pabaigoje vykdomas atlaisvinimas).
-  - aptarkite, kodėl reikalingas deep-copy arba move-semantika (shallow copy pavojai).
+  * vardą
+  * pavardę
+  * galutinį balą (vidurkį)
+  * galutinį balą (medianą)
+* padalinti studentus į dvi kategorijas:
 
-Žinomi punktai / patarimai
-- Jei programos metu gaunate klaidą „Error opening name files“, patikrinkite, ar vykdote programą iš katalogo, kuriame yra `vardai/`. Alternatyviai paleiskite iš projekto šaknies arba perkelkite `vardai/` į tą katalogą.
-- Norint testuoti atminties klaidas, rekomenduojama kompiliuoti su AddressSanitizer:
-  g++ -std=c++17 -fsanitize=address,undefined -g with-c-array/uzduotis-array.cpp -o uzduotis-array-asan
+  * **kietiakiai** (galutinis ≥ 5.0)
+  * **vargšiukai** (galutinis < 5.0)
+* išvesti rezultatus:
 
-Versijavimas (git)
-- Repo turėjo darbines šakas: `v.pradine` (pradinė) ir `v0.1` (array + vector versijos).
-- Įsitikinkite, kad yra ne mažiau nei reikalaujami „sync“ (commit + push) kiekiai ir sukurti release/tag'ai.
+  * į terminalą
+  * į vieną failą
+  * į du atskirus failus pagal studentų kategoriją
+
+---
+
+# Projekto versijos
+
+## v.pradinė
+
+Realizuota bazinė programa:
+
+* įvedami studento duomenys
+* apskaičiuojamas galutinis balas
+* galutinis balas gali būti skaičiuojamas pagal vidurkį arba medianą
+
+---
+
+## v0.1
+
+Papildyta programa:
+
+* sukurta **C masyvų versija**
+* sukurta **std::vector versija**
+* vartotojas gali pasirinkti programos veikimo būdą per meniu
+* pažymiai gali būti generuojami atsitiktinai
+* studentų ir namų darbų skaičius nėra žinomas iš anksto
+
+---
+
+## v0.2
+
+Papildytas funkcionalumas:
+
+* duomenys gali būti **nuskaitomi iš failo**
+* studentai gali būti rūšiuojami pagal vartotojo pasirinktą kriterijų
+* rezultatai gali būti išvedami į ekraną arba failą
+* programa ištestuota naudojant pateiktus failus:
+
+  * `Studentai10000.txt`
+  * `Studentai100000.txt`
+  * `Studentai1000000.txt`
+
+---
+
+## v0.3
+
+Atliktas projekto **refactoring**:
+
+* naudotos **struct struktūros**
+* funkcijos ir struktūros perkeltos į **header (.h) failus**
+* projektas padalintas į kelis `.cpp` ir `.h` failus
+* realizuotas **klaidų valdymas (exception handling)**:
+
+  * tikrinama ar egzistuoja failas
+  * tikrinami vartotojo įvedami duomenys
+* visi pranešimai vartotojui pateikiami **lietuvių kalba**
+
+---
+
+## v0.4
+
+Papildytas funkcionalumas:
+
+* sukurta **studentų failų generavimo funkcija**
+* sugeneruoti testavimo failai su skirtingais įrašų kiekiais:
+
+| Studentų skaičius |
+| ----------------- |
+| 1 000             |
+| 10 000            |
+| 100 000           |
+| 1 000 000         |
+| 10 000 000        |
+
+Studentų vardai generuojami šabloniškai:
+
+```
+Vardas1 Pavarde1
+Vardas2 Pavarde2
+...
+```
+
+Programa:
+
+1. nuskaito studentų duomenis
+2. apskaičiuoja galutinį balą
+3. padalina studentus į dvi kategorijas:
+
+   * **kietiakiai**
+   * **vargšiukai**
+4. išveda rezultatus į du naujus failus
+
+---
+
+# Programos veikimo spartos tyrimas
+
+Testavimas atliktas naudojant **Release build**.
+
+Buvo atlikti **du tyrimai**.
+
+---
+
+# 1 tyrimas – failų generavimas
+
+Tyrimo tikslas – išmatuoti laiką, reikalingą **failo sukūrimui ir uždarymui**.
+
+Šio tyrimo metu:
+
+* nenaudojami vektoriai
+* duomenys generuojami ir iškart rašomi į failą
+* matuojamas tik failo kūrimo procesas
+
+Matavimo etapai:
+
+* failo sukūrimas
+* duomenų įrašymas
+* failo uždarymas
+
+---
+
+# 2 tyrimas – duomenų apdorojimas
+
+Šio tyrimo metu naudojami **anksčiau sugeneruoti failai**, siekiant užtikrinti tyrimo patikimumą.
+
+Matuojami šie programos etapai:
+
+1. **duomenų nuskaitymas iš failo**
+2. **studentų padalijimas į dvi kategorijas**
+3. **rezultatų išvedimas į du failus**
+4. **bendras programos veikimo laikas**
+
+---
+
+# Testavimo rezultatai
+
+Testavimo rezultatai pateikiami lentelėse ir saugomi kataloge:
+
+```
+testavimas/
+```
+
+CSV failuose pateikiami kelių testų **laikų vidurkiai**.
+
+Rezultatų vizualizacijos ir programos veikimo nuotraukos pateikiamos kataloge:
+
+```
+testavimo nuotraukos/
+```
+
+---
+
+# Projekto struktūra
+
+```
+.
+├── v0.4/              # programos šaltinio kodas
+├── studentInput/      # įvesties failai
+├── vardai             # vardu generavimui
+├── studentOutput/     # programos sugeneruoti rezultatai
+├── testavimas/        # testavimo duomenys (csv)
+├── photos/            # testavimo nuotraukos
+└── README.md
+```
+
+---
+
+# Naudotos technologijos
+
+* C++
+* STL (`std::vector`, `std::algorithm`, `std::fstream`)
+* Git / GitHub
+
+---
