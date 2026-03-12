@@ -2,13 +2,14 @@
 
 void menu(){
     srand(time(0));
+
     for(int i = 0; i<6; i++) std::cout << std::endl;
     std::vector<Students>group;
 
     //intro vartotojui
     std::cout << "\tSveiki, čia yra vidurkio ir medianos iš pažymių skaičiuoklė" << std::endl << std::endl;
     std::cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai ir pažymiai\n\t" 
-                <<"'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite sugeneruoti faile duomenis \n\t'6' jei norite išeiti iš programos\n\n";
+                <<"'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite sugeneruoti faile duomenis \n\t'6' jei norite išeiti iš programos\nĮveskite pasirinkimą:";
 
     int menu_option = 0;
     int sort_option = 0;
@@ -26,7 +27,7 @@ void menu(){
     //repromt for how user wants to input the students
     while(true)
     {
-        menu_option = get_int(1, 5);
+        menu_option = get_int(1, 6);
 
         if(menu_option == 1)
         {
@@ -46,25 +47,52 @@ void menu(){
         else if(menu_option == 4)
         {
             print_line();
-            std::cout << "Pasirinkite is kurio failo nuskaityti:\n\t'1' iš kursiokai.txt\n\t'2' iš studentai10000\n\t'3' iš studentai100000\n\t'4' iš studentai1000000\nĮveskite pasirinkimą: ";
-            int file_option = get_int(1,4);
+
+            std::cout << "Pasirinkite is kurio failo nuskaityti:\n"
+            "\t'1' iš kursiokai.txt\n"
+            "\t'2' iš studentai10000.txt\n"
+            "\t'3' iš studentai100000.txt\n"
+            "\t'4' iš studentai1000000.txt\n"
+            "\t'5' iš studentai_gen1000.txt\n"
+            "\t'6' iš studentai_gen10000.txt\n"
+            "\t'7' iš studentai_gen100000.txt\n"
+            "\t'8' iš studentai_gen1000000.txt\n"
+            "\t'9' iš studentai_gen10000000.txt\n"
+            "Įveskite pasirinkimą: ";            
+            int file_option = get_int(1,9);
             switch (file_option)
             {
-            case 1:
-                file_input(group, "../studentInput/kursiokai.txt");
-                break;
-            case 2:
-                file_input(group, "../studentInput/studentai10000.txt");
-                break;
-            case 3:
-                file_input(group, "../studentInput/studentai100000.txt");
-                break;
-            case 4:
-                file_input(group, "../studentInput/studentai1000000.txt");
-                break;
-            default:
-                break;
-            }
+                case 1:
+                    file_input(group, "../studentInput/kursiokai.txt");
+                    break;
+                case 2:
+                    file_input(group, "../studentInput/studentai10000.txt");
+                    break;
+                case 3:
+                    file_input(group, "../studentInput/studentai100000.txt");
+                    break;
+                case 4:
+                    file_input(group, "../studentInput/studentai1000000.txt");
+                    break;
+                case 5:
+                    file_input(group, "../studentInput/studentai_gen1000.txt");
+                    break;
+                case 6:
+                    file_input(group, "../studentInput/studentai_gen10000.txt");
+                    break;
+                case 7:
+                    file_input(group, "../studentInput/studentai_gen100000.txt");
+                    break;
+                case 8:
+                    file_input(group, "../studentInput/studentai_gen1000000.txt");
+                    break;
+                case 9:
+                    file_input(group, "../studentInput/studentai_gen10000000.txt");
+                    break;
+                default:
+                    std::cerr << "Neteisingas pasirinkimas!\n";
+                    break;
+        }
             break;
         }
         else if(menu_option == 5) //generavimas studentu faile

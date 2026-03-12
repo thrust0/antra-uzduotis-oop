@@ -337,10 +337,6 @@ std::string generate_raw_student_file(int student_amount, int grade_amount)
     }
     outFile << std::left <<std::setw(7) << "Egz" << std::endl;
 
-    for(int i = 0; i<43+(7*grade_amount); i++)
-        outFile << "-";
-    outFile << std::endl;
-
     for(int i = 0; i<student_amount; i++)
     {
         outFile << std::left << std::setw(20) 
@@ -383,9 +379,6 @@ std::string test_generate_raw_student_file(int student_amount, int grade_amount)
     }
     outFile << std::left <<std::setw(7) << "Egz" << std::endl;
 
-    for(int i = 0; i<43+(7*grade_amount); i++)
-        outFile << "-";
-    outFile << std::endl;
 
     for(int i = 0; i<student_amount; i++)
     {
