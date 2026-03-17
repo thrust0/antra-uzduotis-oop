@@ -9,11 +9,11 @@ void random_grades_generator(Students& student)
         int temp = rand() % 10;
         student.grade.push_back(temp);
         sum += temp;
-        cout << '\t' << i+1 << " pažymys iš " << grade_count << ": " << temp << endl;
+        std::cout << '\t' << i+1 << " pažymys iš " << grade_count << ": " << temp << std::endl;
     }
 
     student.exam = rand() % 10;
-    cout << "\tEgzamino pažymys: " << student.exam << endl << endl;
+    std::cout << "\tEgzamino pažymys: " << student.exam << std::endl << std::endl;
 
     student.result = calc_result(sum, grade_count, student.exam);
 
@@ -22,14 +22,14 @@ void random_grades_generator(Students& student)
 
 
 // Read name lists from files under vardai/ and return a random first+last
-vector<string> random_name_generator()
+std::vector<std::string> random_name_generator()
 {
-    vector<string> v_first_names;
-    vector<string> v_last_names;
-    vector<string> full_name;
-    string first_name_file;
-    string last_name_file;
-    string line;
+    std::vector<std::string> v_first_names;
+    std::vector<std::string> v_last_names;
+    std::vector<std::string> full_name;
+    std::string first_name_file;
+    std::string last_name_file;
+    std::string line;
     int gender = rand() % 2;
 
     if(gender == 0)
@@ -44,26 +44,26 @@ vector<string> random_name_generator()
     }
 
     
-    ifstream file_first_names(first_name_file);
-    ifstream file_last_names(last_name_file);
+    std::ifstream file_first_names(first_name_file);
+    std::ifstream file_last_names(last_name_file);
 
     if(!file_first_names)
     {
-        cerr << "Error opening the male first names file" << endl;
+        std::cerr << "Error opening the male first names file" << std::endl;
         return {};
     }
     if(!file_last_names)
     {
-        cerr << "Error opening the male last names file" << endl;
+        std::cerr << "Error opening the male last names file" << std::endl;
         return {};
     }
 
-    while(getline(file_first_names, line))
+    while(std::getline(file_first_names, line))
     {
         v_first_names.push_back(line);
     }
 
-    while(getline(file_last_names, line))
+    while(std::getline(file_last_names, line))
     {
         v_last_names.push_back(line);
     }
@@ -84,10 +84,10 @@ double calc_result(int sum, int n, int exam)
 }
 
 // Compute median including exam (returns double)
-double calc_median(int exam, vector<int>& grade)
+double calc_median(int exam, std::vector<int>& grade)
 {
     // create a copy that we can sort without modifying the caller's data
-    vector <int> v;
+    std::vector <int> v;
     double median;
 
     for(int x : grade) 

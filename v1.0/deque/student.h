@@ -37,7 +37,6 @@ using std::milli;
 using std::invalid_argument;
 using std::to_string;
 using std::runtime_error;
-using std::move;
 
 
 struct Students 

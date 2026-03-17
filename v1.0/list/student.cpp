@@ -22,11 +22,11 @@ void random_grades_generator(Students& student)
 
 
 // Read name lists from files under vardai/ and return a random first+last
-vector<string> random_name_generator()
+list<string> random_name_generator()
 {
-    vector<string> v_first_names;
-    vector<string> v_last_names;
-    vector<string> full_name;
+    list<string> v_first_names;
+    list<string> v_last_names;
+    list<string> full_name;
     string first_name_file;
     string last_name_file;
     string line;
@@ -69,10 +69,14 @@ vector<string> random_name_generator()
     }
 
     int rand_index = rand() % v_first_names.size();
-    full_name.push_back(v_first_names[rand_index]);
+    auto it = v_first_names.begin();
+    advance(it, rand_index);
+    full_name.push_back(*it);
 
     rand_index = rand() % v_last_names.size();
-    full_name.push_back(v_last_names[rand_index]);
+    auto it2 = v_last_names.begin();
+    advance(it2, rand_index);
+    full_name.push_back(*it2);
 
     return full_name;       
     }
@@ -84,28 +88,28 @@ double calc_result(int sum, int n, int exam)
 }
 
 // Compute median including exam (returns double)
-double calc_median(int exam, vector<int>& grade)
+double calc_median(int exam, list<int>& grade)
 {
     // create a copy that we can sort without modifying the caller's data
-    vector <int> v;
-    double median;
+    list <int> l(grade);
+    l.push_back(exam);
+    l.sort(); //automatically lowest to highest
 
-    for(int x : grade) 
-    {
-        v.push_back(x);
-    }
-    
-    v.push_back(exam);
-    sort(v.begin(), v.end());
+    int size = l.size();
+    auto i = l.begin(); //iterator
+
     // choose median depending on odd/even size
-    if(v.size() % 2 == 1) // odd
+    if(size % 2 == 1) // odd
     {
-        median = v[v.size()/2]; 
-        return median;
+        advance(i, size / 2);
+        return *i;
     }
     else // even
     {
-        median = (v[(v.size()-1)/2] + v[(v.size()/2)]);
-        return median/2;
+        advance(i, size / 2);
+        double left = *i;
+        advance(i, 1);
+        double right = *i;
+        return (left + right) / 2.0;
     }
 }

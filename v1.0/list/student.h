@@ -1,7 +1,7 @@
 #pragma once
 //libraries
 #include <iomanip>
-#include <vector>
+#include <list>
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -15,8 +15,9 @@
 #include <chrono>
 #include <stdexcept>
 #include <filesystem>
+#include <iterator>
 
-using std::vector;
+using std::list;
 using std::string;
 using std::cin;
 using std::cout;
@@ -37,6 +38,7 @@ using std::milli;
 using std::invalid_argument;
 using std::to_string;
 using std::runtime_error;
+using std::advance;
 using std::move;
 
 
@@ -44,7 +46,7 @@ struct Students
 {
     string first_name = "A", last_name = "BB";
     // dynamic container for homework/semester grades
-    vector <int> grade;
+    list <int> grade;
     // single exam score
     int exam;
     // cached computed final result (average-based) and median-based value
@@ -52,7 +54,7 @@ struct Students
 };
 
 void random_grades_generator(Students& student);
-vector <string> random_name_generator();
+list <string> random_name_generator();
 
 double calc_result(int sum, int n, int exam);
-double calc_median(int exam, vector<int>& grade);
+double calc_median(int exam, list<int>& grade);
