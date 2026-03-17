@@ -16,17 +16,16 @@ void random_grades_generator(Students& student)
     std::cout << "\tEgzamino pažymys: " << student.exam << std::endl << std::endl;
 
     student.result = calc_result(sum, grade_count, student.exam);
-
     student.median = calc_median(student.exam, student.grade);
 }
 
 
 // Read name lists from files under vardai/ and return a random first+last
-std::vector<std::string> random_name_generator()
+deque<std::string> random_name_generator()
 {
-    std::vector<std::string> v_first_names;
-    std::vector<std::string> v_last_names;
-    std::vector<std::string> full_name;
+    deque<std::string> v_first_names;
+    deque<std::string> v_last_names;
+    deque<std::string> full_name;
     std::string first_name_file;
     std::string last_name_file;
     std::string line;
@@ -84,10 +83,10 @@ double calc_result(int sum, int n, int exam)
 }
 
 // Compute median including exam (returns double)
-double calc_median(int exam, std::vector<int>& grade)
+double calc_median(int exam, deque<int>& grade)
 {
     // create a copy that we can sort without modifying the caller's data
-    std::vector <int> v;
+    deque <int> v;
     double median;
 
     for(int x : grade) 

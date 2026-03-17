@@ -2,7 +2,7 @@
 
 void menu(){
     srand(time(0));
-    vector<Students>group;
+    deque<Students>group;
     int menu_option = 0;
     int sort_option = 0;
     int output_option = 0;
@@ -37,7 +37,7 @@ void intro_text()
 }
 
 
-void input_method(vector<Students>& group, int& menu_option)
+void input_method(deque<Students>& group, int& menu_option)
 {
     while(true)
     {
@@ -109,7 +109,7 @@ void input_method(vector<Students>& group, int& menu_option)
     }
 }
 
-void sort_method(vector<Students>& group, int& sort_option)
+void sort_method(deque<Students>& group, int& sort_option)
 {
     cout << "Pasirinkite kaip norite, kad studentai būtu išrušiuoti:\n\t'1'Pagal vardą\n\t'2'Pagal pavardę\n\t'3'Pagal vidurkį\n\t'4'Pagal medianą\n";
     cout << "Įveskite pasirinkimą: ";
@@ -117,7 +117,7 @@ void sort_method(vector<Students>& group, int& sort_option)
     sort_output(group, sort_option);
 }
 
-void output_method(vector<Students>& group, int& menu_option,int& output_option)
+void output_method(deque<Students>& group, int& menu_option,int& output_option)
 {
     cout << "Pasirinkite kur norite, kad duomenys būtu išvesti:\n\t'1'Terminale\n\t'2'Teksto faile\n\t'3'Į du atskirus failus\nĮveskite pasirinkimą: ";
     output_option = get_int(1,3);
@@ -139,8 +139,8 @@ void output_method(vector<Students>& group, int& menu_option,int& output_option)
     }
     else //v0.4 i 2 atskirus filus output
     {
-        vector<Students>above_five_students;
-        vector<Students>below_five_students;
+        deque<Students>above_five_students;
+        deque<Students>below_five_students;
 
         split_students_by_grades(group, above_five_students, below_five_students);
 

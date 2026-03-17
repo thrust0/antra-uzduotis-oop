@@ -2,9 +2,9 @@
 
 #include "io.h"
 
-const vector<int> STUDENT_COUNTS = {1000, 10000, 100000, 1000000, 10000000};
+const deque<int> STUDENT_COUNTS = {1000, 10000, 100000, 1000000, 10000000};
 
-const vector<string> FILE_PATHS = {
+const deque<string> FILE_PATHS = {
     "../../studentInput/kursiokai.txt",
     "../../studentInput/studentai10000.txt",
     "../../studentInput/studentai100000.txt",
@@ -18,7 +18,7 @@ const vector<string> FILE_PATHS = {
 
 //functions
 void intro_text(); //message for user intro options
-void input_method(vector<Students>& group, int& menu_option); //input option 1-6
-void sort_method(vector<Students>& group, int& sort_option);
-void output_method(vector<Students>& group, int& menu_option,int& output_option);
+void input_method(deque<Students>& group, int& menu_option); //input option 1-6
+void sort_method(deque<Students>& group, int& sort_option);
+void output_method(deque<Students>& group, int& menu_option,int& output_option);
 void menu(); //main menu declaration

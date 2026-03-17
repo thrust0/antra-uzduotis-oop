@@ -2,7 +2,7 @@
 #include "student.h"
 
 
-void manual_input(vector<Students>& group) 
+void manual_input(deque<Students>& group) 
 {
     while(true)
     {
@@ -61,7 +61,7 @@ void manual_input(vector<Students>& group)
 }
 
 // Random-grade input mode (user supplies names)
-void generate_grades_input(vector<Students>& group)
+void generate_grades_input(deque<Students>& group)
 {
     while(true)
     {
@@ -86,7 +86,7 @@ void generate_grades_input(vector<Students>& group)
 
         //random grade generation 
         random_grades_generator(student);
-        //append the vector
+        //append the deque
         group.push_back(student);
         student.grade.clear();
     }
@@ -94,12 +94,12 @@ void generate_grades_input(vector<Students>& group)
 
 
 // Generate random names (from vardai/) then prompt for grades/exam
-void generate_names_input(vector<Students>& group)
+void generate_names_input(deque<Students>& group)
 {
     while(true)
     {
         Students student;
-        vector<string> full_name = random_name_generator();
+        deque<string> full_name = random_name_generator();
         student.first_name = full_name[0];
         student.last_name = full_name[1];
         string input;
@@ -120,7 +120,7 @@ void generate_names_input(vector<Students>& group)
     }
 }
 
-void file_input(vector<Students>& group, const string& filename)
+void file_input(deque<Students>& group, const string& filename)
 {
     ifstream file(filename); //open file
 
@@ -151,10 +151,10 @@ void file_input(vector<Students>& group, const string& filename)
             grade_count++;
         }
 
-        if(!student.grade.empty())//pachekinam kad turetu grade kad nebutu runtime error, nes negalim poppint tuscio vector element
+        if(!student.grade.empty())//pachekinam kad turetu grade kad nebutu runtime error, nes negalim poppint tuscio deque element
         {
             student.exam = student.grade.back();//last elemnt of grades is put into exam grade
-            student.grade.pop_back();//the element from vector grade is taken out since its exam
+            student.grade.pop_back();//the element from deque grade is taken out since its exam
         }
         grade_count--;
         sum = sum - student.exam;
@@ -170,7 +170,7 @@ void file_input(vector<Students>& group, const string& filename)
 
 
 // Print results table: user chooses average (v) or median (m)
-void output(vector<Students>& group) 
+void output(deque<Students>& group) 
 {
     print_line();
     //this func is for printing all names and result average OR median
@@ -216,7 +216,7 @@ void output(vector<Students>& group)
     }     
 }
 
-void file_output(vector<Students>& group, string filename)
+void file_output(deque<Students>& group, string filename)
 {
     ofstream outFile(filename);
 
@@ -243,7 +243,7 @@ void file_output(vector<Students>& group, string filename)
     
 }
 
-void temp_output(vector<Students>& group)
+void temp_output(deque<Students>& group)
 {
     print_line();
     cout << endl;
@@ -265,7 +265,7 @@ void temp_output(vector<Students>& group)
 // Read integer in [start..end]; returns -1 if user enters ';'
 
 
-void sort_output(vector<Students>& group, int sort_option)
+void sort_output(deque<Students>& group, int sort_option)
 { 
     if(sort_option == 1)
     {
@@ -304,7 +304,7 @@ void sort_output(vector<Students>& group, int sort_option)
 }
 
 //split students by grades below 5 and over 5
-void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five)
+void split_students_by_grades(deque<Students>& group,deque<Students>& above_five, deque<Students>& below_five)
 {
     for(const auto& student : group) //avoid copying with reference
     {
@@ -406,9 +406,9 @@ string test_generate_raw_student_file(int student_amount, int grade_amount)
 
 void test_data_processing(const string& filename)
 {
-    vector<Students> group;
-    vector<Students> above_five;
-    vector<Students> below_five;
+    deque<Students> group;
+    deque<Students> above_five;
+    deque<Students> below_five;
 
     auto start_total = std::chrono::high_resolution_clock::now();
 
