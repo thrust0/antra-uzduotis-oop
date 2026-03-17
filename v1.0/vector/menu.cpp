@@ -134,7 +134,7 @@ void output_method(vector<Students>& group, int& menu_option,int& output_option)
     }
     else if(output_option == 2) //v0.2 versijos paprastas file output
     {
-        file_output(group, "../studentOutput/StudentOutput.txt");
+        file_output(group, "../../studentOutput/StudentOutput.txt");
         return;
     }
     else //v0.4 i 2 atskirus filus output
@@ -144,8 +144,8 @@ void output_method(vector<Students>& group, int& menu_option,int& output_option)
 
         split_students_by_grades(group, above_five_students, below_five_students);
 
-        file_output(above_five_students, "../studentOutput/kietiakai.txt");
-        file_output(below_five_students, "../studentOutput/vargsiukai.txt");
+        file_output(above_five_students, "../../studentOutput/kietiakai.txt");
+        file_output(below_five_students, "../../studentOutput/vargsiukai.txt");
         return;
     }
 }
