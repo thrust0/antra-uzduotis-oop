@@ -306,7 +306,7 @@ void sort_output(deque<Students>& group, int sort_option)
 //split students by grades below 5 and over 5
 void split_students_by_grades(deque<Students>& group,deque<Students>& above_five, deque<Students>& below_five)
 {
-    for(const auto& student : group) //avoid copying with reference
+    for(auto& student : group) //avoid copying with reference
     {
         if(student.result < 5)
             below_five.push_back(move(student)); //avoiding copying for efficient mem. usage

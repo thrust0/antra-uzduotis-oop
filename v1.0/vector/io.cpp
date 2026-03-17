@@ -306,7 +306,7 @@ void sort_output(vector<Students>& group, int sort_option)
 //split students by grades below 5 and over 5
 void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five)
 {
-    for(const auto& student : group) //avoid copying with reference
+    for(auto& student : group) //avoid copying with reference
     {
         if(student.result < 5)
             below_five.push_back(move(student)); //avoiding copying for efficient mem. usage
