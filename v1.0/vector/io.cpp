@@ -309,13 +309,36 @@ void split_students_by_grades(vector<Students>& group,vector<Students>& above_fi
     for(auto& student : group) //avoid copying with reference
     {
         if(student.result < 5)
-            below_five.push_back(move(student)); //avoiding copying for efficient mem. usage
+            below_five.push_back(std::move(student)); //avoiding copying for efficient mem. usage
         else
-            above_five.push_back(move(student));
+            above_five.push_back(std::move(student));
     }
     group.clear(); //this one now is empty but containers still exist
 }
 
+void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
+{
+    for(const auto& student : group)
+    {
+        if(student.result < 5)
+            below_five.push_back(student);
+    }
+
+    group.erase(std::remove_if(group.begin(), group.end(),
+        [](const Students& s) { return s.result < 5;}), group.end());
+}
+
+void split_strategy_three(vector<Students> & group, vector<Students>& below_five)
+{
+    //std::partition padaro kad studentai.result >= 5 eitu pirmi, ir po to vargsiukai, reiskias reikia daryt sorta po to
+    auto it = std::partition(group.begin(), group.end(),
+        [](const Students& s) {return s.result >= 5; });
+
+    //atkopijuoti vargsiukus i vektoriu
+    below_five.assign(it, group.end());
+
+    group.erase(it, group.end());
+}
 
 string generate_raw_student_file(int student_amount, int grade_amount)
 {

@@ -16,6 +16,8 @@ void file_output(std::list<Students>& group, std::string filename);
 //sorting functions
 void sort_output(std::list<Students>& group, int sort_option);
 void split_students_by_grades(std::list<Students>& group,std::list<Students>& above_five, std::list<Students>& below_five);
+void split_strategy_two(list<Students>& group, list<Students>& below_five);
+void split_strategy_three(list<Students> & group, list<Students>& below_five);
 
 //student data generating functions
 std::string generate_raw_student_file(int student_amount, int grade_amount);

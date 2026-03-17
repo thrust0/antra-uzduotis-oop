@@ -315,6 +315,30 @@ void split_students_by_grades(list<Students>& group,list<Students>& above_five, 
 }
 
 
+void split_strategy_two(list<Students>& group, list<Students>& below_five)
+{
+    for(const auto& student : group)
+    {
+        if(student.result < 5)
+            below_five.push_back(student);
+    }
+
+    group.erase(std::remove_if(group.begin(), group.end(),
+        [](const Students& s) { return s.result < 5;}), group.end());
+}
+
+void split_strategy_three(list<Students> & group, list<Students>& below_five)
+{
+    //std::partition padaro kad studentai.result >= 5 eitu pirmi, ir po to vargsiukai, reiskias reikia daryt sorta po to
+    auto it = std::partition(group.begin(), group.end(),
+        [](const Students& s) {return s.result >= 5; });
+
+    //atkopijuoti vargsiukus i vektoriu
+    below_five.assign(it, group.end());
+
+    group.erase(it, group.end());
+}
+
 string generate_raw_student_file(int student_amount, int grade_amount)
 {
     ostringstream filename;
