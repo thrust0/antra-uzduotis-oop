@@ -16,12 +16,34 @@
 #include <stdexcept>
 #include <filesystem>
 
+using std::vector;
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::left;
+using std::ifstream;
+using std::ofstream;
+using std::cerr;
+using std::getline;
+using std::stringstream;
+using std::setw;
+using std::fixed;
+using std::setprecision;
+using std::sort;
+using std::move;
+using std::ostringstream;
+using std::milli;
+using std::invalid_argument;
+using std::to_string;
+using std::runtime_error;
+
 
 struct Students 
 {
-    std::string first_name = "A", last_name = "BB";
+    string first_name = "A", last_name = "BB";
     // dynamic container for homework/semester grades
-    std::vector <int> grade;
+    vector <int> grade;
     // single exam score
     int exam;
     // cached computed final result (average-based) and median-based value
@@ -29,7 +51,7 @@ struct Students
 };
 
 void random_grades_generator(Students& student);
-std::vector <std::string> random_name_generator();
+vector <string> random_name_generator();
 
 double calc_result(int sum, int n, int exam);
-double calc_median(int exam, std::vector<int>& grade);
+double calc_median(int exam, vector<int>& grade);
