@@ -12,15 +12,6 @@ void menu(){
 
     //intro vartotojui
     intro_text();
-
-    /*
-    generate_raw_student_file(1000, 15);
-    generate_raw_student_file(10000, 15);
-    generate_raw_student_file(100000, 10);
-    generate_raw_student_file(1000000, 5);
-    generate_raw_student_file(10000000, 3);
-    */
-    
     //repromt for how user wants to input the students
     input_method(group, menu_option);
 
@@ -83,39 +74,7 @@ void input_method(vector<Students>& group, int& menu_option)
             "\t'9' iš studentai_gen10000000.txt\n"
             "Įveskite pasirinkimą: ";            
             int file_option = get_int(1,9);
-            switch (file_option)
-            {
-                case 1:
-                    file_input(group, "../../studentInput/kursiokai.txt");
-                    break;
-                case 2:
-                    file_input(group, "../../studentInput/studentai10000.txt");
-                    break;
-                case 3:
-                    file_input(group, "../../studentInput/studentai100000.txt");
-                    break;
-                case 4:
-                    file_input(group, "../../studentInput/studentai1000000.txt");
-                    break;
-                case 5:
-                    file_input(group, "../../studentInput/studentai_gen1000.txt");
-                    break;
-                case 6:
-                    file_input(group, "../../studentInput/studentai_gen10000.txt");
-                    break;
-                case 7:
-                    file_input(group, "../../studentInput/studentai_gen100000.txt");
-                    break;
-                case 8:
-                    file_input(group, "../../studentInput/studentai_gen1000000.txt");
-                    break;
-                case 9:
-                    file_input(group, "../../studentInput/studentai_gen10000000.txt");
-                    break;
-                default:
-                    cerr << "Neteisingas pasirinkimas!\n";
-                    break;
-        }
+            file_input(group, FILE_PATHS[file_option - 1]);
             break;
         }
         else if(menu_option == 5) //generavimas studentu faile
@@ -129,27 +88,7 @@ void input_method(vector<Students>& group, int& menu_option)
             << "Įveskite pasirinkimą: ";
             
             int amount_option = get_int(1, 5);
-            int student_amount = 0;
-            switch (amount_option)
-            {
-            case 1:
-                student_amount = 1000;
-                break;
-            case 2:
-                student_amount = 10000;
-                break;
-            case 3:
-                student_amount = 100000;
-                break;
-            case 4:
-                student_amount = 1000000;
-                break;
-            case 5:
-                student_amount = 10000000;
-                break;
-            default:
-                break;
-            }
+            int student_amount = STUDENT_COUNTS[amount_option - 1];
             
             //creating the file
             string filename = generate_raw_student_file(student_amount, 7);
@@ -211,8 +150,4 @@ void output_method(vector<Students>& group, int& menu_option,int& output_option)
     }
 }
 
-const vector<string> FILE_PATHS = {
-    "../studentInput/kursiokai.txt",
-    "../studentInput/studentai10000.txt",
-    
-};
+
