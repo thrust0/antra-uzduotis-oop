@@ -320,7 +320,7 @@ void split_students_by_grades(std::vector<Students>& group,std::vector<Students>
 std::string generate_raw_student_file(int student_amount, int grade_amount)
 {
     std::ostringstream filename;
-    filename << "../studentInput/studentai_gen" << student_amount << ".txt";
+    filename << "../../studentInput/studentai_gen" << student_amount << ".txt";
     
     std::ofstream outFile(filename.str());
     
@@ -362,7 +362,7 @@ std::string test_generate_raw_student_file(int student_amount, int grade_amount)
     auto start = std::chrono::high_resolution_clock::now();
 
     std::ostringstream filename;
-    filename << "../studentInput/studentai_gen" << student_amount << ".txt";
+    filename << "../../studentInput/studentai_gen" << student_amount << ".txt";
     
     std::ofstream outFile(filename.str());
     
@@ -419,6 +419,7 @@ void test_data_processing(const std::string& filename)
 
     //split into two files
     auto start_split = std::chrono::high_resolution_clock::now();
+    sort_output(group, 3);
     split_students_by_grades(group, above_five, below_five);
     auto end_split = std::chrono::high_resolution_clock::now();
 

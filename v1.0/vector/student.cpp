@@ -34,13 +34,13 @@ std::vector<std::string> random_name_generator()
 
     if(gender == 0)
     {
-        first_name_file = "../vardai/vyriski-vardai.txt";
-        last_name_file = "../vardai/vyriskos-pavardes.txt";
+        first_name_file = "../../vardai/vyriski-vardai.txt";
+        last_name_file = "../../vardai/vyriskos-pavardes.txt";
     }
     else
     {
-        first_name_file = "../vardai/moteriski-vardai.txt";
-        last_name_file = "../vardai/moteriskos-pavardes.txt";
+        first_name_file = "../../vardai/moteriski-vardai.txt";
+        last_name_file = "../../vardai/moteriskos-pavardes.txt";
     }
 
     

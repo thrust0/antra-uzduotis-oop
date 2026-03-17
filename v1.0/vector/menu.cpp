@@ -63,31 +63,31 @@ void menu(){
             switch (file_option)
             {
                 case 1:
-                    file_input(group, "../studentInput/kursiokai.txt");
+                    file_input(group, "../../studentInput/kursiokai.txt");
                     break;
                 case 2:
-                    file_input(group, "../studentInput/studentai10000.txt");
+                    file_input(group, "../../studentInput/studentai10000.txt");
                     break;
                 case 3:
-                    file_input(group, "../studentInput/studentai100000.txt");
+                    file_input(group, "../../studentInput/studentai100000.txt");
                     break;
                 case 4:
-                    file_input(group, "../studentInput/studentai1000000.txt");
+                    file_input(group, "../../studentInput/studentai1000000.txt");
                     break;
                 case 5:
-                    file_input(group, "../studentInput/studentai_gen1000.txt");
+                    file_input(group, "../../studentInput/studentai_gen1000.txt");
                     break;
                 case 6:
-                    file_input(group, "../studentInput/studentai_gen10000.txt");
+                    file_input(group, "../../studentInput/studentai_gen10000.txt");
                     break;
                 case 7:
-                    file_input(group, "../studentInput/studentai_gen100000.txt");
+                    file_input(group, "../../studentInput/studentai_gen100000.txt");
                     break;
                 case 8:
-                    file_input(group, "../studentInput/studentai_gen1000000.txt");
+                    file_input(group, "../../studentInput/studentai_gen1000000.txt");
                     break;
                 case 9:
-                    file_input(group, "../studentInput/studentai_gen10000000.txt");
+                    file_input(group, "../../studentInput/studentai_gen10000000.txt");
                     break;
                 default:
                     std::cerr << "Neteisingas pasirinkimas!\n";
