@@ -718,7 +718,7 @@ Visi laikai milisekundėmis (ms).
 | Vidurkis | 12.63 | 57.72 | 450.90 | 4748.50 | 52413.4 |
 
 
-Here's a comment section you can add to your README:
+
 
 ```markdown
 ## Rezultatų apžvalga
@@ -770,3 +770,5 @@ atveju rezultatai nėra tokie ryškūs dėl konteinerio struktūros ypatumų.
 | RAM | 16 GB |
 | Saugykla | 512 GB SSD |
 | Operacinė sistema | macOS |
+
+## Testavimo nuotraukos
