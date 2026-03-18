@@ -309,9 +309,9 @@ void split_students_by_grades(deque<Students>& group,deque<Students>& above_five
     for(auto& student : group) //avoid copying with reference
     {
         if(student.result < 5)
-            below_five.push_back(move(student)); //avoiding copying for efficient mem. usage
+            below_five.push_back(std::move(student)); //avoiding copying for efficient mem. usage
         else
-            above_five.push_back(move(student));
+            above_five.push_back(std::move(student));
     }
     group.clear(); //this one now is empty but containers still exist
 }

@@ -19,22 +19,21 @@ int main()
     test_strategy_one(file100k);
     test_strategy_one(file1m);
     test_strategy_one(file10m);
-    */
-
+    
     cout << "Strategy two: \n";
     test_strategy_two(file1k);
     test_strategy_two(file10k);
     test_strategy_two(file100k);
     test_strategy_two(file1m);
     test_strategy_two(file10m);
-
+    */
     cout << "Strategy three: \n";
     test_strategy_three(file1k);
     test_strategy_three(file10k);
     test_strategy_three(file100k);
     test_strategy_three(file1m);
     test_strategy_three(file10m);
-
+    
 }
 
 void test_strategy_one(string filename)
