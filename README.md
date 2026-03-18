@@ -176,6 +176,13 @@ Papildytas funkcionalumas:
 * atliktas konteinerių veikimo spartos tyrimas
 * rezultatai palyginti ir aprašyti README faile
 
+### Pakeitimai pereinant nuo vector prie list
+
+* `std::sort` pakeistas į `list::sort()` — list nepalaiko atsitiktinės prieigos iteratorių
+* `[]` indeksavimas pakeistas į `std::advance` su iteratoriais
+* `std::partition` veikia lėčiau nei su vector dėl susieto sąrašo struktūros
+
+
 ---
 
 # v0.4 Programos veikimo spartos tyrimas
