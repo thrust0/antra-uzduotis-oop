@@ -771,7 +771,19 @@ atveju rezultatai nėra tokie ryškūs dėl konteinerio struktūros ypatumų.
 | Saugykla | 512 GB SSD |
 | Operacinė sistema | macOS |
 
-## Testavimo nuotraukos
+
+## v0.4 Testavimo nuotraukos
+
+![](testavimas/testavimo%20nuotraukos/1testavimas01.png)
+![](testavimas/testavimo%20nuotraukos/1testavimas02.png)
+![](testavimas/testavimo%20nuotraukos/1testavimas03.png)
+![](testavimas/testavimo%20nuotraukos/2tyrimas01.png)
+![](testavimas/testavimo%20nuotraukos/2tyrimas02.png)
+![](testavimas/testavimo%20nuotraukos/2tyrimas03.png)
+![](testavimas/testavimo%20nuotraukos/2tyrimas04.png)
+![](testavimas/testavimo%20nuotraukos/2tyrimas05.png)
+
+## v1.0 Testavimo nuotraukos
 
 ![](testavimas/v1.0%20testavimo%20nuotraukos/Screenshot%202026-03-17%20at%2019.48.19.png)
 ![](testavimas/v1.0%20testavimo%20nuotraukos/Screenshot%202026-03-17%20at%2019.49.32.png)
