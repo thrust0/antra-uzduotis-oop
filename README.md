@@ -182,7 +182,11 @@ Papildytas funkcionalumas:
 * `[]` indeksavimas pakeistas į `std::advance` su iteratoriais
 * `std::partition` veikia lėčiau nei su vector dėl susieto sąrašo struktūros
 
+### Pakeitimai pereinant nuo vector prie deque
 
+* `std::sort`, `[]` indeksavimas ir visi algoritmai veikia taip pat kaip su vector
+* pakeistas tik konteinerio tipas — `vector` → `deque`
+* programos uždarymas su 10m įrašų užtrunka ilgiau dėl deque atminties atlaisvinimo mechanizmo
 ---
 
 # v0.4 Programos veikimo spartos tyrimas
