@@ -178,7 +178,7 @@ Papildytas funkcionalumas:
 
 ---
 
-# Programos veikimo spartos tyrimas
+# v0.4 Programos veikimo spartos tyrimas
 
 Testavimas atliktas naudojant **Release build**.
 
