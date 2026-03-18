@@ -260,6 +260,70 @@ testavimo nuotraukos/
 * Git / GitHub
 
 ---
+# v0.4 tyrimas
+
+```markdown
+## v0.4 Testavimo rezultatai
+
+Visi laikai milisekundėmis (ms).
+
+### 1 tyrimas – Failo sugeneravimo laikas
+
+|                  | 1k  | 10k  | 100k  | 1m    | 10m   |
+|------------------|-----|------|-------|-------|-------|
+| Testavimas nr. 1 | 2   | 25   | 201   | 1982  | 20648 |
+| Testavimas nr. 2 | 2   | 27   | 189   | 1855  | 20223 |
+| Testavimas nr. 3 | 2   | 37   | 203   | 1831  | 19736 |
+| Testavimas nr. 4 | 2   | 28   | 184   | 1871  | 19394 |
+| Testavimas nr. 5 | 6   | 30   | 206   | 1812  | 19495 |
+| Vidurkis         | 2.8 | 29.4 | 196.6 | 1870  | 19899 |
+
+### 2 tyrimas – Duomenų apdorojimas
+
+#### Bendras laikas
+
+|                  | 1k   | 10k  | 100k | 1m   | 10m   |
+|------------------|------|------|------|------|-------|
+| Testavimas nr. 1 | 18   | 68   | 564  | 5336 | 57888 |
+| Testavimas nr. 2 | 24   | 65   | 540  | 5312 | 56940 |
+| Testavimas nr. 3 | 19   | 63   | 527  | 5408 | 56814 |
+| Testavimas nr. 4 | 22   | 61   | 530  | 5306 | 56727 |
+| Testavimas nr. 5 | 21   | 62   | 530  | 5356 | 57201 |
+| Vidurkis         | 20.8 | 63.8 | 538  | 5344 | 57114 |
+
+#### Nuskaitymo laikas
+
+|                  | 1k   | 10k | 100k  | 1m     | 10m   |
+|------------------|------|-----|-------|--------|-------|
+| Testavimas nr. 1 | 12   | 47  | 375   | 3424   | 35626 |
+| Testavimas nr. 2 | 12   | 45  | 350   | 3398   | 35018 |
+| Testavimas nr. 3 | 10   | 43  | 334   | 3451   | 34933 |
+| Testavimas nr. 4 | 10   | 42  | 337   | 3428   | 35024 |
+| Testavimas nr. 5 | 9    | 43  | 338   | 3448   | 35048 |
+| Vidurkis         | 10.6 | 44  | 346.8 | 3429.8 | 35130 |
+
+#### Rūšiavimo laikas
+
+|                  | 1k | 10k | 100k | 1m  | 10m  |
+|------------------|----|-----|------|-----|------|
+| Testavimas nr. 1 | 0  | 2   | 24   | 268 | 3493 |
+| Testavimas nr. 2 | 0  | 2   | 24   | 255 | 3282 |
+| Testavimas nr. 3 | 0  | 2   | 23   | 256 | 3235 |
+| Testavimas nr. 4 | 0  | 2   | 24   | 256 | 3291 |
+| Testavimas nr. 5 | 0  | 2   | 25   | 259 | 3181 |
+| Vidurkis         | 0  | 2   | 24   | 259 | 3296 |
+
+#### Išvedimo laikas
+
+|                  | 1k | 10k  | 100k  | 1m   | 10m   |
+|------------------|----|------|-------|------|-------|
+| Testavimas nr. 1 | 5  | 18   | 165   | 1643 | 18767 |
+| Testavimas nr. 2 | 11 | 17   | 166   | 1657 | 18639 |
+| Testavimas nr. 3 | 8  | 17   | 168   | 1699 | 18645 |
+| Testavimas nr. 4 | 11 | 16   | 167   | 1621 | 18411 |
+| Testavimas nr. 5 | 10 | 16   | 166   | 1648 | 18971 |
+| Vidurkis         | 9  | 16.8 | 166.4 | 1657 | 18687 |
+```
 
 # v1.0 Tyrimas
 
