@@ -387,9 +387,6 @@ Visi laikai milisekundėmis (ms).
 | Vidurkis | 12.2 | 52  | 364  | 3745 | 38196 |
 
 
-
-Here are the tables for Vector Strategy 2 and Strategy 3:
-
 ---
 
 ## Vector - 2 Strategija
@@ -640,8 +637,6 @@ Visi laikai milisekundėmis (ms).
 | Vidurkis | 12.55 | 57.74 | 453.44 | 5059.32 | 70588.2 |
 
 
-Here are all the tables for List:
-
 ---
 
 ## List - 1 Strategija
@@ -793,7 +788,19 @@ Visi laikai milisekundėmis (ms).
 | Vidurkis | 12.63 | 57.72 | 450.90 | 4748.50 | 52413.4 |
 
 
+## Bendro laiko palyginimas (vidurkiai ms.)
 
+| Konteineris | Strategija | 1k    | 10k   | 100k   | 1m      | 10m     |
+|-------------|------------|-------|-------|--------|---------|---------|
+| Vector      | 1          | 12.20 | 52.00 | 364.00 | 3745.00 | 38196.0 |
+| Vector      | 2          | 10.70 | 51.52 | 363.98 | 3771.31 | 38840.9 |
+| Vector      | 3          | 5.10  | 43.47 | 372.36 | 3731.69 | 37713.6 |
+| List        | 1          | 13.88 | 58.23 | 437.21 | 4818.31 | 53756.9 |
+| List        | 2          | 11.70 | 57.49 | 461.04 | 5039.63 | 55050.3 |
+| List        | 3          | 12.63 | 57.72 | 450.90 | 4748.50 | 52413.4 |
+| Deque       | 1          | 12.29 | 55.66 | 429.28 | 4524.71 | 57677.8 |
+| Deque       | 2          | 12.32 | 57.11 | 455.43 | 5043.67 | 91197.6 |
+| Deque       | 3          | 12.55 | 57.74 | 453.44 | 5059.32 | 70588.2 |
 
 ```markdown
 ## Rezultatų apžvalga
@@ -802,7 +809,7 @@ Visi laikai milisekundėmis (ms).
 
 Iš gautų rezultatų matoma, kad **vector** konteineris yra greičiausias beveik visose operacijose.
 Tai lemia jo vientisos atminties struktūra - visi elementai saugomi gretimose atminties vietose,
-todėl procesorius gali efektyviai naudoti talpyklą (cache).
+todėl procesorius gali efektyviai naudoti cache.
 
 **List** konteineris rodo vidutinį našumą. Nuskaitymas ir rūšiavimas yra lėtesni nei vector,
 tačiau spartesni nei deque. List naudoja susieto sąrašo struktūrą - kiekvienas elementas
