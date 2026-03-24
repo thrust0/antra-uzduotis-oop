@@ -19,6 +19,6 @@ const vector<string> FILE_PATHS = {
 //functions
 void intro_text(); //message for user intro options
 void input_method(vector<Students>& group, int& menu_option); //input option 1-6
-void sort_method(vector<Students>& group, int& sort_option);
+void sort_method(vector<Students>& group, vector<Students>& below_five, vector<Students>& above_five, int& sort_option, int& split_option);
 void output_method(vector<Students>& group, int& menu_option,int& output_option);
 void menu(); //main menu declaration

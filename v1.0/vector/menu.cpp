@@ -3,9 +3,13 @@
 void menu(){
     srand(time(0));
     vector<Students>group;
+    vector<Students> above_five;
+    vector<Students> below_five;
+
     int menu_option = 0;
     int sort_option = 0;
     int output_option = 0;
+    int split_option = 0;
 
     //empty lines to creat up the terminal lil bit
     for(int i = 0; i<6; i++) cout << endl;
@@ -21,7 +25,7 @@ void menu(){
     print_line();
 
     //choose how to sort the students
-    sort_method(group, sort_option);
+    sort_method(group, below_five, above_five, sort_option, split_option);
     print_line();
 
     //choose where to ouput 1 terminal 2 txt file 3 two txt files
@@ -109,12 +113,35 @@ void input_method(vector<Students>& group, int& menu_option)
     }
 }
 
-void sort_method(vector<Students>& group, int& sort_option)
+void sort_method(vector<Students>& group, vector<Students>& below_five, vector<Students>& above_five, int& sort_option, int& split_option)
 {
     cout << "Pasirinkite kaip norite, kad studentai būtu išrušiuoti:\n\t'1'Pagal vardą\n\t'2'Pagal pavardę\n\t'3'Pagal vidurkį\n\t'4'Pagal medianą\n";
     cout << "Įveskite pasirinkimą: ";
     sort_option = get_int(1,4);
-    sort_output(group, sort_option);
+
+    cout << "Pasirinkite, su kokia strategija norite atskirti studentus: "
+    << "\n\t1. Pirma strategija"
+    << "\n\t2. Antra strategija"
+    << "\n\t3. Trečia strategija\n"
+    << "Įveskite pasirinkimą: ";
+    split_option = get_int(1, 3);
+
+    if(split_option == 1)
+    {
+        sort_output(group, sort_option);
+        split_students_by_grades(group, above_five, below_five);
+    }
+    else if (split_option == 2)
+    {
+        sort_output(group, sort_option);
+        split_strategy_two(group, below_five);
+    }
+    else
+    {
+        split_strategy_three(group, below_five);
+        sort_output(group, sort_option);
+        sort_output(below_five, sort_option);
+    }
 }
 
 void output_method(vector<Students>& group, int& menu_option,int& output_option)
@@ -149,5 +176,3 @@ void output_method(vector<Students>& group, int& menu_option,int& output_option)
         return;
     }
 }
-
-
