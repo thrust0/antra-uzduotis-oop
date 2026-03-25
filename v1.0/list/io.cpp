@@ -317,14 +317,18 @@ void split_students_by_grades(list<Students>& group,list<Students>& above_five, 
 
 void split_strategy_two(list<Students>& group, list<Students>& below_five)
 {
-    for(const auto& student : group)
+    auto it = group.begin();
+    
+    while(it != group.end())
     {
-        if(student.result < 5)
-            below_five.push_back(student);
+        if(it->result < 5)
+        {
+            below_five.push_back(*it);
+            it = group.erase(it);
+            //su pop back reikia ir atkopijuoti elementa ir patikrint ar jis nera .group
+        }
+        it++;
     }
-
-    group.erase(std::remove_if(group.begin(), group.end(),
-        [](const Students& s) { return s.result < 5;}), group.end());
 }
 
 void split_strategy_three(list<Students> & group, list<Students>& below_five)

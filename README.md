@@ -37,18 +37,32 @@ Programa leidžia:
   * į vieną failą
   * į du atskirus failus pagal studentų kategoriją
 
+Here's an updated installation section:
+
 ---
 
 ## Įdiegimo instrukcija
 
 ### Reikalavimai
-- C++17 arba naujesnė versija
-- g++ kompiliatorius
-- make
 
-### Kompiliavimas
+* [G++ kompiliatorius (C++17)](https://gcc.gnu.org/) 
+* make (Mac/Linux)
 
-Pasirinkite norimą konteinerio versiją ir eikite į atitinkamą aplanką:
+### Įdiegimas pagal operacinę sistemą
+
+#### Mac / Linux
+
+1. Įsitikinkite, kad turite g++ kompiliatorių:
+```bash
+g++ --version
+```
+
+2. Jei neturite, įdiekite per Homebrew (Mac):
+```bash
+brew install gcc
+```
+
+3. Eikite į norimą konteinerio aplanką ir sukompiliuokite:
 ```bash
 # Vector versija
 cd v1.0/vector
@@ -63,17 +77,33 @@ cd v1.0/deque
 make main
 ```
 
-## Naudojimosi instrukcija
+#### Windows
 
-### Programos paleidimas
+Windows sistemoje `make` nėra palaikomas pagal nutylėjimą. Rekomenduojama naudoti vieną iš šių sprendimų:
+
+* [MinGW](https://www.mingw-w64.org/) — leidžia naudoti g++ ir make Windows sistemoje
+* [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) — Linux aplinka Windows sistemoje
+
+Įdiegus MinGW arba WSL, kompiliavimas atliekamas taip pat kaip Mac/Linux.
+
+Arba kompiliuoti rankiniu būdu:
+```bash
+g++ -std=c++17 -Wall -Wextra student.cpp io.cpp menu.cpp main.cpp -o main
+```
+
+### Paleidimas
+
 ```bash
 ./main
 ```
 
 ### Testavimo paleidimas
+
 ```bash
 ./test
 ```
+```
+
 ---
 # Projekto versijos
 

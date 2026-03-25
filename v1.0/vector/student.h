@@ -15,6 +15,7 @@
 #include <chrono>
 #include <stdexcept>
 #include <filesystem>
+#include <utility>
 
 using std::vector;
 using std::string;
@@ -42,7 +43,7 @@ using std::move;
 
 struct Students 
 {
-    string first_name = "A", last_name = "BB";
+    string first_name , last_name;
     // dynamic container for homework/semester grades
     vector <int> grade;
     // single exam score

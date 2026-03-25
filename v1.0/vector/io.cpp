@@ -323,6 +323,7 @@ void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
         if(group[i].result < 5)
         {
             below_five.push_back(group[i]);
+            std::swap(group[i], group.back());
             group.pop_back();
         }
     }

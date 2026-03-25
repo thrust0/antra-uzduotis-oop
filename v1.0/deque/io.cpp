@@ -318,14 +318,15 @@ void split_students_by_grades(deque<Students>& group,deque<Students>& above_five
 
 void split_strategy_two(deque<Students>& group, deque<Students>& below_five)
 {
-    for(const auto& student : group)
+        for(int i = group.size() - 1; i >= 0; i--)
     {
-        if(student.result < 5)
-            below_five.push_back(student);
+        if(group[i].result < 5)
+        {
+            below_five.push_back(group[i]);
+            std::swap(group[i], group.back());
+            group.pop_back();
+        }
     }
-
-    group.erase(std::remove_if(group.begin(), group.end(),
-        [](const Students& s) { return s.result < 5;}), group.end());
 }
 
 void split_strategy_three(deque<Students> & group, deque<Students>& below_five)

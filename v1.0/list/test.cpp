@@ -12,15 +12,15 @@ int main()
     string file1m = "../../studentInput/studentai_gen1000000.txt";
     string file10m = "../../studentInput/studentai_gen10000000.txt";
     cout << "List: \n";
-    
+    /*
     cout << "Strategy one: \n";
     test_strategy_one(file1k);
     test_strategy_one(file10k);
     test_strategy_one(file100k);
     test_strategy_one(file1m);
     test_strategy_one(file10m);
+    */
     
-    /*
     cout << "Strategy two: \n";
     test_strategy_two(file1k);
     test_strategy_two(file10k);
@@ -28,7 +28,7 @@ int main()
     test_strategy_two(file1m);
     test_strategy_two(file10m);
     
-
+    /**
     cout << "Strategy three: \n";
     test_strategy_three(file1k);
     test_strategy_three(file10k);

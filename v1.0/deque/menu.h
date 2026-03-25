@@ -19,6 +19,6 @@ const deque<string> FILE_PATHS = {
 //functions
 void intro_text(); //message for user intro options
 void input_method(deque<Students>& group, int& menu_option); //input option 1-6
-void sort_method(deque<Students>& group, int& sort_option);
+void sort_method(deque<Students>& group, deque<Students>& below_five, deque<Students>& above_five, int& sort_option, int& split_option);
 void output_method(deque<Students>& group, int& menu_option,int& output_option);
 void menu(); //main menu declaration
