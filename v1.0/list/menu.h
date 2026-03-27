@@ -19,6 +19,6 @@ const list<string> FILE_PATHS = {
 //functions
 void intro_text(); //message for user intro options
 void input_method(list<Students>& group, int& menu_option); //input option 1-6
-void sort_method(list<Students>& group, int& sort_option);
-void output_method(list<Students>& group, int& menu_option,int& output_option);
+void sort_method(list<Students>& group, list<Students>& below_five, list<Students>& above_five, int& sort_option, int& split_option);
+void output_method(list<Students>& group, list<Students>& above_five, list<Students>& below_five, int& menu_option,int& output_option, int& split_option);
 void menu(); //main menu declaration

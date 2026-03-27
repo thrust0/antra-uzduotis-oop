@@ -29,7 +29,7 @@ void menu(){
     print_line();
 
     //choose where to ouput 1 terminal 2 txt file 3 two txt files
-    output_method(group, menu_option, output_option);
+    output_method(group,above_five, below_five, menu_option, output_option, split_option);
 }
 
 void intro_text()
@@ -144,7 +144,7 @@ void sort_method(vector<Students>& group, vector<Students>& below_five, vector<S
     }
 }
 
-void output_method(vector<Students>& group, int& menu_option,int& output_option)
+void output_method(vector<Students>& group, vector<Students>& above_five, vector<Students>& below_five, int& menu_option,int& output_option, int& split_option)
 {
     cout << "Pasirinkite kur norite, kad duomenys būtu išvesti:\n\t'1'Terminale\n\t'2'Teksto faile\n\t'3'Į du atskirus failus\nĮveskite pasirinkimą: ";
     output_option = get_int(1,3);
@@ -164,15 +164,19 @@ void output_method(vector<Students>& group, int& menu_option,int& output_option)
         file_output(group, "../../studentOutput/StudentOutput.txt");
         return;
     }
-    else //v0.4 i 2 atskirus filus output
+    else//v0.4 i 2 atskirus filus output
     {
-        vector<Students>above_five_students;
-        vector<Students>below_five_students;
+        if(split_option == 1)
+        {
+            file_output(above_five, "../../studentOutput/kietiakai.txt");
+            file_output(below_five, "../../studentOutput/vargsiukai.txt");
+        }
+        else
+        {
+            file_output(group, "../../studentOutput/kietiakai.txt");
+            file_output(below_five, "../../studentOutput/vargsiukai.txt");
+        }
 
-        split_students_by_grades(group, above_five_students, below_five_students);
-
-        file_output(above_five_students, "../../studentOutput/kietiakai.txt");
-        file_output(below_five_students, "../../studentOutput/vargsiukai.txt");
         return;
     }
 }

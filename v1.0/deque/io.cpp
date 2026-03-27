@@ -322,7 +322,7 @@ void split_strategy_two(deque<Students>& group, deque<Students>& below_five)
     {
         if(group[i].result < 5)
         {
-            below_five.push_back(group[i]);
+            below_five.push_front(group[i]);
             std::swap(group[i], group.back());
             group.pop_back();
         }

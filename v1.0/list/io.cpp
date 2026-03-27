@@ -324,10 +324,12 @@ void split_strategy_two(list<Students>& group, list<Students>& below_five)
         if(it->result < 5)
         {
             below_five.push_back(*it);
-            it = group.erase(it);
-            //su pop back reikia ir atkopijuoti elementa ir patikrint ar jis nera .group
+            it = group.erase(it); // erase returns next iterator, no need to increment
         }
-        it++;
+        else
+        {
+            it++; // only increment if we didn't erase
+        }
     }
 }
 

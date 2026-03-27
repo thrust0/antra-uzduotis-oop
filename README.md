@@ -102,7 +102,7 @@ g++ -std=c++17 -Wall -Wextra student.cpp io.cpp menu.cpp main.cpp -o main
 ```bash
 ./test
 ```
-```
+
 
 ---
 # Projekto versijos
@@ -280,7 +280,6 @@ testavimo nuotraukos/
 
 ```
 .
-├── v0.4/              # v0.4 programos šaltinio kodas
 ├── v1.0/
 │   ├── vector/        # vector konteinerio versija
 │   ├── list/          # list konteinerio versija
@@ -303,7 +302,7 @@ testavimo nuotraukos/
 ---
 # v0.4 tyrimas
 
-```markdown
+
 ## v0.4 Testavimo rezultatai
 
 Visi laikai milisekundėmis (ms).
@@ -364,7 +363,7 @@ Visi laikai milisekundėmis (ms).
 | Testavimas nr. 4 | 11 | 16   | 167   | 1621 | 18411 |
 | Testavimas nr. 5 | 10 | 16   | 166   | 1648 | 18971 |
 | Vidurkis         | 9  | 16.8 | 166.4 | 1657 | 18687 |
-```
+
 
 # v1.0 Tyrimas
 
@@ -419,7 +418,9 @@ Visi laikai milisekundėmis (ms).
 
 ---
 
-## Vector - 2 Strategija
+
+
+## Vector - 2 Strategija (atnaujinta, 6 testai)
 
 Visi laikai milisekundėmis (ms).
 
@@ -427,47 +428,52 @@ Visi laikai milisekundėmis (ms).
 
 |          | 1k    | 10k   | 100k   | 1m      | 10m     |
 |----------|-------|-------|--------|---------|---------|
-| Test 1   | 9.08  | 47.88 | 333.04 | 3435.34 | 34809.7 |
-| Test 2   | 9.76  | 47.35 | 333.95 | 3431.25 | 34656.3 |
-| Test 3   | 7.18  | 41.93 | 331.39 | 3429.52 | 34860.4 |
-| Test 4   | 10.21 | 48.04 | 327.44 | 3410.6  | 34994.2 |
-| Test 5   | 11.94 | 52.82 | 327.81 | 3413.66 | 35183.2 |
-| Vidurkis | 9.63  | 47.60 | 330.73 | 3424.07 | 34900.8 |
+| Test 1   | 12.08 | 49.42 | 327.47 | 3335.34 | 35857.6 |
+| Test 2   | 10.68 | 47.22 | 325.83 | 3379.08 | 35245.0 |
+| Test 3   | 9.22  | 46.52 | 332.59 | 3427.78 | 35195.5 |
+| Test 4   | 9.60  | 46.79 | 333.95 | 3411.56 | 35097.9 |
+| Test 5   | 12.57 | 49.64 | 327.03 | 3390.83 | 34781.7 |
+| Test 6   | 9.13  | 46.44 | 332.10 | 3398.09 | 34757.3 |
+| Vidurkis | 10.55 | 47.67 | 329.83 | 3390.45 | 35155.8 |
 
 ### Rūšiavimas
 
-|          | 1k    | 10k   | 100k  | 1m     | 10m    |
-|----------|-------|-------|-------|--------|--------|
-| Test 1   | 0.604 | 2.548 | 22.09 | 220.11 | 2234.45 |
-| Test 2   | 0.663 | 2.588 | 22.03 | 221.42 | 2236.67 |
-| Test 3   | 0.759 | 2.443 | 21.80 | 220.87 | 2228.63 |
-| Test 4   | 0.995 | 2.558 | 21.64 | 218.37 | 2283.25 |
-| Test 5   | 0.815 | 2.642 | 21.62 | 219.06 | 2378.28 |
-| Vidurkis | 0.767 | 2.556 | 21.84 | 219.96 | 2272.26 |
+|          | 1k    | 10k   | 100k  | 1m     | 10m     |
+|----------|-------|-------|-------|--------|---------|
+| Test 1   | 0.893 | 2.694 | 21.75 | 222.55 | 2471.16 |
+| Test 2   | 0.947 | 2.563 | 21.71 | 221.49 | 2443.88 |
+| Test 3   | 0.603 | 2.540 | 22.30 | 221.56 | 2488.62 |
+| Test 4   | 0.654 | 2.542 | 22.50 | 228.83 | 2464.65 |
+| Test 5   | 1.035 | 2.654 | 21.52 | 223.37 | 2421.12 |
+| Test 6   | 0.601 | 2.535 | 22.34 | 222.67 | 2448.98 |
+| Vidurkis | 0.789 | 2.588 | 22.02 | 223.41 | 2456.40 |
 
 ### Skaidymas
 
-|          | 1k    | 10k   | 100k  | 1m     | 10m    |
-|----------|-------|-------|-------|--------|--------|
-| Test 1   | 0.246 | 1.285 | 11.43 | 127.93 | 1613.4 |
-| Test 2   | 0.242 | 1.267 | 11.37 | 127.38 | 1561.66 |
-| Test 3   | 0.299 | 1.219 | 11.61 | 127.09 | 1736.61 |
-| Test 4   | 0.362 | 1.271 | 11.18 | 125.36 | 1680.96 |
-| Test 5   | 0.316 | 1.379 | 11.50 | 128.59 | 1746.94 |
-| Vidurkis | 0.293 | 1.284 | 11.42 | 127.27 | 1667.91 |
+|          | 1k    | 10k   | 100k  | 1m     | 10m     |
+|----------|-------|-------|-------|--------|---------|
+| Test 1   | 0.259 | 1.967 | 16.83 | 174.46 | 1958.13 |
+| Test 2   | 0.332 | 1.914 | 17.12 | 175.50 | 2030.12 |
+| Test 3   | 0.317 | 1.858 | 17.37 | 180.30 | 2014.83 |
+| Test 4   | 0.339 | 1.910 | 17.49 | 181.10 | 2022.04 |
+| Test 5   | 0.460 | 1.983 | 17.05 | 176.69 | 1922.71 |
+| Test 6   | 0.317 | 1.891 | 17.91 | 178.45 | 2081.43 |
+| Vidurkis | 0.337 | 1.921 | 17.30 | 177.75 | 2004.88 |
 
 ### Bendras laikas
 
 |          | 1k    | 10k   | 100k   | 1m      | 10m     |
 |----------|-------|-------|--------|---------|---------|
-| Test 1   | 9.93  | 51.71 | 366.56 | 3783.38 | 38657.6 |
-| Test 2   | 10.67 | 51.59 | 367.35 | 3780.05 | 38454.6 |
-| Test 3   | 8.24  | 45.59 | 364.79 | 3777.47 | 38825.7 |
-| Test 4   | 11.57 | 51.87 | 360.26 | 3754.32 | 38958.4 |
-| Test 5   | 13.07 | 56.84 | 360.93 | 3761.31 | 39308.4 |
-| Vidurkis | 10.70 | 51.52 | 363.98 | 3771.31 | 38840.9 |
+| Test 1   | 13.23 | 54.08 | 366.05 | 3732.35 | 40286.8 |
+| Test 2   | 11.96 | 51.70 | 364.66 | 3776.07 | 39719.0 |
+| Test 3   | 10.13 | 50.92 | 372.25 | 3829.65 | 39699.0 |
+| Test 4   | 10.60 | 51.25 | 373.95 | 3821.49 | 39584.6 |
+| Test 5   | 14.06 | 54.28 | 365.61 | 3790.89 | 39125.5 |
+| Test 6   | 10.05 | 50.87 | 372.35 | 3799.22 | 39287.7 |
+| Vidurkis | 11.67 | 52.18 | 369.15 | 3791.61 | 39617.1 |
 
 ---
+
 
 ## Vector - 3 Strategija
 
@@ -568,7 +574,8 @@ Visi laikai milisekundėmis (ms).
 
 ---
 
-## Deque - 2 Strategija
+```markdown
+## Deque - 2 Strategija (atnaujinta)
 
 Visi laikai milisekundėmis (ms).
 
@@ -576,47 +583,46 @@ Visi laikai milisekundėmis (ms).
 
 |          | 1k    | 10k   | 100k   | 1m      | 10m     |
 |----------|-------|-------|--------|---------|---------|
-| Test 1   | 8.02  | 46.96 | 377.99 | 3783.29 | 44064.0 |
-| Test 2   | 9.91  | 48.31 | 374.73 | 3788.55 | 44364.3 |
-| Test 3   | 10.80 | 48.08 | 372.40 | 3753.27 | 44391.1 |
-| Test 4   | 9.20  | 48.61 | 374.30 | 3755.75 | 44617.1 |
-| Test 5   | 13.66 | 50.66 | 371.98 | 3773.06 | 44409.1 |
-| Vidurkis | 10.32 | 48.52 | 374.28 | 3770.78 | 44369.1 |
+| Test 1   | 11.60 | 49.89 | 383.31 | 4385.35 | 44636.3 |
+| Test 2   | 9.25  | 47.10 | 372.39 | 3764.18 | 45237.2 |
+| Test 3   | 10.65 | 73.99 | 374.13 | 3817.78 | 44441.0 |
+| Test 4   | 10.44 | 48.09 | 372.21 | 3809.94 | 45328.7 |
+| Test 5   | 9.36  | 47.83 | 374.99 | 3767.63 | 44741.5 |
+| Vidurkis | 10.26 | 53.38 | 375.41 | 3908.98 | 44876.9 |
 
 ### Rūšiavimas
 
 |          | 1k   | 10k  | 100k  | 1m     | 10m    |
 |----------|------|------|-------|--------|--------|
-| Test 1   | 1.25 | 5.30 | 48.52 | 480.73 | 5109.05 |
-| Test 2   | 1.47 | 5.39 | 50.37 | 544.66 | 7433.60 |
-| Test 3   | 1.41 | 5.37 | 48.74 | 487.15 | 5226.02 |
-| Test 4   | 1.32 | 5.40 | 48.55 | 481.96 | 5114.59 |
-| Test 5   | 2.20 | 5.69 | 48.71 | 489.08 | 5356.94 |
-| Vidurkis | 1.53 | 5.43 | 48.98 | 496.71 | 5648.04 |
+| Test 1   | 2.06 | 5.86 | 48.23 | 614.52 | 7732.58 |
+| Test 2   | 1.26 | 5.42 | 49.44 | 504.20 | 7858.98 |
+| Test 3   | 1.72 | 5.40 | 48.62 | 479.06 | 5053.31 |
+| Test 4   | 1.40 | 5.42 | 49.29 | 534.95 | 7768.81 |
+| Test 5   | 1.40 | 5.38 | 48.50 | 480.01 | 5102.92 |
+| Vidurkis | 1.57 | 5.50 | 48.82 | 522.55 | 6703.32 |
 
 ### Skaidymas
 
 |          | 1k    | 10k  | 100k  | 1m      | 10m     |
 |----------|-------|------|-------|---------|---------|
-| Test 1   | 0.422 | 2.86 | 29.79 | 533.31  | 43181.2 |
-| Test 2   | 0.471 | 3.02 | 34.61 | 927.12  | 40675.2 |
-| Test 3   | 0.415 | 2.95 | 29.84 | 664.85  | 41843.3 |
-| Test 4   | 0.454 | 2.89 | 29.40 | 645.97  | 40382.7 |
-| Test 5   | 0.623 | 4.00 | 37.26 | 1109.63 | 39820.1 |
-| Vidurkis | 0.477 | 3.14 | 32.18 | 776.18  | 41180.5 |
+| Test 1   | 1.041 | 3.64 | 43.55 | 1461.46 | 22516.4 |
+| Test 2   | 0.457 | 3.24 | 34.63 | 416.03  | 22718.4 |
+| Test 3   | 0.534 | 2.87 | 30.64 | 402.08  | 21202.8 |
+| Test 4   | 0.517 | 3.11 | 30.85 | 642.73  | 22625.0 |
+| Test 5   | 0.517 | 3.37 | 30.22 | 400.48  | 21126.1 |
+| Vidurkis | 0.613 | 3.25 | 33.98 | 664.56  | 22037.7 |
 
 ### Bendras laikas
 
 |          | 1k    | 10k   | 100k   | 1m      | 10m     |
 |----------|-------|-------|--------|---------|---------|
-| Test 1   | 9.69  | 54.35 | 456.29 | 4797.33 | 92354.2 |
-| Test 2   | 11.84 | 57.24 | 459.72 | 5260.32 | 92473.0 |
-| Test 3   | 12.63 | 56.40 | 450.97 | 4905.27 | 91460.4 |
-| Test 4   | 10.98 | 56.89 | 452.25 | 4883.68 | 90114.4 |
-| Test 5   | 16.48 | 60.66 | 457.94 | 5371.76 | 89586.1 |
-| Vidurkis | 12.32 | 57.11 | 455.43 | 5043.67 | 91197.6 |
-
----
+| Test 1   | 14.70 | 59.39 | 475.08 | 6461.33 | 74885.2 |
+| Test 2   | 10.97 | 55.76 | 456.46 | 4684.41 | 75814.6 |
+| Test 3   | 12.91 | 82.26 | 453.39 | 4698.93 | 70697.1 |
+| Test 4   | 12.36 | 57.39 | 452.35 | 4987.62 | 75722.5 |
+| Test 5   | 11.28 | 56.58 | 453.71 | 4648.12 | 70970.5 |
+| Vidurkis | 12.44 | 62.28 | 458.20 | 5096.08 | 73617.9 |
+```
 
 ## Deque - 3 Strategija
 
@@ -727,47 +733,45 @@ Visi laikai milisekundėmis (ms).
 
 |          | 1k    | 10k   | 100k   | 1m      | 10m     |
 |----------|-------|-------|--------|---------|---------|
-| Test 1   | 13.83 | 55.66 | 391.55 | 4034.63 | 41048.5 |
-| Test 2   | 11.30 | 52.48 | 394.49 | 4012.59 | 40770.5 |
-| Test 3   | 8.63  | 50.25 | 397.68 | 4063.25 | 41077.2 |
-| Test 4   | 10.28 | 52.17 | 398.84 | 4019.53 | 40599.0 |
-| Test 5   | 9.96  | 51.72 | 400.49 | 4067.01 | 40603.4 |
-| Vidurkis | 10.80 | 52.46 | 396.61 | 4039.40 | 40819.7 |
+| Test 1   | 14.24 | 55.20 | 390.15 | 4015.58 | 40874.2 |
+| Test 2   | 10.79 | 52.93 | 383.62 | 3963.16 | 41192.1 |
+| Test 3   | 10.48 | 52.57 | 389.42 | 3996.42 | 40633.9 |
+| Test 4   | 11.01 | 52.15 | 390.66 | 4013.23 | 40909.1 |
+| Test 5   | 11.24 | 52.57 | 383.62 | 3963.16 | 41192.1 |
+| Vidurkis | 11.55 | 53.08 | 387.49 | 3990.31 | 40960.3 |
 
 ### Rūšiavimas
 
 |          | 1k    | 10k  | 100k  | 1m     | 10m    |
 |----------|-------|------|-------|--------|--------|
-| Test 1   | 0.490 | 2.52 | 28.50 | 508.47 | 8908.93 |
-| Test 2   | 0.409 | 2.36 | 28.36 | 498.39 | 8518.52 |
-| Test 3   | 0.318 | 2.36 | 28.33 | 604.80 | 8911.66 |
-| Test 4   | 0.354 | 2.41 | 28.64 | 510.96 | 8451.63 |
-| Test 5   | 0.358 | 2.41 | 30.38 | 515.69 | 8736.89 |
-| Vidurkis | 0.386 | 2.41 | 28.84 | 527.66 | 8705.53 |
+| Test 1   | 0.682 | 2.56 | 30.54 | 505.98 | 9010.43 |
+| Test 2   | 0.375 | 2.73 | 28.30 | 568.12 | 8710.90 |
+| Test 3   | 0.362 | 2.40 | 28.06 | 491.59 | 8624.25 |
+| Test 4   | 0.363 | 2.46 | 28.70 | 506.72 | 8952.23 |
+| Test 5   | 0.364 | 2.46 | 28.70 | 506.72 | 8952.23 |
+| Vidurkis | 0.429 | 2.52 | 28.86 | 515.82 | 8850.01 |
 
 ### Skaidymas
 
 |          | 1k    | 10k  | 100k  | 1m     | 10m    |
 |----------|-------|------|-------|--------|--------|
-| Test 1   | 0.618 | 2.62 | 35.89 | 454.69 | 5415.44 |
-| Test 2   | 0.522 | 2.68 | 34.89 | 457.92 | 5807.53 |
-| Test 3   | 0.408 | 2.64 | 35.84 | 482.14 | 5682.79 |
-| Test 4   | 0.447 | 2.61 | 35.68 | 497.30 | 5262.39 |
-| Test 5   | 0.445 | 2.74 | 35.14 | 470.82 | 5457.35 |
-| Vidurkis | 0.488 | 2.66 | 35.49 | 472.57 | 5525.10 |
+| Test 1   | 0.356 | 2.68 | 16.22 | 213.01 | 4269.70 |
+| Test 2   | 0.245 | 2.63 | 16.17 | 217.63 | 4229.54 |
+| Test 3   | 0.250 | 2.61 | 16.12 | 209.80 | 4472.93 |
+| Test 4   | 0.244 | 2.70 | 15.96 | 212.13 | 4187.75 |
+| Test 5   | 0.244 | 2.70 | 15.96 | 212.13 | 4187.75 |
+| Vidurkis | 0.268 | 2.67 | 16.09 | 212.94 | 4269.53 |
 
 ### Bendras laikas
 
 |          | 1k    | 10k   | 100k   | 1m      | 10m     |
 |----------|-------|-------|--------|---------|---------|
-| Test 1   | 15.09 | 60.81 | 455.93 | 4997.78 | 55372.9 |
-| Test 2   | 12.23 | 57.52 | 457.73 | 4968.90 | 55096.6 |
-| Test 3   | 9.36  | 55.25 | 462.35 | 5150.19 | 55671.6 |
-| Test 4   | 11.08 | 57.20 | 463.16 | 5027.79 | 54313.0 |
-| Test 5   | 10.76 | 56.87 | 466.01 | 5053.51 | 54797.6 |
-| Vidurkis | 11.70 | 57.49 | 461.04 | 5039.63 | 55050.3 |
-
----
+| Test 1   | 15.28 | 60.45 | 436.92 | 4734.56 | 54154.3 |
+| Test 2   | 11.41 | 58.29 | 428.09 | 4748.91 | 54132.5 |
+| Test 3   | 11.10 | 57.58 | 433.60 | 4697.81 | 53731.1 |
+| Test 4   | 11.62 | 57.31 | 435.33 | 4732.07 | 54049.1 |
+| Test 5   | 11.85 | 57.31 | 435.33 | 4732.07 | 54049.1 |
+| Vidurkis | 12.25 | 58.19 | 433.85 | 4728.88 | 54023.2 |
 
 ## List - 3 Strategija
 
@@ -823,55 +827,62 @@ Visi laikai milisekundėmis (ms).
 | Konteineris | Strategija | 1k    | 10k   | 100k   | 1m      | 10m     |
 |-------------|------------|-------|-------|--------|---------|---------|
 | Vector      | 1          | 12.20 | 52.00 | 364.00 | 3745.00 | 38196.0 |
-| Vector      | 2          | 10.70 | 51.52 | 363.98 | 3771.31 | 38840.9 |
+| Vector      | 2          | 11.67 | 52.18 | 369.15 | 3791.61 | 39617.1 |
 | Vector      | 3          | 5.10  | 43.47 | 372.36 | 3731.69 | 37713.6 |
 | List        | 1          | 13.88 | 58.23 | 437.21 | 4818.31 | 53756.9 |
-| List        | 2          | 11.70 | 57.49 | 461.04 | 5039.63 | 55050.3 |
+| List        | 2          | 12.25 | 58.19 | 433.85 | 4728.88 | 54023.2 |
 | List        | 3          | 12.63 | 57.72 | 450.90 | 4748.50 | 52413.4 |
 | Deque       | 1          | 12.29 | 55.66 | 429.28 | 4524.71 | 57677.8 |
-| Deque       | 2          | 12.32 | 57.11 | 455.43 | 5043.67 | 91197.6 |
+| Deque       | 2          | 12.44 | 62.28 | 458.20 | 5096.08 | 73617.9 |
 | Deque       | 3          | 12.55 | 57.74 | 453.44 | 5059.32 | 70588.2 |
 
-```markdown
 ## Rezultatų apžvalga
 
 ### Konteinerių palyginimas
 
-Iš gautų rezultatų matoma, kad **vector** konteineris yra greičiausias beveik visose operacijose.
-Tai lemia jo vientisos atminties struktūra - visi elementai saugomi gretimose atminties vietose,
-todėl procesorius gali efektyviai naudoti cache.
+Iš gautų rezultatų matoma, kad **vector** konteineris yra greičiausias visose operacijose.
+Tai lemia jo vientisos atminties struktūra — visi elementai saugomi gretimose atminties
+vietose, todėl procesorius gali efektyviai naudoti talpyklą (cache). Su 10 milijonų įrašų
+vector bendras laikas siekė ~38 sekundes, o tai yra gerokai greičiau nei list (~53s) ar deque (~58-74s).
 
-**List** konteineris rodo vidutinį našumą. Nuskaitymas ir rūšiavimas yra lėtesni nei vector,
-tačiau spartesni nei deque. List naudoja susieto sąrašo struktūrą - kiekvienas elementas
-saugo rodyklę į kitą elementą, todėl atminties prieiga yra netiesiogine ir lėtesnė.
-Tačiau list turi savų privalumų - efektyvus elementų įterpimas ir trynimas bet kurioje vietoje.
+**List** konteineris rodo vidutinį našumą — greitesnis nei deque, bet lėtesnis nei vector.
+List naudoja susieto sąrašo struktūrą, kur kiekvienas elementas saugo rodyklę į kitą elementą,
+todėl atminties prieiga yra netiesioginė ir lėtesnė. Tačiau list turi vieną svarbų privalumą —
+elementų trynimas bet kurioje vietoje yra O(1), todėl 2 strategijoje list pasirodo geriau nei deque.
 
-**Deque** konteineris pasirodė lėčiausias, ypač su 10 milijonų įrašų. Deque naudoja
-fiksuoto dydžio atminties blokų seką, todėl prieiga prie elementų reikalauja papildomo
-netiesioginio kreipinio. Programos uždarymas su 10 milijonų įrašų užtrunka ilgiau nei
-vector ar list, nes deque turi atlaisvinti kiekvieną bloką atskirai.
+**Deque** konteineris pasirodė lėčiausias, ypač 2 strategijoje su 10 milijonų įrašų (~74s).
+Deque naudoja fiksuoto dydžio atminties blokų seką, todėl prieiga prie elementų reikalauja
+papildomo netiesioginio kreipinio. Taip pat programos uždarymas su 10 milijonų įrašų užtrunka
+ilgiau nei vector ar list, nes deque turi atlaisvinti kiekvieną bloką atskirai.
 
 ### Strategijų palyginimas
 
-**1 strategija** - greičiausia skaidymo operacija, tačiau neefektyviausia atminties atžvilgiu,
-nes tas pats studentas egzistuoja dviejuose konteineriuose vienu metu.
+**1 strategija** — greičiausia arba panaši į 3 strategiją daugumai konteinerių, tačiau
+neefektyviausia atminties atžvilgiu, nes tas pats studentas egzistuoja dviejuose
+konteineriuose vienu metu (3 konteineriai atmintyje).
 
-**2 strategija** - efektyvesnė atminties atžvilgiu, tačiau lėtesnė už 1 strategiją.
-Tai ypač pastebima su deque konteineriu, kur dažni trynimai iš vidurio yra "skausmingi"
-dėl elemento perstūmimo poreikio. Su list konteineriu trynimai efektyvesni.
+**2 strategija** — efektyvesnė atminties atžvilgiu (2 konteineriai), tačiau lėtesnė.
+Tai ypač pastebima su deque konteineriu — 2 strategija su deque 10m įrašų užtruko ~74s,
+palyginti su ~58s 1 strategijoje. Tai lemia dažni trynimai iš deque vidurio, kurie
+reikalauja elementų perstūmimo. Su list konteineriu trynimai efektyvesni (O(1)),
+todėl skirtumas mažesnis.
 
-**3 strategija** - naudoja `std::partition` algoritmą, kuris pertvarko elementus vietoje
-vienu praėjimu. Tai greičiausia strategija vector ir list konteineriams, tačiau deque
-atveju rezultatai nėra tokie ryškūs dėl konteinerio struktūros ypatumų.
+**3 strategija** — naudoja `std::partition` algoritmą, kuris pertvarko elementus vietoje
+vienu praėjimu. Tai greičiausia strategija vector konteineriui (10m: ~37.7s), tačiau
+deque atveju rezultatai nėra geresni už 1 strategiją dėl konteinerio struktūros ypatumų.
+List 3 strategija taip pat šiek tiek geresnė už 1 ir 2 strategijas.
 
 ### Bendros išvados
 
-- **Geriausias konteineris** nuosekliam darbui (nuskaitymas, rūšiavimas, skaidymas): `vector`
-- **Geriausias konteineris** dažnam įterpimui/trynimui iš bet kurios vietos: `list`
-- **Deque** pranašumas atsiskleidžia tik kai reikia greitai įterpti elementus iš abiejų galų
+- **Greičiausias konteineris**: `vector` — visose operacijose ir strategijose
+- **Greičiausia strategija**: 3 strategija su `vector` (`std::partition`) — 10m: ~37.7s
+- **Lėčiausia kombinacija**: 2 strategija su `deque` — 10m: ~73.6s
+- **Geriausias atminties efektyvumas**: 2 arba 3 strategija (tik 2 konteineriai atmintyje)
+- Nuskaitymas iš failo dominuoja bendrą laiką (~90%), rūšiavimas ~6%, skaidymas ~4%
 - Laikas auga beveik tiesiškai (O(n)) didėjant įrašų skaičiui, išskyrus rūšiavimą (O(n log n))
-- Skaidymo operacija sudaro mažiausią laiko dalį - dominuoja nuskaitymas iš failo (~90% laiko)
-```
+- `Deque` pranašumas atsiskleidžia tik greitam įterpimui iš abiejų galų — šioje užduotyje
+  jo privalumai nepasireiškė
+
 
 ## Testavimo sistemos parametrai
 
