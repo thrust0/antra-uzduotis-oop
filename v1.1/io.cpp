@@ -2,7 +2,7 @@
 #include "student.h"
 
 
-void manual_input(list<Students>& group) 
+void manual_input(vector<Students>& group) 
 {
     while(true)
     {
@@ -61,7 +61,7 @@ void manual_input(list<Students>& group)
 }
 
 // Random-grade input mode (user supplies names)
-void generate_grades_input(list<Students>& group)
+void generate_grades_input(vector<Students>& group)
 {
     while(true)
     {
@@ -86,7 +86,7 @@ void generate_grades_input(list<Students>& group)
 
         //random grade generation 
         random_grades_generator(student);
-        //append the list
+        //append the vector
         group.push_back(student);
         student.grade.clear();
     }
@@ -94,16 +94,14 @@ void generate_grades_input(list<Students>& group)
 
 
 // Generate random names (from vardai/) then prompt for grades/exam
-void generate_names_input(list<Students>& group)
+void generate_names_input(vector<Students>& group)
 {
     while(true)
     {
         Students student;
-        list<string> full_name = random_name_generator();
-        auto it = full_name.begin();
-        student.first_name = *it;
-        advance(it, 1);
-        student.last_name = *it;
+        vector<string> full_name = random_name_generator();
+        student.first_name = full_name[0];
+        student.last_name = full_name[1];
         string input;
 
         cout << endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << endl;
@@ -122,7 +120,7 @@ void generate_names_input(list<Students>& group)
     }
 }
 
-void file_input(list<Students>& group, const string& filename)
+void file_input(vector<Students>& group, const string& filename)
 {
     ifstream file(filename); //open file
 
@@ -153,10 +151,10 @@ void file_input(list<Students>& group, const string& filename)
             grade_count++;
         }
 
-        if(!student.grade.empty())//pachekinam kad turetu grade kad nebutu runtime error, nes negalim poppint tuscio list element
+        if(!student.grade.empty())//pachekinam kad turetu grade kad nebutu runtime error, nes negalim poppint tuscio vector element
         {
             student.exam = student.grade.back();//last elemnt of grades is put into exam grade
-            student.grade.pop_back();//the element from list grade is taken out since its exam
+            student.grade.pop_back();//the element from vector grade is taken out since its exam
         }
         grade_count--;
         sum = sum - student.exam;
@@ -172,7 +170,7 @@ void file_input(list<Students>& group, const string& filename)
 
 
 // Print results table: user chooses average (v) or median (m)
-void output(list<Students>& group) 
+void output(vector<Students>& group) 
 {
     print_line();
     //this func is for printing all names and result average OR median
@@ -218,7 +216,7 @@ void output(list<Students>& group)
     }     
 }
 
-void file_output(list<Students>& group, string filename)
+void file_output(vector<Students>& group, string filename)
 {
     ofstream outFile(filename);
 
@@ -245,7 +243,7 @@ void file_output(list<Students>& group, string filename)
     
 }
 
-void temp_output(list<Students>& group)
+void temp_output(vector<Students>& group)
 {
     print_line();
     cout << endl;
@@ -267,42 +265,46 @@ void temp_output(list<Students>& group)
 // Read integer in [start..end]; returns -1 if user enters ';'
 
 
-void sort_output(list<Students>& group, int sort_option)
+void sort_output(vector<Students>& group, int sort_option)
 { 
     if(sort_option == 1)
     {
         //sort by first names
-        group.sort([](const Students& a, const Students& b){
-                        return a.first_name < b.first_name;
+        sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.first_name < b.first_name;
         });
         
     }
     else if(sort_option == 2)
     {
         //sort by last names
-        group.sort([](const Students& a, const Students& b){
-                        return a.last_name < b.last_name;
+        sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.last_name < b.last_name;
         });
     }
     else if(sort_option == 3)
     {
         //sort by grade avg
-        group.sort([](const Students& a, const Students& b){
-                        return a.result > b.result;
+        sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.result > b.result;
         });
 
     }
     else
     {
         //sort by median
-    group.sort([](const Students& a, const Students& b){
-                        return a.median > b.median;
+    sort(group.begin(), group.end(), 
+        [](const Students&a, const Students&b){ 
+            return a.median > b.median;
         });
     }
 }
 
 //split students by grades below 5 and over 5
-void split_students_by_grades(list<Students>& group,list<Students>& above_five, list<Students>& below_five)
+void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five)
 {
     for(auto& student : group) //avoid copying with reference
     {
@@ -314,26 +316,27 @@ void split_students_by_grades(list<Students>& group,list<Students>& above_five, 
     group.clear(); //this one now is empty but containers still exist
 }
 
-
-void split_strategy_two(list<Students>& group, list<Students>& below_five)
+void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
 {
-    auto it = group.begin();
-    
-    while(it != group.end())
+    /*
+    for(int i = group.size() - 1; i >= 0; i--)
     {
-        if(it->result < 5)
+        if(group[i].result < 5)
         {
-            below_five.push_back(*it);
-            it = group.erase(it); // erase returns next iterator, no need to increment
+            below_five.push_back(group[i]);
+            std::swap(group[i], group.back());
+            group.pop_back();
         }
-        else
-        {
-            it++; // only increment if we didn't erase
-        }
+    } 
+    */
+    while(group.back().result < 5)
+    {
+        below_five.push_back(group.back());
+        group.pop_back();
     }
 }
 
-void split_strategy_three(list<Students> & group, list<Students>& below_five)
+void split_strategy_three(vector<Students> & group, vector<Students>& below_five)
 {
     //std::partition padaro kad studentai.result >= 5 eitu pirmi, ir po to vargsiukai, reiskias reikia daryt sorta po to
     auto it = std::partition(group.begin(), group.end(),
@@ -434,9 +437,9 @@ string test_generate_raw_student_file(int student_amount, int grade_amount)
 
 void test_data_processing(const string& filename)
 {
-    list<Students> group;
-    list<Students> above_five;
-    list<Students> below_five;
+    vector<Students> group;
+    vector<Students> above_five;
+    vector<Students> below_five;
 
     auto start_total = std::chrono::high_resolution_clock::now();
 
