@@ -21,11 +21,12 @@ void Students::set_random_grades()
     cout << "\tEgzamino pažymys: " << exam_ << "\n";
 }
 // Read name lists from files under vardai/ and return a random first+last
-vector<string> random_name_generator()
+vector<string> Students::random_name_generator()
 {
     vector<string> v_first_names;
     vector<string> v_last_names;
     vector<string> full_name;
+
     string first_name_file;
     string last_name_file;
     string line;
@@ -33,15 +34,14 @@ vector<string> random_name_generator()
 
     if(gender == 0)
     {
-        first_name_file = "../../vardai/vyriski-vardai.txt";
-        last_name_file = "../../vardai/vyriskos-pavardes.txt";
+        first_name_file = "../vardai/vyriski-vardai.txt";
+        last_name_file = "../vardai/vyriskos-pavardes.txt";
     }
     else
     {
-        first_name_file = "../../vardai/moteriski-vardai.txt";
-        last_name_file = "../../vardai/moteriskos-pavardes.txt";
+        first_name_file = "../vardai/moteriski-vardai.txt";
+        last_name_file = "../vardai/moteriskos-pavardes.txt";
     }
-
     
     ifstream file_first_names(first_name_file);
     ifstream file_last_names(last_name_file);
@@ -74,7 +74,14 @@ vector<string> random_name_generator()
     full_name.push_back(v_last_names[rand_index]);
 
     return full_name;       
-    }
+}
+
+void Students::set_random_name()
+{
+    vector<string> full_name = random_name_generator();
+    first_name_ = full_name[0];
+    last_name_ = full_name[1];
+}
 
 // Compute weighted average: 40% homework + 60% exam
 double Students::calc_result() const
