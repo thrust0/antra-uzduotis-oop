@@ -198,9 +198,9 @@ void temp_output(vector<Students>& group)
     print_line();
     for (auto student : group) 
     {
-        cout << left << setw(20) << student.first_name << left << setw(20) << student.last_name;
-        cout << left << setw(20) << fixed << setprecision(2) << student.result;
-        cout << left << setw(20) << fixed << setprecision(2) << student.median << endl;
+        cout << left << setw(20) << student.first_name() << left << setw(20) << student.last_name();
+        cout << left << setw(20) << fixed << setprecision(2) << student.result();
+        cout << left << setw(20) << fixed << setprecision(2) << student.median() << endl;
     }
 
 }
