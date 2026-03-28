@@ -1,26 +1,25 @@
-#include "student.h"
+#include "student.hpp"
 
-void random_grades_generator(Students& student)
+void Students::random_grades_generator()
 {
     int grade_count = rand() % 10 + 1; //kad butu nuo 1-10 o ne 0-11
-    int sum = 0;
+
     for(int i = 0; i<grade_count; i++)
-    {
-        int temp = rand() % 10;
-        student.grade.push_back(temp);
-        sum += temp;
-        cout << '\t' << i+1 << " pažymys iš " << grade_count << ": " << temp << endl;
-    }
+        grade_.push_back(rand() % 10);
 
-    student.exam = rand() % 10;
-    cout << "\tEgzamino pažymys: " << student.exam << endl << endl;
-
-    student.result = calc_result(sum, grade_count, student.exam);
-
-    student.median = calc_median(student.exam, student.grade);
+    exam_ = rand() % 10;
 }
 
-
+void Students::set_random_grades() 
+{
+    random_grades_generator();
+    
+    for(int i = 0; i<grade_.size(); i++)
+    {
+        cout << "\t" << i+1 << "pažymys iš " << grade_.size() << ": " << grade_[i] << "\n"; 
+    }
+    cout << "\tEgzamino pažymys: " << exam_ << "\n";
+}
 // Read name lists from files under vardai/ and return a random first+last
 vector<string> random_name_generator()
 {
@@ -78,26 +77,28 @@ vector<string> random_name_generator()
     }
 
 // Compute weighted average: 40% homework + 60% exam
-double calc_result(int sum, int n, int exam)
+double Students::calc_result() const
 {
-    return sum * 1.0 / (n * 1.0) * 0.4 + exam * 0.6;
+    int sum = 0;
+    for(int i = 0; i < grade_.size(); i++)
+        sum += grade_[i];
+    
+    return sum * 1.0 / (grade_.size() * 1.0) * 0.4 + exam_ * 0.6;
 }
 
 // Compute median including exam (returns double)
-double calc_median(int exam, vector<int>& grade)
+double Students::calc_median() const
 {
     // create a copy that we can sort without modifying the caller's data
     vector <int> v;
     double median;
 
-    for(int x : grade) 
-    {
+    for(int x : grade_) 
         v.push_back(x);
-    }
     
-    v.push_back(exam);
+    v.push_back(exam_);
     sort(v.begin(), v.end());
-    // choose median depending on odd/even size
+    // median calculation depending on odd/even size
     if(v.size() % 2 == 1) // odd
     {
         median = v[v.size()/2]; 
@@ -108,4 +109,26 @@ double calc_median(int exam, vector<int>& grade)
         median = (v[(v.size()-1)/2] + v[(v.size()/2)]);
         return median/2;
     }
+}
+
+istream& Students::read_students(istream& is)
+{
+    string line;
+    getline(is, line);
+    stringstream ss(line);
+
+    ss >> first_name_ >> last_name_;
+
+    int grade;
+    while(ss >> grade)
+        grade_.push_back(grade);
+    
+    if(!grade_.empty())
+    {
+        exam_ = grade_.back();
+        grade_.pop_back();
+    }
+
+    result_ = calc_result();
+    median_ = calc_median();
 }
