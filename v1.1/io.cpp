@@ -274,7 +274,7 @@ void sort_output(vector<Students>& group, int sort_option)
 
 void split_students_by_grades(vector<Students>& group, vector<Students>& below_five)
 {
-    while(group.back().result < 5)
+    while(group.back().get_result() < 5)
     {
         below_five.push_back(group.back());
         group.pop_back();
@@ -317,56 +317,8 @@ string generate_raw_student_file(int student_amount, int grade_amount)
     }
     //nereikia outFile.close() nes kai ofstream iseina is scope, automatiskai destructorius pacall'intas
     return filename.str(); //reiks file_input(filename)
-
 }
 
-
-string test_generate_raw_student_file(int student_amount, int grade_amount)
-{
-    auto start = std::chrono::high_resolution_clock::now();
-
-    ostringstream filename;
-    filename << "../../studentInput/studentai_gen" << student_amount << ".txt";
-    
-    ofstream outFile(filename.str());
-    
-    if(!outFile)
-    {
-        cerr << "Klaida atidarinėjant failą įrašymui..." << endl;
-        return ""; //return empty string for failure
-    }
-    outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
-
-    for(int j = 0; j < grade_amount; j++)
-    {
-        outFile << left << setw(7) << ("ND" + to_string(j+1));
-    }
-    outFile << left <<setw(7) << "Egz" << endl;
-
-
-    for(int i = 0; i<student_amount; i++)
-    {
-        outFile << left << setw(20) 
-        << ("Vardas" + to_string(i+1)) 
-        << left 
-        << setw(20) << ("Pavarde" + to_string(i+1));
-
-        for(int i = 0; i<grade_amount+1; i++)
-        {
-            int grade = rand() % 10 + 1;
-            outFile << left << setw(7) << grade;
-        }
-        outFile << endl;
-    }
-
-    outFile.close();
-
-    auto end = std::chrono::high_resolution_clock::now();
-
-    auto elapsed = std::chrono::duration<double, milli>(end - start);
-    cout << "Laiko uztruko: " << elapsed.count() << "ms\n";   
-    return filename.str(); //reiks file_input(filename)
-}
 
 
 // Read integer in [start..end]; returns -1 if user enters ';'
