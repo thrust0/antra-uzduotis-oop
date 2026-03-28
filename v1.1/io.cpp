@@ -80,19 +80,10 @@ void generate_names_input(vector<Students>& group)
     while(true)
     {
         Students student;
-        vector<string> full_name = random_name_generator();
-        student.first_name = full_name[0];
-        student.last_name = full_name[1];
-        string input;
-
-        cout << endl << "Studento vardas ir pavarde: " << student.first_name << " " << student.last_name << endl;
-        print_line();
-
-        random_grades_generator(student);
-
+        student.set_random_name();
         group.push_back(student);
-        student.grade.clear();
 
+        print_line();
         cout << "Jei norite, kad būtų, išvesti rezultatai, įveskite ';' " << endl;
         cout << "Jeigu norite pereiti prie kito studento, įveskite '1' ";
         int exit_option = get_int(1,1);

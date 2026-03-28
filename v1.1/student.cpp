@@ -81,6 +81,9 @@ void Students::set_random_name()
     vector<string> full_name = random_name_generator();
     first_name_ = full_name[0];
     last_name_ = full_name[1];
+
+    cout << "Studento vardas ir pavardė: " << first_name_ << " " << last_name_ << "\n";
+    set_random_grades();
 }
 
 // Compute weighted average: 40% homework + 60% exam

@@ -56,6 +56,7 @@ private:
     double calc_median() const;
 
     void random_grades_generator();
+    vector <string> random_name_generator();
 public:
     Students() : first_name_(""), last_name_(""),  exam_(0), result_(0), median_(0){ } //default contstructor
     Students(istream& is);
@@ -65,16 +66,16 @@ public:
     double get_result() const { return calc_result(); }
     double get_median() const { return calc_median(); }
     //setters
-    istream& read_students(istream&);
+    istream& read_students(istream&);//file input setter
+    //default setters
     void set_first_name(const string& name) { first_name_= name; }
     void set_last_name(const string& name) { last_name_= name; }
     void set_exam(int exam) { exam_ = exam; }
     void add_grade(int grade) {grade_.push_back(grade);}
     void set_result() { result_ = calc_result(); }
     void set_median() { median_ = calc_median(); }
+    //random setters
     void set_random_grades();
-
+    void set_random_name();
 };
-
-vector <string> random_name_generator();
 
