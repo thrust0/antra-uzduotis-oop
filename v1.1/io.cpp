@@ -280,7 +280,7 @@ void split_strategy_three(vector<Students> & group, vector<Students>& below_five
 string generate_raw_student_file(int student_amount, int grade_amount)
 {
     ostringstream filename;
-    filename << "../../studentInput/studentai_gen" << student_amount << ".txt";
+    filename << "../studentInput/studentai_gen" << student_amount << ".txt";
     
     ofstream outFile(filename.str());
     

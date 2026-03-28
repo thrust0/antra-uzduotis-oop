@@ -14,7 +14,7 @@ void Students::set_random_grades()
 {
     random_grades_generator();
     
-    for(int i = 0; i<grade_.size(); i++)
+    for(size_t i = 0; i<grade_.size(); i++)
     {
         cout << "\t" << i+1 << "pažymys iš " << grade_.size() << ": " << grade_[i] << "\n"; 
     }
@@ -90,7 +90,7 @@ void Students::set_random_name()
 double Students::calc_result() const
 {
     int sum = 0;
-    for(int i = 0; i < grade_.size(); i++)
+    for(size_t i = 0; i < grade_.size(); i++)
         sum += grade_[i];
     
     return sum * 1.0 / (grade_.size() * 1.0) * 0.4 + exam_ * 0.6;

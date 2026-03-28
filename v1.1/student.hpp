@@ -59,7 +59,7 @@ private:
     vector <string> random_name_generator();
 public:
     Students() : first_name_(""), last_name_(""),  exam_(0), result_(0), median_(0){ } //default contstructor
-    Students(istream& is);
+    Students(istream& is) { read_students(is); }
     //getters
     inline string first_name() const { return first_name_; }
     inline string last_name() const { return last_name_; }

@@ -14,22 +14,18 @@ void menu(){
     //empty lines to creat up the terminal lil bit
     for(int i = 0; i<6; i++) cout << endl;
 
-    //intro vartotojui
     intro_text();
-    //repromt for how user wants to input the students
     input_method(group, menu_option);
-
-    //exit program
-    if(menu_option == 6) return; 
+    if(menu_option == 6) return; //exit program
 
     print_line();
 
     //choose how to sort the students
-    sort_method(group, below_five, above_five, sort_option, split_option);
+    sort_method(group, sort_option);
     print_line();
 
     //choose where to ouput 1 terminal 2 txt file 3 two txt files
-    output_method(group,above_five, below_five, menu_option, output_option, split_option);
+    output_method(group,above_five, below_five, menu_option, output_option, split_option, sort_option);
 }
 
 void intro_text()
@@ -113,38 +109,16 @@ void input_method(vector<Students>& group, int& menu_option)
     }
 }
 
-void sort_method(vector<Students>& group, vector<Students>& below_five, vector<Students>& above_five, int& sort_option, int& split_option)
+void sort_method(vector<Students>& group, int& sort_option)
 {
     cout << "Pasirinkite kaip norite, kad studentai būtu išrušiuoti:\n\t'1'Pagal vardą\n\t'2'Pagal pavardę\n\t'3'Pagal vidurkį\n\t'4'Pagal medianą\n";
     cout << "Įveskite pasirinkimą: ";
+
     sort_option = get_int(1,4);
-
-    cout << "Pasirinkite, su kokia strategija norite atskirti studentus: "
-    << "\n\t1. Pirma strategija"
-    << "\n\t2. Antra strategija"
-    << "\n\t3. Trečia strategija\n"
-    << "Įveskite pasirinkimą: ";
-    split_option = get_int(1, 3);
-
-    if(split_option == 1)
-    {
-        sort_output(group, sort_option);
-        split_students_by_grades(group, above_five, below_five);
-    }
-    else if (split_option == 2)
-    {
-        sort_output(group, sort_option);
-        split_strategy_two(group, below_five);
-    }
-    else
-    {
-        split_strategy_three(group, below_five);
-        sort_output(group, sort_option);
-        sort_output(below_five, sort_option);
-    }
+    sort_output(group, sort_option);
 }
 
-void output_method(vector<Students>& group, vector<Students>& above_five, vector<Students>& below_five, int& menu_option,int& output_option, int& split_option)
+void output_method(vector<Students>& group, vector<Students>& above_five, vector<Students>& below_five, int& menu_option,int& output_option, int& split_option, int& sort_option)
 {
     cout << "Pasirinkite kur norite, kad duomenys būtu išvesti:\n\t'1'Terminale\n\t'2'Teksto faile\n\t'3'Į du atskirus failus\nĮveskite pasirinkimą: ";
     output_option = get_int(1,3);
@@ -166,6 +140,7 @@ void output_method(vector<Students>& group, vector<Students>& above_five, vector
     }
     else//v0.4 i 2 atskirus filus output
     {
+        split_method(group, above_five, below_five, split_option, sort_option);
         if(split_option == 1)
         {
             file_output(above_five, "../studentOutput/kietiakai.txt");
@@ -178,5 +153,31 @@ void output_method(vector<Students>& group, vector<Students>& above_five, vector
         }
 
         return;
+    }
+}
+
+void split_method(vector<Students>& group, vector<Students>& above_five, vector<Students>& below_five, int& split_option, int& sort_option)
+{
+    cout << "Pasirinkite, su kokia strategija norite atskirti studentus: "
+    << "\n\t1. Pirma strategija"
+    << "\n\t2. Antra strategija"
+    << "\n\t3. Trečia strategija\n"
+    << "Įveskite pasirinkimą: ";
+    split_option = get_int(1, 3);
+
+    if(split_option == 1)
+        split_students_by_grades(group, above_five, below_five);
+    else if (split_option == 2)
+    {
+        sort_output(group, 3);
+        split_strategy_two(group, below_five);
+        sort_output(group, sort_option);
+        sort_output(below_five, sort_option);
+    }
+    else
+    {
+        split_strategy_three(group, below_five);
+        sort_output(group, sort_option);
+        sort_output(below_five, sort_option);
     }
 }
