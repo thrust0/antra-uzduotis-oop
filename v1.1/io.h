@@ -9,7 +9,7 @@ void generate_names_input(std::vector<Students>& group);
 void file_input(std::vector<Students>& group, const std::string& filename);
 
 //output functions
-void output(std::vector<Students>& group);
+void terminal_output(std::vector<Students>& group);
 void temp_output(std::vector<Students>& group);
 void file_output(std::vector<Students>& group, std::string filename);
 

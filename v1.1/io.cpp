@@ -205,11 +205,6 @@ void temp_output(vector<Students>& group)
 
 }
 
-
-
-// Read integer in [start..end]; returns -1 if user enters ';'
-
-
 void sort_output(vector<Students>& group, int sort_option)
 { 
     if(sort_option == 1)
@@ -217,7 +212,7 @@ void sort_output(vector<Students>& group, int sort_option)
         //sort by first names
         sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
-            return a.first_name < b.first_name;
+            return a.first_name() < b.first_name();
         });
         
     }
@@ -226,7 +221,7 @@ void sort_output(vector<Students>& group, int sort_option)
         //sort by last names
         sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
-            return a.last_name < b.last_name;
+            return a.last_name() < b.last_name();
         });
     }
     else if(sort_option == 3)
@@ -234,7 +229,7 @@ void sort_output(vector<Students>& group, int sort_option)
         //sort by grade avg
         sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
-            return a.result > b.result;
+            return a.result() > b.result();
         });
 
     }
@@ -243,19 +238,44 @@ void sort_output(vector<Students>& group, int sort_option)
         //sort by median
     sort(group.begin(), group.end(), 
         [](const Students&a, const Students&b){ 
-            return a.median > b.median;
+            return a.median() > b.median();
         });
     }
 }
 
-void split_students_by_grades(vector<Students>& group, vector<Students>& below_five)
+void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five)
 {
-    while(group.back().get_result() < 5)
+    for(auto& student : group) //avoid copying with reference
+    {
+        if(student.result() < 5)
+            below_five.push_back(std::move(student)); //avoiding copying for efficient mem. usage
+        else
+            above_five.push_back(std::move(student));
+    }
+    group.clear(); //this one now is empty but containers still exist
+}
+
+void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
+{
+    while(group.back().result() < 5)
     {
         below_five.push_back(group.back());
         group.pop_back();
     }
 }
+
+void split_strategy_three(vector<Students> & group, vector<Students>& below_five)
+{
+    //std::partition padaro kad studentai.result >= 5 eitu pirmi, ir po to vargsiukai, reiskias reikia daryt sorta po to
+    auto it = std::partition(group.begin(), group.end(),
+        [](const Students& s) {return s.result >= 5; });
+
+    //atkopijuoti vargsiukus i vektoriu
+    below_five.assign(it, group.end());
+
+    group.erase(it, group.end());
+}
+
 
 string generate_raw_student_file(int student_amount, int grade_amount)
 {

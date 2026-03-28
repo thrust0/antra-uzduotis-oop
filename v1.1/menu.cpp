@@ -156,7 +156,7 @@ void output_method(vector<Students>& group, vector<Students>& above_five, vector
     }
     else if(output_option == 1)
     {
-        output(group);
+        terminal_output(group);
         return;
     }
     else if(output_option == 2) //v0.2 versijos paprastas file output
