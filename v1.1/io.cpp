@@ -180,9 +180,9 @@ void file_output(vector<Students>& group, string filename)
 
         for (auto student : group) 
         {
-            outFile << left << setw(20) << student.first_name << left << setw(20) << student.last_name;
-            outFile << left << setw(20) << fixed << setprecision(2) << student.result;
-            outFile << left << setw(20) << fixed << setprecision(2) << student.median << endl;
+            outFile << left << setw(20) << student.first_name() << left << setw(20) << student.last_name();
+            outFile << left << setw(20) << fixed << setprecision(2) << student.result();
+            outFile << left << setw(20) << fixed << setprecision(2) << student.median() << endl;
         }
     
     
