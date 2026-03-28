@@ -2,7 +2,7 @@
 
 void Students::random_grades_generator()
 {
-    int grade_count = rand() % 10 + 1; //kad butu nuo 1-10 o ne 0-11
+    int grade_count = rand() % 10;
 
     for(int i = 0; i<grade_count; i++)
         grade_.push_back(rand() % 10);

@@ -1,6 +1,6 @@
 #pragma once
-#include "student.h"
-#include "menu.h"
+#include "student.hpp"
+
 
 //input functions
 void manual_input(std::vector<Students>& group);

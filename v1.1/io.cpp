@@ -1,36 +1,26 @@
 #include "menu.h"
-#include "student.h"
+#include "student.hpp"
 
-
+//ivedame vardus, pavardes, pazymius, egzamina
 void manual_input(vector<Students>& group) 
 {
     while(true)
     {
         Students student;
-        string input;
-        int sum = 0;
+        string first, last;
         int grade_count = 0;
 
         cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
         cout << "Įveskite vardą ir pavardę studento: ";
-        cin >> student.first_name;
 
-        if(student.first_name == ";") //chekinam ar nenori iseit is programos
-        {
-            cout << endl; return;
-        }
-        cin >> student.last_name;
+        cin >> first;
+        if(first == ";") { cout << endl; return; }
+        student.set_first_name(first);
 
-        if(student.last_name == ";") //just in case apsiprende
-        {
-            cout << endl; return;
-        }
+        cin >> last;
+        if(last == ";") { cout << endl; return; }
+        student.set_last_name(last);
 
-        //cout << "Įveskite kiek semestro įvertinimų bus. ";
-        //int grade_count = get_int(1, INT_MAX);
-        //if(grade_count == -1)
-        //    return;
-        
         print_line();
 
         while(true)
@@ -39,24 +29,20 @@ void manual_input(vector<Students>& group)
             cout << "Jei norite pereit į kitą studentą, įveskite ';'\n";
             cout << "Įveskite " << grade_count + 1 << " pažymį:  ";
             temp = get_int(0, 10);
-            if(temp == -1) break;
-            student.grade.push_back(temp);
-            sum += temp;
-            grade_count++;
+            if(temp == -1) break; //leave it since ';' returns -1 to exit
+            student.add_grade(temp);
         }
 
         print_line();
         cout << "Įveskite egzamino pažymį: "; 
-        student.exam = get_int(0, 10);
+        int exam = get_int(0, 10);
+        student.set_exam(exam);
         
-        student.result = calc_result(sum, grade_count, student.exam);
-
-        student.median = calc_median(student.exam, student.grade);
+        student.set_result();
+        student.set_median();
 
         group.push_back(student);
-        student.grade.clear();
         print_line();
-    // galima priskirti grupej, kai turime A.rez; pushbackinam studento pavadinima
     }
 }
 
@@ -64,31 +50,26 @@ void manual_input(vector<Students>& group)
 void generate_grades_input(vector<Students>& group)
 {
     while(true)
-    {
-
+    {   
         Students student;
-        
+        string first, last;
         //name input as usual
         cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
         cout << "Įveskite vardą ir pavardę studento: ";
-        cin >> student.first_name;
-        cout << endl; 
-        if(student.first_name == ";") //chekinam ar nenori iseit is programos
-        {
-            return;
-        }
-        cin >> student.last_name;
+        
+        cin >> first;
+        if(first == ";") return;
+        student.set_first_name(first);
 
-        if(student.last_name == ";") //just in case apsiprende
-        {
-            return;
-        }
+
+        cin >> last;
+        if(last == ";") return;
+        student.set_last_name(last);
 
         //random grade generation 
-        random_grades_generator(student);
+        student.set_random_grades();
         //append the vector
         group.push_back(student);
-        student.grade.clear();
     }
 }
 
@@ -165,9 +146,6 @@ void file_input(vector<Students>& group, const string& filename)
     }
     file.close();
 }
-
-
-
 
 // Print results table: user chooses average (v) or median (m)
 void output(vector<Students>& group) 
@@ -303,49 +281,13 @@ void sort_output(vector<Students>& group, int sort_option)
     }
 }
 
-//split students by grades below 5 and over 5
-void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five)
+void split_students_by_grades(vector<Students>& group, vector<Students>& below_five)
 {
-    for(auto& student : group) //avoid copying with reference
-    {
-        if(student.result < 5)
-            below_five.push_back(std::move(student)); //avoiding copying for efficient mem. usage
-        else
-            above_five.push_back(std::move(student));
-    }
-    group.clear(); //this one now is empty but containers still exist
-}
-
-void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
-{
-    /*
-    for(int i = group.size() - 1; i >= 0; i--)
-    {
-        if(group[i].result < 5)
-        {
-            below_five.push_back(group[i]);
-            std::swap(group[i], group.back());
-            group.pop_back();
-        }
-    } 
-    */
     while(group.back().result < 5)
     {
         below_five.push_back(group.back());
         group.pop_back();
     }
-}
-
-void split_strategy_three(vector<Students> & group, vector<Students>& below_five)
-{
-    //std::partition padaro kad studentai.result >= 5 eitu pirmi, ir po to vargsiukai, reiskias reikia daryt sorta po to
-    auto it = std::partition(group.begin(), group.end(),
-        [](const Students& s) {return s.result >= 5; });
-
-    //atkopijuoti vargsiukus i vektoriu
-    below_five.assign(it, group.end());
-
-    group.erase(it, group.end());
 }
 
 string generate_raw_student_file(int student_amount, int grade_amount)
@@ -435,50 +377,6 @@ string test_generate_raw_student_file(int student_amount, int grade_amount)
     return filename.str(); //reiks file_input(filename)
 }
 
-void test_data_processing(const string& filename)
-{
-    vector<Students> group;
-    vector<Students> above_five;
-    vector<Students> below_five;
-
-    auto start_total = std::chrono::high_resolution_clock::now();
-
-    //read
-    auto start_read = std::chrono::high_resolution_clock::now();
-    file_input(group, filename);
-    auto end_read = std::chrono::high_resolution_clock::now();
-
-    //split into two files
-    auto start_split = std::chrono::high_resolution_clock::now();
-    sort_output(group, 3);
-    split_students_by_grades(group, above_five, below_five);
-    auto end_split = std::chrono::high_resolution_clock::now();
-
-    //output
-    auto start_write = std::chrono::high_resolution_clock::now();
-    file_output(above_five, "studentOutput/kietiakai.txt");
-    file_output(below_five, "studentOutput/vargsiukai.txt");
-    auto end_write = std::chrono::high_resolution_clock::now();
-
-    auto end_total = std::chrono::high_resolution_clock::now();
-
-    cout << "Nuskaitymas: "
-            << std::chrono::duration_cast<std::chrono::milliseconds>(end_read - start_read).count()
-            << " ms\n";
-
-    cout << "Rusiavimas: "
-            << std::chrono::duration_cast<std::chrono::milliseconds>(end_split - start_split).count()
-            << " ms\n";
-
-    cout << "Isvedimas: "
-            << std::chrono::duration_cast<std::chrono::milliseconds>(end_write - start_write).count()
-            << " ms\n";
-
-    cout << "Bendras: "
-            << std::chrono::duration_cast<std::chrono::milliseconds>(end_total - start_total).count()
-            << " ms\n";
-
-}
 
 // Read integer in [start..end]; returns -1 if user enters ';'
 int get_int(int start, int end)
