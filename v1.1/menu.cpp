@@ -161,20 +161,20 @@ void output_method(vector<Students>& group, vector<Students>& above_five, vector
     }
     else if(output_option == 2) //v0.2 versijos paprastas file output
     {
-        file_output(group, "../../studentOutput/StudentOutput.txt");
+        file_output(group, "../studentOutput/StudentOutput.txt");
         return;
     }
     else//v0.4 i 2 atskirus filus output
     {
         if(split_option == 1)
         {
-            file_output(above_five, "../../studentOutput/kietiakai.txt");
-            file_output(below_five, "../../studentOutput/vargsiukai.txt");
+            file_output(above_five, "../studentOutput/kietiakai.txt");
+            file_output(below_five, "../studentOutput/vargsiukai.txt");
         }
         else
         {
-            file_output(group, "../../studentOutput/kietiakai.txt");
-            file_output(below_five, "../../studentOutput/vargsiukai.txt");
+            file_output(group, "../studentOutput/kietiakai.txt");
+            file_output(below_five, "../studentOutput/vargsiukai.txt");
         }
 
         return;

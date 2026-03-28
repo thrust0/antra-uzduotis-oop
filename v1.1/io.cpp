@@ -268,7 +268,7 @@ void split_strategy_three(vector<Students> & group, vector<Students>& below_five
 {
     //std::partition padaro kad studentai.result >= 5 eitu pirmi, ir po to vargsiukai, reiskias reikia daryt sorta po to
     auto it = std::partition(group.begin(), group.end(),
-        [](const Students& s) {return s.result >= 5; });
+        [](const Students& s) {return s.result() >= 5; });
 
     //atkopijuoti vargsiukus i vektoriu
     below_five.assign(it, group.end());
@@ -295,7 +295,7 @@ string generate_raw_student_file(int student_amount, int grade_amount)
     {
         outFile << left << setw(7) << ("ND" + to_string(j+1));
     }
-    outFile << left <<setw(7) << "Egz" << endl;
+    outFile << left << setw(7) << "Egz" << endl;
 
     for(int i = 0; i<student_amount; i++)
     {
