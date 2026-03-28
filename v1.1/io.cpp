@@ -95,7 +95,6 @@ void generate_names_input(vector<Students>& group)
 void file_input(vector<Students>& group, const string& filename)
 {
     ifstream file(filename); //open file
-
     if(!file) //check if file opened
     {
         throw runtime_error("Neišėjo atidaryti failo ");
@@ -108,38 +107,15 @@ void file_input(vector<Students>& group, const string& filename)
 
     while(getline(file, line))
     {
-        stringstream ss(line); //stringstream
-        Students student;
-        ss >> student.first_name >> student.last_name; 
-        
-        //idedam i streama kiekviena grade
-        int grade;
-        int sum = 0;
-        int grade_count = 0;
-        while (ss >> grade)
-        {
-            sum += grade;
-            student.grade.push_back(grade);
-            grade_count++;
-        }
-
-        if(!student.grade.empty())//pachekinam kad turetu grade kad nebutu runtime error, nes negalim poppint tuscio vector element
-        {
-            student.exam = student.grade.back();//last elemnt of grades is put into exam grade
-            student.grade.pop_back();//the element from vector grade is taken out since its exam
-        }
-        grade_count--;
-        sum = sum - student.exam;
-        student.result = calc_result(sum, grade_count, student.exam);
-        student.median = calc_median(student.exam, student.grade);
-
+        stringstream ss(line);
+        Students student(ss);
         group.push_back(student);
     }
     file.close();
 }
 
 // Print results table: user chooses average (v) or median (m)
-void output(vector<Students>& group) 
+void terminal_output(vector<Students>& group) 
 {
     print_line();
     //this func is for printing all names and result average OR median
@@ -164,9 +140,9 @@ void output(vector<Students>& group)
         print_line();
         for (auto student : group) 
         {
-            cout << left << setw(20) << student.first_name << left << setw(20) << student.last_name;
+            cout << left << setw(20) << student.first_name() << left << setw(20) << student.last_name();
 
-            cout << setw(20) << fixed << setprecision(2) << student.result << endl;
+            cout << setw(20) << fixed << setprecision(2) << student.result() << endl;
         }
         break;
     
@@ -177,9 +153,9 @@ void output(vector<Students>& group)
         print_line();
         for (auto student : group) 
         {
-            cout << left << setw(20) << student.first_name << left << setw(20) << student.last_name;
+            cout << left << setw(20) << student.first_name() << left << setw(20) << student.last_name();
 
-            cout << setw(20) << fixed << setprecision(2) << student.median << endl;
+            cout << setw(20) << fixed << setprecision(2) << student.median() << endl;
         }
         break;
     }     

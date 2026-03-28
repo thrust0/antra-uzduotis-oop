@@ -63,8 +63,8 @@ public:
     //getters
     inline string first_name() const { return first_name_; }
     inline string last_name() const { return last_name_; }
-    double get_result() const { return calc_result(); }
-    double get_median() const { return calc_median(); }
+    inline double result() const { return calc_result(); }
+    inline double median() const { return calc_median(); }
     //setters
     istream& read_students(istream&);//file input setter
     //default setters
