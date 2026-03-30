@@ -77,5 +77,21 @@ public:
     //random setters
     void set_random_grades();
     void set_random_name();
+    //destruktorius
+    ~Students() {}
 };
+
+//palyginimo funkcijos
+bool compare(const Students& a, const Students& b) {
+    return a.first_name() < b.first_name();
+}
+bool compare_by_last_name(const Students& a, const Students& b) {
+    return a.last_name() < b.last_name();
+}
+bool compare_by_result(const Students& a, const Students& b) {
+    return a.result() > b.result();
+}
+bool compare_by_median(const Students& a, const Students& b) {
+    return a.median() > b.median();
+}
 
