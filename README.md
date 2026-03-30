@@ -175,7 +175,7 @@ laukų, o tai sukelia papildomą funkcijų iškvietimo išlaidą (function call 
 Nuskaitymo ir skaidymo laikai yra panašūs abiejose versijose, todėl pagrindinis
 našumo skirtumas slypi rūšiavimo operacijoje su getter metodais.
 
-## Kompiliatoriaus flag'ų testavimas
+## Kompiliatoriaus flag'ų testavimas su class
 
 ### O1 flag
 
@@ -249,41 +249,127 @@ našumo skirtumas slypi rūšiavimo operacijoje su getter metodais.
 | Test 5   | 1054.06     | 124.67     | 29.36     | 1208.09 |
 | Vidurkis | 1054.53     | 124.41     | 29.28     | 1208.22 |
 
+## Kompiliatoriaus flag'ų testavimas su vector ir struct
+
+### O1 flag
+
+#### 100k įrašų
+
+|          | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  |
+|----------|-------------|------------|-----------|---------|
+| Test 1   | 135.684     | 3.70154    | 1.29704   | 140.683 |
+| Test 2   | 138.617     | 3.52021    | 1.20837   | 143.346 |
+| Test 3   | 127.712     | 3.50537    | 1.24404   | 132.461 |
+| Test 4   | 129.904     | 3.71896    | 1.47983   | 135.102 |
+| Test 5   | 129.978     | 3.55979    | 1.21850   | 134.756 |
+| Vidurkis | 132.379     | 3.60117    | 1.28956   | 137.270 |
+
+#### 1M įrašų
+
+|          | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  |
+|----------|-------------|------------|-----------|---------|
+| Test 1   | 1090.01     | 40.8152    | 21.5749   | 1152.40  |
+| Test 2   | 1102.61     | 40.6104    | 22.8170   | 1166.04  |
+| Test 3   | 1082.05     | 41.2377    | 21.6985   | 1144.99  |
+| Test 4   | 1072.87     | 37.9223    | 16.7601   | 1127.56  |
+| Test 5   | 1080.12     | 38.3368    | 16.3278   | 1134.79  |
+| Vidurkis | 1085.532    | 39.7845    | 19.8357   | 1145.158 |
+### O2 flag
+
+#### 100k įrašų
+
+|          | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras |
+|----------|-------------|------------|-----------|---------|
+| Test 1   | 133.283     | 3.59425    | 1.29846   | 138.176 |
+| Test 2   | 121.035     | 3.49146    | 1.20692   | 125.734 |
+| Test 3   | 126.867     | 3.58421    | 1.22900   | 131.680 |
+| Test 4   | 126.599     | 3.55088    | 1.19371   | 131.344 |
+| Test 5   | 127.760     | 3.56492    | 1.36338   | 132.688 |
+| Vidurkis | 127.109     | 3.55714    | 1.25029   | 131.924 |
+
+#### 1M įrašų
+
+|          | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  |
+|----------|-------------|------------|-----------|---------|
+| Test 1   | 1065.36     | 40.3533    | 22.1378   | 1127.85  |
+| Test 2   | 1073.22     | 38.8847    | 16.5845   | 1128.68  |
+| Test 3   | 1050.72     | 39.1975    | 22.6092   | 1112.52  |
+| Test 4   | 1059.89     | 38.3563    | 17.2757   | 1115.52  |
+| Test 5   | 1052.05     | 39.3190    | 17.0005   | 1108.37  |
+| Vidurkis | 1060.248    | 39.2222    | 19.1215   | 1118.588 |
+### O3 flag
+
+#### 100k įrašų
+
+|          | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras |
+|----------|-------------|------------|-----------|---------|
+| Test 1   | 134.351     | 3.61796    | 1.40821   | 139.378 |
+| Test 2   | 119.753     | 3.73612    | 1.33633   | 124.826 |
+| Test 3   | 128.811     | 3.56196    | 1.22354   | 133.597 |
+| Test 4   | 128.811     | 3.56196    | 1.22354   | 133.597 |
+| Test 5   | 127.670     | 3.59371    | 1.20146   | 132.465 |
+| Vidurkis | 127.879     | 3.61434    | 1.27862   | 132.773 |
+
+#### 1M įrašų
+
+|          | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  |
+|----------|-------------|------------|-----------|---------|
+| Test 1   | 1056.75     | 40.3224    | 16.6638   | 1113.73  |
+| Test 2   | 1043.12     | 38.8180    | 16.8788   | 1098.81  |
+| Test 3   | 1053.68     | 39.2343    | 16.9585   | 1109.87  |
+| Test 4   | 1053.68     | 39.2343    | 16.9585   | 1109.87  |
+| Test 5   | 1061.45     | 38.8582    | 16.9589   | 1117.27  |
+| Vidurkis | 1053.736    | 39.2934    | 16.8837   | 1109.910 |
 ---
 
 ## Kompiliatoriaus optimizavimo flagų palyginimas (vidurkiai ms.)
 
 ### 100k įrašų
 
-| Flag | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras | Failo dydis |
-|------|-------------|------------|-----------|---------|-------------|
-| O0   | 355.06      | 56.33      | 10.71     | 422.10  | ?           |
-| O1   | 127.58      | 10.96      | 1.67      | 140.20  | ?           |
-| O2   | 128.16      | 10.85      | 1.85      | 140.86  | ?           |
-| O3   | 127.71      | 10.59      | 1.55      | 139.85  | ?           |
+| Flag | Implementacija | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras | Failo dydis |
+|------|----------------|-------------|------------|-----------|---------|-------------|
+| O0   | Class          | 355.06      | 56.33      | 10.71     | 422.10  |            |
+| O0   | Struct         | 348.54      | 21.63      | 8.53      | 378.70  | ?           |
+| O1   | Class          | 127.58      | 10.96      | 1.67      | 140.20  | ?           |
+| O1   | Struct         | 132.379     | 3.60117    | 1.28956   | 137.270 | ?           |
+| O2   | Class          | 128.16      | 10.85      | 1.85      | 140.86  | ?           |
+| O2   | Struct         | 127.109     | 3.55714    | 1.25029   | 131.924 | ?           |
+| O3   | Class          | 127.71      | 10.59      | 1.55      | 139.85  | ?           |
+| O3   | Struct         | 127.879     | 3.61434    | 1.27862   | 132.773 | ?           |
 
 ### 1m įrašų
 
-| Flag | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras | Failo dydis |
-|------|-------------|------------|-----------|---------|-------------|
-| O0   | 3399.19     | 611.62     | 165.93    | 4176.75 | ?           |
-| O1   | 1070.30     | 134.19     | 34.62     | 1239.11 | ?           |
-| O2   | 1057.35     | 127.71     | 31.06     | 1216.12 | ?           |
-| O3   | 1054.53     | 124.41     | 29.28     | 1208.22 | ?           |
+| Flag | Implementacija | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  | Failo dydis |
+|------|----------------|-------------|------------|-----------|---------|-------------|
+| O0   | Class          | 3399.19     | 611.62     | 165.93    | 4176.75  | ?           |
+| O0   | Struct         | 3362.63     | 219.19     | 92.96     | 3674.78  | ?           |
+| O1   | Class          | 1070.30     | 134.19     | 34.62     | 1239.11  | ?           |
+| O1   | Struct         | 1085.532    | 39.7845    | 19.8357   | 1145.158 | ?           |
+| O2   | Class          | 1057.35     | 127.71     | 31.06     | 1216.12  | ?           |
+| O2   | Struct         | 1060.248    | 39.2222    | 19.1215   | 1118.588 | ?           |
+| O3   | Class          | 1054.53     | 124.41     | 29.28     | 1208.22  | ?           |
+| O3   | Struct         | 1053.736    | 39.2934    | 16.8837   | 1109.910 | ?           |
 
 ### Išvados
 
 Optimizavimo flagai turi labai didelę įtaką programos veikimo greičiui:
 
 - **O0 → O1** perėjimas duoda didžiausią spartą — bendras laikas 100k atveju
-  sumažėjo nuo ~422ms iki ~140ms, t.y. programa tapo **3x greitesnė**
-- **O1 → O2** skirtumas minimalus — ~140ms vs ~141ms (100k atveju), praktiškai
-  jokio skirtumo
-- **O2 → O3** taip pat minimalus skirtumas — ~141ms vs ~140ms (100k atveju),
-  O3 šiek tiek geresnis tik rūšiavimo operacijoje
-- Didžiausią naudą optimizavimas duoda **rūšiavimo** operacijai — O0: ~56ms,
-  O1: ~11ms, tai yra **5x pagreitis** vien pirmojo lygio optimizavimo dėka
-- Nuskaitymas taip pat labai pagerėjo — O0: ~355ms, O1: ~128ms (**2.8x greičiau**)
+  sumažėjo nuo ~422ms (class, be optimizacijos) iki ~137ms (struct su O1),
+  t.y. programa tapo **~3x greitesnė**
+- **O1 → O2** skirtumas minimalus — struct versijoje 100k atveju ~137ms vs ~132ms,
+  praktiškai jokio reikšmingo skirtumo
+- **O2 → O3** taip pat minimalus skirtumas — ~132ms vs ~133ms (100k atveju),
+  rezultatai praktiškai identiški
+- Didžiausią naudą optimizavimas duoda **rūšiavimo** operacijai — struct versijoje
+  O0: ~21ms, O1: ~3.6ms, tai yra **~6x pagreitis** vien pirmojo lygio optimizavimo dėka.
+  Class versijoje efektas dar ryškesnis: O0: ~56ms, O1: ~11ms (**5x pagreitis**)
+- Nuskaitymas taip pat labai pagerėjo — O0 (struct): ~348ms, O1 (struct): ~132ms (**2.6x greičiau**)
+- Struct implementacija su bet kuriuo optimizavimo flagu yra greitesnė už class
+  implementaciją — ypač rūšiavimo operacijoje dėl tiesioginės prieigos prie laukų
+  vietoje getter metodų
 
-**Rekomendacija**: naudoti `-O2` flagą — jis duoda beveik tokį pat greitį kaip
-`-O3`, tačiau yra saugesnis ir labiau nuspėjamas kompiliacijos atžvilgiu.
+**Rekomendacija**: naudoti `-O2` flagą su struct implementacija — jis duoda beveik
+tokį pat greitį kaip `-O3`, tačiau yra saugesnis ir labiau nuspėjamas kompiliacijos
+atžvilgiu. Perėjimas nuo class prie struct kartu su `-O1` jau duoda didžiąją dalį
+galimo našumo padidėjimo.
