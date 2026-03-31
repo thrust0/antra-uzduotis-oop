@@ -2,7 +2,7 @@
 
 void Students::random_grades_generator()
 {
-    int grade_count = rand() % 10;
+    int grade_count = rand() % 10 + 1;
 
     for(int i = 0; i<grade_count; i++)
         grade_.push_back(rand() % 10);
@@ -16,7 +16,7 @@ void Students::set_random_grades()
     
     for(size_t i = 0; i<grade_.size(); i++)
     {
-        cout << "\t" << i+1 << "pažymys iš " << grade_.size() << ": " << grade_[i] << "\n"; 
+        cout << "\t" << i+1 << " pažymys iš " << grade_.size() << ": " << grade_[i] << "\n"; 
     }
     cout << "\tEgzamino pažymys: " << exam_ << "\n";
 }
