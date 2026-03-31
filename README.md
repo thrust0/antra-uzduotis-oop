@@ -326,29 +326,36 @@ našumo skirtumas slypi rūšiavimo operacijoje su getter metodais.
 
 ### 100k įrašų
 
-| Flag | Implementacija | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras | Failo dydis |
-|------|----------------|-------------|------------|-----------|---------|-------------|
-| O0   | Class          | 355.06      | 56.33      | 10.71     | 422.10  |            |
-| O0   | Struct         | 348.54      | 21.63      | 8.53      | 378.70  | ?           |
-| O1   | Class          | 127.58      | 10.96      | 1.67      | 140.20  | ?           |
-| O1   | Struct         | 132.379     | 3.60117    | 1.28956   | 137.270 | ?           |
-| O2   | Class          | 128.16      | 10.85      | 1.85      | 140.86  | ?           |
-| O2   | Struct         | 127.109     | 3.55714    | 1.25029   | 131.924 | ?           |
-| O3   | Class          | 127.71      | 10.59      | 1.55      | 139.85  | ?           |
-| O3   | Struct         | 127.879     | 3.61434    | 1.27862   | 132.773 | ?           |
+| Flag | Implementacija | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras |
+|------|----------------|-------------|------------|-----------|---------|
+| O0   | Class          | 355.06      | 56.33      | 10.71     | 422.10  |            
+| O0   | Struct         | 348.54      | 21.63      | 8.53      | 378.70  |         
+| O1   | Class          | 127.58      | 10.96      | 1.67      | 140.20  |            
+| O1   | Struct         | 132.379     | 3.60117    | 1.28956   | 137.270 |           
+| O2   | Class          | 128.16      | 10.85      | 1.85      | 140.86  |            
+| O2   | Struct         | 127.109     | 3.55714    | 1.25029   | 131.924 |
+| O3   | Class          | 127.71      | 10.59      | 1.55      | 139.85  |
+| O3   | Struct         | 127.879     | 3.61434    | 1.27862   | 132.773 |
 
 ### 1m įrašų
 
-| Flag | Implementacija | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  | Failo dydis |
-|------|----------------|-------------|------------|-----------|---------|-------------|
-| O0   | Class          | 3399.19     | 611.62     | 165.93    | 4176.75  | ?           |
-| O0   | Struct         | 3362.63     | 219.19     | 92.96     | 3674.78  | ?           |
-| O1   | Class          | 1070.30     | 134.19     | 34.62     | 1239.11  | ?           |
-| O1   | Struct         | 1085.532    | 39.7845    | 19.8357   | 1145.158 | ?           |
-| O2   | Class          | 1057.35     | 127.71     | 31.06     | 1216.12  | ?           |
-| O2   | Struct         | 1060.248    | 39.2222    | 19.1215   | 1118.588 | ?           |
-| O3   | Class          | 1054.53     | 124.41     | 29.28     | 1208.22  | ?           |
-| O3   | Struct         | 1053.736    | 39.2934    | 16.8837   | 1109.910 | ?           |
+| Flag | Implementacija | Nuskaitymas | Rūšiavimas | Skaidymas | Bendras  |
+|------|----------------|-------------|------------|-----------|----------|
+| O0   | Class          | 3399.19     | 611.62     | 165.93    | 4176.75  |            
+| O0   | Struct         | 3362.63     | 219.19     | 92.96     | 3674.78  |            
+| O1   | Class          | 1070.30     | 134.19     | 34.62     | 1239.11  |            
+| O1   | Struct         | 1085.532    | 39.7845    | 19.8357   | 1145.158 |            
+| O2   | Class          | 1057.35     | 127.71     | 31.06     | 1216.12  |            
+| O2   | Struct         | 1060.248    | 39.2222    | 19.1215   | 1118.588 | 
+| O3   | Class          | 1054.53     | 124.41     | 29.28     | 1208.22  |
+| O3   | Struct         | 1053.736    | 39.2934    | 16.8837   | 1109.910 |
+
+### Object failų dydžiai (Kilobaitais)
+
+|        | O0  | O1  | O2  | O3  | 
+|--------|-----|-----|-----|-----|
+| Struct | 261 | 120 | 120 | 136 |
+| Class  | 262 | 121 | 121 | 120 |
 
 ### Išvados
 
@@ -356,20 +363,26 @@ Optimizavimo flagai turi labai didelę įtaką programos veikimo greičiui:
 
 - **O0 → O1** perėjimas duoda didžiausią spartą — bendras laikas 100k atveju
   sumažėjo nuo ~422ms (class, be optimizacijos) iki ~137ms (struct su O1),
-  t.y. programa tapo **~3x greitesnė**
+  t.y. programa tapo **~3x greitesnė**.
+
 - **O1 → O2** skirtumas minimalus — struct versijoje 100k atveju ~137ms vs ~132ms,
-  praktiškai jokio reikšmingo skirtumo
+  praktiškai jokio reikšmingo skirtumo.
+
 - **O2 → O3** taip pat minimalus skirtumas — ~132ms vs ~133ms (100k atveju),
-  rezultatai praktiškai identiški
+  rezultatai praktiškai identiški.
+
 - Didžiausią naudą optimizavimas duoda **rūšiavimo** operacijai — struct versijoje
   O0: ~21ms, O1: ~3.6ms, tai yra **~6x pagreitis** vien pirmojo lygio optimizavimo dėka.
-  Class versijoje efektas dar ryškesnis: O0: ~56ms, O1: ~11ms (**5x pagreitis**)
-- Nuskaitymas taip pat labai pagerėjo — O0 (struct): ~348ms, O1 (struct): ~132ms (**2.6x greičiau**)
+  Class versijoje efektas dar ryškesnis: O0: ~56ms, O1: ~11ms (**~5x pagreitis**).
+
+- Nuskaitymas taip pat labai pagerėjo — O0 (struct): ~348ms, O1 (struct): ~132ms (**~2.6x greičiau**).
+
 - Struct implementacija su bet kuriuo optimizavimo flagu yra greitesnė už class
   implementaciją — ypač rūšiavimo operacijoje dėl tiesioginės prieigos prie laukų
-  vietoje getter metodų
+  vietoje getter metodų.
 
-**Rekomendacija**: naudoti `-O2` flagą su struct implementacija — jis duoda beveik
-tokį pat greitį kaip `-O3`, tačiau yra saugesnis ir labiau nuspėjamas kompiliacijos
-atžvilgiu. Perėjimas nuo class prie struct kartu su `-O1` jau duoda didžiąją dalį
-galimo našumo padidėjimo.
+- Taip pat matomas **objektinio failo dydžio sumažėjimas naudojant optimizaciją**.
+  Be optimizacijos (O0) programos dydis yra apie **261–262 KB**, tačiau naudojant
+  **O1 arba O2** jis sumažėja iki maždaug **120–121 KB**. Naudojant **O3** dydis
+  šiek tiek padidėja (pvz., struct versijoje iki ~136 KB), nes aukštesnio lygio
+  optimizacijos gali generuoti papildomą kodą siekiant maksimalaus našumo.
