@@ -63,17 +63,13 @@ void input_method(vector<Students>& group, int& menu_option)
             print_line();
 
             cout << "Pasirinkite is kurio failo nuskaityti:\n"
-            "\t'1' iš kursiokai.txt\n"
-            "\t'2' iš studentai10000.txt\n"
-            "\t'3' iš studentai100000.txt\n"
-            "\t'4' iš studentai1000000.txt\n"
-            "\t'5' iš studentai_gen1000.txt\n"
-            "\t'6' iš studentai_gen10000.txt\n"
-            "\t'7' iš studentai_gen100000.txt\n"
-            "\t'8' iš studentai_gen1000000.txt\n"
-            "\t'9' iš studentai_gen10000000.txt\n"
-            "Įveskite pasirinkimą: ";            
-            int file_option = get_int(1,9);
+            << "\t'1' iš studentai_gen1000.txt\n"
+            << "\t'2' iš studentai_gen10000.txt\n"
+            << "\t'3' iš studentai_gen100000.txt\n"
+            << "\t'4' iš studentai_gen1000000.txt\n"
+            << "\t'5' iš studentai_gen10000000.txt\n"
+            << "Įveskite pasirinkimą: ";            
+            int file_option = get_int(1,5);
             file_input(group, FILE_PATHS[file_option - 1]);
             break;
         }

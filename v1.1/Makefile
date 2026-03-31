@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra
+CXXFLAGS = -std=c++17 -Wall -Wextra -O1
 
 TARGET = main
 SRCS = main.cpp menu.cpp io.cpp student.cpp
