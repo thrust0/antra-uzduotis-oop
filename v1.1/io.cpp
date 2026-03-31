@@ -210,36 +210,23 @@ void sort_output(vector<Students>& group, int sort_option)
     if(sort_option == 1)
     {
         //sort by first names
-        sort(group.begin(), group.end(), 
-        [](const Students&a, const Students&b){ 
-            return a.first_name() < b.first_name();
-        });
-        
+        sort(group.begin(), group.end(), compare_by_first_name);
     }
     else if(sort_option == 2)
     {
         //sort by last names
-        sort(group.begin(), group.end(), 
-        [](const Students&a, const Students&b){ 
-            return a.last_name() < b.last_name();
-        });
+        sort(group.begin(), group.end(), compare_by_last_name);
     }
     else if(sort_option == 3)
     {
         //sort by grade avg
-        sort(group.begin(), group.end(), 
-        [](const Students&a, const Students&b){ 
-            return a.result() > b.result();
-        });
+        sort(group.begin(), group.end(), compare_by_result);
 
     }
     else
     {
         //sort by median
-    sort(group.begin(), group.end(), 
-        [](const Students&a, const Students&b){ 
-            return a.median() > b.median();
-        });
+        sort(group.begin(), group.end(), compare_by_median);
     }
 }
 

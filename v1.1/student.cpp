@@ -143,7 +143,7 @@ istream& Students::read_students(istream& is)
 
 //compare functions
 //palyginimo funkcijos
-bool compare(const Students& a, const Students& b) {
+bool compare_by_first_name(const Students& a, const Students& b) {
     return a.first_name() < b.first_name();
 }
 bool compare_by_last_name(const Students& a, const Students& b) {
