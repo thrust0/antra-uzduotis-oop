@@ -141,7 +141,21 @@ istream& Students::read_students(istream& is)
     return is;
 }
 
-//compare functions
+//io operatoriai
+istream& operator>>(istream& is, Students& student)
+{
+    student.read_students(is);
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Students& student)
+{
+    os << student.first_name() << " "
+    << student.last_name() << " "
+    << student.result() << " "
+    << student.median();
+    return os;
+}
 //palyginimo funkcijos
 bool compare_by_first_name(const Students& a, const Students& b) {
     return a.first_name() < b.first_name();

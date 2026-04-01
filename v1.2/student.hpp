@@ -17,6 +17,7 @@
 #include <filesystem>
 #include <utility>
 
+
 using std::vector;
 using std::string;
 using std::cin;
@@ -40,6 +41,7 @@ using std::to_string;
 using std::runtime_error;
 using std::move;
 using std::istream;
+using std::ostream;
 
 
 class Students
@@ -77,9 +79,18 @@ public:
     //random setters
     void set_random_grades();
     void set_random_name();
-    //destruktorius
-    ~Students() {}
+
+    //rule of 5
+    Students(const Students& other); //copy konstruktorius
+    Students(Students&& other); //move konstruktorius
+    Students& operator=(const Students& other); //copy priskirimas
+    Students& operator=(Students&& other); //move priskyrimas
+    ~Students() {grade_.clear(); first_name_.clear(); last_name_.clear();} //destruktorius
 };
+
+//io operatoriai
+istream& operator>>(istream& is, Students& student);
+ostream& operator<<(ostream& os, const Students& student);
 
 //palyginimo funkcijos
 bool compare_by_first_name(const Students& a, const Students& b);
