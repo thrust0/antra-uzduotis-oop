@@ -141,6 +141,52 @@ istream& Students::read_students(istream& is)
     return is;
 }
 
+//rule of 5
+Students::Students(const Students& other)
+    :first_name_(other.first_name_),
+    last_name_(other.last_name_),
+    exam_(other.exam_),
+    grade_(other.grade_),
+    result_(other.result_),
+    median_(other.median_)
+{ }
+
+Students::Students(Students&& other)
+    :first_name_(move(other.first_name_)), //naudojam move nes vector ir string dynamic
+    last_name_(move(other.last_name_)),
+    exam_(other.exam_),
+    grade_(move(other.grade_)),
+    result_(other.result_),
+    median_(other.median_)
+{ }
+
+Students& Students::operator=(const Students& other)
+{
+    if (this == &other) return *this;
+
+    first_name_ = other.first_name_;
+    last_name_ = other.last_name_;
+    grade_ = other.grade_;
+    exam_ = other.exam_;
+    result_ = other.result_;
+    median_ = other.median_;
+    
+    return *this;
+}
+
+Students& Students::operator=(Students&& other)
+{
+    if (this == &other) return *this;
+    first_name_ = other.first_name_;
+    last_name_ = other.last_name_;
+    grade_ = other.grade_;
+    exam_ = other.exam_;
+    result_ = other.result_;
+    median_ = other.median_;
+
+    return *this;
+}
+
 //io operatoriai
 istream& operator>>(istream& is, Students& student)
 {
