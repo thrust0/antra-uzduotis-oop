@@ -78,7 +78,7 @@ public:
     void set_random_grades();
     void set_random_name();
     //destruktorius
-    ~Students() {}
+    ~Students() {grade_.clear(); first_name_.clear(); last_name_.clear();}
 };
 
 //palyginimo funkcijos
