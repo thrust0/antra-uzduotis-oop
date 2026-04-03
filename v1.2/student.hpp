@@ -65,6 +65,7 @@ public:
     //getters
     inline string first_name() const { return first_name_; }
     inline string last_name() const { return last_name_; }
+    inline int exam() const { return exam_; }
     inline double result() const { return calc_result(); }
     inline double median() const { return calc_median(); }
     //setters

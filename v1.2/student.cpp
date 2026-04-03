@@ -89,6 +89,7 @@ void Students::set_random_name()
 // Compute weighted average: 40% homework + 60% exam
 double Students::calc_result() const
 {
+    if(grade_.empty()) return 0; // handle empty case
     int sum = 0;
     for(size_t i = 0; i < grade_.size(); i++)
         sum += grade_[i];
@@ -189,14 +190,22 @@ Students& Students::operator=(const Students& other)
 
 Students& Students::operator=(Students&& other)
 {
-    if (this == &other) return *this;
-    first_name_ = other.first_name_;
-    last_name_ = other.last_name_;
-    grade_ = other.grade_;
-    exam_ = other.exam_;
-    result_ = other.result_;
-    median_ = other.median_;
+    if(this != &other)
+    {
+        first_name_ = std::move(other.first_name_);
+        last_name_ = std::move(other.last_name_);
+        exam_ = other.exam_;
+        grade_ = std::move(other.grade_);
+        result_ = other.result_;
+        median_ = other.median_;
 
+        // clear other
+        other.first_name_ = "";
+        other.last_name_ = "";
+        other.exam_ = 0;
+        other.result_ = 0;
+        other.median_ = 0;
+    }
     return *this;
 }
 

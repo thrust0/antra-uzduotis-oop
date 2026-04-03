@@ -1,69 +1,89 @@
-#include "menu.h"
+#include "student.hpp"
+#include <cassert>
+#include <sstream>
 
-void test_strategy_one(string filename);
-void test_strategy_two(string filename);
-void test_strategy_three(string filename);
+
+
+void test_default_konstruktoriu() {
+    Students s;
+    assert(s.first_name() == "");
+    assert(s.exam() == 0);
+    assert(s.result() == 0);
+    cout << "✓ Default konstruktorius\n";
+}
+
+void test_copy_konstruktoriu() {
+    Students s1;
+    s1.set_first_name("Vardas");
+    s1.set_last_name("Pavarde");
+    Students s2(s1);
+    assert(s2.first_name() == "Vardas");
+    assert(s2.last_name() == "Pavarde");
+    cout << "✓ Copy konstruktorius\n";
+}
+
+void test_move_konstruktoriu() {
+    Students s1;
+    s1.set_first_name("Vardas");
+    Students s2(std::move(s1));
+    assert(s2.first_name() == "Vardas");
+    assert(s1.first_name() == "");
+    cout << "✓ Move konstruktorius\n";
+}
+
+void test_copy_assignment() {
+    Students s1, s2;
+    s1.set_first_name("Vardas");
+    s2 = s1;
+    assert(s2.first_name() == "Vardas");
+    cout << "✓ Copy assignment\n";
+}
+
+void test_move_assignment() {
+    Students s1, s2;
+    s1.set_first_name("Vardas");
+    s2 = std::move(s1);
+    assert(s2.first_name() == "Vardas");
+    assert(s1.first_name() == "");
+    cout << "✓ Move assignment\n";
+}
+
+void test_destructor() {
+    {
+        Students s;
+        s.set_first_name("Vardas");
+    } // destructor called here when s goes out of scope
+    cout << "✓ Destructor\n";
+}
+
+void test_input_operator() {
+    stringstream ss("Vardas Pavarde 8 7 9 6 10");
+    Students s;
+    ss >> s;
+    assert(s.first_name() == "Vardas");
+    assert(s.last_name() == "Pavarde");
+    assert(s.exam() == 10); // last grade is exam
+    cout << "✓ operator>>\n";
+}
+
+void test_output_operator() {
+    Students s;
+    s.set_first_name("Vardas");
+    s.set_last_name("Pavarde");
+    cout << "✓ operator<< output: " << s << "\n";
+}
 
 int main()
 {
-    string file1k = "../studentInput/studentai_gen1000.txt";
-    string file10k = "../studentInput/studentai_gen10000.txt";
-    string file100k = "../studentInput/studentai_gen100000.txt";
-    string file1m = "../studentInput/studentai_gen1000000.txt";
-    string file10m = "../studentInput/studentai_gen10000000.txt";
-    cout << "Vector with student class and compiler flag -O3: \n";
-    
-    cout << "Strategy one: \n";
-    //test_strategy_one(file1k);
-    //test_strategy_one(file10k);
-    test_strategy_one(file100k);
-    test_strategy_one(file1m);
-    //test_strategy_one(file10m);
-    /*
-
-    cout << "Strategy two: \n";
-    test_strategy_two(file1k);
-    test_strategy_two(file10k);
-    test_strategy_two(file100k);
-    test_strategy_two(file1m);
-    test_strategy_two(file10m);
-    */
-    /*
-    cout << "Strategy three: \n";
-    test_strategy_three(file1k);
-    test_strategy_three(file10k);
-    test_strategy_three(file100k);
-    test_strategy_three(file1m);
-    test_strategy_three(file10m);
-    */
-}
-
-void test_strategy_one(string filename)
-{
-    vector<Students> group;
-    vector<Students> above_five;
-    vector<Students> below_five;
-
-    //input
-    auto start_input = std::chrono::high_resolution_clock::now();
-    file_input(group, filename);
-    auto end_input = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::milli> elapsed_input = end_input - start_input;
-    cout << "Nuskaitymas " << filename << ": " << elapsed_input.count() << "ms\n";
-
-    //sort
-    auto start_sort = std::chrono::high_resolution_clock::now();
-    sort_output(group, 3);
-    auto end_sort = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::milli> elapsed_sort = end_sort - start_sort;
-    cout << "Rūšiavimas " << filename << ": " << elapsed_sort.count() << "ms\n";
-
-    //split
-    auto start_split = std::chrono::high_resolution_clock::now();
-    split_students_by_grades(group, above_five, below_five);
-    auto end_split = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::milli> elapsed_split = end_split - start_split;
-    cout << "Skaidymas " << filename << ": " << elapsed_split.count() << "ms\n";
-
-    cout << "Bendras laikas: " << elapsed_input.count() + elapsed_sort.count() + elapsed_split.count() << "ms\n\n";
+    cout << "=== Studentų klasės testai ===\n\n";
+    test_default_konstruktoriu();
+    test_copy_konstruktoriu();
+    test_move_konstruktoriu();
+    test_copy_assignment();
+    test_move_assignment();
+    test_destructor();
+    test_input_operator();
+    test_output_operator();
+    cout << "\nVisi testai praėjo!\n";
+    return 0;
 }
