@@ -123,17 +123,30 @@ double Students::calc_median() const
 
 istream& Students::read_students(istream& is)
 {
-    is >> first_name_ >> last_name_;
-
-    int grade;
-    while(is >> grade)
-        grade_.push_back(grade);
+    string line;
+    if(!getline(is, line))
+        return is;
     
+    if(line.empty())
+        return is;
+    
+    stringstream ss(line);
+    ss >> first_name_ >> last_name_;
+
+    grade_.clear();
+    int g;
+    while (ss >> g)
+        grade_.push_back(g);
+
     if(!grade_.empty())
     {
         exam_ = grade_.back();
         grade_.pop_back();
     }
+    else{
+        exam_ = 0;
+    }
+
 
     result_ = calc_result();
     median_ = calc_median();
