@@ -209,10 +209,10 @@ istream& operator>>(istream& is, Students& student)
 
 ostream& operator<<(ostream& os, const Students& student)
 {
-    os << student.first_name() << " "
-    << student.last_name() << " "
-    << student.result() << " "
-    << student.median();
+
+    os << left << setw(20) << student.first_name() << left << setw(20) << student.last_name();
+            os << left << setw(20) << fixed << setprecision(2) << student.result();
+            os << left << setw(20) << fixed << setprecision(2) << student.median() << endl;
     return os;
 }
 //palyginimo funkcijos

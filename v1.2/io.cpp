@@ -160,31 +160,23 @@ void terminal_output(vector<Students>& group)
     }     
 }
 
-void file_output(vector<Students>& group, string filename)
+void file_output(const vector<Students>& group, const string filename)
 {
     ofstream outFile(filename);
 
-        if(!outFile)
-        {
-            cerr << "Klaida atidarinėjant failą įrašymui..." << endl;
-            return;
-        }
+    if(!outFile) { cerr << "Klaida įrašyme..." << endl; return;}
 
-        outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
-        outFile << setw(20) << " Galutinis (Vid.)";
-        outFile << setw(20) << " Galutinis (Med.)" << endl;
-        for(int i = 0; i<76; i++)
-            outFile << "-";
-        outFile << endl;
+    //headeri sukuriam
+    outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
+    outFile << setw(20) << " Galutinis (Vid.)";
+    outFile << setw(20) << " Galutinis (Med.)" << endl;
+    for(int i = 0; i<76; i++)
+        outFile << "-";
+    outFile << endl;
 
-        for (auto student : group) 
-        {
-            outFile << left << setw(20) << student.first_name() << left << setw(20) << student.last_name();
-            outFile << left << setw(20) << fixed << setprecision(2) << student.result();
-            outFile << left << setw(20) << fixed << setprecision(2) << student.median() << endl;
-        }
     
-    
+    for (const auto& student : group) 
+        outFile << student;
 }
 
 void temp_output(vector<Students>& group)
