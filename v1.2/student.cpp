@@ -165,10 +165,10 @@ Students::Students(const Students& other)
 { }
 
 Students::Students(Students&& other)
-    :first_name_(move(other.first_name_)), //naudojam move nes vector ir string dynamic
-    last_name_(move(other.last_name_)),
+    :first_name_(std::move(other.first_name_)), //naudojam move nes vector ir string dynamic
+    last_name_(std::move(other.last_name_)),
     exam_(other.exam_),
-    grade_(move(other.grade_)),
+    grade_(std::move(other.grade_)),
     result_(other.result_),
     median_(other.median_)
 { }

@@ -41,7 +41,7 @@ void manual_input(vector<Students>& group)
         student.set_result();
         student.set_median();
 
-        group.push_back(student);
+        group.push_back(std::move(student));
         print_line();
     }
 }
@@ -108,7 +108,7 @@ void file_input(vector<Students>& group, const string& filename)
     Students student;
     while(file >> student)
     {
-        group.push_back(student);
+        group.push_back(std::move(student));
     }
     file.close();
 }
