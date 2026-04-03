@@ -105,10 +105,9 @@ void file_input(vector<Students>& group, const string& filename)
     string line;
     getline(file, line); //skip header
 
-    while(getline(file, line))
+    Students student;
+    while(file >> student)
     {
-        stringstream ss(line);
-        Students student(ss);
         group.push_back(student);
     }
     file.close();
