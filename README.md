@@ -95,7 +95,7 @@ g++ -std=c++17 -Wall -Wextra student.cpp io.cpp menu.cpp main.cpp -o main
 3. Pasirinkite skaidymo strategiją (1, 2 arba 3)
 4. Pasirinkite išvedimo būdą (terminalas, failas, du atskiri failai)
 
-# Testavimas 
+# v1.1 Testavimas 
 
 ## Struct vs Class spartos palyginimas
 
@@ -356,6 +356,8 @@ našumo skirtumas slypi rūšiavimo operacijoje su getter metodais.
 |--------|-----|-----|-----|-----|
 | Struct | 261 | 120 | 120 | 136 |
 | Class  | 262 | 121 | 121 | 120 |
+
+
 
 ### Išvados
 
