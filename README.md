@@ -95,6 +95,8 @@ Vietoje vienos `Students` klasės sukurtos dvi klasės — abstrakti bazinė kla
 ```cpp
 // Human z;  // KLAIDA: cannot instantiate abstract class
 Students s;   // VEIKIA — išvestinė klasė
+
+![Evidence](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.5/testavimas/v1.5%20testavimas/humanclass.png)
 ```
 
 ### Grynai virtualus metodas `print()`
@@ -506,4 +508,4 @@ Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
 | `operator>>` | ✓ |
 | `operator<<` | ✓ |
 
-![Test Photo]()
+![Test Photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.5/testavimas/v1.5%20testavimas/testrun.png)
