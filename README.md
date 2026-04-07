@@ -75,6 +75,54 @@ cout << s1 << s2;       // galima grandinti
 
 * `operator>>` naudojamas `file_input` funkcijoje vietoje rankinio nuskaitymo
 * `push_back(std::move(student))` naudojamas vektoriuje — iškviečiamas perkėlimo konstruktorius vietoje kopijavimo, tai padidina programos efektyvumą
+
+## v1.5 Pakeitimai
+
+### Klasių hierarchija
+
+Vietoje vienos `Students` klasės sukurtos dvi klasės — abstrakti bazinė klasė `Zmogus` ir iš jos išvestinė klasė `Students`:
+
+| Klasė    | Tipas     | Aprašymas                                        |
+|----------|-----------|--------------------------------------------------|
+| Zmogus   | Abstrakti | Bazinė klasė, aprašanti bendrą žmogų             |
+| Students | Išvestinė | Paveldi iš Zmogus, aprašanti studentą            |
+
+### Abstrakti klasė Zmogus
+
+* Saugo bendrus žmogaus laukus: `first_name_`, `last_name_`
+* Turi geterius ir seterius vardui bei pavardei
+* Objektų kūrimas **negalimas** — klasė abstrakti dėl grynai virtualaus metodo `print()`:
+```cpp
+// Human z;  // KLAIDA: cannot instantiate abstract class
+Students s;   // VEIKIA — išvestinė klasė
+```
+
+### Grynai virtualus metodas `print()`
+
+* Apibrėžtas `Human` klasėje kaip `virtual void print() const = 0`
+* Kiekviena išvestinė klasė **privalo** jį realizuoti
+* `Students` klasėje išveda vardą, pavardę, galutinį balą ir medianą į terminalą:
+```cpp
+Students s;
+s.print();  // išveda: Vardas Pavarde  8.50  7.00
+```
+
+### Students klasė
+
+* Paveldi `first_name_`, `last_name_` ir jų geterius/seterius iš `Zmogus`
+* Išlaiko visus v1.2 laukus: `exam_`, `grade_`, `result_`, `median_`
+* Visos v1.2 funkcijos veikia kaip anksčiau
+
+### Rule of Five atnaujinimas
+
+Visi penki metodai atnaujinti, kad teisingai dirbtų su bazine klase:
+
+* **Kopijavimo konstruktorius** — iškviečia `Zmogus(other)` bazinės klasės laukams nukopijuoti
+* **Perkėlimo konstruktorius** — iškviečia `Zmogus(std::move(other))` bazinės klasės laukams perkelti
+* **Kopijavimo priskyrimas** — iškviečia `Zmogus::operator=(other)`
+* **Perkėlimo priskyrimas** — iškviečia `Zmogus::operator=(std::move(other))`
+* **Destruktorius** — valo tik `Students` laukus, `Zmogus` destruktorius valo `first_name_`, `last_name_`
+
 ## Įdiegimo instrukcija
 
 ### Reikalavimai
@@ -442,3 +490,20 @@ Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
 | `operator<<` | ✓ |
 
 ![Test Photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.2/testavimas/antrastest.png)
+
+# v1.5 testavimas
+
+Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
+
+| Testas | Rezultatas |
+|--------|------------|
+| Numatytasis konstruktorius | ✓ |
+| Kopijavimo konstruktorius | ✓ |
+| Perkėlimo konstruktorius | ✓ |
+| Kopijavimo priskyrimas | ✓ |
+| Perkėlimo priskyrimas | ✓ |
+| Destruktorius | ✓ |
+| `operator>>` | ✓ |
+| `operator<<` | ✓ |
+
+![Test Photo]()
