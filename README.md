@@ -36,6 +36,45 @@ Ankstesnėje versijoje naudota `struct Students` struktūra pakeista į `class S
 
 ---
 
+## v1.2 Pakeitimai
+
+### Rule of Five
+
+Realizuoti visi penki klasės valdymo metodai:
+
+* **Destruktorius** `~Students()` — atlaisvina objekto užimamą atmintį kai objektas sunaikinamas
+* **Kopijavimo konstruktorius** `Students(const Students&)` — sukuria naują objektą kaip egzistuojančio kopiją
+* **Perkėlimo konstruktorius** `Students(Students&&)` — sukuria naują objektą "pavogdamas" duomenis iš laikinojo objekto, originalo laukai išvalomi
+* **Kopijavimo priskyrimas** `operator=(const Students&)` — kopijuoja vieno egzistuojančio objekto duomenis į kitą
+* **Perkėlimo priskyrimas** `operator=(Students&&)` — perkelia duomenis iš vieno egzistuojančio objekto į kitą, originalo laukai išvalomi
+
+### Įvesties/Išvesties operatoriai
+
+Realizuoti įvesties ir išvesties operatoriai leidžia naudoti `Students` klasę kaip įprastą tipą:
+
+**Įvesties operatorius** `operator>>`
+* Nuskaito studento duomenis iš bet kokio `istream` srauto
+* Naudojimas:
+```cpp
+Students s;
+cin >> s;          // įvedimas iš klaviatūros
+failo_srautas >> s; // nuskaitymas iš failo
+ss >> s;           // nuskaitymas iš stringstream
+```
+
+**Išvesties operatorius** `operator<<`
+* Išveda studento duomenis į bet kokį `ostream` srautą
+* Naudojimas:
+```cpp
+cout << s;              // išvedimas į ekraną
+failo_srautas << s;     // išvedimas į failą
+cout << s1 << s2;       // galima grandinti
+```
+
+### Operatorių panaudojimas programoje
+
+* `operator>>` naudojamas `file_input` funkcijoje vietoje rankinio nuskaitymo
+* `push_back(std::move(student))` naudojamas vektoriuje — iškviečiamas perkėlimo konstruktorius vietoje kopijavimo, tai padidina programos efektyvumą
 ## Įdiegimo instrukcija
 
 ### Reikalavimai
@@ -357,7 +396,22 @@ našumo skirtumas slypi rūšiavimo operacijoje su getter metodais.
 | Struct | 261 | 120 | 120 | 136 |
 | Class  | 262 | 121 | 121 | 120 |
 
+# v1.2 testavimas
 
+Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
+
+| Testas | Rezultatas |
+|--------|------------|
+| Numatytasis konstruktorius | ✓ |
+| Kopijavimo konstruktorius | ✓ |
+| Perkėlimo konstruktorius | ✓ |
+| Kopijavimo priskyrimas | ✓ |
+| Perkėlimo priskyrimas | ✓ |
+| Destruktorius | ✓ |
+| `operator>>` | ✓ |
+| `operator<<` | ✓ |
+
+![Test Photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.2/testavimas/antrastest.png)
 
 ### Išvados
 
