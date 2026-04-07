@@ -157,8 +157,7 @@ istream& Students::read_students(istream& is)
 
 //rule of 5
 Students::Students(const Students& other)
-    :first_name_(other.first_name_),
-    last_name_(other.last_name_),
+    : Human(other),
     exam_(other.exam_),
     grade_(other.grade_),
     result_(other.result_),
@@ -166,8 +165,7 @@ Students::Students(const Students& other)
 { }
 
 Students::Students(Students&& other)
-    :first_name_(std::move(other.first_name_)), //naudojam move nes vector ir string dynamic
-    last_name_(std::move(other.last_name_)),
+    : Human(std::move(other)),
     exam_(other.exam_),
     grade_(std::move(other.grade_)),
     result_(other.result_),
@@ -236,5 +234,12 @@ bool compare_by_result(const Students& a, const Students& b) {
 }
 bool compare_by_median(const Students& a, const Students& b) {
     return a.median() > b.median();
+}
+
+void Students::print() const
+{
+    cout << left << setw(20) << first_name() << left << setw(20) << last_name();
+    cout << left << setw(20) << fixed << setprecision(2) << result();
+    cout << left << setw(20) << fixed << setprecision(2) << median() << endl;
 }
 

@@ -59,8 +59,18 @@ public:
     void set_first_name(const string& name) { first_name_= name; }
     void set_last_name(const string& name) { last_name_= name; }
 
+    //copy konstruktorius
+    Human(const Human& other) : first_name_(other.first_name_),
+                                last_name_(other.last_name_)
+    { }
+
+    //move konstruktorius
+    Human(Human&& other) : first_name_(std::move(other.first_name_)),
+                            last_name_(std::move(other.last_name_))
+    { }
+    //funkcijos
     virtual void print() const = 0; //human yra abstrakti klase
-    virtual ~Human() {}
+    virtual ~Human() {} //destruktorius
 };
 
 class Students : public Human //inheritina Students klase Human klase
