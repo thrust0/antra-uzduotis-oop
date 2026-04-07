@@ -75,6 +75,7 @@ void test_output_operator() {
 
 int main()
 {
+    //Human h; //neleidzia
     cout << "=== Studentų klasės testai ===\n\n";
     test_default_konstruktoriu();
     test_copy_konstruktoriu();
