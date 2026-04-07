@@ -95,10 +95,8 @@ Vietoje vienos `Students` klasės sukurtos dvi klasės — abstrakti bazinė kla
 ```cpp
 // Human z;  // KLAIDA: cannot instantiate abstract class
 Students s;   // VEIKIA — išvestinė klasė
-
-![Evidence](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.5/testavimas/v1.5%20testavimas/humanclass.png)
 ```
-
+![Evidence](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.5/testavimas/v1.5%20testavimas/humanclass.png)
 ### Grynai virtualus metodas `print()`
 
 * Apibrėžtas `Human` klasėje kaip `virtual void print() const = 0`
