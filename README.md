@@ -396,24 +396,7 @@ našumo skirtumas slypi rūšiavimo operacijoje su getter metodais.
 | Struct | 261 | 120 | 120 | 136 |
 | Class  | 262 | 121 | 121 | 120 |
 
-# v1.2 testavimas
-
-Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
-
-| Testas | Rezultatas |
-|--------|------------|
-| Numatytasis konstruktorius | ✓ |
-| Kopijavimo konstruktorius | ✓ |
-| Perkėlimo konstruktorius | ✓ |
-| Kopijavimo priskyrimas | ✓ |
-| Perkėlimo priskyrimas | ✓ |
-| Destruktorius | ✓ |
-| `operator>>` | ✓ |
-| `operator<<` | ✓ |
-
-![Test Photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.2/testavimas/antrastest.png)
-
-### Išvados
+### v1.1 Išvados
 
 Optimizavimo flagai turi labai didelę įtaką programos veikimo greičiui:
 
@@ -442,3 +425,20 @@ Optimizavimo flagai turi labai didelę įtaką programos veikimo greičiui:
   **O1 arba O2** jis sumažėja iki maždaug **120–121 KB**. Naudojant **O3** dydis
   šiek tiek padidėja (pvz., struct versijoje iki ~136 KB), nes aukštesnio lygio
   optimizacijos gali generuoti papildomą kodą siekiant maksimalaus našumo.
+  
+# v1.2 testavimas
+
+Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
+
+| Testas | Rezultatas |
+|--------|------------|
+| Numatytasis konstruktorius | ✓ |
+| Kopijavimo konstruktorius | ✓ |
+| Perkėlimo konstruktorius | ✓ |
+| Kopijavimo priskyrimas | ✓ |
+| Perkėlimo priskyrimas | ✓ |
+| Destruktorius | ✓ |
+| `operator>>` | ✓ |
+| `operator<<` | ✓ |
+
+![Test Photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.2/testavimas/antrastest.png)
