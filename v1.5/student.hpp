@@ -63,7 +63,7 @@ public:
     virtual ~Human() {}
 };
 
-class Students : public Human
+class Students : public Human //inheritina Students klase Human klase
 {
 private:
     //nebera first name ir lastname nes derivinam is Human klases
@@ -81,16 +81,14 @@ public:
     Students() : Human(),  exam_(0), result_(0), median_(0){ } //default contstructor
     Students(istream& is) { read_students(is); }
     //getters
-    inline string first_name() const { return first_name_; }
-    inline string last_name() const { return last_name_; }
+    //nebera getteriu vardui ir pavardei
     inline int exam() const { return exam_; }
     inline double result() const { return calc_result(); }
     inline double median() const { return calc_median(); }
     //setters
     istream& read_students(istream&);//file input setter
     //default setters
-    void set_first_name(const string& name) { first_name_= name; }
-    void set_last_name(const string& name) { last_name_= name; }
+    //nebera set first ir last name
     void set_exam(int exam) { exam_ = exam; }
     void add_grade(int grade) {grade_.push_back(grade);}
     void set_result() { result_ = calc_result(); }
@@ -98,7 +96,8 @@ public:
     //random setters
     void set_random_grades();
     void set_random_name();
-
+    //del v1.5 prideta print funckija kad pademonstruoti abstrakcija
+    void print() const override;
     //rule of 5
     Students(const Students& other); //copy konstruktorius
     Students(Students&& other); //move konstruktorius
