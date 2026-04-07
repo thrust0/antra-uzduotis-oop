@@ -43,12 +43,30 @@ using std::move;
 using std::istream;
 using std::ostream;
 
-
-class Students
+class Human
 {
-private:
+protected:
     string first_name_;
     string last_name_;
+public:
+    Human() : first_name_(""), last_name_("") {}
+
+    //getteriai
+    inline string first_name() const { return first_name_; }
+    inline string last_name() const { return last_name_; }
+
+    //setteriai
+    void set_first_name(const string& name) { first_name_= name; }
+    void set_last_name(const string& name) { last_name_= name; }
+
+    virtual void print() const = 0; //human yra abstrakti klase
+    virtual ~Human() {}
+};
+
+class Students : public Human
+{
+private:
+    //nebera first name ir lastname nes derivinam is Human klases
     int exam_;
     vector<int> grade_;
     double result_, median_;
@@ -60,7 +78,7 @@ private:
     void random_grades_generator();
     vector <string> random_name_generator();
 public:
-    Students() : first_name_(""), last_name_(""),  exam_(0), result_(0), median_(0){ } //default contstructor
+    Students() : Human(),  exam_(0), result_(0), median_(0){ } //default contstructor
     Students(istream& is) { read_students(is); }
     //getters
     inline string first_name() const { return first_name_; }
