@@ -1,0 +1,74 @@
+\doxysection{student.\+hpp}
+\hypertarget{student_8hpp_source}{}\label{student_8hpp_source}\doxymbox{\hyperlink{student_8hpp}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{human_8hpp}{human.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ }std::istream;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }std::ostream;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_students_ad81da742d7da3551e7529f4dffe5235b}{Students}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_human_a4f84fcddcedd434023a001eba00a095c}{Human}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ exam\_;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ vector<int>\ grade\_;\ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ result\_,\ median\_;\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ private\ helper\ functions}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ calc\_result()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ calc\_median()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ random\_grades\_generator();}
+\DoxyCodeLine{00042\ \ \ \ \ vector\ <string>\ random\_name\_generator();}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{class_students_ad81da742d7da3551e7529f4dffe5235b}{Students}}()\ :\ \doxymbox{\hyperlink{class_human_a4f84fcddcedd434023a001eba00a095c}{Human}}(),\ \ exam\_(0),\ result\_(0),\ median\_(0)\{\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \doxymbox{\hyperlink{class_students_a9258c7e0e0463e945bbaa9073633f1b7}{Students}}(istream\&\ is)\ \{\ \doxymbox{\hyperlink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{read\_students}}(is);\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{/*\ Getters\ */}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ exam\_;\ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_students_a9eaee49c242db38c8eda8ffe0a51c923}{result}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ calc\_result();\ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_students_ad370e609322327ddc99f80b57296918f}{median}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ calc\_median();\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00067\ \ \ \ \ istream\&\ \doxymbox{\hyperlink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{read\_students}}(istream\&);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{/*\ Setters\ */}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_a3622c4d59573c9712049813f76032623}{set\_exam}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}})\ \{\ exam\_\ =\ \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}};\ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_a936b3092babe96e63b66cc1ca87ee14f}{add\_grade}}(\textcolor{keywordtype}{int}\ grade)\ \{\ grade\_.push\_back(grade);\ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_a0a1af7b9745279a1202b749dbe9ac38f}{set\_result}}()\ \{\ result\_\ =\ calc\_result();\ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_a5bff925126d43a249398f682b9212dfc}{set\_median}}()\ \{\ median\_\ =\ calc\_median();\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Random\ helpers}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_af2e1159fc32ee47b8c13333c270f2957}{set\_random\_grades}}();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_a420030f6803af4ea45275f0ed5880f20}{set\_random\_name}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_students_a05644ab13508e8609feb357b920f645f}{print}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ Rule\ of\ 5}}
+\DoxyCodeLine{00085\ \ \ \ \ \doxymbox{\hyperlink{class_students_ad81da742d7da3551e7529f4dffe5235b}{Students}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ other);\ \textcolor{comment}{//\ copy\ constructor}}
+\DoxyCodeLine{00086\ \ \ \ \ \doxymbox{\hyperlink{class_students_ad81da742d7da3551e7529f4dffe5235b}{Students}}(\doxymbox{\hyperlink{class_students}{Students}}\&\&\ other);\ \textcolor{comment}{//\ move\ constructor}}
+\DoxyCodeLine{00087\ \ \ \ \ \doxymbox{\hyperlink{class_students}{Students}}\&\ \doxymbox{\hyperlink{class_students_acd240dd31ea06147551d789e8d1ee5fd}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ other);\ \textcolor{comment}{//\ copy\ assignment}}
+\DoxyCodeLine{00088\ \ \ \ \ \doxymbox{\hyperlink{class_students}{Students}}\&\ \doxymbox{\hyperlink{class_students_acd240dd31ea06147551d789e8d1ee5fd}{operator=}}(\doxymbox{\hyperlink{class_students}{Students}}\&\&\ other);\ \textcolor{comment}{//\ move\ assignment}}
+\DoxyCodeLine{00089\ \ \ \ \ \doxymbox{\hyperlink{class_students_aed0beb534fae4756818283a5dfea8b25}{\string~Students}}()\ \{\ grade\_.clear();\ \doxymbox{\hyperlink{class_human_aaf6c237b5181f58e863220c4443ec889}{first\_name\_}}.clear();\ \doxymbox{\hyperlink{class_human_ac65193979b00f38a43c12396dc83cd01}{last\_name\_}}.clear();\ \}}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ I/O\ operators}}
+\DoxyCodeLine{00094\ istream\&\ \doxymbox{\hyperlink{student_8hpp_aabef715888861becaf383837171393ae}{operator>>}}(istream\&\ is,\ \doxymbox{\hyperlink{class_students}{Students}}\&\ student);}
+\DoxyCodeLine{00096\ ostream\&\ \doxymbox{\hyperlink{student_8hpp_afd7546760e11538c8a48f1321ee40d27}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ student);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ Comparison\ helpers\ used\ for\ sorting}}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{student_8hpp_a9761ec4d4286833bead49a83afaf24a5}{compare\_by\_first\_name}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ b);}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{student_8hpp_ac3d37656fdafdbe1500567b200bc7257}{compare\_by\_last\_name}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ b);}
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{student_8hpp_a52cab4827ffe900385582bab73391655}{compare\_by\_result}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ b);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{student_8hpp_aa0490bf0012ad1958b45ce149ba4bab4}{compare\_by\_median}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_students}{Students}}\&\ b);}
+\DoxyCodeLine{00103\ }
+
+\end{DoxyCode}

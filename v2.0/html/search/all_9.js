@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['operator_3c_3c_0',['operator&lt;&lt;',['../student_8cpp.html#afd7546760e11538c8a48f1321ee40d27',1,'operator&lt;&lt;(ostream &amp;os, const Students &amp;student):&#160;student.cpp'],['../student_8hpp.html#afd7546760e11538c8a48f1321ee40d27',1,'operator&lt;&lt;(ostream &amp;os, const Students &amp;student):&#160;student.cpp']]],
+  ['operator_3d_1',['operator=',['../class_students.html#acd240dd31ea06147551d789e8d1ee5fd',1,'Students::operator=(const Students &amp;other)'],['../class_students.html#a34d92ae4aa496661574b3a553cd8d528',1,'Students::operator=(Students &amp;&amp;other)']]],
+  ['operator_3e_3e_2',['operator&gt;&gt;',['../student_8cpp.html#aabef715888861becaf383837171393ae',1,'operator&gt;&gt;(istream &amp;is, Students &amp;student):&#160;student.cpp'],['../student_8hpp.html#aabef715888861becaf383837171393ae',1,'operator&gt;&gt;(istream &amp;is, Students &amp;student):&#160;student.cpp']]],
+  ['output_5fmethod_3',['output_method',['../menu_8cpp.html#a0993848c0860f8eea56ec906157c9aaf',1,'output_method(vector&lt; Students &gt; &amp;group, vector&lt; Students &gt; &amp;above_five, vector&lt; Students &gt; &amp;below_five, int &amp;menu_option, int &amp;output_option, int &amp;split_option, int &amp;sort_option):&#160;menu.cpp'],['../menu_8h.html#a0993848c0860f8eea56ec906157c9aaf',1,'output_method(vector&lt; Students &gt; &amp;group, vector&lt; Students &gt; &amp;above_five, vector&lt; Students &gt; &amp;below_five, int &amp;menu_option, int &amp;output_option, int &amp;split_option, int &amp;sort_option):&#160;menu.cpp']]]
+];

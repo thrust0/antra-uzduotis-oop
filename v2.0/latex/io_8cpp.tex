@@ -1,0 +1,236 @@
+\doxysection{io.\+cpp Failo Nuoroda}
+\hypertarget{io_8cpp}{}\label{io_8cpp}\index{io.cpp@{io.cpp}}
+{\ttfamily \+\#include "{}menu.\+h"{}}\newline
+{\ttfamily \+\#include "{}student.\+hpp"{}}\newline
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360}{manual\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
+\begin{DoxyCompactList}\small\item\em Interactive manual input mode. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a2126945c7014a9bce44d826e6aa9ac3e}{generate\+\_\+grades\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
+\begin{DoxyCompactList}\small\item\em Random grade generator for an entered student name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a902c9059dc4d726731cae40e0b341ada}{generate\+\_\+names\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
+\begin{DoxyCompactList}\small\item\em Generate random student names (from name files) and prompt for grades/\+exam as in interactive mode. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a6567616cee7ba9a2f6b6933573242f87}{file\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, const string \&filename)
+\begin{DoxyCompactList}\small\item\em Read students from a text file and append them to group. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a803969e9778f04f3963a1b45658c890c}{terminal\+\_\+output}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
+\begin{DoxyCompactList}\small\item\em Print students to the terminal, letting the user choose average or median. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_aac9df8caf9a6db8ac773e40a8e215451}{file\+\_\+output}} (const vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, const string filename)
+\begin{DoxyCompactList}\small\item\em Write students to a formatted file using Students::\+operator$<$$<$. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9}{temp\+\_\+output}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
+\begin{DoxyCompactList}\small\item\em Print both average and median table to terminal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_ad13997390c0faed749caa4e0bf5390f3}{sort\+\_\+output}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, int sort\+\_\+option)
+\begin{DoxyCompactList}\small\item\em Sort the group according to sort\+\_\+option. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a5937f4a0adf955071fc9378d80c95423}{split\+\_\+students\+\_\+by\+\_\+grades}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&above\+\_\+five, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five)
+\begin{DoxyCompactList}\small\item\em Move students into above\+\_\+five or below\+\_\+five according to result(). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a1b63304709f26e0f01a00c05b163e85a}{split\+\_\+strategy\+\_\+two}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five)
+\begin{DoxyCompactList}\small\item\em Strategy two for splitting:\+ assume group is sorted by result and pop back until remaining element has result() \texorpdfstring{$>$}{>}= 5. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_a0c4ac16571a5060fb2abab594aa9d70c}{split\+\_\+strategy\+\_\+three}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five)
+\begin{DoxyCompactList}\small\item\em Partition-\/based split:\+ moves students with result()\texorpdfstring{$<$}{<}5 to below\+\_\+five. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{io_8cpp_af75e884d046acdb964922e1cbbe3b790}{generate\+\_\+raw\+\_\+student\+\_\+file}} (int student\+\_\+amount, int grade\+\_\+amount)
+\begin{DoxyCompactList}\small\item\em Generate a synthetic student input file with randomized grades. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{io_8cpp_a014e72dca25d0960405ac2b56373ee74}{get\+\_\+int}} (int start, int end)
+\begin{DoxyCompactList}\small\item\em Read an integer in \+[start..end]\+ from stdin; returns -\/1 on \textquotesingle{};\textquotesingle{}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{io_8cpp_afe8da429f9c3ae7479f88a7028a18360}{print\+\_\+line}} ()
+\begin{DoxyCompactList}\small\item\em Print a decorative separator line. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{io_8cpp_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{io_8cpp_a6567616cee7ba9a2f6b6933573242f87}\index{io.cpp@{io.cpp}!file\_input@{file\_input}}
+\index{file\_input@{file\_input}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{file\_input()}{file\_input()}}
+{\footnotesize\ttfamily \label{io_8cpp_a6567616cee7ba9a2f6b6933573242f87} 
+void file\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{const string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Read students from a text file and append them to group. 
+
+The file is expected to contain one student record per line compatible with \doxylink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{Students::\+read\+\_\+students()}. The first line is treated as a header and skipped. 
+\begin{DoxyParams}{Parametrai}
+{\em group} & Vector to append parsed students to. \\
+\hline
+{\em filename} & Input file path. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Išimtys}
+{\em runtime\+\_\+error} & if the file cannot be opened. \\
+\hline
+\end{DoxyExceptions}
+\texorpdfstring{$<$}{<} open file
+
+\texorpdfstring{$<$}{<} check if file opened\Hypertarget{io_8cpp_aac9df8caf9a6db8ac773e40a8e215451}\index{io.cpp@{io.cpp}!file\_output@{file\_output}}
+\index{file\_output@{file\_output}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{file\_output()}{file\_output()}}
+{\footnotesize\ttfamily \label{io_8cpp_aac9df8caf9a6db8ac773e40a8e215451} 
+void file\+\_\+output (\begin{DoxyParamCaption}\item[{const vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{const string}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Write students to a formatted file using Students::\+operator$<$$<$. 
+
+Write a formatted students table to a file.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & \doxylink{class_students}{Students} to write. \\
+\hline
+{\em filename} & Destination file path. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8cpp_a2126945c7014a9bce44d826e6aa9ac3e}\index{io.cpp@{io.cpp}!generate\_grades\_input@{generate\_grades\_input}}
+\index{generate\_grades\_input@{generate\_grades\_input}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_grades\_input()}{generate\_grades\_input()}}
+{\footnotesize\ttfamily \label{io_8cpp_a2126945c7014a9bce44d826e6aa9ac3e} 
+void generate\+\_\+grades\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{}\end{DoxyParamCaption})}
+
+
+
+Random grade generator for an entered student name. 
+
+The user supplies a name; homework grades are generated randomly and appended to the group. \Hypertarget{io_8cpp_a902c9059dc4d726731cae40e0b341ada}\index{io.cpp@{io.cpp}!generate\_names\_input@{generate\_names\_input}}
+\index{generate\_names\_input@{generate\_names\_input}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_names\_input()}{generate\_names\_input()}}
+{\footnotesize\ttfamily \label{io_8cpp_a902c9059dc4d726731cae40e0b341ada} 
+void generate\+\_\+names\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{}\end{DoxyParamCaption})}
+
+
+
+Generate random student names (from name files) and prompt for grades/\+exam as in interactive mode. 
+
+\Hypertarget{io_8cpp_af75e884d046acdb964922e1cbbe3b790}\index{io.cpp@{io.cpp}!generate\_raw\_student\_file@{generate\_raw\_student\_file}}
+\index{generate\_raw\_student\_file@{generate\_raw\_student\_file}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_raw\_student\_file()}{generate\_raw\_student\_file()}}
+{\footnotesize\ttfamily \label{io_8cpp_af75e884d046acdb964922e1cbbe3b790} 
+string generate\+\_\+raw\+\_\+student\+\_\+file (\begin{DoxyParamCaption}\item[{int}]{student\+\_\+amount}{, }\item[{int}]{grade\+\_\+amount}{}\end{DoxyParamCaption})}
+
+
+
+Generate a synthetic student input file with randomized grades. 
+
+Generate a raw student data file with randomized names/\+grades.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em student\+\_\+amount} & Number of student rows to produce. \\
+\hline
+{\em grade\+\_\+amount} & Number of homework grades per student (exam added automatically). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+The path to the created file or empty string on failure. 
+\end{DoxyReturn}
+\Hypertarget{io_8cpp_a014e72dca25d0960405ac2b56373ee74}\index{io.cpp@{io.cpp}!get\_int@{get\_int}}
+\index{get\_int@{get\_int}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_int()}{get\_int()}}
+{\footnotesize\ttfamily \label{io_8cpp_a014e72dca25d0960405ac2b56373ee74} 
+int get\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{start}{, }\item[{int}]{end}{}\end{DoxyParamCaption})}
+
+
+
+Read an integer in \+[start..end]\+ from stdin; returns -\/1 on \textquotesingle{};\textquotesingle{}. 
+
+Read an integer in \+[start..end]\+ from stdin. Returns -\/1 if user enters \textquotesingle{};\textquotesingle{}.
+
+This helper validates user input and provides friendly error messages. \Hypertarget{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360}\index{io.cpp@{io.cpp}!manual\_input@{manual\_input}}
+\index{manual\_input@{manual\_input}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{manual\_input()}{manual\_input()}}
+{\footnotesize\ttfamily \label{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360} 
+void manual\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{}\end{DoxyParamCaption})}
+
+
+
+Interactive manual input mode. 
+
+Prompt the user for a student\textquotesingle{}s name and grades interactively.
+
+Prompts the user for a student\textquotesingle{}s first/\+last name, homework grades and exam grade. The constructed \doxylink{class_students}{Students} object is appended to the provided group. Entering a single semicolon (\textquotesingle{};\textquotesingle{}) in the name input will stop input mode. 
+\begin{DoxyParams}{Parametrai}
+{\em group} & Vector to append created \doxylink{class_students}{Students} objects to. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} \textquotesingle{};\textquotesingle{} returns -\/1 to indicate end of grades\Hypertarget{io_8cpp_afe8da429f9c3ae7479f88a7028a18360}\index{io.cpp@{io.cpp}!print\_line@{print\_line}}
+\index{print\_line@{print\_line}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_line()}{print\_line()}}
+{\footnotesize\ttfamily \label{io_8cpp_afe8da429f9c3ae7479f88a7028a18360} 
+void print\+\_\+line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Print a decorative separator line. 
+
+Print a decorative separator line to the terminal. \Hypertarget{io_8cpp_ad13997390c0faed749caa4e0bf5390f3}\index{io.cpp@{io.cpp}!sort\_output@{sort\_output}}
+\index{sort\_output@{sort\_output}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{sort\_output()}{sort\_output()}}
+{\footnotesize\ttfamily \label{io_8cpp_ad13997390c0faed749caa4e0bf5390f3} 
+void sort\+\_\+output (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{int}]{sort\+\_\+option}{}\end{DoxyParamCaption})}
+
+
+
+Sort the group according to sort\+\_\+option. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & Vector to sort in-\/place. \\
+\hline
+{\em sort\+\_\+option} & 1=first name, 2=last name, 3=result, otherwise median \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8cpp_a0c4ac16571a5060fb2abab594aa9d70c}\index{io.cpp@{io.cpp}!split\_strategy\_three@{split\_strategy\_three}}
+\index{split\_strategy\_three@{split\_strategy\_three}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{split\_strategy\_three()}{split\_strategy\_three()}}
+{\footnotesize\ttfamily \label{io_8cpp_a0c4ac16571a5060fb2abab594aa9d70c} 
+void split\+\_\+strategy\+\_\+three (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{below\+\_\+five}{}\end{DoxyParamCaption})}
+
+
+
+Partition-\/based split:\+ moves students with result()\texorpdfstring{$<$}{<}5 to below\+\_\+five. 
+
+Partition-\/based split:\+ keeps \texorpdfstring{$>$}{>}=5 first then extracts the rest. \Hypertarget{io_8cpp_a1b63304709f26e0f01a00c05b163e85a}\index{io.cpp@{io.cpp}!split\_strategy\_two@{split\_strategy\_two}}
+\index{split\_strategy\_two@{split\_strategy\_two}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{split\_strategy\_two()}{split\_strategy\_two()}}
+{\footnotesize\ttfamily \label{io_8cpp_a1b63304709f26e0f01a00c05b163e85a} 
+void split\+\_\+strategy\+\_\+two (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{below\+\_\+five}{}\end{DoxyParamCaption})}
+
+
+
+Strategy two for splitting:\+ assume group is sorted by result and pop back until remaining element has result() \texorpdfstring{$>$}{>}= 5. 
+
+Alternative splitting strategy (pop from back while \texorpdfstring{$<$}{<}5). \Hypertarget{io_8cpp_a5937f4a0adf955071fc9378d80c95423}\index{io.cpp@{io.cpp}!split\_students\_by\_grades@{split\_students\_by\_grades}}
+\index{split\_students\_by\_grades@{split\_students\_by\_grades}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{split\_students\_by\_grades()}{split\_students\_by\_grades()}}
+{\footnotesize\ttfamily \label{io_8cpp_a5937f4a0adf955071fc9378d80c95423} 
+void split\+\_\+students\+\_\+by\+\_\+grades (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{above\+\_\+five}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{below\+\_\+five}{}\end{DoxyParamCaption})}
+
+
+
+Move students into above\+\_\+five or below\+\_\+five according to result(). 
+
+Split students into two vectors (\texorpdfstring{$>$}{>}=5 and \texorpdfstring{$<$}{<}5) by moving elements. \Hypertarget{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9}\index{io.cpp@{io.cpp}!temp\_output@{temp\_output}}
+\index{temp\_output@{temp\_output}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{temp\_output()}{temp\_output()}}
+{\footnotesize\ttfamily \label{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9} 
+void temp\+\_\+output (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{}\end{DoxyParamCaption})}
+
+
+
+Print both average and median table to terminal. 
+
+\Hypertarget{io_8cpp_a803969e9778f04f3963a1b45658c890c}\index{io.cpp@{io.cpp}!terminal\_output@{terminal\_output}}
+\index{terminal\_output@{terminal\_output}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{terminal\_output()}{terminal\_output()}}
+{\footnotesize\ttfamily \label{io_8cpp_a803969e9778f04f3963a1b45658c890c} 
+void terminal\+\_\+output (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{}\end{DoxyParamCaption})}
+
+
+
+Print students to the terminal, letting the user choose average or median. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & \doxylink{class_students}{Students} to display. \\
+\hline
+\end{DoxyParams}

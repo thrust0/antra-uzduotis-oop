@@ -1,0 +1,137 @@
+\doxysection{menu.\+cpp Failo Nuoroda}
+\hypertarget{menu_8cpp}{}\label{menu_8cpp}\index{menu.cpp@{menu.cpp}}
+{\ttfamily \+\#include "{}menu.\+h"{}}\newline
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
+\begin{DoxyCompactList}\small\item\em Main interactive menu that drives input, sorting and output. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{menu_8cpp_ac9cba366c5a802fbb258a3134c87c266}{intro\+\_\+text}} ()
+\begin{DoxyCompactList}\small\item\em Print the welcome text and menu options. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{menu_8cpp_ab67be14847db409a32598e639b7d4960}{input\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, int \&menu\+\_\+option)
+\begin{DoxyCompactList}\small\item\em Prompt user to select an input method and collect data accordingly. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{menu_8cpp_aae28dd1dd4f9215bace1b4b4f55380f0}{sort\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, int \&sort\+\_\+option)
+\begin{DoxyCompactList}\small\item\em Ask the user for a sorting preference and apply it. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf}{output\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&above\+\_\+five, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five, int \&menu\+\_\+option, int \&output\+\_\+option, int \&split\+\_\+option, int \&sort\+\_\+option)
+\begin{DoxyCompactList}\small\item\em Handle the user\textquotesingle{}s output destination choice and produce output. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{menu_8cpp_a40872be63061f31e2857690c7d00994b}{split\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&above\+\_\+five, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five, int \&split\+\_\+option, int \&sort\+\_\+option)
+\begin{DoxyCompactList}\small\item\em Ask the user which split strategy to use and perform it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{menu_8cpp_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{menu_8cpp_ab67be14847db409a32598e639b7d4960}\index{menu.cpp@{menu.cpp}!input\_method@{input\_method}}
+\index{input\_method@{input\_method}!menu.cpp@{menu.cpp}}
+\doxysubsubsection{\texorpdfstring{input\_method()}{input\_method()}}
+{\footnotesize\ttfamily \label{menu_8cpp_ab67be14847db409a32598e639b7d4960} 
+void input\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{int \&}]{menu\+\_\+option}{}\end{DoxyParamCaption})}
+
+
+
+Prompt user to select an input method and collect data accordingly. 
+
+Prompt user for input method and populate group accordingly.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & Destination vector to populate with students. \\
+\hline
+{\em menu\+\_\+option} & Reference where the chosen menu option will be stored. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{menu_8cpp_ac9cba366c5a802fbb258a3134c87c266}\index{menu.cpp@{menu.cpp}!intro\_text@{intro\_text}}
+\index{intro\_text@{intro\_text}!menu.cpp@{menu.cpp}}
+\doxysubsubsection{\texorpdfstring{intro\_text()}{intro\_text()}}
+{\footnotesize\ttfamily \label{menu_8cpp_ac9cba366c5a802fbb258a3134c87c266} 
+void intro\+\_\+text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Print the welcome text and menu options. 
+
+Print introductory help text and options. \Hypertarget{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a}\index{menu.cpp@{menu.cpp}!menu@{menu}}
+\index{menu@{menu}!menu.cpp@{menu.cpp}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily \label{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a} 
+void menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main interactive menu that drives input, sorting and output. 
+
+The top-\/level menu/\+driver for the program.
+
+Seeds RNG, collects student data and delegates sorting/\+output according to user choices. \Hypertarget{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf}\index{menu.cpp@{menu.cpp}!output\_method@{output\_method}}
+\index{output\_method@{output\_method}!menu.cpp@{menu.cpp}}
+\doxysubsubsection{\texorpdfstring{output\_method()}{output\_method()}}
+{\footnotesize\ttfamily \label{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf} 
+void output\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{above\+\_\+five}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{below\+\_\+five}{, }\item[{int \&}]{menu\+\_\+option}{, }\item[{int \&}]{output\+\_\+option}{, }\item[{int \&}]{split\+\_\+option}{, }\item[{int \&}]{sort\+\_\+option}{}\end{DoxyParamCaption})}
+
+
+
+Handle the user\textquotesingle{}s output destination choice and produce output. 
+
+Choose output destination and format and write the students.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & Primary vector to output. \\
+\hline
+{\em above\+\_\+five} & Vector for students \texorpdfstring{$>$}{>}= 5 (may be used when splitting). \\
+\hline
+{\em below\+\_\+five} & Vector for students \texorpdfstring{$<$}{<} 5 (may be used when splitting). \\
+\hline
+{\em menu\+\_\+option} & Previously chosen input/\+menu option. \\
+\hline
+{\em output\+\_\+option} & Reference to store the chosen output option. \\
+\hline
+{\em split\+\_\+option} & Reference to store the chosen split strategy. \\
+\hline
+{\em sort\+\_\+option} & Sorting preference to apply when writing outputs. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{menu_8cpp_aae28dd1dd4f9215bace1b4b4f55380f0}\index{menu.cpp@{menu.cpp}!sort\_method@{sort\_method}}
+\index{sort\_method@{sort\_method}!menu.cpp@{menu.cpp}}
+\doxysubsubsection{\texorpdfstring{sort\_method()}{sort\_method()}}
+{\footnotesize\ttfamily \label{menu_8cpp_aae28dd1dd4f9215bace1b4b4f55380f0} 
+void sort\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{int \&}]{sort\+\_\+option}{}\end{DoxyParamCaption})}
+
+
+
+Ask the user for a sorting preference and apply it. 
+
+Helper to select and apply sorting.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & \doxylink{class_students}{Students} vector to sort in-\/place. \\
+\hline
+{\em sort\+\_\+option} & Reference receiving the chosen sorting option. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{menu_8cpp_a40872be63061f31e2857690c7d00994b}\index{menu.cpp@{menu.cpp}!split\_method@{split\_method}}
+\index{split\_method@{split\_method}!menu.cpp@{menu.cpp}}
+\doxysubsubsection{\texorpdfstring{split\_method()}{split\_method()}}
+{\footnotesize\ttfamily \label{menu_8cpp_a40872be63061f31e2857690c7d00994b} 
+void split\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{group}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{above\+\_\+five}{, }\item[{vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&}]{below\+\_\+five}{, }\item[{int \&}]{split\+\_\+option}{, }\item[{int \&}]{sort\+\_\+option}{}\end{DoxyParamCaption})}
+
+
+
+Ask the user which split strategy to use and perform it. 
+
+Choose a splitting strategy and perform the split.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em group} & Source vector with all students. \\
+\hline
+{\em above\+\_\+five} & Destination vector for students with result() \texorpdfstring{$>$}{>}= 5. \\
+\hline
+{\em below\+\_\+five} & Destination vector for students with result() \texorpdfstring{$<$}{<} 5. \\
+\hline
+{\em split\+\_\+option} & Reference where the chosen split strategy will be stored. \\
+\hline
+{\em sort\+\_\+option} & Sorting option used by some strategies. \\
+\hline
+\end{DoxyParams}

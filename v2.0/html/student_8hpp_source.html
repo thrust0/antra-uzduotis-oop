@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studentu pazymiu skaiciuokle: student.hpp išeities tekstas</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Studentu pazymiu skaiciuokle
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Paieška',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('student_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">student.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="student_8hpp.html">Eiti į šio failo dokumentaciją.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="human_8hpp.html">human.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;istream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span>std::vector;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::string;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using </span>std::istream;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using </span>std::ostream;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_students.html">   21</a></span><span class="keyword">class </span><a class="code hl_function" href="class_students.html#ad81da742d7da3551e7529f4dffe5235b">Students</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_human.html#a4f84fcddcedd434023a001eba00a095c">Human</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">int</span> exam_;             </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    vector&lt;int&gt; grade_;    </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">double</span> result_, median_; </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// private helper functions</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">double</span> calc_result() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span> calc_median() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> random_grades_generator();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    vector &lt;string&gt; random_name_generator();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_students.html#ad81da742d7da3551e7529f4dffe5235b">   47</a></span>    <a class="code hl_function" href="class_students.html#ad81da742d7da3551e7529f4dffe5235b">Students</a>() : <a class="code hl_function" href="class_human.html#a4f84fcddcedd434023a001eba00a095c">Human</a>(),  exam_(0), result_(0), median_(0){ }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_students.html#a9258c7e0e0463e945bbaa9073633f1b7">   53</a></span>    <a class="code hl_function" href="class_students.html#a9258c7e0e0463e945bbaa9073633f1b7">Students</a>(istream&amp; is) { <a class="code hl_function" href="class_students.html#a8ffd7fc8c2bf598b1e1aaea91ecbdd47">read_students</a>(is); }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">/* Getters */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_students.html#ae62c2a2f98490cf832f5044132faf242">   56</a></span>    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_students.html#ae62c2a2f98490cf832f5044132faf242">exam</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> exam_; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_students.html#a9eaee49c242db38c8eda8ffe0a51c923">   57</a></span>    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_students.html#a9eaee49c242db38c8eda8ffe0a51c923">result</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> calc_result(); }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_students.html#ad370e609322327ddc99f80b57296918f">   58</a></span>    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_students.html#ad370e609322327ddc99f80b57296918f">median</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> calc_median(); }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    istream&amp; <a class="code hl_function" href="class_students.html#a8ffd7fc8c2bf598b1e1aaea91ecbdd47">read_students</a>(istream&amp;);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">/* Setters */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_students.html#a3622c4d59573c9712049813f76032623">   70</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#a3622c4d59573c9712049813f76032623">set_exam</a>(<span class="keywordtype">int</span> <a class="code hl_function" href="class_students.html#ae62c2a2f98490cf832f5044132faf242">exam</a>) { exam_ = <a class="code hl_function" href="class_students.html#ae62c2a2f98490cf832f5044132faf242">exam</a>; }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_students.html#a936b3092babe96e63b66cc1ca87ee14f">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#a936b3092babe96e63b66cc1ca87ee14f">add_grade</a>(<span class="keywordtype">int</span> grade) { grade_.push_back(grade); }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_students.html#a0a1af7b9745279a1202b749dbe9ac38f">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#a0a1af7b9745279a1202b749dbe9ac38f">set_result</a>() { result_ = calc_result(); }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_students.html#a5bff925126d43a249398f682b9212dfc">   73</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#a5bff925126d43a249398f682b9212dfc">set_median</a>() { median_ = calc_median(); }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// Random helpers</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#af2e1159fc32ee47b8c13333c270f2957">set_random_grades</a>();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#a420030f6803af4ea45275f0ed5880f20">set_random_name</a>();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_students.html#a05644ab13508e8609feb357b920f645f">print</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// Rule of 5</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="class_students.html#ad81da742d7da3551e7529f4dffe5235b">Students</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; other); <span class="comment">// copy constructor</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_function" href="class_students.html#ad81da742d7da3551e7529f4dffe5235b">Students</a>(<a class="code hl_class" href="class_students.html">Students</a>&amp;&amp; other); <span class="comment">// move constructor</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="class_students.html">Students</a>&amp; <a class="code hl_function" href="class_students.html#acd240dd31ea06147551d789e8d1ee5fd">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; other); <span class="comment">// copy assignment</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_class" href="class_students.html">Students</a>&amp; <a class="code hl_function" href="class_students.html#acd240dd31ea06147551d789e8d1ee5fd">operator=</a>(<a class="code hl_class" href="class_students.html">Students</a>&amp;&amp; other); <span class="comment">// move assignment</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_students.html#aed0beb534fae4756818283a5dfea8b25">   89</a></span>    <a class="code hl_function" href="class_students.html#aed0beb534fae4756818283a5dfea8b25">~Students</a>() { grade_.clear(); <a class="code hl_variable" href="class_human.html#aaf6c237b5181f58e863220c4443ec889">first_name_</a>.clear(); <a class="code hl_variable" href="class_human.html#ac65193979b00f38a43c12396dc83cd01">last_name_</a>.clear(); }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">// I/O operators</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>istream&amp; <a class="code hl_function" href="student_8hpp.html#aabef715888861becaf383837171393ae">operator&gt;&gt;</a>(istream&amp; is, <a class="code hl_class" href="class_students.html">Students</a>&amp; student);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>ostream&amp; <a class="code hl_function" href="student_8hpp.html#afd7546760e11538c8a48f1321ee40d27">operator&lt;&lt;</a>(ostream&amp; os, <span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; student);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">// Comparison helpers used for sorting</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">bool</span> <a class="code hl_function" href="student_8hpp.html#a9761ec4d4286833bead49a83afaf24a5">compare_by_first_name</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; b);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">bool</span> <a class="code hl_function" href="student_8hpp.html#ac3d37656fdafdbe1500567b200bc7257">compare_by_last_name</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; b);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">bool</span> <a class="code hl_function" href="student_8hpp.html#a52cab4827ffe900385582bab73391655">compare_by_result</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; b);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">bool</span> <a class="code hl_function" href="student_8hpp.html#aa0490bf0012ad1958b45ce149ba4bab4">compare_by_median</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="class_students.html">Students</a>&amp; b);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="ttc" id="aclass_human_html_a4f84fcddcedd434023a001eba00a095c"><div class="ttname"><a href="class_human.html#a4f84fcddcedd434023a001eba00a095c">Human::Human</a></div><div class="ttdeci">Human()</div><div class="ttdoc">Default-construct a Human with empty names.</div><div class="ttdef"><b>Definition</b> human.hpp:60</div></div>
+<div class="ttc" id="aclass_human_html_aaf6c237b5181f58e863220c4443ec889"><div class="ttname"><a href="class_human.html#aaf6c237b5181f58e863220c4443ec889">Human::first_name_</a></div><div class="ttdeci">string first_name_</div><div class="ttdef"><b>Definition</b> human.hpp:54</div></div>
+<div class="ttc" id="aclass_human_html_ac65193979b00f38a43c12396dc83cd01"><div class="ttname"><a href="class_human.html#ac65193979b00f38a43c12396dc83cd01">Human::last_name_</a></div><div class="ttdeci">string last_name_</div><div class="ttdef"><b>Definition</b> human.hpp:55</div></div>
+<div class="ttc" id="aclass_students_html"><div class="ttname"><a href="class_students.html">Students</a></div><div class="ttdoc">Student model storing homework grades, exam, and computed results.</div><div class="ttdef"><b>Definition</b> student.hpp:22</div></div>
+<div class="ttc" id="aclass_students_html_a05644ab13508e8609feb357b920f645f"><div class="ttname"><a href="class_students.html#a05644ab13508e8609feb357b920f645f">Students::print</a></div><div class="ttdeci">void print() const override</div><div class="ttdoc">Print a formatted single-line representation of the student.</div><div class="ttdef"><b>Definition</b> student.cpp:287</div></div>
+<div class="ttc" id="aclass_students_html_a0a1af7b9745279a1202b749dbe9ac38f"><div class="ttname"><a href="class_students.html#a0a1af7b9745279a1202b749dbe9ac38f">Students::set_result</a></div><div class="ttdeci">void set_result()</div><div class="ttdef"><b>Definition</b> student.hpp:72</div></div>
+<div class="ttc" id="aclass_students_html_a3622c4d59573c9712049813f76032623"><div class="ttname"><a href="class_students.html#a3622c4d59573c9712049813f76032623">Students::set_exam</a></div><div class="ttdeci">void set_exam(int exam)</div><div class="ttdef"><b>Definition</b> student.hpp:70</div></div>
+<div class="ttc" id="aclass_students_html_a420030f6803af4ea45275f0ed5880f20"><div class="ttname"><a href="class_students.html#a420030f6803af4ea45275f0ed5880f20">Students::set_random_name</a></div><div class="ttdeci">void set_random_name()</div><div class="ttdoc">Set a random name (first + last) and print it, then generate grades.</div><div class="ttdef"><b>Definition</b> student.cpp:94</div></div>
+<div class="ttc" id="aclass_students_html_a5bff925126d43a249398f682b9212dfc"><div class="ttname"><a href="class_students.html#a5bff925126d43a249398f682b9212dfc">Students::set_median</a></div><div class="ttdeci">void set_median()</div><div class="ttdef"><b>Definition</b> student.hpp:73</div></div>
+<div class="ttc" id="aclass_students_html_a8ffd7fc8c2bf598b1e1aaea91ecbdd47"><div class="ttname"><a href="class_students.html#a8ffd7fc8c2bf598b1e1aaea91ecbdd47">Students::read_students</a></div><div class="ttdeci">istream &amp; read_students(istream &amp;)</div><div class="ttdoc">Parse a single student from the provided stream.</div><div class="ttdef"><b>Definition</b> student.cpp:157</div></div>
+<div class="ttc" id="aclass_students_html_a9258c7e0e0463e945bbaa9073633f1b7"><div class="ttname"><a href="class_students.html#a9258c7e0e0463e945bbaa9073633f1b7">Students::Students</a></div><div class="ttdeci">Students(istream &amp;is)</div><div class="ttdoc">Construct by reading a single student record from a stream.</div><div class="ttdef"><b>Definition</b> student.hpp:53</div></div>
+<div class="ttc" id="aclass_students_html_a936b3092babe96e63b66cc1ca87ee14f"><div class="ttname"><a href="class_students.html#a936b3092babe96e63b66cc1ca87ee14f">Students::add_grade</a></div><div class="ttdeci">void add_grade(int grade)</div><div class="ttdef"><b>Definition</b> student.hpp:71</div></div>
+<div class="ttc" id="aclass_students_html_a9eaee49c242db38c8eda8ffe0a51c923"><div class="ttname"><a href="class_students.html#a9eaee49c242db38c8eda8ffe0a51c923">Students::result</a></div><div class="ttdeci">double result() const</div><div class="ttdef"><b>Definition</b> student.hpp:57</div></div>
+<div class="ttc" id="aclass_students_html_acd240dd31ea06147551d789e8d1ee5fd"><div class="ttname"><a href="class_students.html#acd240dd31ea06147551d789e8d1ee5fd">Students::operator=</a></div><div class="ttdeci">Students &amp; operator=(const Students &amp;other)</div><div class="ttdef"><b>Definition</b> student.cpp:207</div></div>
+<div class="ttc" id="aclass_students_html_ad370e609322327ddc99f80b57296918f"><div class="ttname"><a href="class_students.html#ad370e609322327ddc99f80b57296918f">Students::median</a></div><div class="ttdeci">double median() const</div><div class="ttdef"><b>Definition</b> student.hpp:58</div></div>
+<div class="ttc" id="aclass_students_html_ad81da742d7da3551e7529f4dffe5235b"><div class="ttname"><a href="class_students.html#ad81da742d7da3551e7529f4dffe5235b">Students::Students</a></div><div class="ttdeci">Students()</div><div class="ttdoc">Default constructor: empty student.</div><div class="ttdef"><b>Definition</b> student.hpp:47</div></div>
+<div class="ttc" id="aclass_students_html_ae62c2a2f98490cf832f5044132faf242"><div class="ttname"><a href="class_students.html#ae62c2a2f98490cf832f5044132faf242">Students::exam</a></div><div class="ttdeci">int exam() const</div><div class="ttdef"><b>Definition</b> student.hpp:56</div></div>
+<div class="ttc" id="aclass_students_html_aed0beb534fae4756818283a5dfea8b25"><div class="ttname"><a href="class_students.html#aed0beb534fae4756818283a5dfea8b25">Students::~Students</a></div><div class="ttdeci">~Students()</div><div class="ttdef"><b>Definition</b> student.hpp:89</div></div>
+<div class="ttc" id="aclass_students_html_af2e1159fc32ee47b8c13333c270f2957"><div class="ttname"><a href="class_students.html#af2e1159fc32ee47b8c13333c270f2957">Students::set_random_grades</a></div><div class="ttdeci">void set_random_grades()</div><div class="ttdoc">Generate random grades and print them to stdout (used in interactive mode).</div><div class="ttdef"><b>Definition</b> student.cpp:19</div></div>
+<div class="ttc" id="ahuman_8hpp_html"><div class="ttname"><a href="human_8hpp.html">human.hpp</a></div></div>
+<div class="ttc" id="astudent_8hpp_html_a52cab4827ffe900385582bab73391655"><div class="ttname"><a href="student_8hpp.html#a52cab4827ffe900385582bab73391655">compare_by_result</a></div><div class="ttdeci">bool compare_by_result(const Students &amp;a, const Students &amp;b)</div><div class="ttdef"><b>Definition</b> student.cpp:277</div></div>
+<div class="ttc" id="astudent_8hpp_html_a9761ec4d4286833bead49a83afaf24a5"><div class="ttname"><a href="student_8hpp.html#a9761ec4d4286833bead49a83afaf24a5">compare_by_first_name</a></div><div class="ttdeci">bool compare_by_first_name(const Students &amp;a, const Students &amp;b)</div><div class="ttdef"><b>Definition</b> student.cpp:271</div></div>
+<div class="ttc" id="astudent_8hpp_html_aa0490bf0012ad1958b45ce149ba4bab4"><div class="ttname"><a href="student_8hpp.html#aa0490bf0012ad1958b45ce149ba4bab4">compare_by_median</a></div><div class="ttdeci">bool compare_by_median(const Students &amp;a, const Students &amp;b)</div><div class="ttdef"><b>Definition</b> student.cpp:280</div></div>
+<div class="ttc" id="astudent_8hpp_html_aabef715888861becaf383837171393ae"><div class="ttname"><a href="student_8hpp.html#aabef715888861becaf383837171393ae">operator&gt;&gt;</a></div><div class="ttdeci">istream &amp; operator&gt;&gt;(istream &amp;is, Students &amp;student)</div><div class="ttdoc">Extract a Students from a stream.</div><div class="ttdef"><b>Definition</b> student.cpp:249</div></div>
+<div class="ttc" id="astudent_8hpp_html_ac3d37656fdafdbe1500567b200bc7257"><div class="ttname"><a href="student_8hpp.html#ac3d37656fdafdbe1500567b200bc7257">compare_by_last_name</a></div><div class="ttdeci">bool compare_by_last_name(const Students &amp;a, const Students &amp;b)</div><div class="ttdef"><b>Definition</b> student.cpp:274</div></div>
+<div class="ttc" id="astudent_8hpp_html_afd7546760e11538c8a48f1321ee40d27"><div class="ttname"><a href="student_8hpp.html#afd7546760e11538c8a48f1321ee40d27">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, const Students &amp;student)</div><div class="ttdoc">Insert a Students into an output stream in aligned columns.</div><div class="ttdef"><b>Definition</b> student.cpp:261</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="student_8hpp.html">student.hpp</a></li>
+    <li class="footer">Sugeneruota <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

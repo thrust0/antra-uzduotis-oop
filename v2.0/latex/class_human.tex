@@ -1,0 +1,186 @@
+\doxysection{Human Klasė}
+\hypertarget{class_human}{}\label{class_human}\index{Human@{Human}}
+
+
+Minimal base class for a person (first and last name).  
+
+
+
+
+{\ttfamily \+\#include $<$human.\+hpp$>$}
+
+Paveldimumo diagrama Human:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_human}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Vieši Metodai}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_human_a4f84fcddcedd434023a001eba00a095c}{Human}} ()
+\begin{DoxyCompactList}\small\item\em Default-\/construct a \doxylink{class_human}{Human} with empty names. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_human_af8a13e4cb51899110fdb20f605e564e8}{first\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Return the first name. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_human_acb62c2de33efd18bd280e085d3045807}{last\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Return the last name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_human_a27f83a7c653d9f88827fe89ea798fbeb}{set\+\_\+first\+\_\+name}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Set the first name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_human_a378757eb01db7a32b7f2b136a8b078d1}{set\+\_\+last\+\_\+name}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Set the last name. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_human_ae28126dd96482896a200486455f0c861}{Human}} (const \doxymbox{\hyperlink{class_human}{Human}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_human_af7638a981844b3f91f9bf0d491a0eff0}{Human}} (\doxymbox{\hyperlink{class_human}{Human}} \&\&other)
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_human_ac3adff9d2f933933d46a697f5b824913}{print}} () const =0
+\begin{DoxyCompactList}\small\item\em Print a textual representation of the \doxylink{class_human}{Human}. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_human_a9224ffb7aa2ecb9456d7ed156b616013}{\texorpdfstring{$\sim$}{\string~}\+Human}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup in derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Apsaugoti Atributai}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_human_aaf6c237b5181f58e863220c4443ec889}{first\+\_\+name\+\_\+}}
+\item 
+string \doxymbox{\hyperlink{class_human_ac65193979b00f38a43c12396dc83cd01}{last\+\_\+name\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Smulkus aprašymas}
+Minimal base class for a person (first and last name). 
+
+\doxylink{class_human}{Human} provides storage and simple accessors for a person\textquotesingle{}s first and last name. It is an abstract base class — concrete types should implement the pure virtual \doxylink{class_human_ac3adff9d2f933933d46a697f5b824913}{print()} method to present the object. 
+
+\label{doc-constructors}
+\Hypertarget{class_human_doc-constructors}
+\doxysubsection{Konstruktoriaus ir Destruktoriaus Dokumentacija}
+\Hypertarget{class_human_a4f84fcddcedd434023a001eba00a095c}\index{Human@{Human}!Human@{Human}}
+\index{Human@{Human}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{Human()}{Human()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_human_a4f84fcddcedd434023a001eba00a095c} 
+Human::\+\+Human (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default-\/construct a \doxylink{class_human}{Human} with empty names. 
+
+\Hypertarget{class_human_ae28126dd96482896a200486455f0c861}\index{Human@{Human}!Human@{Human}}
+\index{Human@{Human}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{Human()}{Human()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_human_ae28126dd96482896a200486455f0c861} 
+Human::\+\+Human (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_human}{Human}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em other} & \doxylink{class_human}{Human} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_human_af7638a981844b3f91f9bf0d491a0eff0}\index{Human@{Human}!Human@{Human}}
+\index{Human@{Human}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{Human()}{Human()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_human_af7638a981844b3f91f9bf0d491a0eff0} 
+Human::\+\+Human (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_human}{Human}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move constructor. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em other} & \doxylink{class_human}{Human} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_human_a9224ffb7aa2ecb9456d7ed156b616013}\index{Human@{Human}!````~Human@{\texorpdfstring{$\sim$}{\string~}Human}}
+\index{````~Human@{\texorpdfstring{$\sim$}{\string~}Human}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Human()}{\string~Human()}}
+{\footnotesize\ttfamily \label{class_human_a9224ffb7aa2ecb9456d7ed156b616013} 
+virtual Human::\+\texorpdfstring{$\sim$}{\string~}\+Human (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual destructor for proper cleanup in derived classes. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_human_doc-func-members}
+\doxysubsection{Metodų Dokumentacija}
+\Hypertarget{class_human_af8a13e4cb51899110fdb20f605e564e8}\index{Human@{Human}!first\_name@{first\_name}}
+\index{first\_name@{first\_name}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{first\_name()}{first\_name()}}
+{\footnotesize\ttfamily \label{class_human_af8a13e4cb51899110fdb20f605e564e8} 
+string Human::\+first\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the first name. 
+
+\Hypertarget{class_human_acb62c2de33efd18bd280e085d3045807}\index{Human@{Human}!last\_name@{last\_name}}
+\index{last\_name@{last\_name}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{last\_name()}{last\_name()}}
+{\footnotesize\ttfamily \label{class_human_acb62c2de33efd18bd280e085d3045807} 
+string Human::\+last\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the last name. 
+
+\Hypertarget{class_human_ac3adff9d2f933933d46a697f5b824913}\index{Human@{Human}!print@{print}}
+\index{print@{print}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_human_ac3adff9d2f933933d46a697f5b824913} 
+virtual void Human::\+print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Print a textual representation of the \doxylink{class_human}{Human}. 
+
+Concrete derived classes must implement this to display the human-\/friendly representation (used by tests and output functions). 
+
+Realizuota \doxymbox{\hyperlink{class_students_a05644ab13508e8609feb357b920f645f}{Students}}.
+
+\Hypertarget{class_human_a27f83a7c653d9f88827fe89ea798fbeb}\index{Human@{Human}!set\_first\_name@{set\_first\_name}}
+\index{set\_first\_name@{set\_first\_name}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{set\_first\_name()}{set\_first\_name()}}
+{\footnotesize\ttfamily \label{class_human_a27f83a7c653d9f88827fe89ea798fbeb} 
+void Human::\+set\+\_\+first\+\_\+name (\begin{DoxyParamCaption}\item[{const string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the first name. 
+
+\Hypertarget{class_human_a378757eb01db7a32b7f2b136a8b078d1}\index{Human@{Human}!set\_last\_name@{set\_last\_name}}
+\index{set\_last\_name@{set\_last\_name}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{set\_last\_name()}{set\_last\_name()}}
+{\footnotesize\ttfamily \label{class_human_a378757eb01db7a32b7f2b136a8b078d1} 
+void Human::\+set\+\_\+last\+\_\+name (\begin{DoxyParamCaption}\item[{const string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the last name. 
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_human_doc-variable-members}
+\doxysubsection{Atributų Dokumentacija}
+\Hypertarget{class_human_aaf6c237b5181f58e863220c4443ec889}\index{Human@{Human}!first\_name\_@{first\_name\_}}
+\index{first\_name\_@{first\_name\_}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{first\_name\_}{first\_name\_}}
+{\footnotesize\ttfamily \label{class_human_aaf6c237b5181f58e863220c4443ec889} 
+string Human::\+first\+\_\+name\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_human_ac65193979b00f38a43c12396dc83cd01}\index{Human@{Human}!last\_name\_@{last\_name\_}}
+\index{last\_name\_@{last\_name\_}!Human@{Human}}
+\doxysubsubsection{\texorpdfstring{last\_name\_}{last\_name\_}}
+{\footnotesize\ttfamily \label{class_human_ac65193979b00f38a43c12396dc83cd01} 
+string Human::\+last\+\_\+name\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Dokumentacija šiai klasei sugeneruota iš šio failo:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{human_8hpp}{human.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,263 @@
+\doxysection{Students Klasė}
+\hypertarget{class_students}{}\label{class_students}\index{Students@{Students}}
+
+
+Student model storing homework grades, exam, and computed results.  
+
+
+
+
+{\ttfamily \+\#include $<$student.\+hpp$>$}
+
+Paveldimumo diagrama Students:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_students}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Vieši Metodai}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_students_ad81da742d7da3551e7529f4dffe5235b}{Students}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor:\+ empty student. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_students_a9258c7e0e0463e945bbaa9073633f1b7}{Students}} (istream \&is)
+\begin{DoxyCompactList}\small\item\em Construct by reading a single student record from a stream. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}} () const
+\item 
+double \doxymbox{\hyperlink{class_students_a9eaee49c242db38c8eda8ffe0a51c923}{result}} () const
+\item 
+double \doxymbox{\hyperlink{class_students_ad370e609322327ddc99f80b57296918f}{median}} () const
+\item 
+istream \& \doxymbox{\hyperlink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{read\+\_\+students}} (istream \&)
+\begin{DoxyCompactList}\small\item\em Parse a single student from the provided stream. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_students_a3622c4d59573c9712049813f76032623}{set\+\_\+exam}} (int \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}})
+\item 
+void \doxymbox{\hyperlink{class_students_a936b3092babe96e63b66cc1ca87ee14f}{add\+\_\+grade}} (int grade)
+\item 
+void \doxymbox{\hyperlink{class_students_a0a1af7b9745279a1202b749dbe9ac38f}{set\+\_\+result}} ()
+\item 
+void \doxymbox{\hyperlink{class_students_a5bff925126d43a249398f682b9212dfc}{set\+\_\+median}} ()
+\item 
+void \doxymbox{\hyperlink{class_students_af2e1159fc32ee47b8c13333c270f2957}{set\+\_\+random\+\_\+grades}} ()
+\begin{DoxyCompactList}\small\item\em Generate random grades and print them to stdout (used in interactive mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_students_a420030f6803af4ea45275f0ed5880f20}{set\+\_\+random\+\_\+name}} ()
+\begin{DoxyCompactList}\small\item\em Set a random name (first + last) and print it, then generate grades. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_students_a05644ab13508e8609feb357b920f645f}{print}} () const override
+\begin{DoxyCompactList}\small\item\em Print a formatted single-\/line representation of the student. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_students_ab70f980a7f7f0878fa2b94d9852be173}{Students}} (const \doxymbox{\hyperlink{class_students}{Students}} \&other)
+\item 
+\doxymbox{\hyperlink{class_students_a2d6482188c5adeb85cc4f37da31534b2}{Students}} (\doxymbox{\hyperlink{class_students}{Students}} \&\&other)
+\item 
+\doxymbox{\hyperlink{class_students}{Students}} \& \doxymbox{\hyperlink{class_students_acd240dd31ea06147551d789e8d1ee5fd}{operator=}} (const \doxymbox{\hyperlink{class_students}{Students}} \&other)
+\item 
+\doxymbox{\hyperlink{class_students}{Students}} \& \doxymbox{\hyperlink{class_students_a34d92ae4aa496661574b3a553cd8d528}{operator=}} (\doxymbox{\hyperlink{class_students}{Students}} \&\&other)
+\item 
+\doxymbox{\hyperlink{class_students_aed0beb534fae4756818283a5dfea8b25}{\texorpdfstring{$\sim$}{\string~}\+Students}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Vieši Metodai inherited from \doxymbox{\hyperlink{class_human}{Human}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_human_a4f84fcddcedd434023a001eba00a095c}{Human}} ()
+\begin{DoxyCompactList}\small\item\em Default-\/construct a \doxylink{class_human}{Human} with empty names. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_human_af8a13e4cb51899110fdb20f605e564e8}{first\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Return the first name. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_human_acb62c2de33efd18bd280e085d3045807}{last\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Return the last name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_human_a27f83a7c653d9f88827fe89ea798fbeb}{set\+\_\+first\+\_\+name}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Set the first name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_human_a378757eb01db7a32b7f2b136a8b078d1}{set\+\_\+last\+\_\+name}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Set the last name. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_human_ae28126dd96482896a200486455f0c861}{Human}} (const \doxymbox{\hyperlink{class_human}{Human}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_human_af7638a981844b3f91f9bf0d491a0eff0}{Human}} (\doxymbox{\hyperlink{class_human}{Human}} \&\&other)
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_human_a9224ffb7aa2ecb9456d7ed156b616013}{\texorpdfstring{$\sim$}{\string~}\+Human}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup in derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Apsaugoti Atributai inherited from \doxymbox{\hyperlink{class_human}{Human}}}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_human_aaf6c237b5181f58e863220c4443ec889}{first\+\_\+name\+\_\+}}
+\item 
+string \doxymbox{\hyperlink{class_human_ac65193979b00f38a43c12396dc83cd01}{last\+\_\+name\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Smulkus aprašymas}
+Student model storing homework grades, exam, and computed results. 
+
+Derives from \doxylink{class_human}{Human} and provides helpers to compute weighted average and median including the exam. It also contains utilities for random data generation and file I/\+O. 
+
+\label{doc-constructors}
+\Hypertarget{class_students_doc-constructors}
+\doxysubsection{Konstruktoriaus ir Destruktoriaus Dokumentacija}
+\Hypertarget{class_students_ad81da742d7da3551e7529f4dffe5235b}\index{Students@{Students}!Students@{Students}}
+\index{Students@{Students}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{Students()}{Students()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_students_ad81da742d7da3551e7529f4dffe5235b} 
+Students::\+\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor:\+ empty student. 
+
+\Hypertarget{class_students_a9258c7e0e0463e945bbaa9073633f1b7}\index{Students@{Students}!Students@{Students}}
+\index{Students@{Students}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{Students()}{Students()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_students_a9258c7e0e0463e945bbaa9073633f1b7} 
+Students::\+\+Students (\begin{DoxyParamCaption}\item[{istream \&}]{is}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct by reading a single student record from a stream. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em is} & Input stream containing one student record (line-\/based). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_students_ab70f980a7f7f0878fa2b94d9852be173}\index{Students@{Students}!Students@{Students}}
+\index{Students@{Students}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{Students()}{Students()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_students_ab70f980a7f7f0878fa2b94d9852be173} 
+Students::\+\+Students (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_students}{Students}} \&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_students_a2d6482188c5adeb85cc4f37da31534b2}\index{Students@{Students}!Students@{Students}}
+\index{Students@{Students}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{Students()}{Students()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_students_a2d6482188c5adeb85cc4f37da31534b2} 
+Students::\+\+Students (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_students}{Students}} \&\&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_students_aed0beb534fae4756818283a5dfea8b25}\index{Students@{Students}!````~Students@{\texorpdfstring{$\sim$}{\string~}Students}}
+\index{````~Students@{\texorpdfstring{$\sim$}{\string~}Students}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Students()}{\string~Students()}}
+{\footnotesize\ttfamily \label{class_students_aed0beb534fae4756818283a5dfea8b25} 
+Students::\+\texorpdfstring{$\sim$}{\string~}\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_students_doc-func-members}
+\doxysubsection{Metodų Dokumentacija}
+\Hypertarget{class_students_a936b3092babe96e63b66cc1ca87ee14f}\index{Students@{Students}!add\_grade@{add\_grade}}
+\index{add\_grade@{add\_grade}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{add\_grade()}{add\_grade()}}
+{\footnotesize\ttfamily \label{class_students_a936b3092babe96e63b66cc1ca87ee14f} 
+void Students::\+add\+\_\+grade (\begin{DoxyParamCaption}\item[{int}]{grade}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_students_ae62c2a2f98490cf832f5044132faf242}\index{Students@{Students}!exam@{exam}}
+\index{exam@{exam}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{exam()}{exam()}}
+{\footnotesize\ttfamily \label{class_students_ae62c2a2f98490cf832f5044132faf242} 
+int Students::\+exam (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_students_ad370e609322327ddc99f80b57296918f}\index{Students@{Students}!median@{median}}
+\index{median@{median}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{median()}{median()}}
+{\footnotesize\ttfamily \label{class_students_ad370e609322327ddc99f80b57296918f} 
+double Students::\+median (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_students_acd240dd31ea06147551d789e8d1ee5fd}\index{Students@{Students}!operator=@{operator=}}
+\index{operator=@{operator=}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_students_acd240dd31ea06147551d789e8d1ee5fd} 
+\doxymbox{\hyperlink{class_students}{Students}} \& Students::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_students}{Students}} \&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_students_a34d92ae4aa496661574b3a553cd8d528}\index{Students@{Students}!operator=@{operator=}}
+\index{operator=@{operator=}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_students_a34d92ae4aa496661574b3a553cd8d528} 
+\doxymbox{\hyperlink{class_students}{Students}} \& Students::\+operator= (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_students}{Students}} \&\&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_students_a05644ab13508e8609feb357b920f645f}\index{Students@{Students}!print@{print}}
+\index{print@{print}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_students_a05644ab13508e8609feb357b920f645f} 
+void Students::\+print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Print a formatted single-\/line representation of the student. 
+
+Print a single-\/line formatted student entry to stdout. 
+
+Realizuoja \doxymbox{\hyperlink{class_human_ac3adff9d2f933933d46a697f5b824913}{Human}}.
+
+\Hypertarget{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}\index{Students@{Students}!read\_students@{read\_students}}
+\index{read\_students@{read\_students}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{read\_students()}{read\_students()}}
+{\footnotesize\ttfamily \label{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47} 
+istream \& Students::\+read\+\_\+students (\begin{DoxyParamCaption}\item[{istream \&}]{is}{}\end{DoxyParamCaption})}
+
+
+
+Parse a single student from the provided stream. 
+
+Read one student record from the stream. Expects one student per line.
+
+The implementation expects one student per line:\+ first\+\_\+name last\+\_\+name grades... exam 
+\begin{DoxyParams}{Parametrai}
+{\em is} & Input stream to read the line from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Reference to the same input stream.
+\end{DoxyReturn}
+The expected format is:\+ first\+\_\+name last\+\_\+name \+[hw grades...]\+ exam 
+\begin{DoxyParams}{Parametrai}
+{\em is} & Input stream to read a single-\/line record from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Reference to the input stream (is). 
+\end{DoxyReturn}
+\Hypertarget{class_students_a9eaee49c242db38c8eda8ffe0a51c923}\index{Students@{Students}!result@{result}}
+\index{result@{result}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily \label{class_students_a9eaee49c242db38c8eda8ffe0a51c923} 
+double Students::\+result (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_students_a3622c4d59573c9712049813f76032623}\index{Students@{Students}!set\_exam@{set\_exam}}
+\index{set\_exam@{set\_exam}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{set\_exam()}{set\_exam()}}
+{\footnotesize\ttfamily \label{class_students_a3622c4d59573c9712049813f76032623} 
+void Students::\+set\+\_\+exam (\begin{DoxyParamCaption}\item[{int}]{exam}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_students_a5bff925126d43a249398f682b9212dfc}\index{Students@{Students}!set\_median@{set\_median}}
+\index{set\_median@{set\_median}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{set\_median()}{set\_median()}}
+{\footnotesize\ttfamily \label{class_students_a5bff925126d43a249398f682b9212dfc} 
+void Students::\+set\+\_\+median (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_students_af2e1159fc32ee47b8c13333c270f2957}\index{Students@{Students}!set\_random\_grades@{set\_random\_grades}}
+\index{set\_random\_grades@{set\_random\_grades}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{set\_random\_grades()}{set\_random\_grades()}}
+{\footnotesize\ttfamily \label{class_students_af2e1159fc32ee47b8c13333c270f2957} 
+void Students::\+set\+\_\+random\+\_\+grades (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generate random grades and print them to stdout (used in interactive mode). 
+
+\Hypertarget{class_students_a420030f6803af4ea45275f0ed5880f20}\index{Students@{Students}!set\_random\_name@{set\_random\_name}}
+\index{set\_random\_name@{set\_random\_name}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{set\_random\_name()}{set\_random\_name()}}
+{\footnotesize\ttfamily \label{class_students_a420030f6803af4ea45275f0ed5880f20} 
+void Students::\+set\+\_\+random\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Set a random name (first + last) and print it, then generate grades. 
+
+\Hypertarget{class_students_a0a1af7b9745279a1202b749dbe9ac38f}\index{Students@{Students}!set\_result@{set\_result}}
+\index{set\_result@{set\_result}!Students@{Students}}
+\doxysubsubsection{\texorpdfstring{set\_result()}{set\_result()}}
+{\footnotesize\ttfamily \label{class_students_a0a1af7b9745279a1202b749dbe9ac38f} 
+void Students::\+set\+\_\+result (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dokumentacija šiai klasei sugeneruota iš šių failų:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{student_8hpp}{student.\+hpp}}\item 
+\doxymbox{\hyperlink{student_8cpp}{student.\+cpp}}\end{DoxyCompactItemize}

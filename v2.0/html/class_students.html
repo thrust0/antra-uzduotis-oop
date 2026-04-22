@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studentu pazymiu skaiciuokle: Students Klasė</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Studentu pazymiu skaiciuokle
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Paieška',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_students.html','','class_students-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Students Klasė</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Student model storing homework grades, exam, and computed results.  
+ <a href="#details">Daugiau...</a></p>
+
+<p><code>#include &lt;<a class="el" href="student_8hpp_source.html">student.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Paveldimumo diagrama Students:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_students.png" usemap="#Students_map" alt=""/>
+  <map id="Students_map" name="Students_map">
+<area href="class_human.html" title="Minimal base class for a person (first and last name)." alt="Human" shape="rect" coords="0,0,60,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Vieši Metodai</h2></td></tr>
+<tr class="memitem:ad81da742d7da3551e7529f4dffe5235b" id="r_ad81da742d7da3551e7529f4dffe5235b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad81da742d7da3551e7529f4dffe5235b">Students</a> ()</td></tr>
+<tr class="memdesc:ad81da742d7da3551e7529f4dffe5235b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor: empty student.  <br /></td></tr>
+<tr class="memitem:a9258c7e0e0463e945bbaa9073633f1b7" id="r_a9258c7e0e0463e945bbaa9073633f1b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9258c7e0e0463e945bbaa9073633f1b7">Students</a> (istream &amp;is)</td></tr>
+<tr class="memdesc:a9258c7e0e0463e945bbaa9073633f1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct by reading a single student record from a stream.  <br /></td></tr>
+<tr class="memitem:ae62c2a2f98490cf832f5044132faf242" id="r_ae62c2a2f98490cf832f5044132faf242"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ae62c2a2f98490cf832f5044132faf242">exam</a> () const</td></tr>
+<tr class="memitem:a9eaee49c242db38c8eda8ffe0a51c923" id="r_a9eaee49c242db38c8eda8ffe0a51c923"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a9eaee49c242db38c8eda8ffe0a51c923">result</a> () const</td></tr>
+<tr class="memitem:ad370e609322327ddc99f80b57296918f" id="r_ad370e609322327ddc99f80b57296918f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ad370e609322327ddc99f80b57296918f">median</a> () const</td></tr>
+<tr class="memitem:a8ffd7fc8c2bf598b1e1aaea91ecbdd47" id="r_a8ffd7fc8c2bf598b1e1aaea91ecbdd47"><td class="memItemLeft">istream &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8ffd7fc8c2bf598b1e1aaea91ecbdd47">read_students</a> (istream &amp;)</td></tr>
+<tr class="memdesc:a8ffd7fc8c2bf598b1e1aaea91ecbdd47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a single student from the provided stream.  <br /></td></tr>
+<tr class="memitem:a3622c4d59573c9712049813f76032623" id="r_a3622c4d59573c9712049813f76032623"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3622c4d59573c9712049813f76032623">set_exam</a> (int <a class="el" href="#ae62c2a2f98490cf832f5044132faf242">exam</a>)</td></tr>
+<tr class="memitem:a936b3092babe96e63b66cc1ca87ee14f" id="r_a936b3092babe96e63b66cc1ca87ee14f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a936b3092babe96e63b66cc1ca87ee14f">add_grade</a> (int grade)</td></tr>
+<tr class="memitem:a0a1af7b9745279a1202b749dbe9ac38f" id="r_a0a1af7b9745279a1202b749dbe9ac38f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0a1af7b9745279a1202b749dbe9ac38f">set_result</a> ()</td></tr>
+<tr class="memitem:a5bff925126d43a249398f682b9212dfc" id="r_a5bff925126d43a249398f682b9212dfc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5bff925126d43a249398f682b9212dfc">set_median</a> ()</td></tr>
+<tr class="memitem:af2e1159fc32ee47b8c13333c270f2957" id="r_af2e1159fc32ee47b8c13333c270f2957"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af2e1159fc32ee47b8c13333c270f2957">set_random_grades</a> ()</td></tr>
+<tr class="memdesc:af2e1159fc32ee47b8c13333c270f2957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate random grades and print them to stdout (used in interactive mode).  <br /></td></tr>
+<tr class="memitem:a420030f6803af4ea45275f0ed5880f20" id="r_a420030f6803af4ea45275f0ed5880f20"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a420030f6803af4ea45275f0ed5880f20">set_random_name</a> ()</td></tr>
+<tr class="memdesc:a420030f6803af4ea45275f0ed5880f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a random name (first + last) and print it, then generate grades.  <br /></td></tr>
+<tr class="memitem:a05644ab13508e8609feb357b920f645f" id="r_a05644ab13508e8609feb357b920f645f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a05644ab13508e8609feb357b920f645f">print</a> () const override</td></tr>
+<tr class="memdesc:a05644ab13508e8609feb357b920f645f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a formatted single-line representation of the student.  <br /></td></tr>
+<tr class="memitem:ab70f980a7f7f0878fa2b94d9852be173" id="r_ab70f980a7f7f0878fa2b94d9852be173"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab70f980a7f7f0878fa2b94d9852be173">Students</a> (const <a class="el" href="class_students.html">Students</a> &amp;other)</td></tr>
+<tr class="memitem:a2d6482188c5adeb85cc4f37da31534b2" id="r_a2d6482188c5adeb85cc4f37da31534b2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2d6482188c5adeb85cc4f37da31534b2">Students</a> (<a class="el" href="class_students.html">Students</a> &amp;&amp;other)</td></tr>
+<tr class="memitem:acd240dd31ea06147551d789e8d1ee5fd" id="r_acd240dd31ea06147551d789e8d1ee5fd"><td class="memItemLeft"><a class="el" href="class_students.html">Students</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#acd240dd31ea06147551d789e8d1ee5fd">operator=</a> (const <a class="el" href="class_students.html">Students</a> &amp;other)</td></tr>
+<tr class="memitem:a34d92ae4aa496661574b3a553cd8d528" id="r_a34d92ae4aa496661574b3a553cd8d528"><td class="memItemLeft"><a class="el" href="class_students.html">Students</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a34d92ae4aa496661574b3a553cd8d528">operator=</a> (<a class="el" href="class_students.html">Students</a> &amp;&amp;other)</td></tr>
+<tr class="memitem:aed0beb534fae4756818283a5dfea8b25" id="r_aed0beb534fae4756818283a5dfea8b25"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aed0beb534fae4756818283a5dfea8b25">~Students</a> ()</td></tr>
+<tr class="inherit_header pub_methods_class_human"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_human')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Vieši Metodai inherited from <a class="el" href="class_human.html">Human</a></td></tr>
+<tr class="memitem:a4f84fcddcedd434023a001eba00a095c inherit pub_methods_class_human" id="r_a4f84fcddcedd434023a001eba00a095c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#a4f84fcddcedd434023a001eba00a095c">Human</a> ()</td></tr>
+<tr class="memdesc:a4f84fcddcedd434023a001eba00a095c inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-construct a <a class="el" href="class_human.html" title="Minimal base class for a person (first and last name).">Human</a> with empty names.  <br /></td></tr>
+<tr class="memitem:af8a13e4cb51899110fdb20f605e564e8 inherit pub_methods_class_human" id="r_af8a13e4cb51899110fdb20f605e564e8"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#af8a13e4cb51899110fdb20f605e564e8">first_name</a> () const</td></tr>
+<tr class="memdesc:af8a13e4cb51899110fdb20f605e564e8 inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the first name.  <br /></td></tr>
+<tr class="memitem:acb62c2de33efd18bd280e085d3045807 inherit pub_methods_class_human" id="r_acb62c2de33efd18bd280e085d3045807"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#acb62c2de33efd18bd280e085d3045807">last_name</a> () const</td></tr>
+<tr class="memdesc:acb62c2de33efd18bd280e085d3045807 inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the last name.  <br /></td></tr>
+<tr class="memitem:a27f83a7c653d9f88827fe89ea798fbeb inherit pub_methods_class_human" id="r_a27f83a7c653d9f88827fe89ea798fbeb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#a27f83a7c653d9f88827fe89ea798fbeb">set_first_name</a> (const string &amp;name)</td></tr>
+<tr class="memdesc:a27f83a7c653d9f88827fe89ea798fbeb inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the first name.  <br /></td></tr>
+<tr class="memitem:a378757eb01db7a32b7f2b136a8b078d1 inherit pub_methods_class_human" id="r_a378757eb01db7a32b7f2b136a8b078d1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#a378757eb01db7a32b7f2b136a8b078d1">set_last_name</a> (const string &amp;name)</td></tr>
+<tr class="memdesc:a378757eb01db7a32b7f2b136a8b078d1 inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the last name.  <br /></td></tr>
+<tr class="memitem:ae28126dd96482896a200486455f0c861 inherit pub_methods_class_human" id="r_ae28126dd96482896a200486455f0c861"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#ae28126dd96482896a200486455f0c861">Human</a> (const <a class="el" href="class_human.html">Human</a> &amp;other)</td></tr>
+<tr class="memdesc:ae28126dd96482896a200486455f0c861 inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
+<tr class="memitem:af7638a981844b3f91f9bf0d491a0eff0 inherit pub_methods_class_human" id="r_af7638a981844b3f91f9bf0d491a0eff0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#af7638a981844b3f91f9bf0d491a0eff0">Human</a> (<a class="el" href="class_human.html">Human</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:af7638a981844b3f91f9bf0d491a0eff0 inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="memitem:a9224ffb7aa2ecb9456d7ed156b616013 inherit pub_methods_class_human" id="r_a9224ffb7aa2ecb9456d7ed156b616013"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#a9224ffb7aa2ecb9456d7ed156b616013">~Human</a> ()</td></tr>
+<tr class="memdesc:a9224ffb7aa2ecb9456d7ed156b616013 inherit pub_methods_class_human"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup in derived classes.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_human"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_human')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Apsaugoti Atributai inherited from <a class="el" href="class_human.html">Human</a></td></tr>
+<tr class="memitem:aaf6c237b5181f58e863220c4443ec889 inherit pro_attribs_class_human" id="r_aaf6c237b5181f58e863220c4443ec889"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#aaf6c237b5181f58e863220c4443ec889">first_name_</a></td></tr>
+<tr class="memitem:ac65193979b00f38a43c12396dc83cd01 inherit pro_attribs_class_human" id="r_ac65193979b00f38a43c12396dc83cd01"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="class_human.html#ac65193979b00f38a43c12396dc83cd01">last_name_</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Smulkus aprašymas</h2>
+<div class="textblock"><p>Student model storing homework grades, exam, and computed results. </p>
+<p>Derives from <a class="el" href="class_human.html" title="Minimal base class for a person (first and last name).">Human</a> and provides helpers to compute weighted average and median including the exam. It also contains utilities for random data generation and file I/O. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Konstruktoriaus ir Destruktoriaus Dokumentacija</h2>
+<a id="ad81da742d7da3551e7529f4dffe5235b" name="ad81da742d7da3551e7529f4dffe5235b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81da742d7da3551e7529f4dffe5235b">&#9670;&#160;</a></span>Students() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Students::Students </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor: empty student. </p>
+
+</div>
+</div>
+<a id="a9258c7e0e0463e945bbaa9073633f1b7" name="a9258c7e0e0463e945bbaa9073633f1b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9258c7e0e0463e945bbaa9073633f1b7">&#9670;&#160;</a></span>Students() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Students::Students </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;</td>          <td class="paramname"><span class="paramname"><em>is</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct by reading a single student record from a stream. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Input stream containing one student record (line-based). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab70f980a7f7f0878fa2b94d9852be173" name="ab70f980a7f7f0878fa2b94d9852be173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab70f980a7f7f0878fa2b94d9852be173">&#9670;&#160;</a></span>Students() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Students::Students </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_students.html">Students</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d6482188c5adeb85cc4f37da31534b2" name="a2d6482188c5adeb85cc4f37da31534b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6482188c5adeb85cc4f37da31534b2">&#9670;&#160;</a></span>Students() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Students::Students </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_students.html">Students</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed0beb534fae4756818283a5dfea8b25" name="aed0beb534fae4756818283a5dfea8b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed0beb534fae4756818283a5dfea8b25">&#9670;&#160;</a></span>~Students()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Students::~Students </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Metodų Dokumentacija</h2>
+<a id="a936b3092babe96e63b66cc1ca87ee14f" name="a936b3092babe96e63b66cc1ca87ee14f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a936b3092babe96e63b66cc1ca87ee14f">&#9670;&#160;</a></span>add_grade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::add_grade </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>grade</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae62c2a2f98490cf832f5044132faf242" name="ae62c2a2f98490cf832f5044132faf242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62c2a2f98490cf832f5044132faf242">&#9670;&#160;</a></span>exam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Students::exam </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad370e609322327ddc99f80b57296918f" name="ad370e609322327ddc99f80b57296918f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad370e609322327ddc99f80b57296918f">&#9670;&#160;</a></span>median()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Students::median </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd240dd31ea06147551d789e8d1ee5fd" name="acd240dd31ea06147551d789e8d1ee5fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd240dd31ea06147551d789e8d1ee5fd">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_students.html">Students</a> &amp; Students::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_students.html">Students</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34d92ae4aa496661574b3a553cd8d528" name="a34d92ae4aa496661574b3a553cd8d528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34d92ae4aa496661574b3a553cd8d528">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_students.html">Students</a> &amp; Students::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_students.html">Students</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05644ab13508e8609feb357b920f645f" name="a05644ab13508e8609feb357b920f645f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05644ab13508e8609feb357b920f645f">&#9670;&#160;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::print </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Print a formatted single-line representation of the student. </p>
+<p>Print a single-line formatted student entry to stdout. </p>
+
+<p>Realizuoja <a class="el" href="class_human.html#ac3adff9d2f933933d46a697f5b824913">Human</a>.</p>
+
+</div>
+</div>
+<a id="a8ffd7fc8c2bf598b1e1aaea91ecbdd47" name="a8ffd7fc8c2bf598b1e1aaea91ecbdd47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffd7fc8c2bf598b1e1aaea91ecbdd47">&#9670;&#160;</a></span>read_students()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">istream &amp; Students::read_students </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;</td>          <td class="paramname"><span class="paramname"><em>is</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse a single student from the provided stream. </p>
+<p>Read one student record from the stream. Expects one student per line.</p>
+<p>The implementation expects one student per line: first_name last_name grades... exam </p><dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Input stream to read the line from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Reference to the same input stream.</dd></dl>
+<p>The expected format is: first_name last_name [hw grades...] exam </p><dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Input stream to read a single-line record from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Reference to the input stream (is). </dd></dl>
+
+</div>
+</div>
+<a id="a9eaee49c242db38c8eda8ffe0a51c923" name="a9eaee49c242db38c8eda8ffe0a51c923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eaee49c242db38c8eda8ffe0a51c923">&#9670;&#160;</a></span>result()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Students::result </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3622c4d59573c9712049813f76032623" name="a3622c4d59573c9712049813f76032623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3622c4d59573c9712049813f76032623">&#9670;&#160;</a></span>set_exam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::set_exam </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>exam</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bff925126d43a249398f682b9212dfc" name="a5bff925126d43a249398f682b9212dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bff925126d43a249398f682b9212dfc">&#9670;&#160;</a></span>set_median()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::set_median </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2e1159fc32ee47b8c13333c270f2957" name="af2e1159fc32ee47b8c13333c270f2957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e1159fc32ee47b8c13333c270f2957">&#9670;&#160;</a></span>set_random_grades()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::set_random_grades </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate random grades and print them to stdout (used in interactive mode). </p>
+
+</div>
+</div>
+<a id="a420030f6803af4ea45275f0ed5880f20" name="a420030f6803af4ea45275f0ed5880f20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a420030f6803af4ea45275f0ed5880f20">&#9670;&#160;</a></span>set_random_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::set_random_name </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a random name (first + last) and print it, then generate grades. </p>
+
+</div>
+</div>
+<a id="a0a1af7b9745279a1202b749dbe9ac38f" name="a0a1af7b9745279a1202b749dbe9ac38f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a1af7b9745279a1202b749dbe9ac38f">&#9670;&#160;</a></span>set_result()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Students::set_result </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacija šiai klasei sugeneruota iš šių failų:<ul>
+<li><a class="el" href="student_8hpp_source.html">student.hpp</a></li>
+<li><a class="el" href="student_8cpp.html">student.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_students.html">Students</a></li>
+    <li class="footer">Sugeneruota <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
