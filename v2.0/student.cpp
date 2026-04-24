@@ -2,6 +2,16 @@
 #include <cassert>
 #include <sstream>
 
+/*
+TODO
+sukompiliuoti pdf dokumentacijai
+pasvarint repo
+sukurt studentinput ir output dir, jei jos nera
+idiegimo instrukcija readme
+naudojimosi instrukcija readme
+
+readme pakoreguot
+*/
 /** @brief Sugeneruoja trumpa atsitiktiniu namu darbu pazymiu sarasa ir egzamino pazymi. */
 void Students::random_grades_generator()
 {
