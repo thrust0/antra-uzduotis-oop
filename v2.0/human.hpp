@@ -42,11 +42,11 @@ using std::istream;
 using std::ostream;
 
 /**
- * @brief Minimal base class for a person (first and last name).
+ * @brief Bazine klase zmogui (vardas ir pavarde).
  *
- * Human provides storage and simple accessors for a person's first and
- * last name. It is an abstract base class — concrete types should implement
- * the pure virtual print() method to present the object.
+ * "Human" saugo asmens varda ir pavarde bei teikia paprastus prieigos metodus.
+ * Tai abstrakti bazine klase: is jos paveldetos klases turi igyvendinti
+ * virtualu metoda print(), kuris atvaizduoja objekta tekstiniu pavidalu.
  */
 class Human
 {
@@ -55,48 +55,48 @@ protected:
     string last_name_;
 public:
     /**
-     * @brief Default-construct a Human with empty names.
+     * @brief Numatytoji konstruktorius: sukuria Human su tusciomis reiksmemis.
      */
     Human() : first_name_(""), last_name_("") {}
 
-    /// Return the first name
+    /// Grazina varda
     inline string first_name() const { return first_name_; }
 
-    /// Return the last name
+    /// Grazina pavarde
     inline string last_name() const { return last_name_; }
 
-    /// Set the first name
+    /// Nustato varda
     void set_first_name(const string& name) { first_name_ = name; }
 
-    /// Set the last name
+    /// Nustato pavarde
     void set_last_name(const string& name) { last_name_ = name; }
 
     /**
-     * @brief Copy constructor
-     * @param other Human to copy from
+     * @brief Kopijavimo konstruktorius
+     * @param other Human objektas, is kurio kopijuojama
      */
     Human(const Human& other) : first_name_(other.first_name_),
                                 last_name_(other.last_name_)
     { }
 
     /**
-     * @brief Move constructor
-     * @param other Human to move from
+     * @brief Perkelimo (move) konstruktorius
+     * @param other Human objektas, is kurio perkelia duomenis
      */
     Human(Human&& other) : first_name_(std::move(other.first_name_)),
                             last_name_(std::move(other.last_name_))
     { }
 
     /**
-     * @brief Print a textual representation of the Human.
+     * @brief Iveda zmogaus reprezentacija kaip tekstine eilute.
      *
-     * Concrete derived classes must implement this to display the
-     * human-friendly representation (used by tests and output functions).
+     * Paveldetos klases turi igyvendinti sita metoda,
+     * kad pateiktu skaitytojui tinkama teksto forma (naudojama testuose ir isvestyje).
      */
     virtual void print() const = 0;
 
     /**
-     * @brief Virtual destructor for proper cleanup in derived classes.
+     * @brief Virtualus destruktorius, uztikrinantis teisinga valyma paveldetose klasese.
      */
     virtual ~Human() {}
 };

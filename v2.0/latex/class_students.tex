@@ -2,7 +2,7 @@
 \hypertarget{class_students}{}\label{class_students}\index{Students@{Students}}
 
 
-Student model storing homework grades, exam, and computed results.  
+Studento modelis saugantis namu darbu pazymius, egzamina ir apskaiciuotus rezultatus.  
 
 
 
@@ -19,9 +19,9 @@ Paveldimumo diagrama Students:\+\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \doxymbox{\hyperlink{class_students_ad81da742d7da3551e7529f4dffe5235b}{Students}} ()
-\begin{DoxyCompactList}\small\item\em Default constructor:\+ empty student. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Numatytoji konstruktorius:\+ tuscias studentas. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_students_a9258c7e0e0463e945bbaa9073633f1b7}{Students}} (istream \&is)
-\begin{DoxyCompactList}\small\item\em Construct by reading a single student record from a stream. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sukuria objekta nuskaitydamas viena studento irasa is srauto. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}} () const
 \item 
 double \doxymbox{\hyperlink{class_students_a9eaee49c242db38c8eda8ffe0a51c923}{result}} () const
@@ -29,7 +29,7 @@ double \doxymbox{\hyperlink{class_students_a9eaee49c242db38c8eda8ffe0a51c923}{re
 double \doxymbox{\hyperlink{class_students_ad370e609322327ddc99f80b57296918f}{median}} () const
 \item 
 istream \& \doxymbox{\hyperlink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{read\+\_\+students}} (istream \&)
-\begin{DoxyCompactList}\small\item\em Parse a single student from the provided stream. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Parsina viena studento irasa is pateikto srauto. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_students_a3622c4d59573c9712049813f76032623}{set\+\_\+exam}} (int \doxymbox{\hyperlink{class_students_ae62c2a2f98490cf832f5044132faf242}{exam}})
 \item 
 void \doxymbox{\hyperlink{class_students_a936b3092babe96e63b66cc1ca87ee14f}{add\+\_\+grade}} (int grade)
@@ -39,11 +39,11 @@ void \doxymbox{\hyperlink{class_students_a0a1af7b9745279a1202b749dbe9ac38f}{set\
 void \doxymbox{\hyperlink{class_students_a5bff925126d43a249398f682b9212dfc}{set\+\_\+median}} ()
 \item 
 void \doxymbox{\hyperlink{class_students_af2e1159fc32ee47b8c13333c270f2957}{set\+\_\+random\+\_\+grades}} ()
-\begin{DoxyCompactList}\small\item\em Generate random grades and print them to stdout (used in interactive mode). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sugeneruoja atsitiktines pazymes ir atspausdina jas i stdout (naudojama interaktyviame rezime). \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_students_a420030f6803af4ea45275f0ed5880f20}{set\+\_\+random\+\_\+name}} ()
-\begin{DoxyCompactList}\small\item\em Set a random name (first + last) and print it, then generate grades. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nustato atsitiktini varda (vardas + pavarde), isveda ji ir sugeneruoja pazymes. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_students_a05644ab13508e8609feb357b920f645f}{print}} () const override
-\begin{DoxyCompactList}\small\item\em Print a formatted single-\/line representation of the student. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Isspausdina formatuota vienos eilutes studento irasa. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_students_ab70f980a7f7f0878fa2b94d9852be173}{Students}} (const \doxymbox{\hyperlink{class_students}{Students}} \&other)
 \item 
 \doxymbox{\hyperlink{class_students_a2d6482188c5adeb85cc4f37da31534b2}{Students}} (\doxymbox{\hyperlink{class_students}{Students}} \&\&other)
@@ -58,21 +58,21 @@ void \doxymbox{\hyperlink{class_students_a05644ab13508e8609feb357b920f645f}{prin
 \begin{DoxyCompactItemize}
 \item 
 \doxymbox{\hyperlink{class_human_a4f84fcddcedd434023a001eba00a095c}{Human}} ()
-\begin{DoxyCompactList}\small\item\em Default-\/construct a \doxylink{class_human}{Human} with empty names. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Numatytoji konstruktorius:\+ sukuria \doxylink{class_human}{Human} su tusciomis reiksmemis. \end{DoxyCompactList}\item 
 string \doxymbox{\hyperlink{class_human_af8a13e4cb51899110fdb20f605e564e8}{first\+\_\+name}} () const
-\begin{DoxyCompactList}\small\item\em Return the first name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Grazina varda. \end{DoxyCompactList}\item 
 string \doxymbox{\hyperlink{class_human_acb62c2de33efd18bd280e085d3045807}{last\+\_\+name}} () const
-\begin{DoxyCompactList}\small\item\em Return the last name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Grazina pavarde. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_human_a27f83a7c653d9f88827fe89ea798fbeb}{set\+\_\+first\+\_\+name}} (const string \&name)
-\begin{DoxyCompactList}\small\item\em Set the first name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nustato varda. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_human_a378757eb01db7a32b7f2b136a8b078d1}{set\+\_\+last\+\_\+name}} (const string \&name)
-\begin{DoxyCompactList}\small\item\em Set the last name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nustato pavarde. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_human_ae28126dd96482896a200486455f0c861}{Human}} (const \doxymbox{\hyperlink{class_human}{Human}} \&other)
-\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Kopijavimo konstruktorius. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_human_af7638a981844b3f91f9bf0d491a0eff0}{Human}} (\doxymbox{\hyperlink{class_human}{Human}} \&\&other)
-\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Perkelimo (move) konstruktorius. \end{DoxyCompactList}\item 
 virtual \doxymbox{\hyperlink{class_human_a9224ffb7aa2ecb9456d7ed156b616013}{\texorpdfstring{$\sim$}{\string~}\+Human}} ()
-\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup in derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Virtualus destruktorius, uztikrinantis teisinga valyma paveldetose klasese. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Apsaugoti Atributai inherited from \doxymbox{\hyperlink{class_human}{Human}}}
 \begin{DoxyCompactItemize}
@@ -84,9 +84,9 @@ string \doxymbox{\hyperlink{class_human_ac65193979b00f38a43c12396dc83cd01}{last\
 
 
 \doxysubsection{Smulkus aprašymas}
-Student model storing homework grades, exam, and computed results. 
+Studento modelis saugantis namu darbu pazymius, egzamina ir apskaiciuotus rezultatus. 
 
-Derives from \doxylink{class_human}{Human} and provides helpers to compute weighted average and median including the exam. It also contains utilities for random data generation and file I/\+O. 
+Paveldi is \doxylink{class_human}{Human} ir teikia pagalbines funkcijas svoriniam vidurkiui bei medianai apskaiciuoti (itraukiant egzamina). Taip pat turi priemones atsitiktiniams duomenims generuoti ir failu ivedimui/\+isvedimui. 
 
 \label{doc-constructors}
 \Hypertarget{class_students_doc-constructors}
@@ -99,7 +99,7 @@ Students::\+\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspa
 
 
 
-Default constructor:\+ empty student. 
+Numatytoji konstruktorius:\+ tuscias studentas. 
 
 \Hypertarget{class_students_a9258c7e0e0463e945bbaa9073633f1b7}\index{Students@{Students}!Students@{Students}}
 \index{Students@{Students}!Students@{Students}}
@@ -109,11 +109,11 @@ Students::\+\+Students (\begin{DoxyParamCaption}\item[{istream \&}]{is}{}\end{Do
 
 
 
-Construct by reading a single student record from a stream. 
+Sukuria objekta nuskaitydamas viena studento irasa is srauto. 
 
 
 \begin{DoxyParams}{Parametrai}
-{\em is} & Input stream containing one student record (line-\/based). \\
+{\em is} & Ivesties srautas, turintis viena studento irasa (eilute). \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_students_ab70f980a7f7f0878fa2b94d9852be173}\index{Students@{Students}!Students@{Students}}
@@ -177,7 +177,7 @@ void Students::\+print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) cons
 
 
 
-Print a formatted single-\/line representation of the student. 
+Isspausdina formatuota vienos eilutes studento irasa. 
 
 Print a single-\/line formatted student entry to stdout. 
 
@@ -191,25 +191,25 @@ istream \& Students::\+read\+\_\+students (\begin{DoxyParamCaption}\item[{istrea
 
 
 
-Parse a single student from the provided stream. 
+Parsina viena studento irasa is pateikto srauto. 
 
-Read one student record from the stream. Expects one student per line.
+Nuskaito viena studento irasa is srauto. Tikimasi vieno studento per eilute.
 
-The implementation expects one student per line:\+ first\+\_\+name last\+\_\+name grades... exam 
+Tikimasi, kad eiluteje bus:\+ vardas pavarde \+[namu darbu pazymiai...]\+ egzaminas 
 \begin{DoxyParams}{Parametrai}
-{\em is} & Input stream to read the line from. \\
+{\em is} & Ivesties srautas, is kurio skaitoma eilute. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Gražina}
-Reference to the same input stream.
+Nuoroda i ta pati ivedimo srauta.
 \end{DoxyReturn}
-The expected format is:\+ first\+\_\+name last\+\_\+name \+[hw grades...]\+ exam 
+Formata sudaro:\+ vardas pavarde \+[namu darbu pazymiai...]\+ egzaminas 
 \begin{DoxyParams}{Parametrai}
-{\em is} & Input stream to read a single-\/line record from. \\
+{\em is} & Ivesties srautas, is kurio skaitoma eilute. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Gražina}
-Reference to the input stream (is). 
+Nuoroda i ta pati ivesties srauta. 
 \end{DoxyReturn}
 \Hypertarget{class_students_a9eaee49c242db38c8eda8ffe0a51c923}\index{Students@{Students}!result@{result}}
 \index{result@{result}!Students@{Students}}
@@ -237,7 +237,7 @@ void Students::\+set\+\_\+random\+\_\+grades (\begin{DoxyParamCaption}{}{}\end{D
 
 
 
-Generate random grades and print them to stdout (used in interactive mode). 
+Sugeneruoja atsitiktines pazymes ir atspausdina jas i stdout (naudojama interaktyviame rezime). 
 
 \Hypertarget{class_students_a420030f6803af4ea45275f0ed5880f20}\index{Students@{Students}!set\_random\_name@{set\_random\_name}}
 \index{set\_random\_name@{set\_random\_name}!Students@{Students}}
@@ -247,7 +247,7 @@ void Students::\+set\+\_\+random\+\_\+name (\begin{DoxyParamCaption}{}{}\end{Dox
 
 
 
-Set a random name (first + last) and print it, then generate grades. 
+Nustato atsitiktini varda (vardas + pavarde), isveda ji ir sugeneruoja pazymes. 
 
 \Hypertarget{class_students_a0a1af7b9745279a1202b749dbe9ac38f}\index{Students@{Students}!set\_result@{set\_result}}
 \index{set\_result@{set\_result}!Students@{Students}}

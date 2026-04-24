@@ -2,10 +2,10 @@
 
 /**
  * @file main.cpp
- * @brief Program entry point.
+ * @brief Programos iejimo taskas.
  *
- * Sets up and runs the interactive menu. Exceptions are caught and reported
- * to stderr to provide friendly error messages without a crash dump.
+ * Paruosia ir paleidzia interaktyvu meniu. Isimtys pagautos ir pranesamos per stderr,
+ * kad butu draugiskos klaidos zinutes be avarijos dump'o.
  */
 int main() 
 try{

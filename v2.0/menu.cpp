@@ -1,10 +1,10 @@
 #include "menu.h"
 
 /**
- * @brief Main interactive menu that drives input, sorting and output.
+ * @brief Pagrindinis interaktyvus meniu, valdantis ivedima, rikiavima ir isveda.
  *
- * Seeds RNG, collects student data and delegates sorting/output according
- * to user choices.
+ * Inicializuoja RNG, surenka studentu duomenis ir deleguoja rikiavima/isvedima
+ * pagal vartotojo pasirinkimus.
  */
 void menu(){
     srand(time(0));
@@ -34,20 +34,20 @@ void menu(){
     output_method(group,above_five, below_five, menu_option, output_option, split_option, sort_option);
 }
 
-/** @brief Print the welcome text and menu options. */
+/** @brief Atspausdina sveikinimo teksta ir meniu parinktis. */
 void intro_text()
 {
-    cout << "\tSveiki, čia yra vidurkio ir medianos iš pažymių skaičiuoklė" <<
+    cout << "\tSveiki, cia yra vidurkio ir medianos is pazymiu skaiciuokle" <<
     endl << endl;
-    cout << "Įveskite:\n\t'1' jei norite ranka suvesti pažymius\n\t'2' jei norite, kad pažymiai būtu sugeneruoti\n\t'3' jei norite, kad būtu sugeneruoti studentų vardai ir pažymiai\n\t" 
-            <<"'4' jei norite nuskaityti duomenis iš failo\n\t'5' jei norite sugeneruoti faile duomenis \n\t'6' jei norite išeiti iš programos\nĮveskite pasirinkimą:";
+    cout << "Iveskite:\n\t'1' jei norite ranka suvesti pazymius\n\t'2' jei norite, kad pazymiai butu sugeneruoti\n\t'3' jei norite, kad butu sugeneruoti studentu vardai ir pazymiai\n\t" 
+            <<"'4' jei norite nuskaityti duomenis is failo\n\t'5' jei norite sugeneruoti faile duomenis \n\t'6' jei norite iseiti is programos\nIveskite pasirinkima:";
 }
 
 
 /**
- * @brief Prompt user to select an input method and collect data accordingly.
- * @param group Destination vector to populate with students.
- * @param menu_option Reference where the chosen menu option will be stored.
+ * @brief Papraso vartotojo pasirinkti ivedimo budu ir surenka duomenis.
+ * @param group Vektorius, kuris bus uzpildytas studentais.
+ * @param menu_option Nuoroda i kintamaji, kuriame bus saugomas pasirinktas meniu punktas.
  */
 void input_method(vector<Students>& group, int& menu_option)
 {
@@ -75,12 +75,12 @@ void input_method(vector<Students>& group, int& menu_option)
             print_line();
 
             cout << "Pasirinkite is kurio failo nuskaityti:\n"
-            << "\t'1' iš studentai_gen1000.txt\n"
-            << "\t'2' iš studentai_gen10000.txt\n"
-            << "\t'3' iš studentai_gen100000.txt\n"
-            << "\t'4' iš studentai_gen1000000.txt\n"
-            << "\t'5' iš studentai_gen10000000.txt\n"
-            << "Įveskite pasirinkimą: ";            
+            << "\t'1' is studentai_gen1000.txt\n"
+            << "\t'2' is studentai_gen10000.txt\n"
+            << "\t'3' is studentai_gen100000.txt\n"
+            << "\t'4' is studentai_gen1000000.txt\n"
+            << "\t'5' is studentai_gen10000000.txt\n"
+            << "Iveskite pasirinkima: ";            
             int file_option = get_int(1,5);
             file_input(group, FILE_PATHS[file_option - 1]);
             break;
@@ -93,7 +93,7 @@ void input_method(vector<Students>& group, int& menu_option)
             << "\t'3' 100 000\n"
             << "\t'4' 1 000 000\n"
             << "\t'5' 10 000 000\n"
-            << "Įveskite pasirinkimą: ";
+            << "Iveskite pasirinkima: ";
             
             int amount_option = get_int(1, 5);
             int student_amount = STUDENT_COUNTS[amount_option - 1];
@@ -106,44 +106,44 @@ void input_method(vector<Students>& group, int& menu_option)
         } // exit program option 
         else if(menu_option == 6)
         {
-            cout << "Išeinama is programos...\n";
+            cout << "Iseinama is programos...\n";
             return;
         }
         else
         {
-            cout << "Nėra tokio pasirinkimo!\n";
+            cout << "Nera tokio pasirinkimo!\n";
             intro_text();
         }
     }
 }
 
 /**
- * @brief Ask the user for a sorting preference and apply it.
- * @param group Students vector to sort in-place.
- * @param sort_option Reference receiving the chosen sorting option.
+ * @brief Papraso vartotojo pasirinkti rikiavimo budu ir taiko ji.
+ * @param group Studentu vektorius, kuris rikiuojamas vietoje.
+ * @param sort_option Nuoroda, kurioje bus saugoma pasirinkta rikiavimo parinktis.
  */
 void sort_method(vector<Students>& group, int& sort_option)
 {
-    cout << "Pasirinkite kaip norite, kad studentai būtu išrušiuoti:\n\t'1'Pagal vardą\n\t'2'Pagal pavardę\n\t'3'Pagal vidurkį\n\t'4'Pagal medianą\n";
-    cout << "Įveskite pasirinkimą: ";
+    cout << "Pasirinkite kaip norite, kad studentai butu isrusiuoti:\n\t'1'Pagal varda\n\t'2'Pagal pavarde\n\t'3'Pagal vidurki\n\t'4'Pagal mediana\n";
+    cout << "Iveskite pasirinkima: ";
 
     sort_option = get_int(1,4);
     sort_output(group, sort_option);
 }
 
 /**
- * @brief Handle the user's output destination choice and produce output.
- * @param group Primary vector to output.
- * @param above_five Vector for students >= 5 (may be used when splitting).
- * @param below_five Vector for students < 5 (may be used when splitting).
- * @param menu_option Previously chosen input/menu option.
- * @param output_option Reference to store the chosen output option.
- * @param split_option Reference to store the chosen split strategy.
- * @param sort_option Sorting preference to apply when writing outputs.
+ * @brief Tvarko vartotojo pasirinkima del isvesties vietos ir atlieka isvedima.
+ * @param group Pagrindinis vektorius, kuri isvesime.
+ * @param above_five Vektorius studentams su result() >= 5 (naudojamas atskyrimui).
+ * @param below_five Vektorius studentams su result() < 5 (naudojamas atskyrimui).
+ * @param menu_option Anksciau pasirinktas ivedimo rezimas.
+ * @param output_option Nuoroda, kurioje saugomas pasirinktas isvesties variantas.
+ * @param split_option Nuoroda, kurioje saugomas pasirinktas atskyrimo budas.
+ * @param sort_option Rusiavimo parinktis, pritaikoma isvesties metu.
  */
 void output_method(vector<Students>& group, vector<Students>& above_five, vector<Students>& below_five, int& menu_option,int& output_option, int& split_option, int& sort_option)
 {
-    cout << "Pasirinkite kur norite, kad duomenys būtu išvesti:\n\t'1'Terminale\n\t'2'Teksto faile\n\t'3'Į du atskirus failus\nĮveskite pasirinkimą: ";
+    cout << "Pasirinkite kur norite, kad duomenys butu isvesti:\n\t'1'Terminale\n\t'2'Teksto faile\n\t'3' I du atskirus failus\nIveskite pasirinkima: ";
     output_option = get_int(1,3);
     
     if(output_option == 1 && menu_option == 4)
@@ -180,20 +180,20 @@ void output_method(vector<Students>& group, vector<Students>& above_five, vector
 }
 
 /**
- * @brief Ask the user which split strategy to use and perform it.
- * @param group Source vector with all students.
- * @param above_five Destination vector for students with result() >= 5.
- * @param below_five Destination vector for students with result() < 5.
- * @param split_option Reference where the chosen split strategy will be stored.
- * @param sort_option Sorting option used by some strategies.
+ * @brief Papraso vartotojo pasirinkti atskyrimo strategija ir ji atlieka.
+ * @param group Pradinis vektorius su visais studentais.
+ * @param above_five Vektorius studentams su result() >= 5.
+ * @param below_five Vektorius studentams su result() < 5.
+ * @param split_option Nuoroda, kurioje bus irasyta pasirinkta strategija.
+ * @param sort_option Rusiavimo parinktis, naudojama kai kuriose strategijose.
  */
 void split_method(vector<Students>& group, vector<Students>& above_five, vector<Students>& below_five, int& split_option, int& sort_option)
 {
     cout << "Pasirinkite, su kokia strategija norite atskirti studentus: "
     << "\n\t1. Pirma strategija"
     << "\n\t2. Antra strategija"
-    << "\n\t3. Trečia strategija\n"
-    << "Įveskite pasirinkimą: ";
+    << "\n\t3. Trecia strategija\n"
+    << "Iveskite pasirinkima: ";
     split_option = get_int(1, 3);
 
     if(split_option == 1)

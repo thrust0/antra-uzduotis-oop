@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 
-/** Unit tests for Students class. Each test covers one behaviour. */
+/** Vienetiniai testai Students klasei. Kiekvienas testas tikrina viena elgsena. */
 
 #include <gtest/gtest.h>
 #include <sstream>
@@ -142,7 +142,7 @@ TEST(StudentTest, CalcMedianWorks)
     Students s;
     s.add_grade(4);
     s.add_grade(8);  // grades + exam = {4, 8, 6}
-    s.set_exam(6);   // sorted: {4, 6, 8} → median = 6
+    s.set_exam(6);   // sorted: {4, 6, 8}  median = 6
 
     EXPECT_DOUBLE_EQ(s.median(), 6.0);
 }
@@ -154,7 +154,7 @@ TEST(StudentTest, CalcMedianOddCount)
     s.add_grade(2);
     s.add_grade(4);
     s.add_grade(6);  // grades + exam = {2, 4, 6, 8}
-    s.set_exam(8);   // sorted: {2, 4, 6, 8} → even → (4+6)/2 = 5.0
+    s.set_exam(8);   // sorted: {2, 4, 6, 8}  even  (4+6)/2 = 5.0
 
     EXPECT_DOUBLE_EQ(s.median(), 5.0);
 }

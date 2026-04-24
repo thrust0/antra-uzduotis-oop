@@ -2,12 +2,12 @@
 #include "student.hpp"
 
 /**
- * @brief Interactive manual input mode.
+ * @brief Interaktyvus rankinis ivedimas.
  *
- * Prompts the user for a student's first/last name, homework grades and exam
- * grade. The constructed Students object is appended to the provided group.
- * Entering a single semicolon (';') in the name input will stop input mode.
- * @param group Vector to append created Students objects to.
+ * Papraso vartotojo ivesti studento varda ir pavarde, namu darbu pazymius ir egzamino pazymi.
+ * Sukurtas Students objektas pridedamas prie pateikto vektoriaus. Ivedus ';' vardui ar pavardei
+ * baigiamas ivedimo rezimas.
+ * @param group Vektorius, prie kurio pridedami Students objektai.
  */
 void manual_input(vector<Students>& group)
 {
@@ -17,8 +17,8 @@ void manual_input(vector<Students>& group)
         string first, last;
         int grade_count = 0;
 
-    cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
-    cout << "Įveskite vardą ir pavardę studento: ";
+    cout << "Jei norite, kad rezultatai butu isspausdinami, iveskite ';'" << endl;
+    cout << "Iveskite varda ir pavarde studento: ";
 
         cin >> first;
         if(first == ";") { cout << endl; return; }
@@ -33,15 +33,15 @@ void manual_input(vector<Students>& group)
         while(true)
         {
             int temp;
-            cout << "Jei norite pereit į kitą studentą, įveskite ';'\n";
-            cout << "Įveskite " << grade_count + 1 << " pažymį:  ";
+            cout << "Jei norite pereit i kita studenta, iveskite ';'\n";
+            cout << "Iveskite " << grade_count + 1 << " pazymi:  ";
             temp = get_int(0, 10);
             if(temp == -1) break; ///< ';' returns -1 to indicate end of grades
             student.add_grade(temp);
         }
 
         print_line();
-        cout << "Įveskite egzamino pažymį: "; 
+        cout << "Iveskite egzamino pazymi: "; 
         int exam = get_int(0, 10);
         student.set_exam(exam);
         
@@ -55,10 +55,9 @@ void manual_input(vector<Students>& group)
 }
 
 /**
- * @brief Random grade generator for an entered student name.
+ * @brief Atsitiktiniu pazymiu generatorius ivestam studento vardui.
  *
- * The user supplies a name; homework grades are generated randomly and
- * appended to the group.
+ * Vartotojas iveda varda; namu darbu pazymiai sukuriai atsitiktinai ir pridedami prie vektoriaus.
  */
 void generate_grades_input(vector<Students>& group)
 {
@@ -67,8 +66,8 @@ void generate_grades_input(vector<Students>& group)
         Students student;
         string first, last;
     // name input as usual
-        cout << "Jei norite, kad rezultatai butu išspausdinami, įveskite ';'" << endl;
-        cout << "Įveskite vardą ir pavardę studento: ";
+        cout << "Jei norite, kad rezultatai butu isspausdinami, iveskite ';'" << endl;
+        cout << "Iveskite varda ir pavarde studento: ";
         
         cin >> first;
         if(first == ";") return;
@@ -86,8 +85,7 @@ void generate_grades_input(vector<Students>& group)
     }
 }
 /**
- * @brief Generate random student names (from name files) and prompt for
- * grades/exam as in interactive mode.
+ * @brief Sugeneruoja atsitiktinius studentu vardus (is failu) ir praso pazymiu/egzamino kaip interaktyviame rezime.
  */
 void generate_names_input(vector<Students>& group)
 {
@@ -98,8 +96,8 @@ void generate_names_input(vector<Students>& group)
         group.push_back(student);
 
         print_line();
-        cout << "Jei norite, kad būtų, išvesti rezultatai, įveskite ';' " << endl;
-        cout << "Jeigu norite pereiti prie kito studento, įveskite '1' ";
+        cout << "Jei norite, kad butu, isvesti rezultatai, iveskite ';' " << endl;
+        cout << "Jeigu norite pereiti prie kito studento, iveskite '1' ";
         int exit_option = get_int(1,1);
         if(exit_option == -1) return;
         print_line();
@@ -107,21 +105,20 @@ void generate_names_input(vector<Students>& group)
 }
 
 /**
- * @brief Read students from a text file and append them to group.
+ * @brief Nuskaityti studentus is teksto failo ir prideti prie vektoriaus.
  *
- * The file is expected to contain one student record per line compatible
- * with Students::read_students(). The first line is treated as a header
- * and skipped.
- * @param group Vector to append parsed students to.
- * @param filename Input file path.
- * @throws runtime_error if the file cannot be opened.
+ * Failas turetu tureti po viena studento irasa kiekvienoje eiluteje, suderinta
+ * su Students::read_students(). Pirmoji eilute laikoma antraste ir praleidziama.
+ * @param group Vektorius, prie kurio pridedami nuskaityti studentai.
+ * @param filename Ivesties failo kelias.
+ * @throws runtime_error jei nepavyksta atidaryti failo.
  */
 void file_input(vector<Students>& group, const string& filename)
 {
     ifstream file(filename); ///< open file
     if(!file) ///< check if file opened
     {
-        throw runtime_error("Neišėjo atidaryti failo ");
+        throw runtime_error("Neisejo atidaryti failo ");
         return;
     }
 
@@ -136,8 +133,8 @@ void file_input(vector<Students>& group, const string& filename)
 }
 
 /**
- * @brief Print students to the terminal, letting the user choose average or median.
- * @param group Students to display.
+ * @brief Atspausdina studentus terminale, leidziant vartotojui pasirinkti vidurki arba mediana.
+ * @param group Studentai, kuriuos reikia parodyti.
  */
 void terminal_output(vector<Students>& group)
 {
@@ -147,19 +144,19 @@ void terminal_output(vector<Students>& group)
     while(true) // reprompt user for wrong input
     {
         cout << endl;
-        cout << "Įveskite 'v', jei norite vidurkio rezultatus pamatyti." << endl << "Įveskite 'm', jei norite medianos rezultatus pamatyti." << endl;
+        cout << "Iveskite 'v', jei norite vidurkio rezultatus pamatyti." << endl << "Iveskite 'm', jei norite medianos rezultatus pamatyti." << endl;
         cin >> print_option;
         tolower(print_option);
 
         if(print_option == 'v' || print_option == 'm') break;
-        cout << "Tokio išvesties pasirinkimo nėra!" << endl;
+        cout << "Tokio isvesties pasirinkimo nera!" << endl;
     }
     
     switch (print_option)
     {
     case 'v':
         cout << endl;
-        cout << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
+        cout << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
         cout << setw(20) << " Galutinis (Vid.)" << endl;
         print_line();
         for (auto student : group)
@@ -172,7 +169,7 @@ void terminal_output(vector<Students>& group)
     
     case 'm':
         cout << endl;
-        cout << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
+        cout << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
         cout << setw(20) << " Galutinis (Med.)" << endl;
         print_line();
         for (auto student : group)
@@ -186,18 +183,18 @@ void terminal_output(vector<Students>& group)
 }
 
 /**
- * @brief Write students to a formatted file using Students::operator<<.
- * @param group Students to write.
- * @param filename Destination file path.
+ * @brief Isveda studentus i formatuota faila, naudojant Students::operator<<.
+ * @param group Studentai, kuriuos rasysime.
+ * @param filename Tikslinis failo kelias.
  */
 void file_output(const vector<Students>& group, const string filename)
 {
     ofstream outFile(filename);
 
-    if(!outFile) { cerr << "Klaida įrašyme..." << endl; return;}
+    if(!outFile) { cerr << "Klaida irasyme..." << endl; return;}
 
     // header
-    outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
+    outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
     outFile << setw(20) << " Galutinis (Vid.)";
     outFile << setw(20) << " Galutinis (Med.)" << endl;
     for(int i = 0; i<76; i++)
@@ -209,13 +206,13 @@ void file_output(const vector<Students>& group, const string filename)
 }
 
 /**
- * @brief Print both average and median table to terminal.
+ * @brief Atspausdina terminale lentele su vidurkiu ir mediana.
  */
 void temp_output(vector<Students>& group)
 {
     print_line();
     cout << endl;
-    cout << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
+    cout << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
     cout << setw(20) << " Galutinis (Vid.)";
     cout << setw(20) << " Galutinis (Med.)";
     print_line();
@@ -224,9 +221,9 @@ void temp_output(vector<Students>& group)
 }
 
 /**
- * @brief Sort the group according to sort_option.
- * @param group Vector to sort in-place.
- * @param sort_option 1=first name, 2=last name, 3=result, otherwise median
+ * @brief Surikiuoja grupe pagal sort_option.
+ * @param group Vektorius, kuris rikiuojamas vietoje.
+ * @param sort_option 1=vardas, 2=pavarde, 3=vidurkis, kitu atveju mediana
  */
 void sort_output(vector<Students>& group, int sort_option)
 { 
@@ -254,7 +251,7 @@ void sort_output(vector<Students>& group, int sort_option)
 }
 
 /**
- * @brief Move students into above_five or below_five according to result().
+ * @brief Perkelia studentus i above_five arba below_five pagal result().
  */
 void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five)
 {
@@ -269,8 +266,8 @@ void split_students_by_grades(vector<Students>& group,vector<Students>& above_fi
 }
 
 /**
- * @brief Strategy two for splitting: assume group is sorted by result and pop back
- * until remaining element has result() >= 5.
+ * @brief Antroji atskyrimo strategija: laikoma, kad grupe surikiuota pagal result() ir
+ * traukiama is galo tol, kol likes elementas turi result() >= 5.
  */
 void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
 {
@@ -282,7 +279,7 @@ void split_strategy_two(vector<Students>& group, vector<Students>& below_five)
 }
 
 /**
- * @brief Partition-based split: moves students with result()<5 to below_five.
+ * @brief Atskyrimas naudojant partition: perkelia studentus su result()<5 i below_five.
  */
 void split_strategy_three(vector<Students> & group, vector<Students>& below_five)
 {
@@ -297,11 +294,12 @@ void split_strategy_three(vector<Students> & group, vector<Students>& below_five
 }
 
 
+
 /**
- * @brief Generate a synthetic student input file with randomized grades.
- * @param student_amount Number of student rows to produce.
- * @param grade_amount Number of homework grades per student (exam added automatically).
- * @return The path to the created file or empty string on failure.
+ * @brief Sugeneruoja sintetinio studentu ivedimo faila su atsitiktinemis pazymemis.
+ * @param student_amount Kiek studentu eilučių sugeneruoti.
+ * @param grade_amount Kiek namu darbu pazymiu sukurti kiekvienam studentui (egzaminas pridedamas automatiškai).
+ * @return Sugeneruoto failo kelias arba tuscias stringas klaidos atveju.
  */
 string generate_raw_student_file(int student_amount, int grade_amount)
 {
@@ -312,10 +310,10 @@ string generate_raw_student_file(int student_amount, int grade_amount)
     
     if(!outFile)
     {
-        cerr << "Klaida atidarinėjant failą įrašymui..." << endl;
+        cerr << "Klaida atidarinėjant faila irasymui..." << endl;
         return ""; // return empty string for failure
     }
-    outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavardė";
+    outFile << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
 
     for(int j = 0; j < grade_amount; j++)
     {
@@ -344,9 +342,9 @@ string generate_raw_student_file(int student_amount, int grade_amount)
 
 
 /**
- * @brief Read an integer in [start..end] from stdin; returns -1 on ';'.
+ * @brief Nuskaito sveika skaiciu intervale [start..end] is stdin; grazina -1 jei ivestas ';'.
  *
- * This helper validates user input and provides friendly error messages.
+ * Pagalbine funkcija tikrina vartotojo ivedi ir pateikia draugiskas klaidu zinutes.
  */
 int get_int(int start, int end)
 {
@@ -362,10 +360,10 @@ int get_int(int start, int end)
             {
                 if(!isdigit(static_cast<unsigned char>(i)))
                 {
-                    if(end==INT_MAX) throw invalid_argument("Įveskite naturalų skaičių nuo");
+                    if(end==INT_MAX) throw invalid_argument("Iveskite naturalu skaiciu nuo");
                     else
                     {
-                        throw invalid_argument("Įveskite naturalų skaičių nuo " +
+                        throw invalid_argument("Iveskite naturalu skaiciu nuo " +
                         to_string(start) + " iki " + to_string(end) + "!");
                     }
                     is_number = false;
@@ -377,21 +375,21 @@ int get_int(int start, int end)
                 temp = stoi(input);
             if(temp < start  && is_number)
             {
-                throw invalid_argument("Įveskite naturalų skaičių daugiau už " + to_string(start-1) + "!");
+                throw invalid_argument("Iveskite naturalu skaiciu daugiau uz " + to_string(start-1) + "!");
             }
             else if(temp > end && is_number) 
             {
-                throw invalid_argument("Įveskite naturalų skaičių mažesnį už " + to_string(end+1) + "!");
+                throw invalid_argument("Iveskite naturalu skaiciu mazesni uz " + to_string(end+1) + "!");
             }
             else if(temp <= end && temp >= start && is_number) return temp; // if conditions correct
         }
     
         catch(const invalid_argument& e)
         {
-            cerr << "Įvedimo klaida: " << e.what() << endl;
-            cout << "Bandykite dar kartą: ";
+            cerr << "Ivedimo klaida: " << e.what() << endl;
+            cout << "Bandykite dar karta: ";
             cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\\n');
         }
 }
 

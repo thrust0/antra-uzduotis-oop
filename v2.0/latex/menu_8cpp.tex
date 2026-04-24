@@ -5,17 +5,17 @@
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
-\begin{DoxyCompactList}\small\item\em Main interactive menu that drives input, sorting and output. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Pagrindinis interaktyvus meniu, valdantis ivedima, rikiavima ir isveda. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{menu_8cpp_ac9cba366c5a802fbb258a3134c87c266}{intro\+\_\+text}} ()
-\begin{DoxyCompactList}\small\item\em Print the welcome text and menu options. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Atspausdina sveikinimo teksta ir meniu parinktis. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{menu_8cpp_ab67be14847db409a32598e639b7d4960}{input\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, int \&menu\+\_\+option)
-\begin{DoxyCompactList}\small\item\em Prompt user to select an input method and collect data accordingly. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Papraso vartotojo pasirinkti ivedimo budu ir surenka duomenis. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{menu_8cpp_aae28dd1dd4f9215bace1b4b4f55380f0}{sort\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, int \&sort\+\_\+option)
-\begin{DoxyCompactList}\small\item\em Ask the user for a sorting preference and apply it. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Papraso vartotojo pasirinkti rikiavimo budu ir taiko ji. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf}{output\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&above\+\_\+five, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five, int \&menu\+\_\+option, int \&output\+\_\+option, int \&split\+\_\+option, int \&sort\+\_\+option)
-\begin{DoxyCompactList}\small\item\em Handle the user\textquotesingle{}s output destination choice and produce output. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Tvarko vartotojo pasirinkima del isvesties vietos ir atlieka isvedima. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{menu_8cpp_a40872be63061f31e2857690c7d00994b}{split\+\_\+method}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&above\+\_\+five, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five, int \&split\+\_\+option, int \&sort\+\_\+option)
-\begin{DoxyCompactList}\small\item\em Ask the user which split strategy to use and perform it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Papraso vartotojo pasirinkti atskyrimo strategija ir ji atlieka. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
@@ -29,15 +29,15 @@ void input\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hype
 
 
 
-Prompt user to select an input method and collect data accordingly. 
+Papraso vartotojo pasirinkti ivedimo budu ir surenka duomenis. 
 
-Prompt user for input method and populate group accordingly.
+Papraso vartotojo pasirinkti ivedimo budu ir uzpildo group vektoriu.
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & Destination vector to populate with students. \\
+{\em group} & Vektorius, kuris bus uzpildytas studentais. \\
 \hline
-{\em menu\+\_\+option} & Reference where the chosen menu option will be stored. \\
+{\em menu\+\_\+option} & Nuoroda i kintamaji, kuriame bus saugomas pasirinktas meniu punktas. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{menu_8cpp_ac9cba366c5a802fbb258a3134c87c266}\index{menu.cpp@{menu.cpp}!intro\_text@{intro\_text}}
@@ -48,9 +48,9 @@ void intro\+\_\+text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Print the welcome text and menu options. 
+Atspausdina sveikinimo teksta ir meniu parinktis. 
 
-Print introductory help text and options. \Hypertarget{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a}\index{menu.cpp@{menu.cpp}!menu@{menu}}
+Atspausdina ivadinį tekstą ir parinktis. \Hypertarget{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a}\index{menu.cpp@{menu.cpp}!menu@{menu}}
 \index{menu@{menu}!menu.cpp@{menu.cpp}}
 \doxysubsubsection{\texorpdfstring{menu()}{menu()}}
 {\footnotesize\ttfamily \label{menu_8cpp_a2a0e843767aeea4f433a28b9c54f573a} 
@@ -58,11 +58,11 @@ void menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Main interactive menu that drives input, sorting and output. 
+Pagrindinis interaktyvus meniu, valdantis ivedima, rikiavima ir isveda. 
 
 The top-\/level menu/\+driver for the program.
 
-Seeds RNG, collects student data and delegates sorting/\+output according to user choices. \Hypertarget{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf}\index{menu.cpp@{menu.cpp}!output\_method@{output\_method}}
+Inicializuoja RNG, surenka studentu duomenis ir deleguoja rikiavima/\+isvedima pagal vartotojo pasirinkimus. \Hypertarget{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf}\index{menu.cpp@{menu.cpp}!output\_method@{output\_method}}
 \index{output\_method@{output\_method}!menu.cpp@{menu.cpp}}
 \doxysubsubsection{\texorpdfstring{output\_method()}{output\_method()}}
 {\footnotesize\ttfamily \label{menu_8cpp_a0993848c0860f8eea56ec906157c9aaf} 
@@ -70,25 +70,25 @@ void output\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyp
 
 
 
-Handle the user\textquotesingle{}s output destination choice and produce output. 
+Tvarko vartotojo pasirinkima del isvesties vietos ir atlieka isvedima. 
 
-Choose output destination and format and write the students.
+Pasirinkti isvesties vieta ir formata bei isvesti studentus.
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & Primary vector to output. \\
+{\em group} & Pagrindinis vektorius, kuri isvesime. \\
 \hline
-{\em above\+\_\+five} & Vector for students \texorpdfstring{$>$}{>}= 5 (may be used when splitting). \\
+{\em above\+\_\+five} & Vektorius studentams su result() \texorpdfstring{$>$}{>}= 5 (naudojamas atskyrimui). \\
 \hline
-{\em below\+\_\+five} & Vector for students \texorpdfstring{$<$}{<} 5 (may be used when splitting). \\
+{\em below\+\_\+five} & Vektorius studentams su result() \texorpdfstring{$<$}{<} 5 (naudojamas atskyrimui). \\
 \hline
-{\em menu\+\_\+option} & Previously chosen input/\+menu option. \\
+{\em menu\+\_\+option} & Anksciau pasirinktas ivedimo rezimas. \\
 \hline
-{\em output\+\_\+option} & Reference to store the chosen output option. \\
+{\em output\+\_\+option} & Nuoroda, kurioje saugomas pasirinktas isvesties variantas. \\
 \hline
-{\em split\+\_\+option} & Reference to store the chosen split strategy. \\
+{\em split\+\_\+option} & Nuoroda, kurioje saugomas pasirinktas atskyrimo budas. \\
 \hline
-{\em sort\+\_\+option} & Sorting preference to apply when writing outputs. \\
+{\em sort\+\_\+option} & Rusiavimo parinktis, pritaikoma isvesties metu. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{menu_8cpp_aae28dd1dd4f9215bace1b4b4f55380f0}\index{menu.cpp@{menu.cpp}!sort\_method@{sort\_method}}
@@ -99,15 +99,15 @@ void sort\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyper
 
 
 
-Ask the user for a sorting preference and apply it. 
+Papraso vartotojo pasirinkti rikiavimo budu ir taiko ji. 
 
-Helper to select and apply sorting.
+Pagalbine funkcija rusiuoto parinkciai pasirinkti ir pritaikyti.
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & \doxylink{class_students}{Students} vector to sort in-\/place. \\
+{\em group} & Studentu vektorius, kuris rikiuojamas vietoje. \\
 \hline
-{\em sort\+\_\+option} & Reference receiving the chosen sorting option. \\
+{\em sort\+\_\+option} & Nuoroda, kurioje bus saugoma pasirinkta rikiavimo parinktis. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{menu_8cpp_a40872be63061f31e2857690c7d00994b}\index{menu.cpp@{menu.cpp}!split\_method@{split\_method}}
@@ -118,20 +118,20 @@ void split\+\_\+method (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hype
 
 
 
-Ask the user which split strategy to use and perform it. 
+Papraso vartotojo pasirinkti atskyrimo strategija ir ji atlieka. 
 
-Choose a splitting strategy and perform the split.
+Pasirinkti atskyrimo strategija ir ją atlikti.
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & Source vector with all students. \\
+{\em group} & Pradinis vektorius su visais studentais. \\
 \hline
-{\em above\+\_\+five} & Destination vector for students with result() \texorpdfstring{$>$}{>}= 5. \\
+{\em above\+\_\+five} & Vektorius studentams su result() \texorpdfstring{$>$}{>}= 5. \\
 \hline
-{\em below\+\_\+five} & Destination vector for students with result() \texorpdfstring{$<$}{<} 5. \\
+{\em below\+\_\+five} & Vektorius studentams su result() \texorpdfstring{$<$}{<} 5. \\
 \hline
-{\em split\+\_\+option} & Reference where the chosen split strategy will be stored. \\
+{\em split\+\_\+option} & Nuoroda, kurioje bus irasyta pasirinkta strategija. \\
 \hline
-{\em sort\+\_\+option} & Sorting option used by some strategies. \\
+{\em sort\+\_\+option} & Rusiavimo parinktis, naudojama kai kuriose strategijose. \\
 \hline
 \end{DoxyParams}

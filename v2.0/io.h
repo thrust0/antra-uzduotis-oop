@@ -2,83 +2,85 @@
 #include "student.hpp"
 
 /** @file io.h
- *  @brief Input/output and helper function declarations for the app.
+ *  @brief Ivesties, isvesties ir pagalbiniu funkciju deklaracijos programai.
  */
 
 // Input functions
 /**
- * @brief Prompt the user for a student's name and grades interactively.
- * @param group Vector to append the created Students object to.
+ * @brief Interaktyviai papraso vartotojo studento vardo ir pazymiu.
+ * @param group Vektorius, prie kurio pridedamas sukurtas Students objektas.
  */
 void manual_input(vector<Students>& group);
 
 /**
- * @brief Prompt for a student's name then generate random grades.
- * @param group Vector to append the created Students object to.
+ * @brief Papraso studento vardo ir sugeneruoja atsitiktines pazymes.
+ * @param group Vektorius, prie kurio pridedamas sukurtas Students objektas.
  */
 void generate_grades_input(std::vector<Students>& group);
 
 /**
- * @brief Generate random student names and prompt for grades/exam.
- * @param group Vector to append the created Students object to.
+ * @brief Sugeneruoja atsitiktinius studentu vardus ir papraso pazymiu/egzamino.
+ * @param group Vektorius, prie kurio pridedamas sukurtas Students objektas.
  */
 void generate_names_input(std::vector<Students>& group);
 
 /**
- * @brief Read students from a text file using the Students stream operator.
- * @param group Vector to append parsed Students to.
- * @param filename Path to the input file.
- * @throws runtime_error if file cannot be opened.
+ * @brief Nuskaityti studentus is teksto failo, naudojant Students operator>>.
+ * @param group Vektorius, prie kurio pridedami nuskaityti Students objektai.
+ * @param filename Ivesties failo kelias.
+ * @throws runtime_error jei nepavyksta atidaryti failo.
  */
 void file_input(std::vector<Students>& group, const std::string& filename);
 
 // Output functions
 /**
- * @brief Print selection of students to the terminal (average/median choice).
- * @param group Vector of students to print.
+ * @brief Atspausdina studentus terminale (pagal vidurki arba mediana pagal pasirinkima).
+ * @param group Vektorius studentu, kuriuos reikia atspausdinti.
  */
 void terminal_output(std::vector<Students>& group);
 
 /**
- * @brief Print a full students table to the terminal (both median and average).
- * @param group Vector of students to print.
+ * @brief Atspausdina pilna studentu lentele terminale (vidurkis ir mediana).
+ * @param group Vektorius studentu, kuriuos reikia atspausdinti.
  */
 void temp_output(std::vector<Students>& group);
 
 /**
- * @brief Write a formatted students table to a file.
- * @param group Students to write.
- * @param filename Destination file path.
+ * @brief Isveda formatuota studentu lentele i faila.
+ * @param group Studentu vektorius, kuri rašysime.
+ * @param filename Tikslinis failo kelias.
  */
 void file_output(const vector<Students>& group, const string filename);
 
 // Sorting / splitting helpers
 /**
- * @brief Sort students according to the selected option.
- * @param group Vector of students to sort in-place.
- * @param sort_option 1=name,2=lastname,3=avg,4=median
+ * @brief Surikiuoja studentus pagal pasirinkta parinkti.
+ * @param group Vektorius studentu, kuris rikiuojamas vietoje.
+ * @param sort_option 1=vardas, 2=pavarde, 3=vidurkis, 4=mediana
  */
 void sort_output(std::vector<Students>& group, int sort_option);
 
 /**
- * @brief Split students into two vectors (>=5 and <5) by moving elements.
+ * @brief Atskirsto studentus i du vektorius (>=5 ir <5) perkeliamas elementus.
  */
 void split_students_by_grades(vector<Students>& group,vector<Students>& above_five, vector<Students>& below_five);
 
 /**
- * @brief Alternative splitting strategy (pop from back while <5).
+ * @brief Alternatyvi atskyrimo strategija (traukia elementus is galo tol, kol <5).
  */
 void split_strategy_two(vector<Students>& group, vector<Students>& below_five);
 
 /**
- * @brief Partition-based split: keeps >=5 first then extracts the rest.
+ * @brief Atskyrimas su partition: palieka >=5 pirmiau ir pasalina likusius.
  */
 void split_strategy_three(vector<Students> & group, vector<Students>& below_five);
 
 // Student data generating functions
 /**
- * @brief Generate a raw student data file with randomized names/grades.
- * @return Path to the generated file or empty string on failure.
+ * @brief Sugeneruoja zalia (raw) studentu ivedimo faila su atsitiktiniais duomenimis.
+ * @param student_amount Kiek studentu sugeneruoti.
+ * @param grade_amount Kiek namu darbu pazymiu sugeneruoti kiekvienam studentui.
+ * @return Sugeneruoto failo kelias arba tuscias stringas klaidos atveju.
  */
 string generate_raw_student_file(int student_amount, int grade_amount);
 

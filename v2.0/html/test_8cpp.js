@@ -1,12 +1,20 @@
 var test_8cpp =
 [
-    [ "main", "test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ],
-    [ "test_copy_assignment", "test_8cpp.html#ac50bd9d447868cd5ea6d6c67c5864b9d", null ],
-    [ "test_copy_konstruktoriu", "test_8cpp.html#a7edbb22926290fc383cbd0f426744490", null ],
-    [ "test_default_konstruktoriu", "test_8cpp.html#a38b304bfdfcc3b3916536f8372cdaca8", null ],
-    [ "test_destructor", "test_8cpp.html#a9f059cd7990a54c05947d1b2c85a40b7", null ],
-    [ "test_input_operator", "test_8cpp.html#a4bd2cac20c25a909c2179423ac27f3a4", null ],
-    [ "test_move_assignment", "test_8cpp.html#a9b29b9c6778bcffa66b73fa71b4df7a8", null ],
-    [ "test_move_konstruktoriu", "test_8cpp.html#a3b4578bf4d5f82ebbb534f25899300e5", null ],
-    [ "test_output_operator", "test_8cpp.html#a72ff588f38a8d0c9f65d4bf38f3bbf76", null ]
+    [ "main", "test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627", null ],
+    [ "TEST", "test_8cpp.html#a1b6f947de9ecbd179fe183283ac5400a", null ],
+    [ "TEST", "test_8cpp.html#aae1a5bf720308cd11bf3c257e471ddc2", null ],
+    [ "TEST", "test_8cpp.html#a830a7445bc75c1216d7bfaa3f20c0314", null ],
+    [ "TEST", "test_8cpp.html#afa04f48283521b8ac4ae217f0b4fb2da", null ],
+    [ "TEST", "test_8cpp.html#a230bc8c89e91f228842da42d80e8c43b", null ],
+    [ "TEST", "test_8cpp.html#a4179ea74743a569e9f5356640cca3d07", null ],
+    [ "TEST", "test_8cpp.html#a5dbdff7775632a24852a6277ce0a9ee8", null ],
+    [ "TEST", "test_8cpp.html#a5588bbc81fb21a95da93ff59371601c5", null ],
+    [ "TEST", "test_8cpp.html#a2164590cb9fb3b08b2a335750ed03ec1", null ],
+    [ "TEST", "test_8cpp.html#afd5fa3d6834ceed77fa2543168db80a6", null ],
+    [ "TEST", "test_8cpp.html#a6085f234095d650792a205b6bd3425ac", null ],
+    [ "TEST", "test_8cpp.html#aca8d4e40deeba1149b77954a73cc2336", null ],
+    [ "TEST", "test_8cpp.html#a619ee6703eeac02f1c293e69c9a26664", null ],
+    [ "TEST", "test_8cpp.html#a4618dc7893397b9d333e48fd6bedca47", null ],
+    [ "TEST", "test_8cpp.html#a9ada2932c4779b4ea481676cb228805d", null ],
+    [ "TEST", "test_8cpp.html#afa6d64da46e3bf042d268b20de58f21f", null ]
 ];

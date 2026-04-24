@@ -12,11 +12,11 @@ using std::istream;
 using std::ostream;
 
 /**
- * @brief Student model storing homework grades, exam, and computed results.
+ * @brief Studento modelis saugantis namu darbu pazymius, egzamina ir apskaiciuotus rezultatus.
  *
- * Derives from Human and provides helpers to compute weighted average
- * and median including the exam. It also contains utilities for random
- * data generation and file I/O.
+ * Paveldi is Human ir teikia pagalbines funkcijas svoriniam vidurkiui bei medianai
+ * apskaiciuoti (itraukiant egzamina). Taip pat turi priemones atsitiktiniams duomenims
+ * generuoti ir failu ivedimui/isvedimui.
  */
 class Students : public Human
 {
@@ -27,14 +27,14 @@ private:
 
     // private helper functions
     /**
-     * @brief Compute weighted average (40% homework, 60% exam).
-     * @return The weighted average as double. Returns 0 if no homework grades.
+     * @brief Apskaiciuoja svorini vidurki (40% namu darbai, 60% egzaminas).
+     * @return Svorinis vidurkis (double). Grazina 0, jei nera namu darbu pazymiu.
      */
     double calc_result() const;
 
     /**
-     * @brief Compute median including the exam grade.
-     * @return The median value (double). If number of elements is even, returns the average of the two middle values.
+     * @brief Apskaiciuoja mediana, itraukiant egzamino pazymi.
+     * @return Mediana (double). Jei elementu skaicius lyginis, grazina dvieju viduriniu reiksmiu vidurki.
      */
     double calc_median() const;
 
@@ -42,13 +42,13 @@ private:
     vector <string> random_name_generator();
 public:
     /**
-     * @brief Default constructor: empty student.
+     * @brief Numatytoji konstruktorius: tuscias studentas.
      */
     Students() : Human(),  exam_(0), result_(0), median_(0){ }
 
     /**
-     * @brief Construct by reading a single student record from a stream.
-     * @param is Input stream containing one student record (line-based).
+     * @brief Sukuria objekta nuskaitydamas viena studento irasa is srauto.
+     * @param is Ivesties srautas, turintis viena studento irasa (eilute).
      */
     Students(istream& is) { read_students(is); }
 
@@ -58,11 +58,11 @@ public:
     inline double median() const { return calc_median(); }
 
     /**
-     * @brief Parse a single student from the provided stream.
+     * @brief Parsina viena studento irasa is pateikto srauto.
      *
-     * The implementation expects one student per line: first_name last_name grades... exam
-     * @param is Input stream to read the line from.
-     * @return Reference to the same input stream.
+     * Tikimasi, kad eiluteje bus: vardas pavarde [namu darbu pazymiai...] egzaminas
+     * @param is Ivesties srautas, is kurio skaitoma eilute.
+     * @return Nuoroda i ta pati ivedimo srauta.
      */
     istream& read_students(istream&);
 
@@ -77,7 +77,7 @@ public:
     void set_random_name();
 
     /**
-     * @brief Print a formatted single-line representation of the student.
+     * @brief Isspausdina formatuota vienos eilutes studento irasa.
      */
     void print() const override;
 

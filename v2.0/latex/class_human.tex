@@ -2,7 +2,7 @@
 \hypertarget{class_human}{}\label{class_human}\index{Human@{Human}}
 
 
-Minimal base class for a person (first and last name).  
+Bazine klase zmogui (vardas ir pavarde).  
 
 
 
@@ -19,23 +19,23 @@ Paveldimumo diagrama Human:\+\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \doxymbox{\hyperlink{class_human_a4f84fcddcedd434023a001eba00a095c}{Human}} ()
-\begin{DoxyCompactList}\small\item\em Default-\/construct a \doxylink{class_human}{Human} with empty names. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Numatytoji konstruktorius:\+ sukuria \doxylink{class_human}{Human} su tusciomis reiksmemis. \end{DoxyCompactList}\item 
 string \doxymbox{\hyperlink{class_human_af8a13e4cb51899110fdb20f605e564e8}{first\+\_\+name}} () const
-\begin{DoxyCompactList}\small\item\em Return the first name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Grazina varda. \end{DoxyCompactList}\item 
 string \doxymbox{\hyperlink{class_human_acb62c2de33efd18bd280e085d3045807}{last\+\_\+name}} () const
-\begin{DoxyCompactList}\small\item\em Return the last name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Grazina pavarde. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_human_a27f83a7c653d9f88827fe89ea798fbeb}{set\+\_\+first\+\_\+name}} (const string \&name)
-\begin{DoxyCompactList}\small\item\em Set the first name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nustato varda. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_human_a378757eb01db7a32b7f2b136a8b078d1}{set\+\_\+last\+\_\+name}} (const string \&name)
-\begin{DoxyCompactList}\small\item\em Set the last name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nustato pavarde. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_human_ae28126dd96482896a200486455f0c861}{Human}} (const \doxymbox{\hyperlink{class_human}{Human}} \&other)
-\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Kopijavimo konstruktorius. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{class_human_af7638a981844b3f91f9bf0d491a0eff0}{Human}} (\doxymbox{\hyperlink{class_human}{Human}} \&\&other)
-\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Perkelimo (move) konstruktorius. \end{DoxyCompactList}\item 
 virtual void \doxymbox{\hyperlink{class_human_ac3adff9d2f933933d46a697f5b824913}{print}} () const =0
-\begin{DoxyCompactList}\small\item\em Print a textual representation of the \doxylink{class_human}{Human}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Iveda zmogaus reprezentacija kaip tekstine eilute. \end{DoxyCompactList}\item 
 virtual \doxymbox{\hyperlink{class_human_a9224ffb7aa2ecb9456d7ed156b616013}{\texorpdfstring{$\sim$}{\string~}\+Human}} ()
-\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup in derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Virtualus destruktorius, uztikrinantis teisinga valyma paveldetose klasese. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Apsaugoti Atributai}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,9 +46,9 @@ string \doxymbox{\hyperlink{class_human_ac65193979b00f38a43c12396dc83cd01}{last\
 
 
 \doxysubsection{Smulkus aprašymas}
-Minimal base class for a person (first and last name). 
+Bazine klase zmogui (vardas ir pavarde). 
 
-\doxylink{class_human}{Human} provides storage and simple accessors for a person\textquotesingle{}s first and last name. It is an abstract base class — concrete types should implement the pure virtual \doxylink{class_human_ac3adff9d2f933933d46a697f5b824913}{print()} method to present the object. 
+"{}\+Human"{} saugo asmens varda ir pavarde bei teikia paprastus prieigos metodus. Tai abstrakti bazine klase:\+ is jos paveldetos klases turi igyvendinti virtualu metoda \doxylink{class_human_ac3adff9d2f933933d46a697f5b824913}{print()}, kuris atvaizduoja objekta tekstiniu pavidalu. 
 
 \label{doc-constructors}
 \Hypertarget{class_human_doc-constructors}
@@ -61,7 +61,7 @@ Human::\+\+Human (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3
 
 
 
-Default-\/construct a \doxylink{class_human}{Human} with empty names. 
+Numatytoji konstruktorius:\+ sukuria \doxylink{class_human}{Human} su tusciomis reiksmemis. 
 
 \Hypertarget{class_human_ae28126dd96482896a200486455f0c861}\index{Human@{Human}!Human@{Human}}
 \index{Human@{Human}!Human@{Human}}
@@ -71,11 +71,11 @@ Human::\+\+Human (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{clas
 
 
 
-Copy constructor. 
+Kopijavimo konstruktorius. 
 
 
 \begin{DoxyParams}{Parametrai}
-{\em other} & \doxylink{class_human}{Human} to copy from \\
+{\em other} & \doxylink{class_human}{Human} objektas, is kurio kopijuojama \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_human_af7638a981844b3f91f9bf0d491a0eff0}\index{Human@{Human}!Human@{Human}}
@@ -86,11 +86,11 @@ Human::\+\+Human (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_huma
 
 
 
-Move constructor. 
+Perkelimo (move) konstruktorius. 
 
 
 \begin{DoxyParams}{Parametrai}
-{\em other} & \doxylink{class_human}{Human} to move from \\
+{\em other} & \doxylink{class_human}{Human} objektas, is kurio perkelia duomenis \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_human_a9224ffb7aa2ecb9456d7ed156b616013}\index{Human@{Human}!````~Human@{\texorpdfstring{$\sim$}{\string~}Human}}
@@ -101,7 +101,7 @@ virtual Human::\+\texorpdfstring{$\sim$}{\string~}\+Human (\begin{DoxyParamCapti
 
 
 
-Virtual destructor for proper cleanup in derived classes. 
+Virtualus destruktorius, uztikrinantis teisinga valyma paveldetose klasese. 
 
 
 
@@ -116,7 +116,7 @@ string Human::\+first\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCapti
 
 
 
-Return the first name. 
+Grazina varda. 
 
 \Hypertarget{class_human_acb62c2de33efd18bd280e085d3045807}\index{Human@{Human}!last\_name@{last\_name}}
 \index{last\_name@{last\_name}!Human@{Human}}
@@ -126,7 +126,7 @@ string Human::\+last\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaptio
 
 
 
-Return the last name. 
+Grazina pavarde. 
 
 \Hypertarget{class_human_ac3adff9d2f933933d46a697f5b824913}\index{Human@{Human}!print@{print}}
 \index{print@{print}!Human@{Human}}
@@ -136,9 +136,9 @@ virtual void Human::\+print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})
 
 
 
-Print a textual representation of the \doxylink{class_human}{Human}. 
+Iveda zmogaus reprezentacija kaip tekstine eilute. 
 
-Concrete derived classes must implement this to display the human-\/friendly representation (used by tests and output functions). 
+Paveldetos klases turi igyvendinti sita metoda, kad pateiktu skaitytojui tinkama teksto forma (naudojama testuose ir isvestyje). 
 
 Realizuota \doxymbox{\hyperlink{class_students_a05644ab13508e8609feb357b920f645f}{Students}}.
 
@@ -150,7 +150,7 @@ void Human::\+set\+\_\+first\+\_\+name (\begin{DoxyParamCaption}\item[{const str
 
 
 
-Set the first name. 
+Nustato varda. 
 
 \Hypertarget{class_human_a378757eb01db7a32b7f2b136a8b078d1}\index{Human@{Human}!set\_last\_name@{set\_last\_name}}
 \index{set\_last\_name@{set\_last\_name}!Human@{Human}}
@@ -160,7 +160,7 @@ void Human::\+set\+\_\+last\+\_\+name (\begin{DoxyParamCaption}\item[{const stri
 
 
 
-Set the last name. 
+Nustato pavarde. 
 
 
 

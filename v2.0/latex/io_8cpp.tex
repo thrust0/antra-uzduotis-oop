@@ -6,31 +6,31 @@
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360}{manual\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
-\begin{DoxyCompactList}\small\item\em Interactive manual input mode. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Interaktyvus rankinis ivedimas. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a2126945c7014a9bce44d826e6aa9ac3e}{generate\+\_\+grades\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
-\begin{DoxyCompactList}\small\item\em Random grade generator for an entered student name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Atsitiktiniu pazymiu generatorius ivestam studento vardui. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a902c9059dc4d726731cae40e0b341ada}{generate\+\_\+names\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
-\begin{DoxyCompactList}\small\item\em Generate random student names (from name files) and prompt for grades/\+exam as in interactive mode. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sugeneruoja atsitiktinius studentu vardus (is failu) ir praso pazymiu/\+egzamino kaip interaktyviame rezime. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a6567616cee7ba9a2f6b6933573242f87}{file\+\_\+input}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, const string \&filename)
-\begin{DoxyCompactList}\small\item\em Read students from a text file and append them to group. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nuskaityti studentus is teksto failo ir prideti prie vektoriaus. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a803969e9778f04f3963a1b45658c890c}{terminal\+\_\+output}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
-\begin{DoxyCompactList}\small\item\em Print students to the terminal, letting the user choose average or median. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Atspausdina studentus terminale, leidziant vartotojui pasirinkti vidurki arba mediana. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_aac9df8caf9a6db8ac773e40a8e215451}{file\+\_\+output}} (const vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, const string filename)
-\begin{DoxyCompactList}\small\item\em Write students to a formatted file using Students::\+operator$<$$<$. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Isveda studentus i formatuota faila, naudojant Students::\+operator$<$$<$. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9}{temp\+\_\+output}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group)
-\begin{DoxyCompactList}\small\item\em Print both average and median table to terminal. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Atspausdina terminale lentele su vidurkiu ir mediana. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_ad13997390c0faed749caa4e0bf5390f3}{sort\+\_\+output}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, int sort\+\_\+option)
-\begin{DoxyCompactList}\small\item\em Sort the group according to sort\+\_\+option. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Surikiuoja grupe pagal sort\+\_\+option. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a5937f4a0adf955071fc9378d80c95423}{split\+\_\+students\+\_\+by\+\_\+grades}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&above\+\_\+five, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five)
-\begin{DoxyCompactList}\small\item\em Move students into above\+\_\+five or below\+\_\+five according to result(). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Perkelia studentus i above\+\_\+five arba below\+\_\+five pagal result(). \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a1b63304709f26e0f01a00c05b163e85a}{split\+\_\+strategy\+\_\+two}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five)
-\begin{DoxyCompactList}\small\item\em Strategy two for splitting:\+ assume group is sorted by result and pop back until remaining element has result() \texorpdfstring{$>$}{>}= 5. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Antroji atskyrimo strategija:\+ laikoma, kad grupe surikiuota pagal result() ir traukiama is galo tol, kol likes elementas turi result() \texorpdfstring{$>$}{>}= 5. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_a0c4ac16571a5060fb2abab594aa9d70c}{split\+\_\+strategy\+\_\+three}} (vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&group, vector$<$ \doxymbox{\hyperlink{class_students}{Students}} $>$ \&below\+\_\+five)
-\begin{DoxyCompactList}\small\item\em Partition-\/based split:\+ moves students with result()\texorpdfstring{$<$}{<}5 to below\+\_\+five. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Atskyrimas naudojant partition:\+ perkelia studentus su result()\texorpdfstring{$<$}{<}5 i below\+\_\+five. \end{DoxyCompactList}\item 
 string \doxymbox{\hyperlink{io_8cpp_af75e884d046acdb964922e1cbbe3b790}{generate\+\_\+raw\+\_\+student\+\_\+file}} (int student\+\_\+amount, int grade\+\_\+amount)
-\begin{DoxyCompactList}\small\item\em Generate a synthetic student input file with randomized grades. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sugeneruoja sintetinio studentu ivedimo faila su atsitiktinemis pazymemis. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{io_8cpp_a014e72dca25d0960405ac2b56373ee74}{get\+\_\+int}} (int start, int end)
-\begin{DoxyCompactList}\small\item\em Read an integer in \+[start..end]\+ from stdin; returns -\/1 on \textquotesingle{};\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Nuskaito sveika skaiciu intervale \+[start..end]\+ is stdin; grazina -\/1 jei ivestas \textquotesingle{};\textquotesingle{}. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{io_8cpp_afe8da429f9c3ae7479f88a7028a18360}{print\+\_\+line}} ()
 \begin{DoxyCompactList}\small\item\em Print a decorative separator line. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -46,18 +46,18 @@ void file\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyperl
 
 
 
-Read students from a text file and append them to group. 
+Nuskaityti studentus is teksto failo ir prideti prie vektoriaus. 
 
-The file is expected to contain one student record per line compatible with \doxylink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{Students::\+read\+\_\+students()}. The first line is treated as a header and skipped. 
+Failas turetu tureti po viena studento irasa kiekvienoje eiluteje, suderinta su \doxylink{class_students_a8ffd7fc8c2bf598b1e1aaea91ecbdd47}{Students::\+read\+\_\+students()}. Pirmoji eilute laikoma antraste ir praleidziama. 
 \begin{DoxyParams}{Parametrai}
-{\em group} & Vector to append parsed students to. \\
+{\em group} & Vektorius, prie kurio pridedami nuskaityti studentai. \\
 \hline
-{\em filename} & Input file path. \\
+{\em filename} & Ivesties failo kelias. \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Išimtys}
-{\em runtime\+\_\+error} & if the file cannot be opened. \\
+{\em runtime\+\_\+error} & jei nepavyksta atidaryti failo. \\
 \hline
 \end{DoxyExceptions}
 \texorpdfstring{$<$}{<} open file
@@ -70,15 +70,15 @@ void file\+\_\+output (\begin{DoxyParamCaption}\item[{const vector$<$ \doxymbox{
 
 
 
-Write students to a formatted file using Students::\+operator$<$$<$. 
+Isveda studentus i formatuota faila, naudojant Students::\+operator$<$$<$. 
 
-Write a formatted students table to a file.
+Isveda formatuota studentu lentele i faila.
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & \doxylink{class_students}{Students} to write. \\
+{\em group} & Studentai, kuriuos rasysime. \\
 \hline
-{\em filename} & Destination file path. \\
+{\em filename} & Tikslinis failo kelias. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{io_8cpp_a2126945c7014a9bce44d826e6aa9ac3e}\index{io.cpp@{io.cpp}!generate\_grades\_input@{generate\_grades\_input}}
@@ -89,9 +89,9 @@ void generate\+\_\+grades\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \
 
 
 
-Random grade generator for an entered student name. 
+Atsitiktiniu pazymiu generatorius ivestam studento vardui. 
 
-The user supplies a name; homework grades are generated randomly and appended to the group. \Hypertarget{io_8cpp_a902c9059dc4d726731cae40e0b341ada}\index{io.cpp@{io.cpp}!generate\_names\_input@{generate\_names\_input}}
+Vartotojas iveda varda; namu darbu pazymiai sukuriai atsitiktinai ir pridedami prie vektoriaus. \Hypertarget{io_8cpp_a902c9059dc4d726731cae40e0b341ada}\index{io.cpp@{io.cpp}!generate\_names\_input@{generate\_names\_input}}
 \index{generate\_names\_input@{generate\_names\_input}!io.cpp@{io.cpp}}
 \doxysubsubsection{\texorpdfstring{generate\_names\_input()}{generate\_names\_input()}}
 {\footnotesize\ttfamily \label{io_8cpp_a902c9059dc4d726731cae40e0b341ada} 
@@ -99,7 +99,7 @@ void generate\+\_\+names\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \d
 
 
 
-Generate random student names (from name files) and prompt for grades/\+exam as in interactive mode. 
+Sugeneruoja atsitiktinius studentu vardus (is failu) ir praso pazymiu/\+egzamino kaip interaktyviame rezime. 
 
 \Hypertarget{io_8cpp_af75e884d046acdb964922e1cbbe3b790}\index{io.cpp@{io.cpp}!generate\_raw\_student\_file@{generate\_raw\_student\_file}}
 \index{generate\_raw\_student\_file@{generate\_raw\_student\_file}!io.cpp@{io.cpp}}
@@ -109,19 +109,19 @@ string generate\+\_\+raw\+\_\+student\+\_\+file (\begin{DoxyParamCaption}\item[{
 
 
 
-Generate a synthetic student input file with randomized grades. 
+Sugeneruoja sintetinio studentu ivedimo faila su atsitiktinemis pazymemis. 
 
-Generate a raw student data file with randomized names/\+grades.
+Sugeneruoja zalia (raw) studentu ivedimo faila su atsitiktiniais duomenimis.
 
 
 \begin{DoxyParams}{Parametrai}
-{\em student\+\_\+amount} & Number of student rows to produce. \\
+{\em student\+\_\+amount} & Kiek studentu eilučių sugeneruoti. \\
 \hline
-{\em grade\+\_\+amount} & Number of homework grades per student (exam added automatically). \\
+{\em grade\+\_\+amount} & Kiek namu darbu pazymiu sukurti kiekvienam studentui (egzaminas pridedamas automatiškai). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Gražina}
-The path to the created file or empty string on failure. 
+Sugeneruoto failo kelias arba tuscias stringas klaidos atveju. 
 \end{DoxyReturn}
 \Hypertarget{io_8cpp_a014e72dca25d0960405ac2b56373ee74}\index{io.cpp@{io.cpp}!get\_int@{get\_int}}
 \index{get\_int@{get\_int}!io.cpp@{io.cpp}}
@@ -131,11 +131,11 @@ int get\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{start}{, }\item[{int}]{en
 
 
 
-Read an integer in \+[start..end]\+ from stdin; returns -\/1 on \textquotesingle{};\textquotesingle{}. 
+Nuskaito sveika skaiciu intervale \+[start..end]\+ is stdin; grazina -\/1 jei ivestas \textquotesingle{};\textquotesingle{}. 
 
 Read an integer in \+[start..end]\+ from stdin. Returns -\/1 if user enters \textquotesingle{};\textquotesingle{}.
 
-This helper validates user input and provides friendly error messages. \Hypertarget{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360}\index{io.cpp@{io.cpp}!manual\_input@{manual\_input}}
+Pagalbine funkcija tikrina vartotojo ivedi ir pateikia draugiskas klaidu zinutes. \Hypertarget{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360}\index{io.cpp@{io.cpp}!manual\_input@{manual\_input}}
 \index{manual\_input@{manual\_input}!io.cpp@{io.cpp}}
 \doxysubsubsection{\texorpdfstring{manual\_input()}{manual\_input()}}
 {\footnotesize\ttfamily \label{io_8cpp_ae100bee890cc9af160dc6f8db3fcb360} 
@@ -143,13 +143,13 @@ void manual\+\_\+input (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hype
 
 
 
-Interactive manual input mode. 
+Interaktyvus rankinis ivedimas. 
 
-Prompt the user for a student\textquotesingle{}s name and grades interactively.
+Interaktyviai papraso vartotojo studento vardo ir pazymiu.
 
-Prompts the user for a student\textquotesingle{}s first/\+last name, homework grades and exam grade. The constructed \doxylink{class_students}{Students} object is appended to the provided group. Entering a single semicolon (\textquotesingle{};\textquotesingle{}) in the name input will stop input mode. 
+Papraso vartotojo ivesti studento varda ir pavarde, namu darbu pazymius ir egzamino pazymi. Sukurtas \doxylink{class_students}{Students} objektas pridedamas prie pateikto vektoriaus. Ivedus \textquotesingle{};\textquotesingle{} vardui ar pavardei baigiamas ivedimo rezimas. 
 \begin{DoxyParams}{Parametrai}
-{\em group} & Vector to append created \doxylink{class_students}{Students} objects to. \\
+{\em group} & Vektorius, prie kurio pridedami \doxylink{class_students}{Students} objektai. \\
 \hline
 \end{DoxyParams}
 \texorpdfstring{$<$}{<} \textquotesingle{};\textquotesingle{} returns -\/1 to indicate end of grades\Hypertarget{io_8cpp_afe8da429f9c3ae7479f88a7028a18360}\index{io.cpp@{io.cpp}!print\_line@{print\_line}}
@@ -170,13 +170,13 @@ void sort\+\_\+output (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyper
 
 
 
-Sort the group according to sort\+\_\+option. 
+Surikiuoja grupe pagal sort\+\_\+option. 
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & Vector to sort in-\/place. \\
+{\em group} & Vektorius, kuris rikiuojamas vietoje. \\
 \hline
-{\em sort\+\_\+option} & 1=first name, 2=last name, 3=result, otherwise median \\
+{\em sort\+\_\+option} & 1=vardas, 2=pavarde, 3=vidurkis, kitu atveju mediana \\
 \hline
 \end{DoxyParams}
 \Hypertarget{io_8cpp_a0c4ac16571a5060fb2abab594aa9d70c}\index{io.cpp@{io.cpp}!split\_strategy\_three@{split\_strategy\_three}}
@@ -187,9 +187,9 @@ void split\+\_\+strategy\+\_\+three (\begin{DoxyParamCaption}\item[{vector$<$ \d
 
 
 
-Partition-\/based split:\+ moves students with result()\texorpdfstring{$<$}{<}5 to below\+\_\+five. 
+Atskyrimas naudojant partition:\+ perkelia studentus su result()\texorpdfstring{$<$}{<}5 i below\+\_\+five. 
 
-Partition-\/based split:\+ keeps \texorpdfstring{$>$}{>}=5 first then extracts the rest. \Hypertarget{io_8cpp_a1b63304709f26e0f01a00c05b163e85a}\index{io.cpp@{io.cpp}!split\_strategy\_two@{split\_strategy\_two}}
+Atskyrimas su partition:\+ palieka \texorpdfstring{$>$}{>}=5 pirmiau ir pasalina likusius. \Hypertarget{io_8cpp_a1b63304709f26e0f01a00c05b163e85a}\index{io.cpp@{io.cpp}!split\_strategy\_two@{split\_strategy\_two}}
 \index{split\_strategy\_two@{split\_strategy\_two}!io.cpp@{io.cpp}}
 \doxysubsubsection{\texorpdfstring{split\_strategy\_two()}{split\_strategy\_two()}}
 {\footnotesize\ttfamily \label{io_8cpp_a1b63304709f26e0f01a00c05b163e85a} 
@@ -197,9 +197,9 @@ void split\+\_\+strategy\+\_\+two (\begin{DoxyParamCaption}\item[{vector$<$ \dox
 
 
 
-Strategy two for splitting:\+ assume group is sorted by result and pop back until remaining element has result() \texorpdfstring{$>$}{>}= 5. 
+Antroji atskyrimo strategija:\+ laikoma, kad grupe surikiuota pagal result() ir traukiama is galo tol, kol likes elementas turi result() \texorpdfstring{$>$}{>}= 5. 
 
-Alternative splitting strategy (pop from back while \texorpdfstring{$<$}{<}5). \Hypertarget{io_8cpp_a5937f4a0adf955071fc9378d80c95423}\index{io.cpp@{io.cpp}!split\_students\_by\_grades@{split\_students\_by\_grades}}
+Alternatyvi atskyrimo strategija (traukia elementus is galo tol, kol \texorpdfstring{$<$}{<}5). \Hypertarget{io_8cpp_a5937f4a0adf955071fc9378d80c95423}\index{io.cpp@{io.cpp}!split\_students\_by\_grades@{split\_students\_by\_grades}}
 \index{split\_students\_by\_grades@{split\_students\_by\_grades}!io.cpp@{io.cpp}}
 \doxysubsubsection{\texorpdfstring{split\_students\_by\_grades()}{split\_students\_by\_grades()}}
 {\footnotesize\ttfamily \label{io_8cpp_a5937f4a0adf955071fc9378d80c95423} 
@@ -207,9 +207,9 @@ void split\+\_\+students\+\_\+by\+\_\+grades (\begin{DoxyParamCaption}\item[{vec
 
 
 
-Move students into above\+\_\+five or below\+\_\+five according to result(). 
+Perkelia studentus i above\+\_\+five arba below\+\_\+five pagal result(). 
 
-Split students into two vectors (\texorpdfstring{$>$}{>}=5 and \texorpdfstring{$<$}{<}5) by moving elements. \Hypertarget{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9}\index{io.cpp@{io.cpp}!temp\_output@{temp\_output}}
+Atskirsto studentus i du vektorius (\texorpdfstring{$>$}{>}=5 ir \texorpdfstring{$<$}{<}5) perkeliamas elementus. \Hypertarget{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9}\index{io.cpp@{io.cpp}!temp\_output@{temp\_output}}
 \index{temp\_output@{temp\_output}!io.cpp@{io.cpp}}
 \doxysubsubsection{\texorpdfstring{temp\_output()}{temp\_output()}}
 {\footnotesize\ttfamily \label{io_8cpp_a9ea09f1cb01bf9f53507667c64cfc0c9} 
@@ -217,7 +217,7 @@ void temp\+\_\+output (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\hyper
 
 
 
-Print both average and median table to terminal. 
+Atspausdina terminale lentele su vidurkiu ir mediana. 
 
 \Hypertarget{io_8cpp_a803969e9778f04f3963a1b45658c890c}\index{io.cpp@{io.cpp}!terminal\_output@{terminal\_output}}
 \index{terminal\_output@{terminal\_output}!io.cpp@{io.cpp}}
@@ -227,10 +227,10 @@ void terminal\+\_\+output (\begin{DoxyParamCaption}\item[{vector$<$ \doxymbox{\h
 
 
 
-Print students to the terminal, letting the user choose average or median. 
+Atspausdina studentus terminale, leidziant vartotojui pasirinkti vidurki arba mediana. 
 
 
 \begin{DoxyParams}{Parametrai}
-{\em group} & \doxylink{class_students}{Students} to display. \\
+{\em group} & Studentai, kuriuos reikia parodyti. \\
 \hline
 \end{DoxyParams}

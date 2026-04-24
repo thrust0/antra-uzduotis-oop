@@ -2,7 +2,7 @@
 #include <cassert>
 #include <sstream>
 
-/** @brief Generate a small random list of homework grades and an exam grade. */
+/** @brief Sugeneruoja trumpa atsitiktiniu namu darbu pazymiu sarasa ir egzamino pazymi. */
 void Students::random_grades_generator()
 {
     int grade_count = rand() % 10 + 1;
@@ -14,7 +14,7 @@ void Students::random_grades_generator()
 }
 
 /**
- * @brief Generate random grades and print them to stdout (used in interactive mode).
+ * @brief Sugeneruoja atsitiktines pazymes ir atspausdina jas i stdout (naudojama interaktyviame rezime).
  */
 void Students::set_random_grades()
 {
@@ -22,16 +22,15 @@ void Students::set_random_grades()
     
     for(size_t i = 0; i<grade_.size(); i++)
     {
-        cout << "\t" << i+1 << " pažymys iš " << grade_.size() << ": " << grade_[i] << "\n"; 
+        cout << "\t" << i+1 << " pazymys is " << grade_.size() << ": " << grade_[i] << "\n"; 
     }
-    cout << "\tEgzamino pažymys: " << exam_ << "\n";
+    cout << "\tEgzamino pazymys: " << exam_ << "\n";
 }
 
 /**
- * @brief Read first and last name files and return a random full name (first, last).
+ * @brief Nuskaito failus su vardais ir pavardemis ir grazina atsitiktini pilna varda (vardas, pavarde).
  *
- * The function reads from files under ../vardai/ and returns an empty vector
- * if files can't be opened.
+ * Funkcija skaito failus is ../vardai/ ir grazina tuscia vektoriu, jei failu atidaryti nepavyko.
  */
 vector<string> Students::random_name_generator()
 {
@@ -60,12 +59,12 @@ vector<string> Students::random_name_generator()
 
     if(!file_first_names)
     {
-        cerr << "Error opening the first names file" << endl;
+        cerr << "Klaida atidarant faila su vardais" << endl;
         return {};
     }
     if(!file_last_names)
     {
-        cerr << "Error opening the last names file" << endl;
+        cerr << "Klaida atidarant faila su pavardemis" << endl;
         return {};
     }
 
@@ -89,7 +88,7 @@ vector<string> Students::random_name_generator()
 }
 
 /**
- * @brief Set a random name (first + last) and print it, then generate grades.
+ * @brief Nustato atsitiktini varda (vardas + pavarde), isveda ji ir sugeneruoja pazymes.
  */
 void Students::set_random_name()
 {
@@ -100,13 +99,13 @@ void Students::set_random_name()
         last_name_ = full_name[1];
     }
 
-    cout << "Studento vardas ir pavardė: " << first_name_ << " " << last_name_ << "\n";
+    cout << "Studento vardas ir pavarde: " << first_name_ << " " << last_name_ << "\n";
     set_random_grades();
 }
 
 /**
- * @brief Compute weighted average: 40% homework + 60% exam.
- * @return Weighted average as double. Returns 0 if no grades present.
+ * @brief Apskaiciuoja svorini vidurki: 40% namu darbai + 60% egzaminas.
+ * @return Svorinis vidurkis kaip double. Grazina 0, jei nera pazymiu.
  */
 double Students::calc_result() const
 {
@@ -119,9 +118,9 @@ double Students::calc_result() const
 }
 
 /**
- * @brief Compute median including exam (returns double).
- * @return Median of homework grades plus exam as double. If there are an even
- * number of elements, returns the average of the two middle elements.
+ * @brief Apskaiciuoja mediana, itraukiant egzamina (grazina double).
+ * @return Namu darbu ir egzamino mediana kaip double. Jei elementu skaicius lyginis,
+ * grazinamas dvieju viduriniu reiksmiu vidurkis.
  */
 double Students::calc_median() const
 {
@@ -148,11 +147,11 @@ double Students::calc_median() const
 }
 
 /**
- * @brief Read one student record from the stream. Expects one student per line.
+ * @brief Nuskaito viena studento irasa is srauto. Tikimasi vieno studento per eilute.
  *
- * The expected format is: first_name last_name [hw grades...] exam
- * @param is Input stream to read a single-line record from.
- * @return Reference to the input stream (is).
+ * Formata sudaro: vardas pavarde [namu darbu pazymiai...] egzaminas
+ * @param is Ivesties srautas, is kurio skaitoma eilute.
+ * @return Nuoroda i ta pati ivesties srauta.
  */
 istream& Students::read_students(istream& is)
 {
