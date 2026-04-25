@@ -2,14 +2,6 @@
 #include <cassert>
 #include <sstream>
 
-/*
-TODO
-pasvarint repo
-idiegimo instrukcija readme
-naudojimosi instrukcija readme
-
-readme pakoreguot
-*/
 /** @brief Sugeneruoja trumpa atsitiktiniu namu darbu pazymiu sarasa ir egzamino pazymi. */
 void Students::random_grades_generator()
 {
