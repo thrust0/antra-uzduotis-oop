@@ -566,4 +566,4 @@ Visi klasės metodai patikrinti `test.cpp` faile naudojant **Google Test** frame
 | `operator>>` | ✓ |
 | `operator<<` | ✓ |
 
-![Test photo]()
+![Test photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v2.0/testavimas/v2testavimas.png)
