@@ -4,9 +4,7 @@
 
 /*
 TODO
-sukompiliuoti pdf dokumentacijai
 pasvarint repo
-sukurt studentinput ir output dir, jei jos nera
 idiegimo instrukcija readme
 naudojimosi instrukcija readme
 

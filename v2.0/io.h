@@ -1,5 +1,8 @@
 #pragma once
 #include "student.hpp"
+#include <filesystem>
+
+using namespace std::filesystem;
 
 /** @file io.h
  *  @brief Ivesties, isvesties ir pagalbiniu funkciju deklaracijos programai.

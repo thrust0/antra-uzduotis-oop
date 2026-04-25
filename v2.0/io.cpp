@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "student.hpp"
 
+
 /**
  * @brief Interaktyvus rankinis ivedimas.
  *
@@ -189,6 +190,11 @@ void terminal_output(vector<Students>& group)
  */
 void file_output(const vector<Students>& group, const string filename)
 {
+       // create directory if it doesn't exist
+    std::filesystem::path filepath(filename);
+    if(filepath.has_parent_path())
+        std::filesystem::create_directories(filepath.parent_path());
+
     ofstream outFile(filename);
 
     if(!outFile) { cerr << "Klaida irasyme..." << endl; return;}
@@ -306,6 +312,8 @@ string generate_raw_student_file(int student_amount, int grade_amount)
     ostringstream filename;
     filename << "../studentInput/studentai_gen" << student_amount << ".txt";
     
+    std::filesystem::create_directories("../studentInput");
+
     ofstream outFile(filename.str());
     
     if(!outFile)
@@ -389,7 +397,7 @@ int get_int(int start, int end)
             cerr << "Ivedimo klaida: " << e.what() << endl;
             cout << "Bandykite dar karta: ";
             cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\\n');
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
 }
 
@@ -399,4 +407,5 @@ void print_line()
 {
     cout << endl << "----------------------------------------------------------------------------" << endl;
 }
+
 
