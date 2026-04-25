@@ -1,4 +1,4 @@
-# Studentų pažymių skaičiavimo programa v1.1
+# Studentų pažymių skaičiavimo programa v2.0
 
 ## Projekto aprašymas
 
@@ -10,7 +10,88 @@ kriterijų bei išvesti rezultatus į ekraną arba failus.
 kurioje `struct` struktūra pakeista į pilnavertę `class` klasę.
 
 ---
+## Įdiegimo instrukcija
 
+### 1. Įdiekite Homebrew (Mac paketų tvarkyklė)
+Atidarykite terminalą ir įvykdykite:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### 2. Įdiekite g++ kompiliatorių
+```bash
+brew install gcc
+```
+
+Patikrinkite ar įdiegta:
+```bash
+g++ --version
+```
+
+### 3. Klonuokite repozitoriją
+```bash
+git clone https://github.com/thrust0/antra-uzduotis-oop.git
+cd antra-uzduotis-oop
+```
+
+### 4. Sukompiliuokite programą
+```bash
+make main
+```
+
+### 5. Paleiskite programą
+```bash
+./main
+```
+
+---
+
+### Windows vartotojams
+
+1. Atsisiųskite ir įdiekite [MinGW](https://www.mingw-w64.org/downloads/)
+2. Pridėkite `C:\MinGW\bin` į sistemos PATH
+3. Atidarykite Command Prompt ir eikite į projekto aplanką:
+
+### Meniu pasirinkimai
+Paleidus programą, pasirodo pagrindinis meniu:
+
+1. **Rankinis įvedimas** — įvedate studento vardą, pavardę ir pažymius ranka
+2. **Pažymių sugeneravimas** - įvedate studento vardą, pavardę ir pažymiai sugeneruoti
+3. **Pažymių ir vardų sugeneravimas**
+4. **Failo įvedimas** — programa nuskaito studentus iš failo
+5. **Generavimas** — programa sugeneruoja studentų failą ir nuskaito
+6. **Išeiti** — uždaryti programą
+
+### Failo formatas
+Jei naudojate failo įvedimą, failas turi atrodyti taip:
+
+Vardas Pavarde pazymys1 pazymys2 ... egzaminas
+Jonas Jonaitis 7 8 9 6 10
+Petras Petraitis 5 6 7 8 9
+
+Paskutinis skaičius eilutėje yra egzamino pažymys.
+
+### Rūšiavimas
+Rūšiavimo būdai pagal: 
+1. Vardą
+2. Pavardė
+3. Vidurkį
+4. Medianą
+
+### Rezultatai
+Programa išveda studentus į:
+1. Terminalą
+2. Failą
+3. Du atskirus failus - vargsiukai < 5 rezultas ir kietekai >= 5
+
+### Jei 3 išvedimo būdą pasirinkote
+Skaidymo strategijų pasirinkimai 1, 2, 3. (rekomenduojamas 1, nes greičiausias)
+
+### Testavimas
+```bash
+make test
+./test
+```
 ## v1.1 Pakeitimai
 
 ### Struktūros → Klasės perėjimas
@@ -123,66 +204,19 @@ Visi penki metodai atnaujinti, kad teisingai dirbtų su bazine klase:
 * **Perkėlimo priskyrimas** — iškviečia `Zmogus::operator=(std::move(other))`
 * **Destruktorius** — valo tik `Students` laukus, `Zmogus` destruktorius valo `first_name_`, `last_name_`
 
-## Įdiegimo instrukcija
 
-### Reikalavimai
+## v2.0 pakeitimai
 
-* [G++ kompiliatorius (C++17)](https://gcc.gnu.org/)
-* make (Mac/Linux)
 
-### Įdiegimas
-
-#### Mac / Linux
-
-1. Įsitikinkite, kad turite g++ kompiliatorių:
-```bash
-g++ --version
-```
-
-2. Jei neturite, įdiekite per Homebrew (Mac):
-```bash
-brew install gcc
-```
-
-3. Sukompiliuokite programą:
-```bash
-make main
-```
-
-#### Windows
-
-Windows sistemoje `make` nėra palaikomas pagal nutylėjimą. Rekomenduojama naudoti:
-
-* [MinGW](https://www.mingw-w64.org/) — leidžia naudoti g++ ir make Windows sistemoje
-* [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) — Linux aplinka Windows sistemoje
-
-Arba kompiliuoti rankiniu būdu:
-```bash
-g++ -std=c++17 -Wall -Wextra student.cpp io.cpp menu.cpp main.cpp -o main
-```
-
----
-
-## Naudojimosi instrukcija
-
-### Programos paleidimas
-```bash
-./main
-```
-
-### Programos veikimas
-
-1. Pasirinkite duomenų įvedimo būdą:
-   * Ranka
-   * Generuoti pažymius
-   * Generuoti vardus ir pažymius
-   * Nuskaityti iš failo
-   * Sugeneruoti studentų failą
-2. Pasirinkite rūšiavimo būdą (vardas, pavardė, vidurkis, mediana)
-3. Pasirinkite skaidymo strategiją (1, 2 arba 3)
-4. Pasirinkite išvedimo būdą (terminalas, failas, du atskiri failai)
-
-# v1.1 Testavimas 
+- Pridėti Unit testai naudojant Google Test framework'ą
+  - Rule of Five testai
+  - Kalkuliacijų testai (calc_result, calc_median)
+  - Rūšiavimo funkcijų testai
+  - Operatorių testai
+- Pridėta Doxygen dokumentacija HTML ir PDF formatais
+- Programa automatiškai sukuria išvesties katalogą jei jo nėra (`std::filesystem`)
+- Sutvarkyta repozicija
+# v1.1 testavimas 
 
 ## Struct vs Class spartos palyginimas
 
@@ -493,6 +527,7 @@ Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
 
 # v1.5 testavimas
 
+
 Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
 
 | Testas | Rezultatas |
@@ -507,3 +542,28 @@ Visi klasės metodai patikrinti `test.cpp` faile naudojant `assert` funkcijas:
 | `operator<<` | ✓ |
 
 ![Test Photo](https://github.com/thrust0/antra-uzduotis-oop/blob/v1.5/testavimas/v1.5%20testavimas/testrun.png)
+
+# v2.0 testavimas
+
+Visi klasės metodai patikrinti `test.cpp` faile naudojant **Google Test** framework'ą:
+
+| Testas | Rezultatas |
+|--------|------------|
+| Numatytasis konstruktorius | ✓ |
+| Kopijavimo konstruktorius | ✓ |
+| Perkėlimo konstruktorius | ✓ |
+| Kopijavimo priskyrimas | ✓ |
+| Perkėlimo priskyrimas | ✓ |
+| Destruktorius | ✓ |
+| Getter'iai | ✓ |
+| `calc_result()` | ✓ |
+| `calc_median()` (lyginis kiekis) | ✓ |
+| `calc_median()` (nelyginis kiekis) | ✓ |
+| Rūšiavimas pagal vardą | ✓ |
+| Rūšiavimas pagal pavardę | ✓ |
+| Rūšiavimas pagal rezultatą | ✓ |
+| Rūšiavimas pagal medianą | ✓ |
+| `operator>>` | ✓ |
+| `operator<<` | ✓ |
+
+![Test photo]()
